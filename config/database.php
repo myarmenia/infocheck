@@ -42,6 +42,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+	/* will only read, now admin */
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -61,6 +62,7 @@ return [
             ]) : [],
         ],
 
+	/* will insert, update users, subscribers */
         'mysql_simple' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST_SIMPLE', '127.0.0.1'),
@@ -80,6 +82,7 @@ return [
             ]) : [],
         ],
 
+	/* will do anything from admin panel */
         'mysql_admin' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST_ADMIN', '127.0.0.1'),
