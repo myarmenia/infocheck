@@ -93,7 +93,18 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <div>
+                    <a href="{{ route('add_comment') }}">add comment. User must be Loged, Verified</a>
+                    @if (Auth::check())
+                        @if(Auth::user()->hasRole('i_user'))
+                            <p>This text shows only for i_user</p>
+                        @endif
+                    @endif
+
+                </div>
             </div>
+
         </div>
     </body>
 </html>

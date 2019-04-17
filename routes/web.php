@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
+
+Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user']);
+
+Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment');
+
+
+/*
+| Links for Social-login API's
+| As you can see, we have 2 methods added into LoginController of Auth.
+*/
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
+
+
