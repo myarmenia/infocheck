@@ -24,7 +24,7 @@ Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')-
 
 Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user']);
 
-Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment');
+Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user']);
 
 
 /*

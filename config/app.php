@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        \Cviebrock\EloquentTaggable\ServiceProvider::class,
 
     ],
 

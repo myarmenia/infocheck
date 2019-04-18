@@ -1,0 +1,148 @@
+nav.greedy {
+  position: relative;
+  /* height: 60px; */ /* AA_no_need */
+  display: flex;
+  align-items: center;
+  /* background: #f2f2f2; */ /* AA_no_need */
+}
+
+nav.greedy h1, nav.greedy #logo {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  /* background: #d8d8d8; */ /* AA_no_need */
+  color: #404040;
+  /* padding: 0 1.5rem; */ /* AA_commented */
+  font-weight: bold;
+  border-right: none;
+}
+
+/* prevent right border */
+#header.full-header nav.greedy #logo {
+  border-right: none;
+}
+
+nav.greedy button {
+  align-self: stretch;
+  transition: all .4s ease-out;
+  padding: 0 1.5rem 0 1.5rem; /* AA_default was-> padding: 0 1rem 0 1.5rem; we need to centering */
+  outline: 0;
+  border: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background:none;  /* AA_no_need */
+  color: #404040;
+  
+  /* AA_button into lists-space */
+  position: relative;
+  right: 3rem;
+}
+
+nav.greedy button.hidden {
+  transition: none;
+  border-right: 0.5rem solid #b6b6b6;
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* nav.greedy button::after {
+  content: attr(count);
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  background: #9f9f9f;
+  color: #f2f2f2;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.8);
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: 1rem;
+  margin-right: calc(-1rem + -8px);
+} */
+
+ul.links {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  overflow: hidden;
+  margin: unset; /* AA_for vlign */
+  margin-right: 3rem; /* AA_place for button */
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+ul.links li {
+  flex: none;
+  padding: 1rem;
+  list-style: none; /* AA_remove dots*/
+}
+
+ul.links li a {
+  color: #404040;
+}
+
+ul.links li a:hover, ul.hidden-links li a:hover{
+    color: #fece00;
+}
+
+ul.hidden-links {
+  position: absolute;
+  background: #ffffff;
+  right: 0;
+  top: 100%;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+ul.hidden-links li a {
+  color: #404040;
+  padding-right: 1rem;
+}
+
+ul.hidden-links.hidden {
+  display: none;
+}
+
+ul.hidden-links li {
+  padding: 1rem;
+  list-style: none;
+}
+
+/*
+-- Demo Styles
+*/
+/* 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fefefe;
+}
+
+body {
+  padding: 2rem;
+}
+
+h5 {
+  text-align: center;
+  margin: auto;
+  font-size: 0.8rem;
+  line-height: 140%;
+  margin-top: 1rem;
+  max-width: 50ex;
+}
+
+p {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica, sans-serif;
+} */
