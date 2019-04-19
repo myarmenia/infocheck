@@ -103,6 +103,11 @@
                     @endif
 
                 </div>
+                <div>
+                    <h3>Image from Post-3</h3>
+                    <img src="/storage/posts/3/3.jpg" alt="1.jpg" width="200"/>
+                    <p>{{ date('d-m-Y')}}</p>
+                </div>
             </div>
 
         </div>
