@@ -68,6 +68,7 @@ class PostsTableSeeder extends Seeder
         $post->date = Carbon::parse('19-04-2019');
         $post->category_id = 1;
         $post->lang_id = 3;
+        $post->save();
 
 
          // post 2X3
@@ -124,6 +125,7 @@ class PostsTableSeeder extends Seeder
          $post->date = Carbon::parse('20-04-2019');
          $post->category_id = 1;
          $post->lang_id = 3;
+         $post->save();
 
 
           // post 3X3
