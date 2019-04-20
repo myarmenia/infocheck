@@ -18,8 +18,8 @@ class CreateQuestionsTable extends Migration
             $table->text('body',500);
             $table->boolean('visible')->default(false);
             $table->text('link')->nullable();
-            $table->integer('questionable_id')->unsigned();
-            $table->string('questionable_type');
+            $table->bigInteger('questionable_id')->unsigned()->nullable();
+            $table->string('questionable_type')->nullable();
             $table->integer('lang_id')->unsigned();
             $table->foreign('lang_id')->references('id')->on('langs');
             $table->bigInteger('user_id')->unsigned();
