@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'blocked' => 'Your account was blocked.',
+    'failed' => 'Այս հավատարմագրերը չեն համապատասխանում մեր գրառումներին։',
+    'throttle' => 'Չափազանց շատ մուտքի փորձեր: Կրկին փորձեք :seconds վայրկյան հետո։',
+    'blocked' => 'Ձեր հաշիվը արգելափակված է։',
 
 ];

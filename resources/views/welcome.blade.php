@@ -66,14 +66,27 @@
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
+            <!-- Language Menu -->
+
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+
+                            @foreach (config('app.locales') as $locale => $name)
+
+                                    <a class="nav-link"
+                                    href="{{ url('/', $locale) }}"
+                                        @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>
+                                        {{ strtoupper($locale) }}
+                                    </a>
+
+                            @endforeach
+
+                        <a href="{{ route('login') }}">{{ __('login.Login') }}</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">{{ __('register.Register') }}</a>
                         @endif
                     @endauth
                 </div>

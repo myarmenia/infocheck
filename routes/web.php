@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +13,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
 
 Auth::routes();
 
@@ -34,4 +36,19 @@ Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment'
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
 
+// , 'locale' =>'(am|en|ru)'
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => ['localize']
+    ], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
+    // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+});
+
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});

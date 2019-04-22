@@ -79,6 +79,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return null !== $this->roles()->where('name', $role)->first();
     }
 
+
     /* one user can login by many socilas */
     public function identities()
     {
