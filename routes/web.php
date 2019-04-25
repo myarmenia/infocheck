@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index')->name('index_page');
+Route::get('/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
 
 Auth::routes();
 
