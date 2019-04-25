@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', ]); //'verified'
     }
 
     /**
@@ -28,10 +28,10 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function admin_home(Request $request) {
-        // $request->user()->authorizeRoles(['i_admin']);
-        return 'hey';
-    }
+    // public function admin_home(Request $request) {
+    //     // $request->user()->authorizeRoles(['i_admin']);
+    //     return 'hey';
+    // }
 
     public function add_question(Request $request) {
         return 'add your question';

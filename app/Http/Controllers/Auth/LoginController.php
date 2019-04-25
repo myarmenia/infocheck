@@ -10,6 +10,10 @@ use Auth;
 use App\User;
 use App\SocialIdentity; // pivot-table users<->social_identities
 
+// for blocking users || status=0
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+
 class LoginController extends Controller
 {
     /*
@@ -41,6 +45,34 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /* overwrite method of AuthenticatesUsers */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->status !== 1) {
+            Auth::logout();
+
+            // return redirect(route('login'))->withErrors(['blocked' => trans('validation.blocked')]);
+            return $this->sendBlockedLoginResponse($request);
+        }
+    }
+
+    /* For show message about blocking user - custom */
+    private function sendBlockedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.blocked')],
+        ]);
+    }
+
+    /* override $redirectTo by method */
+    public function redirectTo() {
+        return app()->getLocale() . '/home';
+    }
+
+
+
+
 
 /**
  * Login with Socials 2 methods, redirect and callback handlers

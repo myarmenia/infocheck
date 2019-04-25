@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reset Language Lines || EN
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -18,5 +18,19 @@ return [
     'sent' => 'We have e-mailed your password reset link!',
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that e-mail address.",
+
+    'resetEmail' =>[
+        'Reset Password' => 'Reset Password',
+        'E-Mail Address' => 'E-Mail Address',
+        'Send Password Reset Link' => 'Send Password Reset Link',
+    ],
+
+    'resetConfirm' => [
+        'Set New Password' => 'Set New Password',
+        'E-Mail Address' => 'E-Mail Address',
+        'Password' => 'Password',
+        'Confirm Password' => 'Confirm Password',
+        'Add Password' => 'Add Password',
+    ],
 
 ];

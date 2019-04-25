@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth; // for logout is status == 0
 
 class CheckRole
 {
@@ -16,9 +17,19 @@ class CheckRole
     public function handle($request, Closure $next, $roles)
     {
         if (! $request->user()->hasRole($roles)) {
-            return redirect()->route('register');
-            // դժվար էլ լինի սրա կարիքը, լռությամբ բոլորը ստանում են role=i_user
+            // var_dump('chexav axper');die;
+            Auth::logout();
+            return redirect()->route('register', app()->getLocale());
+            // լռությամբ բոլորը ստանում են role=i_user , սակայն երբ ուզուոմ ենք բացել ադմինական լինկ, գալիսա այստեղ
+            // եթե լռությամբ չտայինք role=i_user , ապա սովորական յուզեռն էլ ստեղ կգար
         }
+        /* User-STATUS --- does he active or not */
+        if ( $request->user()->status !== 1) {
+            Auth::logout();
+            return redirect()->route('login', app()->getLocale())->with('blocked_msg', trans('auth.blocked')); // 'You are blocked flash-alert
+        }
+
+
         return $next($request);
     }
 }
