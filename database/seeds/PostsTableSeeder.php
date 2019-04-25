@@ -31,6 +31,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k  = 'փոստ,համար,մեկ';
         $post->meta_d = 'Սա համար մեկ փոստն է';
         $post->date = Carbon::parse('19-04-2019');
+        $post->view = 1;
         $post->category_id=1;
         $post->lang_id = 1;
         $post->save();
@@ -50,6 +51,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k = 'post,number,one';
         $post->meta_d = 'This is post number one';
         $post->date = Carbon::parse('19-04-2019');
+        $post->view = 10;
         $post->category_id = 2;
         $post->lang_id = 2;
         $post->save();
@@ -68,6 +70,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k = 'пост, номер, один';
         $post->meta_d = 'это пост номер один';
         $post->date = Carbon::parse('19-04-2019');
+        $post->view = 14;
         $post->category_id = 3;
         $post->lang_id = 3;
         $post->save();
@@ -88,6 +91,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k  = 'փոստ,համար,երկու';
          $post->meta_d = 'Սա համար երկու փոստն է';
          $post->date = Carbon::parse('20-04-2019');
+         $post->view = 2;
          $post->category_id=1;
          $post->lang_id = 1;
          $post->save();
@@ -107,6 +111,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k = 'post,number,two';
          $post->meta_d = 'This is post number two';
          $post->date = Carbon::parse('20-04-2019');
+         $post->view = 3;
          $post->category_id = 2;
          $post->lang_id = 2;
          $post->save();
@@ -125,6 +130,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k = 'пост, номер, два';
          $post->meta_d = 'это пост номер два';
          $post->date = Carbon::parse('20-04-2019');
+         $post->view = 4;
          $post->category_id = 3;
          $post->lang_id = 3;
          $post->save();
@@ -145,6 +151,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k  = 'փոստ,համար,երեք';
         $post->meta_d = 'Սա համար երեք փոստն է';
         $post->date = Carbon::parse('21-04-2019');
+        $post->view = 33;
         $post->category_id=1;
         $post->lang_id = 1;
         $post->save();
@@ -164,6 +171,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k = 'post,number,three';
         $post->meta_d = 'This is post number three';
         $post->date = Carbon::parse('21-04-2019');
+        $post->view = 35;
         $post->category_id = 2;
         $post->lang_id = 2;
         $post->save();
@@ -182,6 +190,7 @@ class PostsTableSeeder extends Seeder
         $post->meta_k = 'пост, номер, три';
         $post->meta_d = 'это пост номер три';
         $post->date = Carbon::parse('21-04-2019');
+        $post->view = 20;
         $post->category_id = 3;
         $post->lang_id = 3;
         $post->save();
@@ -203,6 +212,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k  = 'փոստ,համար,չորս';
          $post->meta_d = 'Սա համար չորս փոստն է';
          $post->date = Carbon::parse('22-04-2019');
+         $post->view = 43;
          $post->category_id=7;
          $post->lang_id = 1;
          $post->save();
@@ -234,6 +244,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k  = 'փոստ,համար,երեք';
          $post->meta_d = 'Սա համար երեք փոստն է';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 11;
          $post->category_id=1;
          $post->lang_id = 1;
          $post->save();
@@ -253,6 +264,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k = 'post,number,three';
          $post->meta_d = 'This is post number three';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 8;
          $post->category_id = 2;
          $post->lang_id = 2;
          $post->save();
@@ -271,6 +283,7 @@ class PostsTableSeeder extends Seeder
          $post->meta_k = 'пост, номер, три';
          $post->meta_d = 'это пост номер три';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 5;
          $post->category_id = 3;
          $post->lang_id = 3;
          $post->save();
@@ -289,7 +302,9 @@ class PostsTableSeeder extends Seeder
          $post->img = '/storage/posts/6/6.jpg';
          $post->meta_k  = 'փոստ,համար,երեք';
          $post->meta_d = 'Սա համար երեք փոստն է';
+         $post->status = 'main';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 26;
          $post->category_id=4;
          $post->lang_id = 1;
          $post->save();
@@ -308,7 +323,9 @@ class PostsTableSeeder extends Seeder
          $post->img = '/storage/posts/6/6.jpg';
          $post->meta_k = 'post,number,three';
          $post->meta_d = 'This is post number three';
+         $post->status = 'main';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 16;
          $post->category_id = 5;
          $post->lang_id = 2;
          $post->save();
@@ -326,7 +343,9 @@ class PostsTableSeeder extends Seeder
          $post->img = '/storage/posts/6/6.jpg';
          $post->meta_k = 'пост, номер, три';
          $post->meta_d = 'это пост номер три';
+         $post->status = 'main';
          $post->date = Carbon::parse('21-04-2019');
+         $post->view = 9;
          $post->category_id =6;
          $post->lang_id = 3;
          $post->save();

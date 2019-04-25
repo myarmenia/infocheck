@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('meta_d',500);
             $table->string('status')->default('published');
             $table->date('date');
+            $table->bigInteger('view');
             $table->integer('category_id')->unsigned()->index();
             $table->integer('lang_id')->unsigned();
             $table->foreign('lang_id')->references('id')->on('langs');
