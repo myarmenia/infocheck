@@ -70,7 +70,7 @@
 
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('home', app()->getLocale()) }}">Home</a>
                     @else
 
                             @foreach (config('app.locales') as $locale => $name)
@@ -83,10 +83,10 @@
 
                             @endforeach
 
-                        <a href="{{ route('login') }}">{{ __('login.Login') }}</a>
+                        <a href="{{ route('login', app()->getLocale()) }}">{{ __('login.Login') }}</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">{{ __('register.Register') }}</a>
+                            <a href="{{ route('register', app()->getLocale()) }}">{{ __('register.Register') }}</a>
                         @endif
                     @endauth
                 </div>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div>
-                    <a href="{{ route('add_comment') }}">add comment. User must be Loged, Verified</a>
+                    <a href="{{ route('add_comment', app()->getLocale()) }}">add comment. User must be Loged, Verified</a>
                     @if (Auth::check())
                         @if(Auth::user()->hasRole('i_user'))
                             <p>This text shows only for i_user</p>

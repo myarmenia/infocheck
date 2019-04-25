@@ -31,6 +31,11 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+    /* override $redirectTo by method */
+    public function redirectTo() {
+        return app()->getLocale() . '/home';
+    }
+
     /**
      * Create a new controller instance.
      *

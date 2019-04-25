@@ -12,21 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-
-
-
-Auth::routes();
-
-Auth::routes(['verify'=>true]);
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
-
-Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user']);
-
-Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user']);
+// Auth::routes();
+// Auth::routes(['verify'=>true]);
 
 
 /*
@@ -47,8 +34,34 @@ Route::group([
     });
 
     // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    // Route::post('login', 'Auth\LoginController@login');
+    // Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+    // Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    // Route::post('register', 'Auth\RegisterController@register');
+
+
+    // Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+    // Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+    Auth::routes();
+    Auth::routes(['verify'=>true]);
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
+Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user','verified']);
+Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user','verified']);
 });
+
+
 
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
+
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('{locale}/password/resetform/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.resetform');
+Route::get('{locale}/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth/ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
