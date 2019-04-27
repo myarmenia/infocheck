@@ -15,7 +15,14 @@
           </div>
                   <div>
                  <ol class="breadcrumb breadcrumb_omg">
-                 <li class="breadcrumb-item"><a href="#">ARM</a></li><li class="breadcrumb-item"><a href="#">RUS</a></li>
+                        {{-- @foreach (config('app.locales') as $item => $name)
+                 <li class="breadcrumb-item1">
+                     <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $item) }}"
+                     @if (app()->getLocale() == $item) style="display:none" @endif >
+                     {{ strtoupper($item) }} |
+                    </a>
+                    </li>
+                    @endforeach --}}
              </ol>
              </div>
          </div>

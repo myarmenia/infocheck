@@ -3,13 +3,13 @@
             <div id="header-wrap" class="">
             <div class="container clearfix">
                       <div id="logo">
-                        <a href="{{url('/')}}" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt=" Logo"></a>
-                        <a href="{{url('/')}}" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Logo"></a>
+                        <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>
+                        <a href="{{url(app()->getLocale().'/')}}" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Logo"></a>
                     </div>
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                       @foreach ($data['menu'] as $item)
-                          <li><a href="{{url('/'.urlencode($item->name))}}"
+                          <li><a href="{{url(app()->getLocale().'/'.urlencode($item->name))}}"
                              class="sf-with-ul">{{$item->name}}</a></li>
                       @endforeach
 

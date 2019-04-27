@@ -30,16 +30,15 @@ class Post extends Model
         return $this->morphOne('App\Question', 'questionable');
     }
 
-    static function get_cur_posts($category_name){
+    static function get_cur_posts($category_name,$lang_id){
         return $posts = DB::table('categories')
         ->where('categories.name',$category_name)
-        ->where('categories.lang_id',1)
-    ->orderByRaw('date DESC')
-    ->select('*')
-    ->join('posts', 'categories.id', '=','posts.category_id' )
-    ->paginate(2);
-    }
-
+        ->where('categories.lang_id',$lang_id)
+        ->orderByRaw('date DESC')
+        ->select('*')
+        ->join('posts', 'categories.id', '=','posts.category_id' )
+        ->paginate(6);
+        }
 
 
 

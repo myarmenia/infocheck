@@ -9,7 +9,7 @@
                                 <a href="#">Home</a>/ <a href="#">About Us</a>
                             </div>
 
-                            <div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
+                            <div style="background: url('/images/world-map.png') no-repeat center center; background-size: 100%;">
                                 <address>
                                     <strong> Armenia, Yerevan,</strong><br>
                                     M. Mashtots Avenue, Sarmena 1<br>

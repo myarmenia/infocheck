@@ -253,9 +253,15 @@ var SEMICOLON = SEMICOLON || {};
             })
         }, imageFade: function () {
             $(".image_fade").hover(function () {
+                $(".own-link-a"+this.id).attr('style','color:#fece00');
+                $(".own-link-aa"+this.id).find('h3').attr('style','color:#fece00');
+                $(".own-link-aa"+this.id).find('p').attr('style','color:#fece00');
                 $(this).filter(":not(:animated)").animate({opacity: .8}, 400)
             }, function () {
-                $(this).animate({opacity: 1}, 400)
+                $(this).animate({opacity: 1}, 400);
+                $(".own-link-a"+this.id).removeAttr('style');
+                $(".own-link-aa"+this.id).find('h3').removeAttr('style');
+                $(".own-link-aa"+this.id).find('p').removeAttr('style');
             })
         }, blogTimelineEntries: function () {
             $(".post-timeline.grid-2").find(".entry").each(function () {
@@ -301,7 +307,7 @@ var SEMICOLON = SEMICOLON || {};
             })
         }, topScrollOffset: function () {
             var e = 0;
-			
+
             return !$body.hasClass("device-xl") && !$body.hasClass("device-lg") || SEMICOLON.isMobile.any() ? e = 40 : (e = $header.hasClass("sticky-header") ? $pagemenu.hasClass("dots-menu") ? 100 : 144 : $pagemenu.hasClass("dots-menu") ? 140 : 184, $pagemenu.length || (e = $header.hasClass("sticky-header") ? 100 : 140)), e
         }, defineColumns: function (e) {
             var t = 4, a = e.attr("data-xl-col"), i = e.attr("data-lg-col"), s = e.attr("data-md-col"),
@@ -1400,7 +1406,7 @@ var SEMICOLON = SEMICOLON || {};
 			else{
 			$("#post-lists").attr("style","position:fixed")
 			}
-			
+
             setTimeout(function () {
                 SEMICOLON.header.topsocial(), SEMICOLON.header.fullWidthMenu(), SEMICOLON.header.overlayMenu(), SEMICOLON.initialize.fullScreen(), SEMICOLON.initialize.dataResponsiveHeights(), SEMICOLON.initialize.verticalMiddle(), SEMICOLON.initialize.testimonialsGrid(), SEMICOLON.initialize.stickFooterOnSmall(), SEMICOLON.initialize.stickyFooter(), SEMICOLON.slider.sliderParallaxDimensions(), SEMICOLON.slider.captionPosition(), SEMICOLON.portfolio.arrange(), SEMICOLON.portfolio.portfolioDescMargin(), SEMICOLON.widget.tabsResponsiveResize(), SEMICOLON.widget.tabsJustify(), SEMICOLON.widget.html5Video(), SEMICOLON.widget.masonryThumbs(), SEMICOLON.initialize.dataResponsiveClasses(), $gridContainer.length > 0 && ($gridContainer.hasClass(".customjs") || ($().isotope ? $gridContainer.isotope("layout") : console.log("documentOnResize > init: Isotope not defined."))), ($body.hasClass("device-xl") || $body.hasClass("device-lg")) && $("#primary-menu").find("ul.mobile-primary-menu").removeClass("d-block")
             }, 500);
@@ -1419,10 +1425,10 @@ var SEMICOLON = SEMICOLON || {};
                 void 0 !== s && (t = t - s - 1)
             } else t = Number(i); else $header.hasClass("sticky-style-2") || $header.hasClass("sticky-style-3") ? "undefined" === t && (t = e) : t = e;
             SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), $window.on("scroll", function () {
-				
+
                 SEMICOLON.initialize.goToTopScroll(), $("body.open-header.close-header-on-scroll").removeClass("side-header-open"), SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), SEMICOLON.header.logo()
             }), window.addEventListener("scroll", onScrollSliderParallax, !1), $onePageMenuEl.length > 0 && ($().scrolled ? $window.scrolled(function () {
-                
+
 				SEMICOLON.header.onepageScroller()
             }) : console.log("windowscroll: Scrolled Function not defined."))
         }
@@ -1431,7 +1437,7 @@ var SEMICOLON = SEMICOLON || {};
 			if($(window).outerWidth()<= 991){
 				$("#post-lists").attr("style","position:relative")
 			}
-			
+
             SEMICOLON.slider.captionPosition(), SEMICOLON.slider.swiperSliderMenu(!0), SEMICOLON.slider.revolutionSliderMenu(!0), SEMICOLON.initialize.testimonialsGrid(), SEMICOLON.initialize.verticalMiddle(), SEMICOLON.initialize.stickFooterOnSmall(), SEMICOLON.initialize.stickyFooter(), SEMICOLON.portfolio.gridInit($gridContainer), SEMICOLON.portfolio.filterInit(), SEMICOLON.portfolio.shuffleInit(), SEMICOLON.portfolio.arrange(), SEMICOLON.portfolio.portfolioDescMargin(), SEMICOLON.widget.parallax(), SEMICOLON.widget.loadFlexSlider(), SEMICOLON.widget.html5Video(), SEMICOLON.widget.masonryThumbs(), SEMICOLON.widget.ticker(), SEMICOLON.header.topsocial(), SEMICOLON.header.responsiveMenuClass(), SEMICOLON.initialize.modal()
         }
     };

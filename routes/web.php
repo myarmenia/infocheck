@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'IndexController@index')->name('index_page');
-Route::get('/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
+
 
 
 // Auth::routes();
@@ -39,6 +38,9 @@ Route::group([
     Route::get('/', function () {
         return view('welcome');
     });
+    Route::get('/', 'IndexController@index')->name('index_page');
+    Route::get('/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
+    Route::get('/posts/{unique_id}/{title}', 'OpenSinglePost@index')->name('single_post');
 
     // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     // Route::post('login', 'Auth\LoginController@login');
@@ -73,3 +75,6 @@ Route::get('{locale}/password/resetform/{token}', 'Auth\ResetPasswordController@
 Route::get('{locale}/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth/ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 // Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+
+
+

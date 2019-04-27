@@ -1,7 +1,7 @@
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/functions.js"></script>
-<script src="js/greedyNav.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/functions.js"></script>
+<script src="/js/greedyNav.js"></script>
 <script src="/js/jquery.jscroll.min.js"></script>
 <script>
 //$('ul.pagination').hide();

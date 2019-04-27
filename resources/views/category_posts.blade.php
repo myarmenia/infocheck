@@ -9,13 +9,15 @@
     <div class="col_one_third bottommargin">
         <div class="feature-box media-box">
             <div class="fbox-media">
-
-
-                <img src="{{$item->img}}"    alt="{{$item->name}}" >
-            </div>
+         <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
+                      <img id="{{$item->id}}" src="{{$item->img}}" alt="image"  class="image_fade">
+         </a>
+                    </div>
             <div class="fbox-desc">
+              <a class="own-link-aa{{$item->id}}"  href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
                 <h3>{{$item->title}}</h3>
                 <p>{!!str_limit($item->short_text , 80)!!} </p>
+              </a>
                 <ul class="entry-meta clearfix">
                     <li><i class="icon-calendar3"> </i> {{ $item->date }}</li>
                 </ul>
