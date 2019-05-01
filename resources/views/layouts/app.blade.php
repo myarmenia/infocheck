@@ -40,7 +40,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Language Menu -->
-                        @foreach (config('app.locales') as $locale => $name)
+                        {{-- @foreach (config('app.locales') as $locale => $name)
                             <li class="nav-item">
                                 <a class="nav-link"
                                 href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
@@ -48,7 +48,7 @@
                                     {{ strtoupper($locale) }}
                                 </a>
                             </li>
-                        @endforeach
+                        @endforeach --}}
 
                         <!-- Authentication Links -->
                         @guest

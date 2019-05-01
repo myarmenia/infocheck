@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['name', 'position','lang_id'];
+    protected $fillable = ['item_id','name', 'position','layout','lang_id'];
 
     static  function get_category(){
        return  $get_category = Category::where('lang_id',1)->orderBy('position')->get();
     }
     public function get_category_posts() {
         return $this->hasMany('App\Post', 'category_id', 'id');
+    }
+
+    public function lang() {
+        return $this->belongsTo('App\Lang', 'lang_id', 'id');
     }
 
 

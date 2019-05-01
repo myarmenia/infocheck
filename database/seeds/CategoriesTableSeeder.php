@@ -15,6 +15,7 @@ class CategoriesTableSeeder extends Seeder
     {
         // #Cat1
         $category = new Category();
+        $category->item_id = 1;
         $category->name = 'Հայաստան';
         $category->position = 1;
         $category->layout = 'A';
@@ -22,6 +23,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 1;
         $category->name = 'Armenia';
         $category->position = 1;
         $category->layout = 'A';
@@ -29,6 +31,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 1;
         $category->name = 'Армения';
         $category->position = 1;
         $category->layout = 'A';
@@ -37,6 +40,7 @@ class CategoriesTableSeeder extends Seeder
 
             // #Cat2
             $category = new Category();
+            $category->item_id = 2;
             $category->name = 'Միջազգային';
             $category->position = 2;
             $category->layout = 'B';
@@ -44,6 +48,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 2;
             $category->name = 'International';
             $category->position = 2;
             $category->layout = 'B';
@@ -51,6 +56,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 2;
             $category->name = 'Международные';
             $category->position = 2;
             $category->layout = 'B';
@@ -59,6 +65,7 @@ class CategoriesTableSeeder extends Seeder
 
         // #Cat3
         $category = new Category();
+        $category->item_id = 3;
         $category->name = 'Տարածաշրջանային';
         $category->position = 3;
         $category->layout = 'C';
@@ -66,6 +73,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 3;
         $category->name = 'Regional';
         $category->position = 3;
         $category->layout = 'C';
@@ -73,6 +81,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 3;
         $category->name = 'Региональный';
         $category->position = 3;
         $category->layout = 'C';
@@ -81,6 +90,7 @@ class CategoriesTableSeeder extends Seeder
 
             // #Cat4
             $category = new Category();
+            $category->item_id = 4;
             $category->name = 'Գծային';
             $category->position = 4;
             $category->layout = 'D';
@@ -88,6 +98,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 4;
             $category->name = 'Linear';
             $category->position = 4;
             $category->layout = 'D';
@@ -95,6 +106,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 4;
             $category->name = 'Линейный';
             $category->position = 4;
             $category->layout = 'D';
@@ -103,6 +115,7 @@ class CategoriesTableSeeder extends Seeder
 
         // #Cat5
         $category = new Category();
+        $category->item_id = 5;
         $category->name = 'Գարնանային';
         $category->position = 5;
         $category->layout = 'C';
@@ -110,6 +123,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 5;
         $category->name = 'Spring';
         $category->position = 5;
         $category->layout = 'C';
@@ -117,6 +131,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 5;
         $category->name = 'Весенний';
         $category->position = 5;
         $category->layout = 'C';
@@ -125,6 +140,7 @@ class CategoriesTableSeeder extends Seeder
 
             // #Cat6
             $category = new Category();
+            $category->item_id = 6;
             $category->name = 'Ամառային';
             $category->position = 6;
             $category->layout = 'A';
@@ -132,6 +148,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 6;
             $category->name = 'Summer';
             $category->position = 6;
             $category->layout = 'A';
@@ -139,6 +156,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 6;
             $category->name = 'Летний';
             $category->position = 6;
             $category->layout = 'A';
@@ -147,6 +165,7 @@ class CategoriesTableSeeder extends Seeder
 
         // #Cat7
         $category = new Category();
+        $category->item_id = 7;
         $category->name = 'Աշնանային';
         $category->position = 7;
         $category->layout = 'B';
@@ -154,6 +173,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 7;
         $category->name = 'Outumn';
         $category->position = 7;
         $category->layout = 'B';
@@ -161,6 +181,7 @@ class CategoriesTableSeeder extends Seeder
         $category->save();
 
         $category = new Category();
+        $category->item_id = 7;
         $category->name = 'Осенний';
         $category->position = 7;
         $category->layout = 'B';
@@ -169,6 +190,7 @@ class CategoriesTableSeeder extends Seeder
 
             // #Cat8
             $category = new Category();
+            $category->item_id = 8;
             $category->name = 'Ձմեռային';
             $category->position = 8;
             $category->layout = 'D';
@@ -176,6 +198,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 8;
             $category->name = 'Winter';
             $category->position = 8;
             $category->layout = 'D';
@@ -183,6 +206,7 @@ class CategoriesTableSeeder extends Seeder
             $category->save();
 
             $category = new Category();
+            $category->item_id = 8;
             $category->name = 'Зимний';
             $category->position = 8;
             $category->layout = 'D';
