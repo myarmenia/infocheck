@@ -25,9 +25,9 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/'; // default is '/home'
     public function redirectTo() {
-        return app()->getLocale() . '/home';
+        return app()->getLocale() . '/'; /* override $redirectTo by method */
     }
     /**
      * Create a new controller instance.

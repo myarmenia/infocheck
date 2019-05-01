@@ -16,6 +16,7 @@ class CheckRole
      */
     public function handle($request, Closure $next, $roles)
     {
+
         if (! $request->user()->hasRole($roles)) {
             // var_dump('chexav axper');die;
             Auth::logout();
@@ -23,6 +24,7 @@ class CheckRole
             // լռությամբ բոլորը ստանում են role=i_user , սակայն երբ ուզուոմ ենք բացել ադմինական լինկ, գալիսա այստեղ
             // եթե լռությամբ չտայինք role=i_user , ապա սովորական յուզեռն էլ ստեղ կգար
         }
+
         /* User-STATUS --- does he active or not */
         if ( $request->user()->status !== 1) {
             Auth::logout();
