@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->integer('position')->unsigned()->nullable();
             $table->string('layout', 50);
+            $table->boolean('status')->default(1);
             $table->integer('lang_id')->unsigned();
             $table->foreign('lang_id')->references('id')->on('langs');
             $table->timestamps();

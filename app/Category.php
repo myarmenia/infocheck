@@ -9,7 +9,7 @@ class Category extends Model
 {
 
     public $timestamps = false;
-    protected $fillable = ['item_id','name', 'position','layout','lang_id'];
+    protected $fillable = ['item_id','name', 'position', 'layout', 'status','lang_id'];
 
 
 
