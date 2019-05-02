@@ -9,7 +9,7 @@ class Category extends Model
 {
 
     public $timestamps = false;
-    protected $fillable = ['name', 'position','lang_id'];
+    protected $fillable = ['item_id','name', 'position','layout','lang_id'];
 
 
 
@@ -18,6 +18,10 @@ class Category extends Model
     }
     public function get_category_posts() {
         return $this->hasMany('App\Post', 'category_id', 'id');
+    }
+
+    public function lang() {
+        return $this->belongsTo('App\Lang', 'lang_id', 'id');
     }
 
 

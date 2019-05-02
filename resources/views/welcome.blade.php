@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -73,7 +73,7 @@
                         <a href="{{ route('home', app()->getLocale()) }}">Home</a>
                     @else
 
-                            @foreach (config('app.locales') as $locale => $name)
+                            {{-- @foreach (config('app.locales') as $locale => $name)
 
                                     <a class="nav-link"
                                     href="{{ url('/', $locale) }}"
@@ -81,7 +81,7 @@
                                         {{ strtoupper($locale) }}
                                     </a>
 
-                            @endforeach
+                            @endforeach --}}
 
                         <a href="{{ route('login', app()->getLocale()) }}">{{ __('login.Login') }}</a>
 
@@ -111,7 +111,11 @@
                     <a href="{{ route('add_comment', app()->getLocale()) }}">add comment. User must be Loged, Verified</a>
                     @if (Auth::check())
                         @if(Auth::user()->hasRole('i_user'))
-                            <p>This text shows only for i_user</p>
+                            <p style="color:red">This text shows only for i_user</p>
+                        @endif
+
+                        @if (Auth::user()->hasRole('i_admin'))
+                            <p style="color:purple"> Content for ADMIN </p>
                         @endif
                     @endif
 

@@ -29,9 +29,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/'; // default is '/home'
 
-    /* override $redirectTo by method */
+
     public function redirectTo() {
         return app()->getLocale() . '/';
     }
@@ -43,7 +43,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // $this->middleware('guest');
+        // որ լոգին եղած յուզերը այս էջի վրա էռռոռ չտա
     }
 
     /**

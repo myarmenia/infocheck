@@ -9,6 +9,7 @@ use Socialite;
 use Auth;
 use App\User;
 use App\SocialIdentity; // pivot-table users<->social_identities
+use App\Role;
 
 // for blocking users || status=0
 use Illuminate\Http\Request;
@@ -34,7 +35,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/'; // default is '/home'
+
+
+    public function redirectTo() {
+        return app()->getLocale() . '/'; /* override $redirectTo by method */
+    }
 
 
 
@@ -45,8 +51,10 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        // $this->middleware('guest')->except('logout');
+        // որ լոգին եղածին էռռոռ չըա լոգին էջ մտնելուց։
     }
+
 
     /* overwrite method of AuthenticatesUsers */
     protected function authenticated(Request $request, $user)
@@ -57,6 +65,12 @@ class LoginController extends Controller
             // return redirect(route('login'))->withErrors(['blocked' => trans('validation.blocked')]);
             return $this->sendBlockedLoginResponse($request);
         }
+
+        if ($request->user()->hasRole('i_admin')) {
+            // return redirect(url('/', app()->getLocale()));
+            return redirect()->route('admin.index', app()->getLocale());
+        }
+
     }
 
     /* For show message about blocking user - custom */
@@ -67,10 +81,6 @@ class LoginController extends Controller
         ]);
     }
 
-    /* override $redirectTo by method */
-    public function redirectTo() {
-        return app()->getLocale() . '/';
-    }
 
 
 
@@ -94,7 +104,7 @@ class LoginController extends Controller
 
        $authUser = $this->findOrCreateUser($user, $provider);
        Auth::login($authUser, true);
-       return redirect($this->redirectTo);
+       return redirect($this->redirectTo());
    }
 
 
@@ -114,6 +124,8 @@ class LoginController extends Controller
                    'email' => $providerUser->getEmail(),
                    'name'  => $providerUser->getName(),
                ]);
+               $role_iuser = Role::where('name','i_user')->first();
+               $user->roles()->attach($role_iuser);
            }
 
            $user->identities()->create([

@@ -18,9 +18,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home', app()->getLocale());
+            return redirect('/', app()->getLocale());
             // return app()->getLocale() . '/home';
         }
+
 
         return $next($request);
     }

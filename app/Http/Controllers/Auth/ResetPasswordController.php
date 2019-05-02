@@ -25,11 +25,11 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/'; // default is '/home'
 
-    /* override $redirectTo by method */
+
     public function redirectTo() {
-        return app()->getLocale() . '/home';
+        return app()->getLocale() . '/'; /* override $redirectTo by method */
     }
 
     /**
