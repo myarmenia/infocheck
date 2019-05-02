@@ -10,6 +10,7 @@ use App\Lang;
 class OpenCategoryPosts extends Controller
 {
     public function index($locale,$category_name){
+        $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
         $category=Category::get_category($lang_id);
         //return $category;
@@ -23,7 +24,8 @@ class OpenCategoryPosts extends Controller
             'menu' => $category,
             'posts_category'=>$name,
             'post_test'=> $post_test,
-            'most_viewed'=>$most_viewed
+            'most_viewed'=>$most_viewed,
+            'lng'=>$lng
             );
             return view('category_posts',compact('data'));
 

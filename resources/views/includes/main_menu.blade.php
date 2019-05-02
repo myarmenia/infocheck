@@ -9,7 +9,7 @@
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                       @foreach ($data['menu'] as $item)
-                          <li><a href="{{url(app()->getLocale().'/'.urlencode($item->name))}}"
+                          <li><a href="{{url(app()->getLocale().'/post/'.urlencode($item->name))}}"
                              class="sf-with-ul">{{$item->name}}</a></li>
                       @endforeach
 
@@ -41,7 +41,7 @@
                     <div id="top-search">
                     <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
                     <form action="search.html" method="get">
-                    <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    <input style="background-color: white;" type="text" name="q" class="form-control" value="" placeholder="{{trans('text.search')}}">
                     </form>
                     </div>
             </nav>

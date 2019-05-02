@@ -16,22 +16,23 @@
                     </ol>
             </div>
 
+
         <div class="container clearfix margin-top-25">
             <div class="postcontent nobottommargin clearfix">
                 <div class="single-post nobottommargin">
                         <div class="entry clearfix">
                                 <div class="entry-title">
-                                <h2>{{$data['post']->title}}</h2>
+                                <h2>{{$data['post'][0]->title}}</h2>
                                 </div>
                                 <ul class="entry-meta clearfix">
-                                <li><i class="icon-calendar3"></i> {{$data['post']->date}}</li>
+                                <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
                                 </ul>
                                 <div class="entry-image">
                                 <a href="#"><img src="/images/services/1.jpg" alt="Blog Single"></a>
                                 </div>
                                 <div class="entry-content notopmargin">
                                     <div>
-                                            {{$data['post']->html_code}}
+                                            {{$data['post'][0]->html_code}}
 
                                         <p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
                                         <blockquote><p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p></blockquote>
@@ -58,7 +59,7 @@
                             @isset($data['post_tags'])
                                         <div class="tagcloud clearfix bottommargin">
                                             @for ($i = 0; $i < count($data['post_tags']); $i++)
-                                            <a href="#"> {{$data['post_tags'][$i]}}</a>
+                                            <a href="{{url(app()->getLocale().'/tags/'.$data['post_tags'][$i])}}"> {{$data['post_tags'][$i]}}</a>
                                             @endfor
                                         </div>
                             @endisset
@@ -112,7 +113,7 @@
                                     </div>
                                     </div>
                                     <div class="comment-content clearfix">
-                                    <div class="comment-author">{{$data['comments'][$i]->name}}<span><a href="#" title="Permalink to this comment"> {{$data['comments'][$i]->created_at}}</a></span></div>
+                                    <div class="comment-author">{{$data['comments'][$i]->name}}<span> {{$data['comments'][$i]->created_at}}</span></div>
                                     <p>{{$data['comments'][$i]->body}}</p>
 
                                     </div>
@@ -126,9 +127,9 @@
                                 </li>
                                 @endfor
                             </ol>
-                            <button id="add_comment"
-                            name="add_comment" value="{{trans('text.leave_comment')}}" class="btn btn-secondary">{{trans('text.leave_comment')}}</button>
-                            <div class="clear" ></div>
+                            <a href="{{ route('single_post.add_new_comment',['locale'=>app()->getLocale(),'idd'=>$data['id']]) }}" class="btn btn-secondary">{{trans('text.leave_comment')}}</a>
+
+
                             @endisset
                         </div>
                      </div>

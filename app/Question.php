@@ -17,5 +17,11 @@ class Question extends Model
     public function getQuestionable() {
         return $this->morphTo();
     }
+    public function question() {
+        return $this->belongsTo('App\Answer', 'questionable_id', 'id');
+    }
 
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }

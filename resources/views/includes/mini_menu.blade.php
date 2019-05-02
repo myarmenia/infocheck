@@ -5,19 +5,51 @@
           <div class="col_half nobottommargin">
            <div class="top-links">
             <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
-             <li><a href="index.html">Home</a></li>
-             <li><a href="faqs.html">FAQs</a></li>
-             <li><a href="login-register.html">Sign up</a></li>
-             <li><a href="login.html" class="sf-with-ul">Login</a>
+             <li><a href="{{url(app()->getLocale().'/')}}">{{trans('text.home')}}</a></li>
+             <li><a href="{{route('faqs', app()->getLOcale()) }}">{{trans('text.faqs')}}</a></li>
+             @auth
+             <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout', app()->getLOcale()) }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('login.Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout', app()->getLOcale()) }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+
+
+         @else
+
+             <li><a href="{{ route('register', app()->getLocale()) }}">{{ __('register.Register') }}</a></li>
+             <li><a href="{{ route('login', app()->getLocale()) }}" class="sf-with-ul">{{ __('login.Login') }}</a>
+                @endauth
              </li>
             </ul>
            </div>
           </div>
                   <div>
                  <ol class="breadcrumb breadcrumb_omg">
-                        {{-- @foreach (config('app.locales') as $item => $name)
+                     {{-- @for ($i = 0; $i < count($data['lng']); $i++)
+                     <li class="breadcrumb-item1">
+                            <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), $data['lng'][$i]->lng) }}"
+                            @if (app()->getLocale() ==  $data['lng'][$i]->lng) style="display:none" @endif >
+                            {{ strtoupper( $data['lng'][$i]->lng) }} |
+                           </a>
+                           </li>
+                     @endfor --}}
+                       {{-- @foreach (config('app.locales') as $item => $name)
+
                  <li class="breadcrumb-item1">
-                     <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $item) }}"
+                     <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), $item) }}"
                      @if (app()->getLocale() == $item) style="display:none" @endif >
                      {{ strtoupper($item) }} |
                     </a>

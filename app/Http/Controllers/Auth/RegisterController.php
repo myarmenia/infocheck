@@ -33,7 +33,7 @@ class RegisterController extends Controller
 
     /* override $redirectTo by method */
     public function redirectTo() {
-        return app()->getLocale() . '/home';
+        return app()->getLocale() . '/';
     }
 
     /**

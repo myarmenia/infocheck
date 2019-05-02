@@ -35,12 +35,16 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => ['localize']
     ], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+        Route::get('/', function () {
+            return view('welcome');
+        });
+
     Route::get('/', 'IndexController@index')->name('index_page');
-    Route::get('/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
+    Route::get('/post/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
     Route::get('/posts/{unique_id}/{title}', 'OpenSinglePost@index')->name('single_post');
+    Route::get('/tags/{tag_name}', 'CurrentTagPosts@index');
+    Route::get('/faqs', 'ShowAllFaqs@index')->name('faqs');
+    Route::get('/posts/comment/{id}', 'OpenSinglePost@add_new_comment')->name('single_post.add_new_comment');
 
     // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     // Route::post('login', 'Auth\LoginController@login');
@@ -71,9 +75,9 @@ Route::get('/', function () {
 
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 
-Route::get('{locale}/password/resetform/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.resetform');
-Route::get('{locale}/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth/ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//Route::get('{locale}/password/resetform/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.resetform');
+//Route::get('{locale}/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//Route::post('password/email', 'Auth/ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 // Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
 

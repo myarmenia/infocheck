@@ -2525,14 +2525,18 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-success {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
+    background-color: #2a375e;
+    border-color: #0f1841;
+    /* background-color: #28a745;
+    border-color: #28a745 */
 }
 
 .btn-success:hover {
     color: #fff;
-    background-color: #218838;
-    border-color: #1e7e34
+    background-color: #0f1841;
+    border-color: #0f1841;
+    /* background-color: #218838;
+    border-color: #1e7e34 */
 }
 
 .btn-success:focus, .btn-success.focus {

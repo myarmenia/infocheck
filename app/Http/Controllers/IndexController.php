@@ -7,11 +7,12 @@ use App\Category;
 use App\Post;
 use App\Poster;
 use App\Lang;
-
+use Illuminate\Support\Facades\Route;
 
 class IndexController extends Controller
 {
     public function index($locale){
+        $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
         $cat=[];
         $cat_name=[];
@@ -33,18 +34,21 @@ class IndexController extends Controller
         $main_poster_layout=Poster::get_poster_layout();
         $main_post_big = Post::with('getCategory')->where('status','main')->where('lang_id',$lang_id)->get();
         $main_post_small = Post::with('getCategory')->where('status','published')->where('lang_id',$lang_id)->orderBy('date', 'desc')->limit(4)->get();
-//return $main_post_small[1]->title;
+//return $lng;
         $data = array(
             'menu' => $category,
             'posts_by_menu'=>$posts_by_menu,
             'layout'=>$main_poster_layout[0]->layout,
             'id'=>$cat,
             'big_post'=>$main_post_big[0],
-            'small_post'=>$main_post_small
+            'small_post'=>$main_post_small,
+            'lng'=>$lng
 
             );
            // return $data['small_post'][0]->title;
             return view('index',compact('data'));
 
     }
+
+
 }

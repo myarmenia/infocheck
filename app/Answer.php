@@ -13,4 +13,8 @@ class Answer extends Model
         return $this->morphOne('App\Question', 'questionable');
     }
 
+    public function answer() {
+        return $this->hasOne('App\Question', 'questionable_id', 'id');
+    }
+
 }

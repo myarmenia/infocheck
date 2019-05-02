@@ -1,91 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('login.Login') }}</div>
 
-                <!-- if the user was blocked, hi will redirected here after pushing
-                "add comment" or "add question" links -->
-                @if ($blocked_msg = session('blocked_msg'))
-                <div class="alert alert-danger alert-block text-center">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $blocked_msg }}</strong>
-                </div>
-                @endif
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login', app()->getLocale()) }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('login.E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-
-
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('login.Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('login.Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('login.Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request', app()->getLocale()) }}">
-                                        {{ __('login.Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 col-md-offset-4">
-                                <a href="{{ url('/login/facebook') }}" class="btn btn-facebook" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+@if ($blocked_msg = session('blocked_msg'))
+<div class="alert alert-danger alert-block text-center">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $blocked_msg }}</strong>
 </div>
+@endif
+<div class="card-body" style="padding:40px; margin:40px auto; max-width: 400px;">
+        <form method="POST" action="{{ route('login', app()->getLocale()) }}">
+                @csrf
+        <h3>{{ __('login.Login') }}</h3>
+        <div class="col_full">
+        <label for="email">{{ __('login.E-Mail Address') }}</label>
+        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}  not-dark" name="email" value="{{ old('email') }}" required autofocus  >
+        @if ($errors->has('email'))
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $errors->first('email') }}</strong>
+        </span>
+        @endif
+        </div>
+        <div class="col_full">
+        <label for="password" >{{ __('login.Password') }}</label>
+        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} not-dark" name="password" required>
+
+        @if ($errors->has('password'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('password') }}</strong>
+            </span>
+        @endif
+        </div>
+        <div class="col_full nobottommargin">
+        <button type="submit"  class="btn btn-secondary"> {{ __('login.Login') }}</button>
+        @if (Route::has('password.request'))
+        <a class="btn btn-link" href="{{ route('password.request', app()->getLocale()) }}">
+            {{ __('login.Forgot Your Password?') }}
+        </a>
+        @endif
+        </div>
+        </form>
+        <div class="line line-sm"></div>
+        <div class="center">
+        <h4 style="margin-bottom: 15px;">{{trans('text.or_login')}}</h4>
+        <a href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored">Facebook</a>
+
+        </div>
+        </div>
+
 @endsection
