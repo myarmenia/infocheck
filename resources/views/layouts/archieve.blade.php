@@ -11,7 +11,7 @@
  <section id="content" style="margin-bottom: 0px;">
     <div class="content-wrap">
         <div class="container clearfix">
-          @yield('tag_posts')
+          @yield('arch_posts')
           <div class="sidebar nobottommargin col_last widget_links">
                 <div id="post-lists" class="widget clearfix">
               @include('../includes.most_viewed')

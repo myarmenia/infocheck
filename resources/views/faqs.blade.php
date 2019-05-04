@@ -52,6 +52,44 @@
 </li>
 @endfor
 </ol>
+@if (Auth::check())
+@if(Auth::user()->hasRole('i_user'))
+ @if (Auth::user()->hasVerifiedEmail())
+
+ <form id="add_comment" action="{{ route('leave.question',
+ [  'locale'=> app()->getLocale()
+
+ ] ) }}"  method="POST">
+           @csrf
+   <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
+   <input type="text" name="folder_name" value="questions" hidden>
+   <p> <textarea id ='textquest' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="Ask question..."></textarea></p>
+   <div class="form-group">
+        <input type="file" class="form-control-file"   name="files[]" id="files" multiple>
+
+        </div>
+   @if ($message = Session::get('warning_comment'))
+   <div class="alert alert-success alert-block fade show">
+       <button type="button" class="close" data-dismiss="alert">×</button>
+           <strong>{{ $message }}</strong>
+   </div>
+   @endif
+   <button type='submit' class="btn btn-secondary">{{trans('text.ask')}}</button>
+ </form>
+  @else
+  <p>{{trans('text.verified_question')}}</p>
+  <a href="{{ route('verification.notice',
+  [
+      'locale'=> app()->getLocale(),
+  ] ) }}" class="btn btn-secondary" target="_blank">{{trans('text.verify')}}</a>
+ @endif
+ @endif
+  @else
+ <p>{{trans('text.login_for_question')}}</p>
+ <a href="{{ route('login', app()->getLocale()) }}" class="btn btn-secondary" target="_blank">{{trans('text.login')}}</a>
+ <a href="{{ route('register', app()->getLocale()) }}" class="btn btn-secondary" target="_blank">{{trans('text.register')}}</a>
+
+ @endif
 <div class="clear"></div>
 
 

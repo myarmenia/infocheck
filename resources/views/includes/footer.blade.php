@@ -26,14 +26,14 @@
                 <div class="col_one_third col_last">
 
                     <div class="widget subscribe-widget clearfix">
-                        <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
+                        <h5>{{trans('text.footer_first')}}</h5>
                         <div class="widget-subscribe-form-result"></div>
                         <form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" class="nobottommargin" novalidate="novalidate">
                             <div class="input-group divcenter">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="icon-email2"></i></div>
                                 </div>
-                                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="{{trans('text.third_icon_text')}}">
                                 <div class="input-group-append">
                                     <button class="btn btn-success" type="submit">Subscribe</button>
                                 </div>

@@ -18,3 +18,9 @@
 
 
 </script>
+<script src='/js/lib/moment.min.js'></script>
+<script src='/js/fullcalendar.min.js'></script>
+<script src='/js/locale-all.js'></script>
+<script src="/js/calen.js"></script>
+{!!  $data['event']->script() !!}
+

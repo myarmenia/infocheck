@@ -37,13 +37,42 @@
            </div>
           </div>
                   <div>
-                 <ol class="breadcrumb breadcrumb_omg"  style=" font-weight: bolder">
-                  @foreach (config('app.locales') as $item => $name)
-                 <li class="breadcrumb-item1">
-                     <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item]) }}"
-                     @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
-                     {{ strtoupper($item) }} |
+                 <ol class="breadcrumb breadcrumb_omg" style=" font-weight: bolder">
+                    @foreach (config('app.locales') as $item => $name)
+                    <li class="breadcrumb-item1">
+             @switch($data['call'])
+                 @case('archieve')
+                 <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item,'date' => $data['date']]) }}"
+                        @if (app()->getLocale() == $item) style="display:none" @endif >  &nbsp;
+                        {{ strtoupper($item) }} |
+                       </a>
+                     @break
+                 @case('single')
+                 <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item,'unique_id' => $data['unique_id'],'title' => $data['title'] ]) }}"
+                        @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                        {{ strtoupper($item) }} |
+                       </a>
+                     @break
+                @case('tags')
+                <a href="{{url('/')}}"
+                    @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                    {{ strtoupper($item) }} |
                     </a>
+                    @break
+                @case('search')
+                <a href="{{url('/')}}"
+                    @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                    {{ strtoupper($item) }} |
+                    </a>
+                    @break
+
+                 @default
+                 <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item,'category_item_id' => $data['item_id'] ]) }}"
+                        @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                        {{ strtoupper($item) }} |
+                       </a>
+             @endswitch
+
                     </li>
                     @endforeach
              </div>

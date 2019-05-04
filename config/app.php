@@ -183,6 +183,7 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
         \Cviebrock\EloquentTaggable\ServiceProvider::class,
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 
     ],
 
@@ -234,7 +235,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],

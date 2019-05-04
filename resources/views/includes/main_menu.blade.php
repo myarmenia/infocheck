@@ -9,10 +9,11 @@
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                       @foreach ($data['menu'] as $item)
-                          <li><a href="{{url(app()->getLocale().'/post/'.urlencode($item->name))}}"
+                          <li><a href="{{url(app()->getLocale().'/post/'.urlencode($item->item_id))}}"
                              class="sf-with-ul">{{$item->name}}</a></li>
                       @endforeach
-
+                    <li><a href="{{url(app()->getLocale().'/about')}}"
+                            class="sf-with-ul">{{trans('text.about_us')}}</a></li>
                     </ul>
                     <button><i class="icon-reorder"></i></button>
 
@@ -21,27 +22,29 @@
                     <div id="top-cart">
                     <a href="#" id="top-cart-trigger"><i class="icon-calendar1"></i></a>
                     <div class="top-cart-content">
-                    <div class="top-cart-title">
-                    <h4>Calendar</h4>
-                    </div>
+
                     <div class="top-cart-items">
-                        <div class="top-cart-item clearfix">
-                        <div class="top-cart-item-image">
-                        <a href="#"></a>
-                        </div>
-                        <div class="top-cart-item-desc">
-                        <a href="#"></a>
-                        <span class="top-cart-item-price"></span>
-                        <span class="top-cart-item-quantity"></span>
-                        </div>
-                        </div>
+                            <div id="arch" style="z-index:1000;margin-left:3%;">
+                                    <a class="lang" href="javascript:void(0);"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 23px;"></i></a>
+
+                                    <div class="calendar" style=" display:block;">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                {!! $data['event']->calendar() !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
                     </div>
                     </div>
                     <div id="top-search">
                     <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                    <form action="search.html" method="get">
-                    <input style="background-color: white;" type="text" name="q" class="form-control" value="" placeholder="{{trans('text.search')}}">
+                    <form action="{{ route('search',
+                    [  'locale'=> app()->getLocale()
+                    ] ) }}"  method="GET">
+
+                    <input style="background-color: white;" type="search"  class="form-control" name="s" value="{{ Request::query('s') }}" placeholder="{{trans('text.search')}}" autocomplete="off">
                     </form>
                     </div>
             </nav>

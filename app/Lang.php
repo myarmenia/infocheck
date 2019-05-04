@@ -14,4 +14,5 @@ class Lang extends Model
         ->where('lng','=',$locale)
         ->value('id');
     }
+
 }

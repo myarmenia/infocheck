@@ -5,6 +5,8 @@ use App\Post;
 use App\Question;
 use App\Lang;
 use Carbon\Carbon;
+use App\Event;
+
 
 class PostsTableSeeder extends Seeder
 {
@@ -35,6 +37,11 @@ class PostsTableSeeder extends Seeder
         $post->category_id=1;
         $post->lang_id = 1;
         $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('19-04-2019');
+        $event->end_date =  Carbon::parse('19-04-2019');
+        $event->lang_id =  1;
+        $event->save();
 
 
         $post = new Post();
@@ -55,6 +62,12 @@ class PostsTableSeeder extends Seeder
         $post->category_id = 2;
         $post->lang_id = 2;
         $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('19-04-2019');
+        $event->end_date =  Carbon::parse('19-04-2019');
+        $event->lang_id =  2;
+        $event->save();
+
 
         $post = new Post();
         $post->unique_id = 1;
@@ -74,6 +87,12 @@ class PostsTableSeeder extends Seeder
         $post->category_id = 3;
         $post->lang_id = 3;
         $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('19-04-2019');
+        $event->end_date =  Carbon::parse('19-04-2019');
+        $event->lang_id =  3;
+        $event->save();
+
 
 
          // post 2X3
@@ -95,6 +114,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id=1;
          $post->lang_id = 1;
          $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('20-04-2019');
+        $event->end_date =  Carbon::parse('20-04-2019');
+        $event->lang_id =  1;
+        $event->save();
 
 
          $post = new Post();
@@ -115,6 +139,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id = 2;
          $post->lang_id = 2;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('20-04-2019');
+        $event->end_date =  Carbon::parse('20-04-2019');
+        $event->lang_id =  2;
+        $event->save();
 
          $post = new Post();
          $post->unique_id = 2;
@@ -134,6 +163,12 @@ class PostsTableSeeder extends Seeder
          $post->category_id = 3;
          $post->lang_id = 3;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('20-04-2019');
+        $event->end_date =  Carbon::parse('20-04-2019');
+        $event->lang_id =  3;
+        $event->save();
+
 
 
           // post 3X3
@@ -155,6 +190,11 @@ class PostsTableSeeder extends Seeder
         $post->category_id=1;
         $post->lang_id = 1;
         $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  1;
+        $event->save();
 
 
         $post = new Post();
@@ -175,6 +215,11 @@ class PostsTableSeeder extends Seeder
         $post->category_id = 2;
         $post->lang_id = 2;
         $post->save();
+        $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  2;
+        $event->save();
 
         $post = new Post();
         $post->unique_id = 3;
@@ -194,6 +239,12 @@ class PostsTableSeeder extends Seeder
         $post->category_id = 3;
         $post->lang_id = 3;
         $post->save();
+
+        $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  3;
+        $event->save();
 
          // post 4X3
 
@@ -217,6 +268,7 @@ class PostsTableSeeder extends Seeder
          $post->lang_id = 1;
          $post->save();
 
+
          $lang = Lang::find($post->lang_id);
          $lng = $lang->lng;
 
@@ -226,6 +278,12 @@ class PostsTableSeeder extends Seeder
          $question->questionable_id = $post->id;
          $question->questionable_type = Post::class;
          $question->save();
+
+         $event = new Event();
+        $event->start_date =  Carbon::parse('22-04-2019');
+        $event->end_date =  Carbon::parse('22-04-2019');
+        $event->lang_id =  1;
+        $event->save();
 
 
 
@@ -248,6 +306,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id=1;
          $post->lang_id = 1;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  1;
+        $event->save();
 
 
          $post = new Post();
@@ -268,6 +331,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id = 2;
          $post->lang_id = 2;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  2;
+        $event->save();
 
          $post = new Post();
          $post->unique_id = 5;
@@ -287,6 +355,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id = 3;
          $post->lang_id = 3;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  3;
+        $event->save();
 
          //post 6X3
          $post = new Post();
@@ -309,6 +382,12 @@ class PostsTableSeeder extends Seeder
          $post->lang_id = 1;
          $post->save();
 
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  1;
+        $event->save();
+
 
          $post = new Post();
          $post->unique_id =6;
@@ -329,6 +408,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id = 5;
          $post->lang_id = 2;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  2;
+        $event->save();
 
          $post = new Post();
          $post->unique_id = 6;
@@ -349,6 +433,11 @@ class PostsTableSeeder extends Seeder
          $post->category_id =6;
          $post->lang_id = 3;
          $post->save();
+         $event = new Event();
+        $event->start_date =  Carbon::parse('21-04-2019');
+        $event->end_date =  Carbon::parse('21-04-2019');
+        $event->lang_id =  3;
+        $event->save();
 
     }
 }

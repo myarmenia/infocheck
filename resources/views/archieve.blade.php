@@ -1,12 +1,12 @@
-@extends('layouts.category_posts')
-@section('posts')
+@extends('layouts.archieve')
+@section('arch_posts')
 
-<div class="postcontent nobottommargin ">
-    <h3 class="h3_omg">{{$data['posts_category']}}</h3>
+ <div class="postcontent nobottommargin ">
+<h3 class="h3_omg">{{$data['date']}}</h3>
     <div class="line line_omg"></div>
     <div class="infinite-scroll fadeInUp animated"  data-animate="fadeInUp">
- @foreach ($data['post_test'] as $item)
-    <div class="col_one_third ">
+ @foreach ($data['posts_archieve'] as $item)
+    <div class="col_one_third bottommargin">
         <div class="feature-box media-box">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
@@ -25,7 +25,7 @@
         </div>
     </div>
  @endforeach
-  {{$data['post_test']->links()}}
+  {{$data['posts_archieve']->links()}}
 </div>
 
 

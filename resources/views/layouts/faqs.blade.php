@@ -24,5 +24,8 @@
     </div>
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
+  <script>
+        $('#textquest').val('');
+   </script>
     </body>
     </html>

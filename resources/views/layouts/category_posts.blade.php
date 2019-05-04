@@ -4,7 +4,7 @@
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl no-transition">
-            @include('../includes.mini_menu' )
+            @include('../includes.mini_menu_for_posts' )
             @include('../includes.main_menu' )
 
 

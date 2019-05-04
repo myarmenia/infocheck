@@ -7,6 +7,7 @@ use App\Category;
 use App\Post;
 use App\Poster;
 use App\Lang;
+use App\Event;
 use Illuminate\Support\Facades\Route;
 
 class IndexController extends Controller
@@ -14,6 +15,7 @@ class IndexController extends Controller
     public function index($locale){
         $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
+        $calendar= Event::event($locale);
         $cat=[];
         $cat_name=[];
         $posts_by_menu=array();
@@ -34,7 +36,7 @@ class IndexController extends Controller
         $main_poster_layout=Poster::get_poster_layout();
         $main_post_big = Post::with('getCategory')->where('status','main')->where('lang_id',$lang_id)->get();
         $main_post_small = Post::with('getCategory')->where('status','published')->where('lang_id',$lang_id)->orderBy('date', 'desc')->limit(4)->get();
-//return $lng;
+ //return $locale;
         $data = array(
             'menu' => $category,
             'posts_by_menu'=>$posts_by_menu,
@@ -42,7 +44,9 @@ class IndexController extends Controller
             'id'=>$cat,
             'big_post'=>$main_post_big[0],
             'small_post'=>$main_post_small,
-            'lng'=>$lng
+            'lng'=>$lng,
+            "event"=> $calendar,
+            'item_id'=>null
 
             );
            // return $data['small_post'][0]->title;
