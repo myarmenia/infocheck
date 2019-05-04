@@ -14,9 +14,17 @@ class Question extends Model
         return $this->morphMany('App\Document', 'documentable');
     }
 
-    public function getQuestionable() {
+    public function questionable() {
         return $this->morphTo();
     }
+
+    public function lang() {
+        return $this->belongsTo('App\Lang');
+    }
+
+
+
+
     public function question() {
         return $this->belongsTo('App\Answer', 'questionable_id', 'id');
     }

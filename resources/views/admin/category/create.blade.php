@@ -13,10 +13,10 @@
 
 {{-- {{$langs}} --}}
 <div class="text-left">
-        <em>
-            <a href="{{ route('admin.category.index', app()->getLocale())}}">Category</a>
-            /Create</em>
-    </div>
+    <em>
+        <a href="{{ route('admin.category.index', app()->getLocale())}}">Category</a>
+        /Create</em>
+</div>
 
 <div class="create-new-category">
     <div class="card">
@@ -85,7 +85,7 @@
                 @if ($loop->first)
                     {{-- This is the first iteration: separated for show as ACTIVE(clicked) --}}
                     <div class="tab-pane fade show active" id="{{$item->lng_name}}" role="tabpanel" aria-labelledby="{{$item->lng}}-tab">
-                        {{$item->lng_name}} Content
+                        {{$item->lng_name}} Content Սարո
 
                         <div class="form-group row">
                             <label for="create-cat-name{{$item->id}}" class="col-sm-3 col-form-label col-form-label-lg text-left">Category Name</label>
@@ -94,10 +94,17 @@
                                 <input type="text" name="name{{$item->id}}" data-lang-id="{{$item->id}}" id="create-cat-name{{$item->id}}" class="form-control new-cat" placeholder="Name in {{$item->lng_name}}">
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label col-form-label-lg text-left">Status (autoset)</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="status{{$item->id}}" data-status="status{{$item->id}}"  class="form-control new-cat" value="1" >
+                            </div>
+                        </div>
                     </div>
                 @else
                     <div class="tab-pane fade" id="{{$item->lng_name}}" role="tabpanel" aria-labelledby="{{$item->lng}}-tab">
-                        {{$item->lng_name}} Content
+                        {{$item->lng_name}} Content Саро Saro
 
                         <div class="form-group row">
                             <label for="create-cat-name{{$item->id}}" class="col-sm-3 col-form-label col-form-label-lg text-left">Category Name</label>
@@ -105,27 +112,36 @@
                                 <input type="text" name="name{{$item->id}}" data-lang-id="{{$item->id}}" id="create-cat-name{{$item->id}}" class="form-control new-cat" placeholder="Name in {{$item->lng_name}}">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label col-form-label-lg text-left">Status (autoset)</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="status{{$item->id}}"  data-status="status{{$item->id}}" class="form-control new-cat" value="1" >
+                            </div>
+                        </div>
                     </div>
                 @endif
                 @endforeach
+                <hr/>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label col-form-label-lg text-left">Item ID (autoset)</label>
                         <div class="col-sm-9">
-                            <input type="text" name="item_id"  class="form-control new-cat" value="{{$new_item_id}}" disabled>
+                            <input type="text" name="item_id"  class="form-control new-cat" value="{{$new_item_id}}" >
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label col-form-label-lg text-left">Position (autoset)</label>
                         <div class="col-sm-9">
-                            <input type="text" name="position"  class="form-control new-cat" value="{{$new_position}}" disabled>
+                            <input type="text" name="position"  class="form-control new-cat" value="{{$new_position}}" >
                         </div>
                     </div>
 
+
+
                     <div class="form-group row">
-                        <label class="col-sm-6 col-form-label col-form-label-lg text-left">Posts Design Of This Category On Main Page</label>
-                        <div class="col-sm-6">
+                        <label class="col-sm-7 col-form-label col-form-label-lg text-left">Posts Design Of This Category-Group On Main Page (layout)</label>
+                        <div class="col-sm-5">
                             <select name="layout" id="cat-create-layout" class="form-control new-cat">
                                 @foreach ($postlayouts as $playout)
                                     <option value="{{$playout->class_name}}">{{$playout->class_name}}</option>
@@ -151,6 +167,9 @@
     </div>
     <!-- .card -->
 
+    <div class="alert alert-info my-3" role="alert">
+        If you want to create translation for exists Item, please, replace "item ID", "Position" and "Layout".
+    </div>
 
 </div>
 

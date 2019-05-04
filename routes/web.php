@@ -44,6 +44,8 @@ Route::group([
 
 
 
+
+
     Auth::routes();
     Auth::routes(['verify'=>true]);
 
@@ -84,5 +86,16 @@ Route::group([
 
         Route::resource('category', 'CategoryController', ['as'=>'admin']);
         Route::post('category/position/update','CategoryController@positionUpdate')->name('admin.category.position.update');
+
+        Route::resource('question', 'QuestionController', ['as' => 'admin']);
+        Route::get('question/post/{q_id}', 'QuestionController@post')->name('admin.question.post');
+
+        Route::resource('post', 'PostController', ['as'=>'admin']);
+        Route::get('post/create/{q_id?}', 'PostController@create')->name('admin.post.create');
+        Route::get('post/translate/{id}', 'PostController@translate')->name('admin.post.translate');
+
+        Route::post('/document/uploadimage', 'DocumentController@uploadimage')->name('admin.document.uploadimage');
+        Route::post('/document/uploadfile', 'DocumentController@uploadfile')->name('admin.document.uploadfile');
+        Route::post('/document/savedocstatus', 'DocumentController@savedocstatus')->name('admin.document.savedocstatus');
 
 });

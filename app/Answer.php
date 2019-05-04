@@ -9,9 +9,11 @@ class Answer extends Model
     protected $fillable = [
         'body'
     ];
-    public function getQuestion() {
+    public function questions() {
         return $this->morphOne('App\Question', 'questionable');
     }
+
+
 
     public function answer() {
         return $this->hasOne('App\Question', 'questionable_id', 'id');

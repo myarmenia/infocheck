@@ -58,7 +58,7 @@
                         </button>
                     </div>
                     <p class="card-text">
-                        Here you can change the position of the Menu item.
+                        Here you can change the position of the Menu items.
                         After that just click the "Save" button.
                     </p>
                     <button type="button" class="btn btn-outline-dark" id="save-cat-positions">Save Items Position</button>
@@ -72,12 +72,12 @@
 
 <div class="cat-crud-section card">
         <div class="table-responsive-md">
-                <h2 class="py-3 text-secondary card-header">Menu Items</h2>
+                <h2 class="py-3 text-secondary card-header">Menu Item Management</h2>
                 <div class="container">
                     <div class="row card-body justify-content-end">
                         <h5 style="margin-top:8px;">Click the button to create a new Menu-item (Category).</h5>
                         <div class="col-3">
-                        <a type="button" class="btn btn-outline-primary" href="{{ route('admin.category.create', app()->getLocale()) }}">Create New</a>
+                        <a type="button" class="btn btn-outline-primary" href="{{ route('admin.category.create', app()->getLocale()) }}" target="_blank">Create New</a>
                         </div>
                     </div>
                 </div>
@@ -85,11 +85,12 @@
 
                     <thead class="thead-dark">
                         <tr>
-                          <th scope="col">Item ID </br>am/en/ru</th>
+                          <th scope="col">Item ID </br>multilang</th>
                           <th scope="col">ID </br>{{app()->getLocale()}}</th>
                           <th scope="col">Name</th>
                           <th scope="col">Position</th>
                           <th scope="col">Layout</th>
+                          <th scope="col">Status</th>
                           <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -102,13 +103,14 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->position}}</td>
                                 <td>{{$item->layout}}</td>
+                                <td>{{$item->status}}</td>
                                 <td>
-                                    <form action="{{ route('admin.category.destroy', ['locale' => app()->getLocale(), $item->item_id ] )}}" method="POST"
-                                        onsubmit="if(confirm('Have you deactivated all posts of this category?')){ return true } else {return false}">
+                                    <form action="{{ route('admin.category.destroy', ['locale' => app()->getLocale(), $item ] )}}" method="POST"
+                                        onsubmit="if(confirm('Are you shure you want to delete it?')){ return true } else {return false}">
                                         @csrf
                                         {{ method_field('DELETE') }}
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a role="button" class="btn btn-primary" id="cat-edit" href="{{route('admin.category.edit',['locale' => app()->getLocale(),$item])}}">Edit</a>
+                                        <a role="button" class="btn btn-primary" id="cat-edit" href="{{route('admin.category.edit',['locale' => app()->getLocale(),$item])}}" target="_blank">Edit</a>
                                         <button role="button" type="submit" class="btn btn-danger" id="cat-delete">Delete</button>
                                     </div>
                                     </form>
@@ -116,7 +118,11 @@
                             </tr>
                         @empty
                             <tr>
-                                <td>No data to show...</td>
+                                <td colspan="7">
+                                    <div class="alert alert-info">
+                                        No data to show.
+                                    </div>
+                                </td>
                             </tr>
                         @endforelse
 

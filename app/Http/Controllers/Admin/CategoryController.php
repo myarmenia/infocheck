@@ -65,18 +65,23 @@ class CategoryController extends Controller
         $position = $data['position'];
         $layout = $data['layout'];
         $item_id = $data['item_id'];
+        // $status = $data['status'];
 
         for ($i=0; $i < count($names); $i++) {
             if (Category::where('name', $names[$i]['name'])->first()) {
                 return response()->json(['data_type'=> gettype($data), 'warning'=>$data]);
             }
-            $category = new Category();
-            $category->item_id = $item_id;
-            $category->name = $names[$i]['name'];
-            $category->position = $position;
-            $category->layout = $layout;
-            $category->lang_id = $names[$i]['lang_id'];
-            $category->save();
+            if ($names[$i]['name']) {
+                $category = new Category();
+                $category->item_id = $item_id;
+                $category->name = $names[$i]['name'];
+                $category->position = $position;
+                $category->layout = $layout;
+                $category->status = $names[$i]['status'];
+                $category->lang_id = $names[$i]['lang_id'];
+                $category->save();
+            }
+
         }
 
 
@@ -124,11 +129,13 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $locale, $id) {
-        //$request-> name and layout
+        //$request-> name, status are individual
         $category = Category::find($id);
         $category->name = $request->name;
+        $category->status = $request->status;
         $category->save();
 
+        // $request->layout is for item-group
         Category::where('item_id', $category->item_id)->update(['layout'=>$request->layout]);
         return redirect()->back()->with('success', 'Category N ' . $id. ' was succesfuly updated');
     }
@@ -139,12 +146,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
+    public function destroy($locale, $id) {
+        $category = Category::find($id);
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category N ' . $id. ' was not found');
+        }
+        else{
+            $category->delete();
+            return redirect()->back()->with('success', 'Category N ' . $id. ' was succesfuly deleted');
+        }
     }
 
     public function positionUpdate(Request $request, $locale) {
-        $categories = Category::latest()->paginate(5);
+        // $categories = Category::latest()->paginate(5);
         $data = $request->all();
         $item_positions = $data['item_positions'];
         for ($i=0; $i < count($item_positions); $i++) {
