@@ -10,14 +10,22 @@ use App\Tag;
 use App\Document;
 use App\Comment;
 use App\User;
+use App\Event;
+use DB;
 
 
 class OpenSinglePost extends Controller
 {
 
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth' ]); //'verified'
+    // }
+
     public function index($locale,$unique_id,$title){
         $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
+        $calendar= Event::event($locale);
         $category=Category::get_category($lang_id);
         $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
         $post=Post::where('lang_id',$lang_id)->where('unique_id',$unique_id)->get();
@@ -25,6 +33,9 @@ class OpenSinglePost extends Controller
         $document=Document::with('documentable')->where('documentable_id',$unique_id)->where('isused',1)->get();
         $id=$post[0]->id;
         $post_tags = Post::find($id)->tagArray;
+        $the_same_posts = Tag::the_same_posts($id,'Post','posts',$lang_id);
+
+       // return  $the_same_posts['posts'];
         $comments=Comment::getComments($id);
 
 
@@ -40,19 +51,35 @@ class OpenSinglePost extends Controller
             'post_tags'=>$post_tags,
             'comments'=>$comments,
             'id'=>$id,
-            'lng'=> $lng
+            'lng'=> $lng,
+            "event"=> $calendar,
+            "the_same_posts"=>$the_same_posts['posts'],
+            'call'=>'single',
+            'unique_id'=>$unique_id,
+            'title'=>$title
+
 
             );
-            return view('single_post',compact('data'));
+            return view( 'single_post' ,compact('data'));
 
     }
 
-    public function add_new_comment(Request $request,$locale,$idd){
+    public function add_comment(Request $request, $locale, $id) {
 
+        if($request->textarea !== null){
+            $comment = new Comment();
+            $comment->body = $request->textarea;
+            $comment->approved = 0;
+            $comment->post_id = $id;
+            $comment->user_id = $request->u_id;
+            $comment->save();
+            return redirect()->back()->with('warning_comment',trans('text.send_comment_ok'));;
 
+        }
+        else{
+            return redirect()->back()->with('warning_comment',trans('text.send_comment_error'));
+        }
 
-
-        return $idd;
 
     }
 }

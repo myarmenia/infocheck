@@ -4,11 +4,16 @@
         @include('../includes.links' )
       </head>
 <body class="stretched device-xl no-transition">
-            @include('../includes.mini_menu' )
+            @include('../includes.mini_menu_for_posts' )
             @include('../includes.main_menu' )
 
 <section id="content">
     <div class="content-wrap">
+
+
+
+
+
             <div class="container clearfix">
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Shortcodes</a></li>
@@ -16,8 +21,13 @@
                     </ol>
             </div>
 
+            {{-- {{dd($data['post'][0]['id'])}} --}}
 
         <div class="container clearfix margin-top-25">
+
+
+
+
             <div class="postcontent nobottommargin clearfix">
                 <div class="single-post nobottommargin">
                         <div class="entry clearfix">
@@ -98,11 +108,11 @@
                         </div>
 
                     <div id="comments" class="clearfix">
-
+                            <h3 id="comments-title" style="display:{{count($data['comments'])>0?'block':'none'}}" >{{trans('text.comments')}}</h3>
                         @isset($data['comments'])
-                    <h3 id="comments-title" style="display:{{count($data['comments'])>0?'block':'none'}}">{{trans('text.comments')}}</h3>
 
-                            <ol class="commentlist clearfix">
+
+                            <ol class="commentlist clearfix" style="display:{{count($data['comments'])>0?'block':'none'}}">
                               @for ($i = 0; $i < count($data['comments']); $i++)
                                 <li class="comment even thread-even depth-1" id="li-comment-1">
                                     <div id="comment-1" class="comment-wrap clearfix">
@@ -127,8 +137,40 @@
                                 </li>
                                 @endfor
                             </ol>
-                            <a href="{{ route('single_post.add_new_comment',['locale'=>app()->getLocale(),'idd'=>$data['id']]) }}" class="btn btn-secondary">{{trans('text.leave_comment')}}</a>
+                          @if (Auth::check())
+                               @if(Auth::user()->hasRole('i_user'))
+                                @if (Auth::user()->hasVerifiedEmail())
 
+                                <form id="add_comment" action="{{ route('single_post.add_comment',
+                                [  'locale'=> app()->getLocale(),
+                                    $data['post'][0]['id']
+                                ] ) }}"  method="POST">
+                                          @csrf
+                                          <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
+                                  <p> <textarea id ='textar' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="Add comment..."></textarea></p>
+
+                                  @if ($message = Session::get('warning_comment'))
+                                  <div class="alert alert-success alert-block fade show">
+                                      <button type="button" class="close" data-dismiss="alert">×</button>
+                                          <strong>{{ $message }}</strong>
+                                  </div>
+                                  @endif
+                                  <button type='submit' class="btn btn-secondary">{{trans('text.leave_comment')}}</button>
+                                </form>
+                                 @else
+                                 <p>{{trans('text.verified')}}</p>
+                                 <a href="{{ route('verification.notice',
+                                 [
+                                     'locale'=> app()->getLocale(),
+                                 ] ) }}" class="btn btn-secondary" target="_blank">{{trans('text.verify')}}</a>
+                                @endif
+                                @endif
+                                 @else
+                                <p>{{trans('text.login_for_comment')}}</p>
+                                <a href="{{ route('login', app()->getLocale()) }}" class="btn btn-secondary" target="_blank">{{trans('text.login')}}</a>
+                                <a href="{{ route('register', app()->getLocale()) }}" class="btn btn-secondary" target="_blank">{{trans('text.register')}}</a>
+
+                                @endif
 
                             @endisset
                         </div>
@@ -146,9 +188,48 @@
          </div>
       </div>
      </section>
+
+     <section id="page-title">
+            @if (count($data['the_same_posts'])>0)
+            <?php $limit=0; ?>
+          <div class="container clearfix mt-5">
+                      <h3 class="h3_omg">{{trans('text.same_posts')}}</h3>
+                      <div class="line line_omg"></div>
+                 @for ($i = 0; $i < count($data['the_same_posts']); $i++)
+                     <?php $limit++; ?>
+                     @if ($limit<=3)
+                     <div class="col_one_third nobottommargin">
+                             <div class="feature-box media-box">
+                                 <div class="fbox-media">
+                        <a href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
+                                     <img class="image_fade" id="{{$data['the_same_posts'][$i]->id}}" src="{{$data['the_same_posts'][$i]->img}}" alt="Image">
+                        </a>
+                                 </div>
+                                 <div class="fbox-desc">
+                                        <a class="own-link-aa{{$data['the_same_posts'][$i]->id}}"  href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
+                                                <h3>{{$data['the_same_posts'][$i]->title}}</h3>
+                                                <p>{!!str_limit($data['the_same_posts'][$i]->short_text , 60)!!} </p>
+                                              </a>
+                                     <ul class="entry-meta clearfix">
+                                         <li><i class="icon-calendar3"> </i> {{ $data['the_same_posts'][$i]->date }}</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                         </div>
+                     @endif
+                 @endfor
+          @endif
+
+
+    </section>
      @include('../includes.footer')
     </div>
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
+
+<script>
+     $('#textar').val('');
+</script>
+
 </body>
 </html>

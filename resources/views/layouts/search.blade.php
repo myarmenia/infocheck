@@ -11,7 +11,7 @@
  <section id="content" style="margin-bottom: 0px;">
     <div class="content-wrap">
         <div class="container clearfix">
-          @yield('tag_posts')
+          @yield('search')
           <div class="sidebar nobottommargin col_last widget_links">
                 <div id="post-lists" class="widget clearfix">
               @include('../includes.most_viewed')
@@ -29,5 +29,19 @@
 
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
+  <script>
+        var searchInput = '{{$data["s"]}}';
+           function displayMatches() {
+            var regex = new RegExp(searchInput, 'gi')
+            $(".search_link, .show_text").each(function(){
+                var a1=$(this).text();
+           var response = a1.replace(regex, function(str) {
+                  return "<span style='background-color: yellow;'>" + str + "</span>"
+             })
+             $(this).html(response)
+                    })
+                    }
+                    setTimeout(displayMatches, 300);
+      </script>
     </body>
     </html>

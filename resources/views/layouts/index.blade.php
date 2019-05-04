@@ -8,6 +8,7 @@
             @include('../includes.main_menu' )
 
      <section id="content" style="margin-bottom: 0px;">
+
               <div class="content-wrap">
                   <div class="container clearfix">
                       <div class="row">
@@ -21,5 +22,6 @@
     </div>
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
+
     </body>
     </html>

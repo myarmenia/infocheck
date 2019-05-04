@@ -39,6 +39,14 @@ class Post extends Model
         ->join('posts', 'categories.id', '=','posts.category_id' )
         ->paginate(6);
         }
+        static function get_archieve($date,$lang_id){
+            return $posts = DB::table('posts')
+            ->where('lang_id',$lang_id)
+            ->where('date',$date)
+            ->where('status','=','published')
+            ->orderByRaw('id DESC')
+            ->paginate(6);
+            }
 
 
 

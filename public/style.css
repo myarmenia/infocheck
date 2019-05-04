@@ -2028,7 +2028,7 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #header.transparent-header:
     opacity: 0;
     z-index: -2;
     position: absolute;
-    width: 280px;
+    width:325px;
     background-color: #fff;
     box-shadow: 0 20px 50px 10px rgba(0, 0, 0, .05);
     border: 1px solid #eee;

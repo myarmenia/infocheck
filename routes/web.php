@@ -29,13 +29,20 @@ Route::group([
         Route::get('/', function () {
             return view('welcome');
         });
-
+    Route::get('/search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+')->name('search');
+    Route::post('/posts/{id}/comment/', 'OpenSinglePost@add_comment')->name('single_post.add_comment');
+    Route::post('/faqs/leave_question', 'ShowAllFaqs@leave_question')->name('leave.question');
     Route::get('/', 'IndexController@index')->name('index_page');
     Route::get('/post/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
     Route::get('/posts/{unique_id}/{title}', 'OpenSinglePost@index')->name('single_post');
-    Route::get('/tags/{tag_name}', 'CurrentTagPosts@index');
+
+    // Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user','verified']);
+
+    Route::get('/tags/{tag_name}', 'CurrentTagPosts@index')->name('tags');
     Route::get('/faqs', 'ShowAllFaqs@index')->name('faqs');
-    Route::get('/posts/comment/{id}', 'OpenSinglePost@add_new_comment')->name('single_post.add_new_comment');
+    Route::get('/archieves/{date}', 'ArchievesController@openArchieve')->name('archieves');
+
+
 
     Auth::routes();
     Auth::routes(['verify'=>true]);
@@ -48,10 +55,10 @@ Route::group([
         return redirect()->route('login', app()->getLocale());
     });
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
-Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user','verified']);
-Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user','verified']);
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
+// Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user','verified']);
+// Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user','verified']);
 });
 
 Route::get('/', function () {
