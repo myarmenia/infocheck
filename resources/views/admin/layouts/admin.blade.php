@@ -19,8 +19,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -93,6 +93,10 @@
             display: none;
         }
 
+        /* posts */
+        .post-list-title-td {
+            max-width: 12rem;
+        }
 
     </style>
 </head>
@@ -110,10 +114,10 @@
             </div>
             <div class="list-group list-group-flush Laravel" id="dash-list">
               <a href="{{ route('admin.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="dashboard">Dashboard</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light" id="questions">Questions</a>
+              <a href="{{ route('admin.question.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="questions">Questions</a>
               <a href="#" class="list-group-item list-group-item-action bg-light" id="answers">Answers</a>
             <a href="{{ route('admin.category.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="categories">Categories</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light" id="posts">Posts</a>
+              <a href="{{ route('admin.post.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="posts">Posts</a>
               <a href="#" class="list-group-item list-group-item-action bg-light" id="comments">Commencts</a>
               <a href="#" class="list-group-item list-group-item-action bg-light" id="users">Users</a>
             </div>
@@ -190,7 +194,7 @@
 
             </nav>
 
-            <div class="container">
+            <div class="container-fluid">
                 <main class="py-4 text-center">
                     @yield('content')
                 </main>
@@ -271,21 +275,27 @@
         jQuery('#create_category').on('click' , function() {
             let allData = {}; // {}
             let names = [];
+            let statuses = [];
             let cat_inputs = jQuery('#langTabContent .new-cat');
+            let i = 0,j = 0;
 
             for (let index = 0; index < cat_inputs.length; index++) {
                 const element = cat_inputs[index];
 
                 if (element.hasAttribute('data-lang-id')) {
-                    // console.log(element);
-                    names[index] = {'name': element.value, 'lang_id' : element.getAttribute('data-lang-id')}
-                    allData['names'] = names
+                    names[i] = {'name': element.value, 'lang_id' : element.getAttribute('data-lang-id')}
+                    allData['names'] = names;
+                    i++;
+                }
+                if (element.hasAttribute('data-status')) {
+                    names[j]['status'] = element.value
+                    j++;
                 }
                 allData[element.name] = element.value;
             }
 
             // console.log(names);
-            // console.log(allData);
+            console.log(allData);
             let url = '{{ route('admin.category.store', app()->getLocale() ) }}';
             $.ajax({
                 type: "POST",

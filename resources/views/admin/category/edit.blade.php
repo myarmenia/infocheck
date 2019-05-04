@@ -57,7 +57,14 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-6 col-form-label col-form-label-lg" >Posts Design Of This Category On Main Page</label>
+                <label for="edit-cat-name" class="col-sm-3 col-form-label col-form-label-lg" >Status</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="status" id="edit-cat-name" value="{{$category->status}}">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label col-form-label-lg" >Posts Design Of This Category On Main Page (layout)</label>
                 @foreach ($postlayouts as $playout)
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="layout" id="pl_{{$playout->id}}" value="{{$playout->class_name}}"
@@ -73,11 +80,12 @@
             <input name="id" type="text" value="{{ $category->id }}" hidden>
             <button type="submit" class="btn btn-outline-dark btn-lg" >Update Category</button>
 
+        </div><!-- End od card-body -->
     </form>
-</div><!-- End od card-body -->
+
 <div class="card-footer">
     <div class="alert alert-info" role="alert">
-    Here you can change Name of current Category and design for posts on Main page of this Category-group!
+    Here you can change Name, Status of current Category and design (layout) for posts on Main page of this Category-group!
     </div>
 </div>
 </div>

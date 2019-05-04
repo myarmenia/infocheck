@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AnswersTableSeeder::class);
 
+        $this->call(DocumentsTableSeeder::class);
+
         $this->call(PostersTableSeeder::class);
 
         $this->call(PostLayoutTableSeeder::class);

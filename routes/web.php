@@ -26,9 +26,10 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => ['localize']
     ], function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
     Route::get('/', 'IndexController@index')->name('index_page');
     Route::get('/post/{category_name}', 'OpenCategoryPosts@index')->name('category_posts');
@@ -36,6 +37,8 @@ Route::group([
     Route::get('/tags/{tag_name}', 'CurrentTagPosts@index');
     Route::get('/faqs', 'ShowAllFaqs@index')->name('faqs');
     Route::get('/posts/comment/{id}', 'OpenSinglePost@add_new_comment')->name('single_post.add_new_comment');
+
+
 
     Auth::routes();
     Auth::routes(['verify'=>true]);
@@ -77,5 +80,16 @@ Route::group([
 
         Route::resource('category', 'CategoryController', ['as'=>'admin']);
         Route::post('category/position/update','CategoryController@positionUpdate')->name('admin.category.position.update');
+
+        Route::resource('question', 'QuestionController', ['as' => 'admin']);
+        Route::get('question/post/{q_id}', 'QuestionController@post')->name('admin.question.post');
+
+        Route::resource('post', 'PostController', ['as'=>'admin']);
+        Route::get('post/create/{q_id?}', 'PostController@create')->name('admin.post.create');
+        Route::get('post/translate/{id}', 'PostController@translate')->name('admin.post.translate');
+
+        Route::post('/document/uploadimage', 'DocumentController@uploadimage')->name('admin.document.uploadimage');
+        Route::post('/document/uploadfile', 'DocumentController@uploadfile')->name('admin.document.uploadfile');
+        Route::post('/document/savedocstatus', 'DocumentController@savedocstatus')->name('admin.document.savedocstatus');
 
 });

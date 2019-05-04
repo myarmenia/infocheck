@@ -26,7 +26,7 @@ class Post extends Model
         return $this->hasMany('App\Comment', 'post_id', 'id');
     }
 
-    public function getQuestion() {
+    public function questions() {
         return $this->morphOne('App\Question', 'questionable');
     }
 
