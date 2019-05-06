@@ -21,9 +21,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- Styles -->
 
+    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{asset('/css/picker.min.css')}}" /> --}}
+    <link rel="stylesheet" href="{{asset('css/amsify.suggestags.css')}}">
     <style>
         body {
         overflow-x: hidden;
@@ -205,6 +207,10 @@
 
     </div>
 
+    <!--picker.min.js: multiselect tags -->
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> --}}
+    {{-- <script src="{{ asset('js/picker.min.js') }}" type="text/javascript"></script> --}}
+    <script src="{{asset('js/jquery.amsify.suggestags.js')}}" type="text/javascript"></script>
 
     <script>
         /* >Global (dashboard) */
@@ -326,15 +332,35 @@
                     }
                 }
             });
-
-
-
-
         })
 
 
+    /* Posts */
+    if (typeof tags !== 'undefined') {
+        if (tags) {
+            $('input[name="tags"]').amsifySuggestags({
+                type : 'amsify',
+                suggestions: tags,
+                afterAdd: function(value) {
+                    console.log('after add all tags are into input ----');
+                    console.log(document.getElementById('tags').value);
+                },
+                afterRemove: function(value) {
+                    // after remove
+                    console.log('after remove all tags are into input ----');
+                    console.log(document.getElementById('tags').value);
+                },
+            });
+        }
+    }
 
-
+    /* prevent Submit on pushing ENTER on CREATION */
+    $('#post_create_form').keydown(function(event) {
+    if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+        }
+    });
 
 
         // $.get("http://localhost:8000/en/admin/category/15/edit/", function(data, status){

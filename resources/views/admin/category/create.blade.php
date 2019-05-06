@@ -96,9 +96,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label col-form-label-lg text-left">Status (autoset)</label>
+                            <label class="col-sm-3 col-form-label col-form-label-lg text-left" for="create-cat-status">Status (autoset)</label>
                             <div class="col-sm-9">
-                                <input type="text" name="status{{$item->id}}" data-status="status{{$item->id}}"  class="form-control new-cat" value="1" >
+                            {{-- <input type="text" name="status{{$item->id}}" data-status="status{{$item->id}}"  class="form-control new-cat" value="1" > --}}
+                            <select name="status{{$item->id}}" data-status="status{{$item->id}}" class="form-control new-cat" id="create-cat-status">
+                                <option value="1" selected>show</option>
+                                <option value="0">hide</option>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -115,7 +119,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label col-form-label-lg text-left">Status (autoset)</label>
                             <div class="col-sm-9">
-                                <input type="text" name="status{{$item->id}}"  data-status="status{{$item->id}}" class="form-control new-cat" value="1" >
+                                {{-- <input type="text" name="status{{$item->id}}"  data-status="status{{$item->id}}" class="form-control new-cat" value="1" > --}}
+                                <select name="status{{$item->id}}" data-status="status{{$item->id}}" class="form-control new-cat" id="create-cat-status">
+                                    <option value="1" selected>show</option>
+                                    <option value="0">hide</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -147,6 +155,33 @@
                                     <option value="{{$playout->class_name}}">{{$playout->class_name}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/A.png')}}" class="card-img-top" alt="A.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class A</h4>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/B.png')}}" class="card-img-top" alt="B.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class B</h4>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/C.png')}}" class="card-img-top" alt="C.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class C</h4>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/D.png')}}" class="card-img-top" alt="D.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class D</h4>
+                            </div>
                         </div>
                     </div>
             </div>

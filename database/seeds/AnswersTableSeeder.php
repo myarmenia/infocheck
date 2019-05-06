@@ -18,7 +18,7 @@ class AnswersTableSeeder extends Seeder
         $answer->save();
 
         $question = Question::find(1);
-        $question->visible = 1;
+        // $question->visible = 1;
         $question->questionable_id = $answer->id;
         $question->questionable_type = Answer::class;
         $question->save();

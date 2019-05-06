@@ -15,7 +15,7 @@ class DocumentController extends Controller
         $folder_name = $request->input('folder_name');
         // return $folder_name;
         $images = $_FILES['images'];
-        $post_id = $request->input('post_id');
+        $post_id = $request->input('unique_id');
         $total = count($_FILES['images']['name']);
         $validImage = ['image/jpg','image/png','image/jpeg','image/pjpeg','image/bmp', 'image/gif', 'image/svg+xml'];
         $imgDebug = [];

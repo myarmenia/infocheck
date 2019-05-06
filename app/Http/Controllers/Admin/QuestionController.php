@@ -62,6 +62,21 @@ class QuestionController extends Controller
         //
     }
 
+    public function resetAnswer(Request $request,$locale, $q_id) {
+
+        $question = Question::find($q_id);
+
+        $type = \str_replace("App\\","",$question->questionable_type);
+        $type_id = $question->questionable_id;
+
+        $question->link = null;
+        $question->questionable_id = null;
+        $question->questionable_type = null;
+        $question->save();
+
+        return redirect()->back()->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
+    }
+
     public function post($locale, $id) {
         return 'For Repliing Select from exists Post-List or create new one by clicking here "create-new-post"';
     }
@@ -101,10 +116,10 @@ class QuestionController extends Controller
      */
     public function update(Request $request,$locale, $id)
     {
-        // return $request->all();
+        // dd($request->all());
         $validator = Validator::make($request->all(),[
-            'body' => 'required|string',
-            'lang_id' => 'required|integer',
+            // 'body' => 'required|string',
+            // 'lang_id' => 'required|integer',
             'visible' => 'required|boolean',
         ]);
 
@@ -113,8 +128,8 @@ class QuestionController extends Controller
             ->withInput()->withErrors($validator);
         }
         $question = Question::find($id);
-        $question->lang_id = $request->lang_id;
-        $question->body = $request->body;
+        // $question->lang_id = $request->lang_id;
+        // $question->body = $request->body;
         $question->visible = $request->visible;
         $question->save();
 

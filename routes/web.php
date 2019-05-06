@@ -89,6 +89,7 @@ Route::group([
 
         Route::resource('question', 'QuestionController', ['as' => 'admin']);
         Route::get('question/post/{q_id}', 'QuestionController@post')->name('admin.question.post');
+        Route::post('question/reset/{q_id}', 'QuestionController@resetAnswer')->name('admin.question.reset');
 
         Route::resource('post', 'PostController', ['as'=>'admin']);
         Route::get('post/create/{q_id?}', 'PostController@create')->name('admin.post.create');

@@ -273,7 +273,7 @@ class PostsTableSeeder extends Seeder
          $lng = $lang->lng;
 
          $question = Question::find(2);
-         $question->visible = 1;
+        //  $question->visible = 1;
          $question->link = 'localhost::8000/'.$lng.'/posts/'.$post->id;
          $question->questionable_id = $post->id;
          $question->questionable_type = Post::class;
