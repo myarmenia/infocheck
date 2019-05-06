@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 
 use App\Lang;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -48,22 +50,38 @@ class PostController extends Controller
         $next_unique_id = $max_unique_id + 1;
 
 
-        $last_id_array = DB::select("SELECT  AUTO_INCREMENT
-                                FROM    information_schema.TABLES
-                                WHERE   (TABLE_NAME = 'posts')");
+        // $last_id_array = DB::select("SELECT  AUTO_INCREMENT
+        //                         FROM    information_schema.TABLES
+        //                         WHERE   (TABLE_NAME = 'posts')");
 
-        $last_id = $last_id_array[0]->AUTO_INCREMENT;
-        // return $last_id;
+        // $last_id = $last_id_array[0]->AUTO_INCREMENT;
+
+        // second cycle, when after uploading files redirect back //
+        $images = Storage::files('public/'.$this->folder_name.'/'.$next_unique_id); // this are images //
+        $imageurls = [];
+        for ($i=0; $i < count($images) ; $i++) {
+            $imageurls[$i]['url'] = Storage::url($images[$i]);
+            $imageurls[$i]['size'] = $size = Storage::size($images[$i]);
+        }
 
 
         $lang_id = Lang::getLangId(app()->getLocale());
+        $categories = Category::where('lang_id', $lang_id)->get();
+        $allTags = Post::getTagsByLangId($lang_id);
+        // return $allTags;
+
         return view('admin.post.create', [
+
             'page_name' => 'posts',
             'langs' => Lang::all(),
             'lang_id' => $lang_id,
             'next_unique_id' => $next_unique_id,
-            'last_id' => $last_id,
             'folder_name' => $this->folder_name,
+            'imageurls' => $imageurls,
+
+            'post' => [],
+            'categories' => $categories,
+            'tags' => $allTags,
             'q_id' => $q_id,
         ]);
 
@@ -80,9 +98,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $locale)
     {
-        //
+        dd($request->all());
     }
 
     /**

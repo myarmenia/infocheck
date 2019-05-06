@@ -57,14 +57,18 @@
             </div>
 
             <div class="form-group row">
-                <label for="edit-cat-name" class="col-sm-3 col-form-label col-form-label-lg" >Status</label>
+                <label for="edit-cat-status" class="col-sm-3 col-form-label col-form-label-lg" >Status /{{app()->getLocale()}}</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="status" id="edit-cat-name" value="{{$category->status}}">
+                    {{-- <input type="text" class="form-control" name="status" id="edit-cat-status" value="{{$category->status}}"> --}}
+                    <select name="status" class="form-control" id="edit-cat-status">
+                        <option value="1" @if($category->status === 1) selected @endif >Show</option>
+                        <option value="0" @if($category->status === 0) selected @endif >Hide</option>
+                    </select>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-6 col-form-label col-form-label-lg" >Posts Design Of This Category On Main Page (layout)</label>
+                <label class="col-sm-6 col-form-label col-form-label-lg" >Posts Design Of This Category-group On Main Page (layout)</label>
                 @foreach ($postlayouts as $playout)
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="layout" id="pl_{{$playout->id}}" value="{{$playout->class_name}}"
@@ -74,6 +78,33 @@
                         <label class="form-check-label" for="pl_{{$playout->id}}">{{$playout->class_name}}</label>
                     </div>
                 @endforeach
+            </div>
+
+            <div class="d-flex">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('/storage/postclasses/A.png')}}" class="card-img-top" alt="A.png">
+                    <div class="card-body">
+                        <h4 class="card-text">class A</h4>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('/storage/postclasses/B.png')}}" class="card-img-top" alt="B.png">
+                    <div class="card-body">
+                        <h4 class="card-text">class B</h4>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('/storage/postclasses/C.png')}}" class="card-img-top" alt="C.png">
+                    <div class="card-body">
+                        <h4 class="card-text">class C</h4>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('/storage/postclasses/D.png')}}" class="card-img-top" alt="D.png">
+                    <div class="card-body">
+                        <h4 class="card-text">class D</h4>
+                    </div>
+                </div>
             </div>
 
             <hr/>

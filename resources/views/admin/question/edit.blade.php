@@ -39,7 +39,7 @@
                             <label for="quest-edit-lng-name" class="col-sm-3 col-form-label col-form-label-lg">Language</label>
                             <div class="col-sm-9">
                                 {{-- <input type="text" class="form-control" id="quest-edit-lng-name" value="{{$lng_name}}" disabled> --}}
-                                <select name="lang_id" id="quest-edit-lng-name" class="form-control">
+                                <select name="lang_id" id="quest-edit-lng-name" class="form-control" disabled>
                                     @foreach ($langs as $item)
                                     <option value="{{$item->id}}"
                                         @if ($item->id === $question->lang_id)
@@ -57,7 +57,7 @@
                             <label for="quest-edit-body" class="col-sm-3 col-form-label col-form-label-lg">Body</label>
                             <div class="col-sm-9">
                                 {{-- <input type="text" class="form-control" id="edit-cat-lng-name" value="{{$question->body}}" > --}}
-                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control">
+                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control" disabled>
                                     {{$question->body}}
                                 </textarea>
                             </div>
@@ -66,9 +66,15 @@
                         <div class="form-group row">
                             <label for="quest-edit-visible" class="col-sm-3 col-form-label col-form-label-lg" >Visible (answered)</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="visible" id="quest-edit-visible" value="{{$question->visible}}">
+                                <select name="visible" id="quest-edit-visible" class="form-control">
+                                    <option value="1" @if ($question->visible) selected @endif>Show</option>
+                                    <option value="0" @if (!$question->visible) selected @endif>Hide</option>
+                                </select>
                             </div>
                         </div>
+
+
+
 
                         <hr/>
                         <button type="submit" class="btn btn-outline-dark btn-lg" >Update Question</button>
@@ -82,13 +88,20 @@
             @if ($question->questionable_id)
             <div class="alert alert-success" role="alert">
 
+                <form action="{{route('admin.question.reset',[
+                    'locale' => app()->getLocale(),
+                    $question
+                ])}}" method="POST">
+                @csrf
                     @if (preg_match('/Answer$/', $question->questionable_type))
                     <h4>Replied by Answer N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return alert('will reset answer')">Reset Replied Answer</button>
+                    <button class="btn btn-outline-danger" onclick="return confirm('will reset answer')?true:false">Reset Replied Answer</button>
                     @else
                     <h4>Replied by Post N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return alert('will reset post')">Reset Replied Post</button>
+                    <button class="btn btn-outline-danger" onclick="return confirm('will reset post')?true:false">Reset Replied Post</button>
                     @endif
+
+                </form>
 
             </div>
             @endif

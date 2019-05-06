@@ -6,8 +6,10 @@
 
 <ol class="commentlist clearfix">
 
-    @for ($i = 0; $i < count($data['question']); $i++)
-<li class="comment even thread-even depth-1" id="li-comment-1">
+
+
+@for ($i = 0; $i < count($data['question']); $i++)
+    <li class="comment even thread-even depth-1" id="li-comment-1">
         <div id="comment-1" class="comment-wrap clearfix">
         <div class="comment-meta">
         <div class="comment-author vcard">
@@ -31,7 +33,8 @@
         <img alt="" src="http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G" class="avatar avatar-40 photo" height="40" width="40"></span>
         </div>
         </div>
-        @if (count($data['question'][$i]['question'])>0)
+        {{-- @if (count($data['question'][$i]['question'])>0) --}}
+        @if ($data['question'][$i]->question()->exists())
         <div class="comment-content clearfix">
                 <div class="comment-author"><a href="#" rel="external nofollow" class="url">Icheck</a><span><a href="#" title="Permalink to this comment">{{$data['question'][$i]['question']->created_at}}</a></span></div>
                 <p>{{$data['question'][$i]['question']->body}}</p>
