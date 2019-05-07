@@ -207,17 +207,18 @@
 
     </div>
 
-    <!--picker.min.js: multiselect tags -->
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> --}}
-    {{-- <script src="{{ asset('js/picker.min.js') }}" type="text/javascript"></script> --}}
-    <script src="{{asset('js/jquery.amsify.suggestags.js')}}" type="text/javascript"></script>
+  <!-- CKEditor init -->
+  <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
+
+  <!-- tagging system -->
+  <script src="{{asset('js/jquery.amsify.suggestags.js')}}" type="text/javascript"></script>
 
     <script>
         /* >Global (dashboard) */
         /* Menu Toggle Script */
         $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("toggled");
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
         });
 
         /* highlight active menu-item */
@@ -335,32 +336,50 @@
         })
 
 
-    /* Posts */
-    if (typeof tags !== 'undefined') {
-        if (tags) {
-            $('input[name="tags"]').amsifySuggestags({
-                type : 'amsify',
-                suggestions: tags,
-                afterAdd: function(value) {
-                    console.log('after add all tags are into input ----');
-                    console.log(document.getElementById('tags').value);
-                },
-                afterRemove: function(value) {
-                    // after remove
-                    console.log('after remove all tags are into input ----');
-                    console.log(document.getElementById('tags').value);
-                },
-            });
+        /* Posts */
+        if (typeof tags !== 'undefined') {
+            if (tags) {
+                $('input[name="tags"]').amsifySuggestags({
+                    type : 'amsify',
+                    suggestions: tags,
+                    afterAdd: function(value) {
+                        console.log('after add all tags are into input ----');
+                        console.log(document.getElementById('tags').value);
+                    },
+                    afterRemove: function(value) {
+                        // after remove
+                        console.log('after remove all tags are into input ----');
+                        console.log(document.getElementById('tags').value);
+                    },
+                });
+            }
         }
-    }
 
-    /* prevent Submit on pushing ENTER on CREATION */
-    $('#post_create_form').keydown(function(event) {
-    if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-        }
-    });
+        /* prevent Submit on pushing ENTER on CREATION */
+        $('#post_create_form').keydown(function(event) {
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+
+
+        jQuery(document).ready(function() {
+            let short_text = document.getElementById('short_text');
+            let html_code = document.getElementById('html_code');
+            if (typeof short_text !== 'undefined') {
+                CKEDITOR.replace('short_text', { height: 150 });
+            }
+
+            if (typeof html_code !== 'undefined') {
+                CKEDITOR.replace('html_code', { height: 150 });
+            }
+
+        })
+
+
+
+
 
 
         // $.get("http://localhost:8000/en/admin/category/15/edit/", function(data, status){

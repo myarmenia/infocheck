@@ -8,7 +8,10 @@
 
 @section('content')
 
-@include('admin.common.errors')
+{{-- @include('admin.common.errors') --}}
+<!-- here Errors and imgDebug -->
+@include('admin.common.imgMessages')
+@include('admin.common.oneerror')
 @include('admin.common.success')
 
 <div class="text-left">
@@ -21,7 +24,6 @@
     <h3 class="card-header">Create new Post N-{{$next_unique_id}}</h3>
 
 
-    @include('admin.common.imgMessages')
     @isset($tags)
         <script>
         let tags = @json($tags);
@@ -70,12 +72,12 @@
         @csrf
 
 
-        <h4 class="bg-light text-left p-2 border rounded">Content/{{app()->getLocale()}}</h4>
+        <h4 class="bg-light text-left p-2 border rounded">Content/ <code>{{app()->getLocale()}}</code> </h4>
 
         <div class="form-group row">
             <label for="post-create-category" class="col-sm-2 col-form-label col-form-label-lg text-left">Category</label>
             <div class="col-sm-10">
-                <select name="category" id="post-create-category" class="form-control new-cat">
+                <select name="category_id" id="post-create-category" class="form-control new-cat">
                     @foreach ($categories as $item)
                         <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
@@ -134,8 +136,10 @@
             </div>
         </div>
 
-        <input type="text" name="view" value="0" id="create-post-view" class="form-control new-post" hidden>
-        <input type="text" name="lang_id" value="{{$lang_id}}" id="create-post-lang_id" class="form-control new-post" hidden>
+        <!-- hidden inputs -->
+        <input type="text" name="view" value="0" hidden>
+        <input type="text" name="lang_id" value="{{$lang_id}}" hidden>
+        <input type="text" name="unique_id" value="{{$next_unique_id}}" hidden>
 
         <div class="form-group row">
             <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Date</label>
@@ -150,6 +154,7 @@
                 <select name="status" id="post-create-status" class="form-control new-cat">
                     <option value="published">published</option>
                     <option value="unpublished">unpublished</option>
+                    <option value="main">main</option>
                 </select>
             </div>
         </div>
@@ -157,12 +162,12 @@
         <div class="form-group row">
             <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Tags</label>
             <div class="col-sm-10">
-                <input type="text" name="tags" value="" id="tags" placeholder="Select or Add tags in current Post-language">
+                <input type="text" name="tags" value="" id="tags" placeholder='Select or Add tags'>
             </div>
         </div>
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary btn-lg">Primary</button>
+            <button type="submit" class="btn btn-primary btn-lg">Create</button>
         </div>
         </form>
 

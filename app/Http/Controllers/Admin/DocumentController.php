@@ -28,7 +28,7 @@ class DocumentController extends Controller
                     $path = Storage::disk('public')->putFileAs($folder_name.'/'.$post_id, new File($_FILES['images']['tmp_name'][$i]), $_FILES['images']['name'][$i]);
                     $path2 = Storage::disk('upload')->putFileAs($folder_name.'/'.$post_id, new File($_FILES['images']['tmp_name'][$i]), $_FILES['images']['name'][$i]);
                     $imgDebug['success'][$i]['path'] = Storage::url($path);
-                    $imgDebug['success'][$i]['size'] = $_FILES['images']['size'][$i];;
+                    $imgDebug['success'][$i]['size'] = $_FILES['images']['size'][$i];
                 }
                 else{
                     $imgDebug['errors'][$i]['message'] =  $_FILES['images']['name'][$i] . ' has not proper type! -> '.$_FILES['images']['type'][$i];

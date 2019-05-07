@@ -7,15 +7,18 @@ use App\Http\Controllers\Controller;
 
 use App\Lang;
 use App\Post;
+use App\Event;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
 
     protected $folder_name = 'posts';
     protected $validImageExp = ['jpg','png','jpeg','pjpeg','bmp', 'gif', 'svg'];
+    /*  Admin-connection: mysql_admin */
 
 
     /**
@@ -29,7 +32,8 @@ class PostController extends Controller
         // dd($post->questions()->exists());
 
         $lang_id = Lang::getLangId(app()->getLocale());
-        $posts = Post::where('lang_id', $lang_id)->with('getCategory')->orderBy('id', 'desc')->paginate(10);
+        $posts = Post::where('lang_id', $lang_id)->with('getCategory', 'lang')->orderBy('id', 'desc')->paginate(10);
+        // dd($posts);
         return view('admin.post.index', [
             'page_name' => 'posts',
             'langs' => Lang::all(),
@@ -89,7 +93,38 @@ class PostController extends Controller
     }
 
     public function translate($locale ,$id) {
-        return 'Here we will creating new Post as translation for Post N-'.$id;
+        $post = Post::with('getCategory')->find($id);
+        // dd($post->getCategory()->first()->item_id);
+        $lang_id = Lang::getLangId(app()->getLocale());
+
+        $categories = Category::where('lang_id',$lang_id)->get();
+        $allTags = Post::getTagsByLangId($lang_id);
+
+        $images = Storage::files('public/'.$this->folder_name.'/'.$post->unique_id); // this are images //
+        $imageurls = [];
+        for ($i=0; $i < count($images) ; $i++) {
+            $imageurls[$i]['url'] = Storage::url($images[$i]);
+            $imageurls[$i]['size'] = $size = Storage::size($images[$i]);
+        }
+
+
+
+        // return 'Here we will creating new Post as translation for Post N-'.$id;
+        return view('admin.post.translate',[
+            'page_name' => 'posts',
+            'langs' => Lang::all(),
+            'lang_id' => $lang_id,
+
+            'next_unique_id' => $post->unique_id,
+            'folder_name' => $this->folder_name,
+            'imageurls' => $imageurls,
+
+            'currentPost' => $post,
+            'post' => [],
+            'categories' => $categories,
+            'tags' => $allTags,
+
+        ]);
     }
 
     /**
@@ -100,7 +135,87 @@ class PostController extends Controller
      */
     public function store(Request $request, $locale)
     {
-        dd($request->all());
+
+        $validator = Validator::make($request->all(),[
+            'category_id' => 'required|integer',
+            'title' => 'required|string',
+            'short_text' => 'required|string',
+            'html_code' => 'required|string',
+            'img' => 'required|string',
+            'meta_k' => 'required|string',
+            'meta_d' => 'required|string',
+            'view' => 'required|integer',
+            'lang_id' => 'required|integer',
+            'unique_id' => 'required|integer',
+            'date' => 'required|date',
+            'status' => 'required|string',
+            'tags' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
+        $post_exists = Post::where('unique_id',$request->unique_id)->where('lang_id',$request->lang_id)->first();
+        if ($post_exists) {
+            $language = $post_exists->lang()->get()->toArray();
+            $lng_name = $language[0]['lng_name'];
+            return redirect()->back()->with('oneerror', 'Post with Unique ID = '.$request->unique_id. ' in '.$lng_name . ' already exists.');
+        }
+
+        $post = Post::on('mysql_admin')->create($request->all()); // work fine +
+        $post_id = $post->id;
+        $unique_id = $post->unique_id;
+        $language = $post->lang()->get()->toArray();
+        $lng_name = $language[0]['lng_name'];
+
+
+        // return redirect()->back()->with('success', 'New Post pi-'.$post_id.' ui-'.$unique_id.' was created successfuly');
+
+        // store tags into taggable_tags
+        if ($request->input('tags')) {
+
+            $tagsString = $request->tags;
+            $tagsArray = explode(",",$tagsString);
+
+            $post->tag($tagsArray);
+
+            for ($i=0; $i < count($tagsArray); $i++) {
+                DB::connection('mysql_admin')->table('taggable_tags')
+                ->where('name', $tagsArray[$i])
+                ->update(['lang_id' => $request->input('lang_id') ]);
+            }
+        }
+
+
+
+        // save as event to show into Calendar
+        Event::checkAndSaveIfNotExists($request->input('date'), $request->input('lang_id'));
+
+        // update lang_id into taggable_taggables
+        DB::connection('mysql_admin')->table('taggable_taggables')
+        ->where('taggable_type', 'App\\Post')
+        ->where('taggable_id', $post_id)
+        ->update(['lang_id' => $request->input('lang_id') ]);
+
+
+
+        // check and replace other posts with status = "main"
+        if($post->status == 'main') {
+            $mainPosts = Post::where('status','=', 'main')->where('lang_id','=',$post->lang_id)->get();
+            // return $mainPosts;
+            if(count($mainPosts) > 1) {
+                foreach ($mainPosts as $key => $mainPost) {
+                   if($mainPost->id != $post->id) {
+                       Post::on('mysql_admin')->find($mainPost->id)->update(['status' => 'published']);
+                   }
+                }
+            }
+        }
+
+        return redirect()->back()->with('success', 'Post with Unique-ID = '.$unique_id.' in '.$lng_name.' was successfuly created!');
+
+
     }
 
     /**

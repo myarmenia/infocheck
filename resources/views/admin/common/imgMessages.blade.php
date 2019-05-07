@@ -1,10 +1,12 @@
 @if (count($errors) > 0)
 <div class="alert alert-danger">
-    <h4>Errors:</h4>
-    <ul>
-    @foreach ($errors->messages() as $key => $value)
-        <li style="font-size:15px">{{ $key . ' --> '. $value[0] }}</li>
-    @endforeach
+    <h4>
+        <strong> Woops! Something went wrong.</strong>
+    </h4>
+    <ul class="list-group list-group-flush">
+        @foreach ($errors->messages() as $key => $value)
+            <li class="list-group-item">{{ $key . ' --> '. $value[0] }}</li>
+        @endforeach
     </ul>
 </div>
 @endif

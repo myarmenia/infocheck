@@ -80,10 +80,30 @@
 
                                         @if (app\Post::where('unique_id', $item->unique_id)->count() !== count($langs))
                                         <!-- Translate button -->
-                                            <a href="{{route('admin.post.translate', ['locale'=> app()->getLocale(),'id'=>$item->id])}}"
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupTrans" type="button" class="btn btn-outline-primary px-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-globe"></i>
+                                            </button>
+                                            <div class="dropdown-menu py-0" aria-labelledby="btnGroupTrans">
+                                            <div class="list-group">
+                                                @foreach ($langs as $lezu)
+
+                                                    @if (!app\Post::where('unique_id', $item->unique_id)->where('lang_id', $lezu->id)->first())
+                                                        <a href="{{route('admin.post.translate',['locale' =>$lezu->lng,'id'=>$item->id])}}" class="text-center" target="_blank">
+                                                            {{$lezu->lng_name}}
+                                                        </a>
+                                                    @endif
+
+                                                @endforeach
+
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                            {{-- <a href="{{route('admin.post.translate', ['locale'=> app()->getLocale(),'id'=>$item->id])}}"
                                                 class="btn btn-outline-primary px-1" role="button" title="translate">
                                                 <i class="fas fa-globe"></i>
-                                            </a>
+                                            </a> --}}
                                         @endif
                                         <a href="" class="btn btn-outline-primary px-1" role="button">
                                             <i class="fas fa-paperclip"></i>
