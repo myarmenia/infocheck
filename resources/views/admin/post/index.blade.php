@@ -78,8 +78,9 @@
                                         @csrf
                                         @method('DELETE')
 
-                                        @if (app\Post::where('unique_id', $item->unique_id)->count() !== count($langs))
                                         <!-- Translate button -->
+                                        @if (app\Post::where('unique_id', $item->unique_id)->count() !== count($langs))
+
                                         <div class="btn-group" role="group">
                                             <button id="btnGroupTrans" type="button" class="btn btn-outline-primary px-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-globe"></i>
@@ -95,24 +96,27 @@
                                                     @endif
 
                                                 @endforeach
-
                                             </div>
                                             </div>
                                         </div>
 
-                                            {{-- <a href="{{route('admin.post.translate', ['locale'=> app()->getLocale(),'id'=>$item->id])}}"
-                                                class="btn btn-outline-primary px-1" role="button" title="translate">
-                                                <i class="fas fa-globe"></i>
-                                            </a> --}}
+                                        {{-- <a href="{{route('admin.post.translate', ['locale'=> app()->getLocale(),'id'=>$item->id])}}"
+                                            class="btn btn-outline-primary px-1" role="button" title="translate">
+                                            <i class="fas fa-globe"></i>
+                                        </a> --}}
                                         @endif
-                                        <a href="" class="btn btn-outline-primary px-1" role="button">
-                                            <i class="fas fa-paperclip"></i>
-                                            <i class="far fa-comments"></i>
+                                        <a href="{{route('admin.post.relationship', ['locale' => app()->getLocale(),'id'=>$item->id ])}}"
+                                            class="btn btn-outline-primary px-2" role="button" title="documents, comments, questions" target="_blank">
+                                                <i class="fas fa-paperclip"></i>
+                                            @if ($item->getComments()->exists())
+                                                <i class="far fa-comments"></i>
+                                            @endif
+
                                             @if ($item->questions()->exists())
-                                            <i class="far fa-question-circle"></i>
+                                                <i class="far fa-question-circle"></i>
                                             @endif
                                         </a>
-                                        <a href="" class="btn btn-outline-primary px-2" role="button">
+                                        <a href="{{route('admin.post.edit', ['locale' => app()->getLocale(),'id'=>$item->id ])}}" class="btn btn-outline-primary px-2" role="button" target="_blank">
                                             <i class="fas fa-pen-nib"></i>
                                         </a>
                                         <button type="submit" class="btn btn-danger px-2" role="button"><i class="fas fa-trash-alt"></i></button>
@@ -132,6 +136,13 @@
                             </tr>
                         @endforelse
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="9">
+                                {{$posts->links()}}
+                            </td>
+                        </tr>
+                    </tfoot>
             </table>
             </div>
     </div>

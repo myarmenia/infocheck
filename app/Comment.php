@@ -13,6 +13,10 @@ class Comment extends Model
         return $this->belongsTo('App\Post');
     }
 
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
     static function getComments($post_id){
 
         return $comments = DB::table('comments as c')

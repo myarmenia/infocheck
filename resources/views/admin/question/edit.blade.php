@@ -57,9 +57,7 @@
                             <label for="quest-edit-body" class="col-sm-3 col-form-label col-form-label-lg">Body</label>
                             <div class="col-sm-9">
                                 {{-- <input type="text" class="form-control" id="edit-cat-lng-name" value="{{$question->body}}" > --}}
-                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control" disabled>
-                                    {{$question->body}}
-                                </textarea>
+                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control" disabled>{{$question->body}}</textarea>
                             </div>
                         </div>
 
@@ -107,9 +105,9 @@
             @endif
 
 
-            <div class="alert alert-primary" role="alert">
+            {{-- <div class="alert alert-primary" role="alert">
                 Choose a language within the meaning of the sentence!
-            </div>
+            </div> --}}
         </div>
 </div>
 

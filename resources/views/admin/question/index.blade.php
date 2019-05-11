@@ -9,12 +9,13 @@
 @section('content')
 
 @include('admin.common.errors')
+@include('admin.common.oneerror')
 @include('admin.common.success')
 
 
     <div class="quest-list-section card">
             <div class="table-responsive-md">
-                <h2 class="py-3 text-secondary card-header">This is Question section.</h2>
+                <h2 class="py-3 text-secondary card-header">Question Management.</h2>
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -48,7 +49,7 @@
                                     @if (preg_match('/Answer$/', $item->questionable_type))
                                         <a href="" class="btn btn-outline-primary" role="button">show Answer</a>
                                     @else
-                                        <a href="{{route('admin.post.show', ['locale'=>app()->getLocale(), 'id'=>$item->questionable_id])}}" class="btn btn-primary" role="button" target="_blank">Show Post</a>
+                                        <a href="{{route('admin.post.show', ['locale'=>app()->getLocale(), 'id'=>$item->questionable_id])}}" class="btn btn-outline-primary" role="button" target="_blank">Show Post</a>
                                     @endif
 
 

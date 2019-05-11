@@ -16,6 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -26,6 +28,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="{{asset('/css/picker.min.css')}}" /> --}}
     <link rel="stylesheet" href="{{asset('css/amsify.suggestags.css')}}">
+
     <style>
         body {
         overflow-x: hidden;
@@ -208,10 +211,12 @@
     </div>
 
   <!-- CKEditor init -->
+  {{-- <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script> --}}
   <script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
 
   <!-- tagging system -->
   <script src="{{asset('js/jquery.amsify.suggestags.js')}}" type="text/javascript"></script>
+
 
     <script>
         /* >Global (dashboard) */
@@ -355,8 +360,22 @@
             }
         }
 
-        /* prevent Submit on pushing ENTER on CREATION */
+        /* prevent Submit on pushing ENTER on CREATION/TRANSLATE/UPDATE forms */
         $('#post_create_form').keydown(function(event) {
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+
+        $('#post_trans_form').keydown(function(event) {
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+            }
+        });
+
+        $('#post_update_form').keydown(function(event) {
         if(event.keyCode == 13) {
             event.preventDefault();
             return false;
@@ -367,17 +386,30 @@
         jQuery(document).ready(function() {
             let short_text = document.getElementById('short_text');
             let html_code = document.getElementById('html_code');
-            if (typeof short_text !== 'undefined') {
+            if (short_text !== null) {
                 CKEDITOR.replace('short_text', { height: 150 });
             }
-
-            if (typeof html_code !== 'undefined') {
+            if (html_code !== null) {
                 CKEDITOR.replace('html_code', { height: 150 });
             }
-
         })
 
 
+        function getStatusChangeValue(event) {
+            // alert(event.target.checked);
+            let id  = event.target.getAttribute('name');
+            let inp = document.getElementById(`${id}`);
+            if(event.target.checked) {
+                inp.setAttribute('value', 1);
+                console.log(inp);
+                // alert(event.target.getAttribute('value'));
+            }else{
+
+                inp.setAttribute('value', 0);
+                console.log(inp);
+                // alert(event.target.getAttribute('value'));
+            }
+        }
 
 
 

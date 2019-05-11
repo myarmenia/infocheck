@@ -14,23 +14,23 @@
 @include('admin.common.oneerror')
 @include('admin.common.success')
 
+@isset($tags)
+    <script>
+        let tags = @json($tags);
+        console.log(tags);
+    </script>
+@endisset
+
 <div class="text-left">
     <em>
         <a href="{{ route('admin.post.index', app()->getLocale())}}">Posts</a>
-        /translate</em>
+        /{{$post_id}}/translate</em>
 </div>
 
 <div class="create-post-section card">
-    <h3 class="card-header">translate Post N-{{$next_unique_id}} / <code>{{app()->getLocale()}}</code> </h3>
-
-
-    @isset($tags)
-        <script>
-        let tags = @json($tags);
-        console.log(tags);
-        </script>
-    @endisset
-
+    <h3 class="card-header">
+        Translate Post N-{{$post_id}}/{{$next_unique_id}}/<code>{{app()->getLocale()}}</code>
+    </h3>
 
     <div class="card-body">
         <form action="{{route('admin.document.uploadimage', app()->getLocale())}}" method="POST" enctype="multipart/form-data">
@@ -68,111 +68,110 @@
         </table>
         @endisset
 
-        <form action="{{route('admin.post.store', app()->getLocale())}}" method="POST" id="post_create_form">
+        <form action="{{route('admin.post.store', app()->getLocale())}}" method="POST" id="post_trans_form">
         @csrf
 
+            <h4 class="bg-light text-left p-2 border rounded">Content/ <code>{{app()->getLocale()}}</code> </h4>
 
-        <h4 class="bg-light text-left p-2 border rounded">Content/ <code>{{app()->getLocale()}}</code> </h4>
-
-        <div class="form-group row">
-            <label for="post-create-category" class="col-sm-2 col-form-label col-form-label-lg text-left">Category</label>
-            <div class="col-sm-10">
-                <select name="category_id" id="post-create-category" class="form-control new-cat">
-                    @foreach ($categories as $item)
-                        @if ($item->item_id === $currentPost->getCategory()->first()->item_id)
-                        <option value="{{$item->id}}" selected>{{$item->name}}</option>
-                        @else
-                        <option value="{{$item->id}}">{{$item->name}}</option>
-                        @endif
-                    @endforeach
-                </select>
+            <div class="form-group row">
+                <label for="post-create-category" class="col-sm-2 col-form-label col-form-label-lg text-left">Category</label>
+                <div class="col-sm-10">
+                    <select name="category_id" id="post-create-category" class="form-control new-cat">
+                        @foreach ($categories as $item)
+                            @if ($item->item_id === $currentPost->getCategory()->first()->item_id)
+                            <option value="{{$item->id}}" selected>{{$item->name}}</option>
+                            @else
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-unique" class="col-sm-2 col-form-label col-form-label-lg text-left">Unique</label>
-            <div class="col-sm-10">
-                <input type="text" name="unique_id" id="create-post-unique" class="form-control new-post" value="{{$next_unique_id}}" disabled>
+            <div class="form-group row">
+                <label for="create-post-unique" class="col-sm-2 col-form-label col-form-label-lg text-left">Unique</label>
+                <div class="col-sm-10">
+                    <input type="text" name="unique_id" id="create-post-unique" class="form-control new-post" value="{{$next_unique_id}}" disabled>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-titile" class="col-sm-2 col-form-label col-form-label-lg text-left">Title</label>
-            <div class="col-sm-10">
-                <input type="text" name="title" id="create-post-titile" class="form-control new-post" placeholder="Post title">
+            <div class="form-group row">
+                <label for="create-post-titile" class="col-sm-2 col-form-label col-form-label-lg text-left">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" id="create-post-titile" class="form-control new-post" placeholder="Post title">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="short_text" class="col-sm-2 col-form-label col-form-label-lg text-left">Short text</label>
-            <div class="col-sm-10">
-                <textarea type="text" name="short_text" id="short_text" class="form-control new-post" rows="5">
-                </textarea>
+            <div class="form-group row">
+                <label for="short_text" class="col-sm-2 col-form-label col-form-label-lg text-left">Short text</label>
+                <div class="col-sm-10">
+                    <textarea type="text" name="short_text" id="short_text" class="form-control new-post" rows="5">
+                    </textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="html_code" class="col-sm-2 col-form-label col-form-label-lg text-left">HTML code</label>
-            <div class="col-sm-10">
-                <textarea type="text" name="html_code" id="html_code" class="form-control new-post" rows="5">
-                </textarea>
+            <div class="form-group row">
+                <label for="html_code" class="col-sm-2 col-form-label col-form-label-lg text-left">HTML code</label>
+                <div class="col-sm-10">
+                    <textarea type="text" name="html_code" id="html_code" class="form-control new-post" rows="5">
+                    </textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-image" class="col-sm-2 col-form-label col-form-label-lg text-left">Post image</label>
-            <div class="col-sm-10">
-                <input type="text" name="img" id="create-post-image" class="form-control new-post" value="{{$currentPost->img}}">
+            <div class="form-group row">
+                <label for="create-post-image" class="col-sm-2 col-form-label col-form-label-lg text-left">Post image</label>
+                <div class="col-sm-10">
+                    <input type="text" name="img" id="create-post-image" class="form-control new-post" value="{{$currentPost->img}}">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-meta-k" class="col-sm-2 col-form-label col-form-label-lg text-left">Meta-keys</label>
-            <div class="col-sm-10">
-                <input type="text" name="meta_k" id="create-post-meta-k" class="form-control new-post" placeholder="this,post,about,....">
+            <div class="form-group row">
+                <label for="create-post-meta-k" class="col-sm-2 col-form-label col-form-label-lg text-left">Meta-keys</label>
+                <div class="col-sm-10">
+                    <input type="text" name="meta_k" id="create-post-meta-k" class="form-control new-post" placeholder="this,post,about,....">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-meta-d" class="col-sm-2 col-form-label col-form-label-lg text-left">Meta-description</label>
-            <div class="col-sm-10">
-                <input type="text" name="meta_d" id="create-post-meta-d" class="form-control new-post" placeholder="this post about ....">
+            <div class="form-group row">
+                <label for="create-post-meta-d" class="col-sm-2 col-form-label col-form-label-lg text-left">Meta-description</label>
+                <div class="col-sm-10">
+                    <input type="text" name="meta_d" id="create-post-meta-d" class="form-control new-post" placeholder="this post about ....">
+                </div>
             </div>
-        </div>
 
-        <!-- hidden inputs -->
-        <input type="text" name="view" value="0" hidden>
-        <input type="text" name="lang_id" value="{{$lang_id}}" hidden>
-        <input type="text" name="unique_id" value="{{$next_unique_id}}" hidden>
+            <!-- hidden inputs -->
+            <input type="text" name="view" value="0" hidden>
+            <input type="text" name="lang_id" value="{{$lang_id}}" hidden>
+            <input type="text" name="unique_id" value="{{$next_unique_id}}" hidden>
 
-        <div class="form-group row">
-            <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Date</label>
-            <div class="col-sm-10">
-                <input type="date" name="date" id="create-post-date" class="form-control new-post" value="{{$currentPost->date}}">
+            <div class="form-group row">
+                <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Date</label>
+                <div class="col-sm-10">
+                    <input type="date" name="date" id="create-post-date" class="form-control new-post" value="{{$currentPost->date}}">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="post-create-status" class="col-sm-2 col-form-label col-form-label-lg text-left">Status</label>
-            <div class="col-sm-10">
-                <select name="status" id="post-create-status" class="form-control new-cat">
-                    <option value="published" @if($currentPost->status === 'published') selected @endif>published</option>
-                    <option value="unpublished" @if($currentPost->status === 'unpublished') selected @endif>unpublished</option>
-                    <option value="main" @if($currentPost->status === 'main') selected @endif>main</option>
-                </select>
+            <div class="form-group row">
+                <label for="post-create-status" class="col-sm-2 col-form-label col-form-label-lg text-left">Status</label>
+                <div class="col-sm-10">
+                    <select name="status" id="post-create-status" class="form-control new-cat">
+                        <option value="published" @if($currentPost->status === 'published') selected @endif>published</option>
+                        <option value="unpublished" @if($currentPost->status === 'unpublished') selected @endif>unpublished</option>
+                        <option value="main" @if($currentPost->status === 'main') selected @endif>main</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Tags</label>
-            <div class="col-sm-10">
-                <input type="text" name="tags" value="" id="tags" placeholder='Select or Add tags'>
+            <div class="form-group row">
+                <label for="create-post-date" class="col-sm-2 col-form-label col-form-label-lg text-left">Tags</label>
+                <div class="col-sm-10">
+                    <input type="text" name="tags" value="" id="tags" placeholder='Select or Add tags'>
+                </div>
             </div>
-        </div>
 
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary btn-lg">Create</button>
-        </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-lg">Create</button>
+            </div>
         </form>
 
     </div>
