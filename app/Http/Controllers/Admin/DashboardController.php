@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
 
           $layout = $request->layout;
-          $posters = Poster::all();
+          $posters = Poster::on('mysql_admin')->get(); // all() not work with on()
           foreach($posters as $poster) {
               if ($poster->layout === $layout) {
                   $poster->status = 1;

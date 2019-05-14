@@ -93,10 +93,12 @@
                 @csrf
                     @if (preg_match('/Answer$/', $question->questionable_type))
                     <h4>Replied by Answer N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return confirm('will reset answer')?true:false">Reset Replied Answer</button>
+                    <button class="btn btn-outline-danger"
+                    onclick="return confirm('Do you want to reset answer (Answer will be deleted)')?true:false">Reset Replied Answer</button>
                     @else
                     <h4>Replied by Post N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return confirm('will reset post')?true:false">Reset Replied Post</button>
+                    <button class="btn btn-outline-danger"
+                    onclick="return confirm('Do you want to reset post from question')?true:false">Reset Replied Post</button>
                     @endif
 
                 </form>

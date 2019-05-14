@@ -21,6 +21,8 @@ class CreateCommentsTable extends Migration
             $table->foreign('post_id')->references('id')->on('posts');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('lang_id')->unsigned();
+            $table->foreign('lang_id')->references('id')->on('langs');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Question;
 use App\Lang;
 use App\Post;
+use App\Answer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,7 +22,8 @@ class QuestionController extends Controller
     {
         $lang_id = Lang::getLangId(app()->getLocale());
         // $questions = Question::where('lang_id', $lang_id)->with('questionable','user','lang')->get();
-        $questions = Question::where('lang_id', $lang_id)->with('user', 'getDocuments')->paginate(10);
+        $questions = Question::where('lang_id', $lang_id)->with('user', 'getDocuments')
+        ->orderBy('id', 'DESC')->paginate(10);
         // dd($questions);
 
         return view('admin.question.index', [
@@ -65,7 +67,7 @@ class QuestionController extends Controller
 
     public function resetReply(Request $request,$locale, $q_id) {
 
-        $question = Question::find($q_id);
+        $question = Question::on('mysql_admin')->find($q_id);
 
         $type = \str_replace("App\\","",$question->questionable_type);
         $type_id = $question->questionable_id;
@@ -76,7 +78,13 @@ class QuestionController extends Controller
         $question->visible = 0;
         $question->save();
 
-        return redirect()->back()->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
+        if ($type ==='Answer') {
+            $answer = Answer::on('mysql_admin')->find($type_id);
+            $answer->delete();
+        }
+
+        return redirect()->route('admin.question.index', $locale)
+        ->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
     }
 
     public function post($locale, $q_id) {
@@ -111,8 +119,8 @@ class QuestionController extends Controller
         $lang = Lang::find($post->lang_id);
         $lng = $lang->lng;
 
-        $question = Question::find($quest_id);
-        $question->link = 'posts/'.$post->unique_id.'/'. urlencode($post->title); // localhost::8000/'.$lng.
+        $question = Question::on('mysql_admin')->find($quest_id);
+        $question->link = 'posts/'.$post->unique_id.'/'. urlencode($post->title); // localhost::8000/'.$lng.'/posts/'
         $question->questionable_id = $post->id;
         $question->questionable_type = Post::class;
         $question->save();
@@ -167,7 +175,7 @@ class QuestionController extends Controller
             return redirect()->back()
             ->withInput()->withErrors($validator);
         }
-        $question = Question::find($id);
+        $question = Question::on('mysql_admin')->find($id);
         // $question->lang_id = $request->lang_id;
         // $question->body = $request->body;
         $question->visible = $request->visible;

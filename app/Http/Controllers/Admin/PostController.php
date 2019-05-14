@@ -245,10 +245,10 @@ class PostController extends Controller
 
         // Has Answer
         if ($request->input('q_id')) {
-            $question = Question::find($request->input('q_id'));
+            $question = Question::on('mysql_admin')->find($request->input('q_id'));
             $question->questionable_id = $post_id;
             $question->questionable_type = Post::class;
-            $question->link = 'localhost::8000/'.$language[0]['lng'].'/posts/'.$unique_id.'/'.urlencode($post->title);
+            $question->link = 'posts/'.$unique_id.'/'.urlencode($post->title); // 'localhost::8000/'.$language[0]['lng'].'/posts/'
             $question->save();
             return redirect()->route('admin.post.index', $language[0]['lng'])
             ->with('success', 'Post №-'.$post_id.' in '.$lng_name.' was successfuly created!<br> Question №-'.$question->id.'replied too.');

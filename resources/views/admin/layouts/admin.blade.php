@@ -118,13 +118,13 @@
 
             </div>
             <div class="list-group list-group-flush Laravel" id="dash-list">
-              <a href="{{ route('admin.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="dashboard">Dashboard</a>
-              <a href="{{ route('admin.question.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="questions">Questions</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light" id="answers">Answers</a>
-            <a href="{{ route('admin.category.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="categories">Categories</a>
-              <a href="{{ route('admin.post.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="posts">Posts</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light" id="comments">Commencts</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light" id="users">Users</a>
+                <a href="{{ route('admin.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="dashboard">Dashboard</a>
+                <a href="{{ route('admin.question.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="questions">Questions</a>
+                <a href="{{ route('admin.answer.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="answers">Answers</a>
+                <a href="{{ route('admin.category.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="categories">Categories</a>
+                <a href="{{ route('admin.post.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="posts">Posts</a>
+                <a href="{{route('admin.comment.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="comments">Commencts</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="users">Users</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper End -->

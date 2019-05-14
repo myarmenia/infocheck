@@ -18,6 +18,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 1;
         $comment->user_id = 3;
+        $comment->lang_id = 1;
         $comment->save();
 
         $comment = new Comment();
@@ -25,6 +26,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 1;
         $comment->user_id = 3;
+        $comment->lang_id = 1;
         $comment->save();
 
         $comment = new Comment();
@@ -32,6 +34,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 1;
         $comment->user_id = 3;
+        $comment->lang_id = 1;
         $comment->save();
 
 
@@ -41,6 +44,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 2;
         $comment->user_id = 3;
+        $comment->lang_id = 2;
         $comment->save();
 
         $comment = new Comment();
@@ -48,6 +52,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 2;
         $comment->user_id = 3;
+        $comment->lang_id = 2;
         $comment->save();
 
         $comment = new Comment();
@@ -55,6 +60,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 2;
         $comment->user_id = 3;
+        $comment->lang_id = 2;
         $comment->save();
 
 
@@ -64,6 +70,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 3;
         $comment->user_id = 3;
+        $comment->lang_id = 3;
         $comment->save();
 
         $comment = new Comment();
@@ -71,6 +78,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 3;
         $comment->user_id = 3;
+        $comment->lang_id = 3;
         $comment->save();
 
         $comment = new Comment();
@@ -78,6 +86,7 @@ class CommentsTableSeeder extends Seeder
         $comment->approved = 1;
         $comment->post_id = 3;
         $comment->user_id = 3;
+        $comment->lang_id = 3;
         $comment->save();
 
     }

@@ -14,8 +14,9 @@
 
 
     <div class="quest-list-section card">
+        <h3 class="py-3 text-secondary card-header">Question Management.</h3>
+        <div class="card-body">
             <div class="table-responsive-md">
-                <h2 class="py-3 text-secondary card-header">Question Management.</h2>
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -47,7 +48,7 @@
                                 <div class="text-success">replied</div>
                                 <div class="btn-group">
                                     @if (preg_match('/Answer$/', $item->questionable_type))
-                                        <a href="" class="btn btn-outline-primary" role="button">show Answer</a>
+                                        <a href="{{route('admin.answer.edit',['locale'=>app()->getLocale(), 'id'=>$item->questionable_id])}}" class="btn btn-outline-primary" role="button" target="_blank">show Answer</a>
                                     @else
                                         <a href="{{route('admin.post.show', ['locale'=>app()->getLocale(), 'id'=>$item->questionable_id])}}" class="btn btn-outline-primary" role="button" target="_blank">Show Post</a>
                                     @endif
@@ -71,7 +72,7 @@
                                             <div class="dropdown-menu py-0" aria-labelledby="btnGroupReply">
                                                 <div class="list-group">
                                                     <a  href="{{ route('admin.question.post',['locale'=>app()->getLocale(),  'q_id'=>$item->id]) }}" class="btn btn-outline-success" role="button" target="_blank"> Post</a>
-                                                    <a class="btn btn-outline-success" role="button" href="#"> Answer</a>
+                                                    <a href="{{route('admin.answer.create',['locale'=>app()->getLocale(), 'q_id'=>$item->id])}}" class="btn btn-outline-success" role="button" target="_blank"> Answer</a>
                                                 </div>
                                             </div>
                                             <a href="{{ route('admin.question.edit',['locale'=>app()->getLocale(),$item]) }}" class="btn btn-outline-info" role="button" target="_blank">
@@ -106,6 +107,7 @@
                     </tfoot>
                 </table>
             </div>
+        </div>
 
     </div>
 
