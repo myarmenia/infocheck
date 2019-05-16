@@ -18,13 +18,17 @@ class OpenCategoryPosts extends Controller
         $cat_name=Category::where('item_id',$category_item_id)->where('lang_id',$lang_id)->get();
         $category_name=$cat_name[0]->name;
         $calendar= Event::event($locale);
-     // return $category_name;
         $post_test=Post::get_cur_posts($category_name, $lang_id);
         $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
-        //return $post_test;
         $posts=Category::with('get_category_posts')->where('name',$category_name)->get();
         $name=$posts[0]->name;
- //return $category;
+        if(count($post_test)>0){
+            $not_found = 'found';
+        }
+        else{
+            $not_found = trans('text.not_find');
+
+        }
         $data = array(
             'menu' => $category,
             'posts_category'=>$name,
@@ -33,10 +37,12 @@ class OpenCategoryPosts extends Controller
             'lng'=>$lng,
             "event"=> $calendar,
             'item_id'=>$category_item_id,
-            'call'=>'category_item_id'
+            'call'=>'category_item_id',
+            'not_found'=>$not_found
 
             );
-            return view('category_posts',compact('data'));
+
+        return view('category_posts',compact('data'));
 
     }
 }

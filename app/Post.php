@@ -37,7 +37,7 @@ class Post extends Model
         ->orderByRaw('date DESC')
         ->select('*')
         ->join('posts', 'categories.id', '=','posts.category_id' )
-        ->paginate(6);
+        ->paginate(3);
     }
 
     static function get_archieve($date,$lang_id){
@@ -57,6 +57,14 @@ class Post extends Model
         }
         return $allTags;
     }
+
+    static function update_view_count($post_id) {
+
+        $update = DB::update('update posts set view = view +1 where id = ?', [$post_id]);
+               return $update;
+    }
+
+
 
 
 

@@ -6,17 +6,17 @@
                     <div class="col_one_third">
                         <div class="widget clearfix">
                             <div class="copyrights-menu copyright-links clearfix">
-                                <a href="#">Home</a>/ <a href="#">About Us</a>
+                                <a href="{{url(app()->getLocale().'/')}}">{{trans('text.home')}} </a>/ <a href="{{url(app()->getLocale().'/about')}}">{{trans('text.about_us')}} </a>
+
                             </div>
 
                             <div style="background: url('/images/world-map.png') no-repeat center center; background-size: 100%;">
                                 <address>
-                                    <strong> Armenia, Yerevan,</strong><br>
-                                    M. Mashtots Avenue, Sarmena 1<br>
+                                    <strong>{{trans('text.address1')}} </strong><br>
+                                    {{trans('text.address2')}}<br>
                                 </address>
-                                <abbr title="Phone Number"><strong>Phone:</strong></abbr> +374 60 48 87 14<br>
-                                <abbr title="Fax"><strong>Fax:</strong></abbr> +374 60 48 87 14<br>
-                                <abbr title="Email Address"><strong>Email:</strong></abbr> info@infocheck.am
+                                <abbr title="{{trans('text.second_icon_text')}}"><strong>{{trans('text.second_icon_text')}}:</strong></abbr> +374 60 48 87 14<br>
+                                <abbr title="{{trans('text.email')}}"><strong> {{trans('text.email')}}:</strong></abbr> info@infocheck.am
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="{{trans('text.third_icon_text')}}">
                                 <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">Subscribe</button>
+                                <button class="btn btn-success" type="submit">{{trans('text.subscribe')}}</button>
                                 </div>
                             </div>
                         </form>
@@ -48,8 +48,8 @@
         <div id="copyrights">
             <div class="container clearfix">
                 <div class="col_half">
-                    Copyrights © 2019 All Rights Reserved by InfoCheck.<br>
-                    <div class="copyright-links"> Developed by <a href="https://web-ex.tech/"> Webex Tech LLC  </a> </div>
+                        InfoCheck © <?php echo date("Y"); ?> {{trans('text.footer_reserved')}}.<br>
+                    <div class="copyright-links"> {{trans('text.footer_second')}} <a href="https://web-ex.tech/" target="_blank">{{trans('text.footer_webex')}}  </a> </div>
                 </div>
                 <div class="col_half col_last tright">
                     <div class="fright clearfix">
@@ -61,30 +61,24 @@
                             <i class="icon-twitter"></i>
                             <i class="icon-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon si-small si-borderless si-gplus">
-                            <i class="icon-gplus"></i>
-                            <i class="icon-gplus"></i>
-                        </a>
-                        <a href="#" class="social-icon si-small si-borderless si-pinterest">
-                            <i class="icon-pinterest"></i>
-                            <i class="icon-pinterest"></i>
-                        </a>
-                        <a href="#" class="social-icon si-small si-borderless si-vimeo">
-                            <i class="icon-vimeo"></i>
-                            <i class="icon-vimeo"></i>
-                        </a>
-                        <a href="#" class="social-icon si-small si-borderless si-github">
-                            <i class="icon-github"></i>
-                            <i class="icon-github"></i>
-                        </a>
-                        <a href="#" class="social-icon si-small si-borderless si-yahoo">
-                            <i class="icon-yahoo"></i>
-                            <i class="icon-yahoo"></i>
-                        </a>
                         <a href="#" class="social-icon si-small si-borderless si-linkedin">
                             <i class="icon-linkedin"></i>
                             <i class="icon-linkedin"></i>
                         </a>
+                        <a href="#" class="social-icon si-small si-borderless si-vk">
+                            <i class="icon-vk"></i>
+                            <i class="icon-vk"></i>
+                        </a>
+
+                        <a href="#" class="social-icon si-small si-borderless si-odnoklassniki">
+                            <i class="icon-odnoklassniki"></i>
+                            <i class="icon-odnoklassniki"></i>
+                        </a>
+                        <a href="#" class="social-icon si-small si-borderless si-instagram">
+                            <i class="icon-instagram"></i>
+                            <i class="icon-instagram"></i>
+                        </a>
+
                     </div>
                     <div class="clear"></div>
                     <i class="icon-envelope2"></i> info@infocheck.am <span class="middot">·</span> <i class="icon-headphones"></i> +374 60 48 87 14 <span class="middot"></span>

@@ -17,6 +17,7 @@
                   </div>
                       @yield('posts_by_cat')
               </div>
+              @include('../includes.question_icon')
      </section>
      @include('../includes.footer')
     </div>

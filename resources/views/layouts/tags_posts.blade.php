@@ -11,7 +11,16 @@
  <section id="content" style="margin-bottom: 0px;">
     <div class="content-wrap">
         <div class="container clearfix">
+                @if ($data['not_found'] === 'found')
           @yield('tag_posts')
+          @else
+
+          <div class="postcontent nobottommargin ">
+               <h3 class="h3_omg">{{trans('text.posts')}}</h3>
+               <div class="line line_omg"></div>
+               <span>{{$data['not_found']}}</span>
+          </div>
+                   @endif
           <div class="sidebar nobottommargin col_last widget_links">
                 <div id="post-lists" class="widget clearfix">
               @include('../includes.most_viewed')

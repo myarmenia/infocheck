@@ -4785,7 +4785,8 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     display: flex;
     padding-left: 0;
     list-style: none;
-    border-radius: .25rem
+    border-radius: .25rem;
+    display:none
 }
 
 .page-link {
@@ -5620,7 +5621,10 @@ button.close {
     border: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none
+    appearance: none;
+    position: relative;
+    z-index: 120;
+    bottom: 12px;
 }
 
 a.close.disabled {

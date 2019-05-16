@@ -188,6 +188,12 @@
         border-bottom: 1px solid #eee
     }
 
+    .postcontent{
+        min-height: 200px
+    }
+    #post-lists {
+        position: relative;
+    }
     .sidebar.col_last {
         float: none;
         margin-bottom: 0 !important;
@@ -766,7 +772,7 @@
     }
 
     .responsive-sticky-header #primary-menu > .container > ul, .responsive-sticky-header #primary-menu > ul {
-        margin-bottom: 20px !important
+        /* margin-bottom: 20px !important */
     }
 
     .responsive-sticky-header:not(.static-sticky) #side-panel-trigger, .responsive-sticky-header:not(.static-sticky) #top-cart, .responsive-sticky-header:not(.static-sticky) #top-search a {
@@ -1126,6 +1132,9 @@
 }
 
 @media (max-width: 767.98px) {
+    .height-317px {
+        height: auto;
+    }
     .breadcrumb.breadcrumb_omg {
         position: absolute !important;
         width: auto !important;
@@ -1954,7 +1963,7 @@
 .scw-switcher-wrap, .scw-trigger-icon {
     position: fixed;
     left: auto;
-    background-color: #fff
+    background-color: #2a365e;
 }
 
 .scw-trigger-icon {
@@ -1978,19 +1987,19 @@
 }
 
 .scw-switcher-wrap {
-    top: 120px;
-    right: 25px;
+    top: 60vh;
+    right: 21px;
     padding: 23px;
-    width: 0;
-    height: 0;
-    border: 1px solid rgba(0, 0, 0, .09);
-    border-radius: 3px;
-    box-shadow: 0 13px 42px 11px rgba(0, 0, 0, .05);
+    /* width: 0; */
+    /* height: 0; */
+    border: 3px solid rgb(249, 249, 249);
+    border-radius: 114px;
+    box-shadow: 0 0px 13px 11px rgba(125, 40, 40, 0.2);
     z-index: 9999;
-    overflow: hidden;
+    /* overflow: hidden; */
     -webkit-transition: all .45s ease;
     -o-transition: all .45s ease;
-    transition: all .45s ease
+    transition: all .45s ease;
 }
 
 .scw-switcher-wrap.scw-switcher-open {
@@ -2000,6 +2009,38 @@
     overflow-y: scroll
 }
 
+.quick-contact-widget.scw-switcher-open {
+    width: 300px;
+    height: fit-content;
+    padding: 25px 25px;
+    /* overflow-y: scroll; */
+    background-color: #f7f7f7;
+    border-radius: 43px;
+}
+.widget-own.own{
+    display: none;
+    opacity: 0;
+    top: 0vh;
+    right: 5px;
+    /* padding: 23px; */
+    /* border-radius: 114px; */
+    z-index: 9999;
+    /* overflow: hidden; */
+    -webkit-transition: all .45s ease;
+    -o-transition: all .45s ease;
+    transition: all .45s ease;
+    box-shadow: 0 0px 0px 3px rgb(108, 117, 125);
+    text-align: center;
+}
+.widget-own.own.open{
+
+     opacity: 1;
+
+}
+.widget-own {
+    position: fixed;
+    margin-top: 50px;
+}
 .scw-switcher-wrap .widget {
     margin: 0
 }

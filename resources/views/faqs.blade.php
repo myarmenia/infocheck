@@ -14,7 +14,7 @@
         <div class="comment-meta">
         <div class="comment-author vcard">
         <span class="comment-avatar clearfix">
-        <img alt="" src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60" class="avatar avatar-60 photo avatar-default" height="60" width="60"></span>
+        <img alt="" src="{{$data['question'][$i]['user']->avatar !== null ? $data['question'][$i]['user']->avatar: '/storage/profiles/default.png'}}" class="avatar avatar-60 photo avatar-default" height="60" width="60"></span>
         </div>
         </div>
         <div class="comment-content clearfix">
@@ -30,7 +30,7 @@
         <div class="comment-meta">
         <div class="comment-author vcard">
         <span class="comment-avatar clearfix">
-        <img alt="" src="http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G" class="avatar avatar-40 photo" height="40" width="40"></span>
+        <img alt="" src="/images/admin.png"   class="avatar avatar-40 photo" height="40" width="40"></span>
         </div>
         </div>
         {{-- @if (count($data['question'][$i]['question'])>0) --}}
@@ -43,7 +43,7 @@
         @else
         <div class="comment-content clearfix">
                 <div class="comment-author"><a href="#" rel="external nofollow" class="url">Icheck</a><span><a href="#" title="Permalink to this comment">{{$data['question'][$i]->created_at}}</a></span></div>
-                <p><a href='{{url(app()->getLocale().'/'.$data['question'][$i]->link)}}'>{{$data['question'][$i]->link}} </a></p>
+                <p><a href='{{url(app()->getLocale().'/'.$data['question'][$i]->link)}}'>{{$data['question'][$i]['post']->title.'/'.$data['question'][$i]['post']->date}} </a></p>
 
                 </div>
         @endif
@@ -66,8 +66,9 @@
            @csrf
    <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
    <input type="text" name="folder_name" value="questions" hidden>
-   <p> <textarea id ='textquest' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="Ask question..."></textarea></p>
+   <p> <textarea id ='textquest' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="{{trans('text.add_q')}}"></textarea></p>
    <div class="form-group">
+   <label><span style="font-size: 11px">{{trans('text.zip')}}</span></label>
         <input type="file" class="form-control-file"   name="files[]" id="files" multiple>
 
         </div>

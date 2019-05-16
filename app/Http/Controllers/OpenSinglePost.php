@@ -23,6 +23,7 @@ class OpenSinglePost extends Controller
     // }
 
     public function index($locale,$unique_id,$title){
+
         $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
         $calendar= Event::event($locale);
@@ -32,6 +33,10 @@ class OpenSinglePost extends Controller
         $load_all_tags=Tag::load_all_tags($lang_id);
         $document=Document::with('documentable')->where('documentable_id',$unique_id)->where('isused',1)->get();
         $id=$post[0]->id;
+        $cat_id=$post[0]->category_id;
+        $link=Category::with('category_name')->where('id',$cat_id)->get();
+        $view= Post::update_view_count($id);
+
         $post_tags = Post::find($id)->tagArray;
         $the_same_posts = Tag::the_same_posts($id,'Post','posts',$lang_id);
 
@@ -39,7 +44,6 @@ class OpenSinglePost extends Controller
         $comments=Comment::getComments($id);
 
 
- //return $id;
 
   //return $load_all_tags;
         $data = array(
@@ -56,7 +60,8 @@ class OpenSinglePost extends Controller
             "the_same_posts"=>$the_same_posts['posts'],
             'call'=>'single',
             'unique_id'=>$unique_id,
-            'title'=>$title
+            'title'=>$title,
+            'breadcrumb'=>$link[0]
 
 
             );

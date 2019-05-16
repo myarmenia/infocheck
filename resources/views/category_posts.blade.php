@@ -4,17 +4,18 @@
 <div class="postcontent nobottommargin ">
     <h3 class="h3_omg">{{$data['posts_category']}}</h3>
     <div class="line line_omg"></div>
-    <div class="infinite-scroll fadeInUp animated"  data-animate="fadeInUp">
+    {{-- fadeInUp animated"  data-animate="fadeInUp" --}}
+    <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
-    <div class="col_one_third ">
-        <div class="feature-box media-box">
+    <div class="col_one_third hov nobottommargin height-317px" >
+        <div class="feature-box media-box hov-hi">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
-                      <img id="{{$item->id}}" src="{{$item->img}}" alt="image"  class="image_fade">
+                      <img src="{{$item->img}}" alt="image"  class="image_fade">
          </a>
                     </div>
             <div class="fbox-desc">
-              <a class="own-link-aa{{$item->id}}"  href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
+              <a   href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
                 <h3>{{$item->title}}</h3>
                 <p>{!!str_limit($item->short_text , 80)!!} </p>
               </a>
@@ -25,7 +26,7 @@
         </div>
     </div>
  @endforeach
-  {{$data['post_test']->links()}}
+ {{$data['post_test']->links()}}
 </div>
 
 

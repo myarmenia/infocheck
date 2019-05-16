@@ -35,7 +35,7 @@ return[
  "all_posts"=>"All Posts",
  "contact_title"=>"Contact Us",
  "first_icon_text"=>"VISIT OUR OFFICE",
- "second_icon_text"=>"PHONE",
+ "second_icon_text"=>"Phone",
  "third_icon_text"=>"E-mail address",
  "minute"=>"m.",
  "announcements" =>"Announcements",
@@ -66,5 +66,16 @@ return[
  "about_us_first_icon_text" => "Posts",
  "about_us_second_icon_text" => "Auhors",
  "about_us_third_icon_text" => "View",
- "nodata"=>"Nothing to found"
+ "nodata"=>"Nothing to found",
+ "not_find"=>'There are no articles in this section yet.',
+ "close"=>'Close',
+ "add_q"=>'Add question ...',
+ "add_c"=>'Add comment ...',
+ "subscribe"=>'Subscribe',
+ "address1"=>'Armenia, Yerevan,',
+ "address2"=>'M. Mashtots Avenue, Sarmena 1',
+ "zip"=>'To attach multiple files, please attach in .zip format'
+
+
+
 ];

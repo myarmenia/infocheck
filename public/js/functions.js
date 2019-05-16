@@ -1,4 +1,18 @@
+var wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: false,
+    live: true
+});
+$(window).imagesLoaded(function () {
+    wow.init();
+});
+
+
+
 var $ = jQuery.noConflict();
+// var tt = $('#post-lists').attr('top');
 function debounce(e, t, a) {
     var i, s, o, n, r;
     return function () {
@@ -1400,11 +1414,17 @@ var SEMICOLON = SEMICOLON || {};
         }
     }, SEMICOLON.documentOnResize = {
         init: function () {
+
 			if($(window).outerWidth()<= 991){
 				$("#post-lists").attr("style","position:relative")
 			}
 			else{
-			$("#post-lists").attr("style","position:fixed")
+
+            $("#post-lists").attr("style","position:fixed")
+           // $("#post-lists").addClass('own')
+            // var tt = $(window).height();
+          // $("#post-lists").css({top: (tt+100) / 10 + "px"})
+
 			}
 
             setTimeout(function () {
@@ -1425,8 +1445,15 @@ var SEMICOLON = SEMICOLON || {};
                 void 0 !== s && (t = t - s - 1)
             } else t = Number(i); else $header.hasClass("sticky-style-2") || $header.hasClass("sticky-style-3") ? "undefined" === t && (t = e) : t = e;
             SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), $window.on("scroll", function () {
-
-                SEMICOLON.initialize.goToTopScroll(), $("body.open-header.close-header-on-scroll").removeClass("side-header-open"), SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), SEMICOLON.header.logo()
+             if ($('#post-lists').offset() !== undefined){
+                if($(window).scrollTop()>150){
+                    $('#post-lists').offset().top > 200? $("#post-lists").css({top: "12vh"}):$("#post-lists").css({top:( $(window).scrollTop()*30)/100 + "px"})
+                }
+                else{
+                    $("#post-lists").css({top: "30vh"})
+                }
+            }
+           SEMICOLON.initialize.goToTopScroll(), $("body.open-header.close-header-on-scroll").removeClass("side-header-open"), SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), SEMICOLON.header.logo()
             }), window.addEventListener("scroll", onScrollSliderParallax, !1), $onePageMenuEl.length > 0 && ($().scrolled ? $window.scrolled(function () {
 
 				SEMICOLON.header.onepageScroller()

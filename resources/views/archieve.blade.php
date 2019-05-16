@@ -4,10 +4,12 @@
  <div class="postcontent nobottommargin ">
 <h3 class="h3_omg">{{$data['date']}}</h3>
     <div class="line line_omg"></div>
-    <div class="infinite-scroll fadeInUp animated"  data-animate="fadeInUp">
+    <div class="infinite-scroll">
+        <?php $i=0;?>
  @foreach ($data['posts_archieve'] as $item)
-    <div class="col_one_third bottommargin">
-        <div class="feature-box media-box">
+
+    <div class="col_one_third hov bottommargin height-317px not-animated" data-animate="fadeInUp"  data-delay="{{$i+=50}}">
+        <div class="feature-box media-box hov-hi">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
                       <img id="{{$item->id}}" src="{{$item->img}}" alt="image"  class="image_fade">

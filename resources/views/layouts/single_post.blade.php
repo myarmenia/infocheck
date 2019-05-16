@@ -1,23 +1,72 @@
 <html dir="ltr" lang="en-US">
     <head>
         <title>InfoCheck</title>
-        @include('../includes.links' )
+        @include('../includes.links_for_single_post')
+
+  <meta property="og:url"           content="{{url(app()->getLocale().'/posts/'.$data['post'][0]->unique_id.'/'.urlencode($data['post'][0]->title))}}" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="{{$data['post'][0]->title}}" />
+  <meta property="og:description"   content="{!!str_limit($data['post'][0]->short_text, 80)!!}"/>
+  <meta property="og:image"         content="{{$data['post'][0]->img}}" />
+
       </head>
 <body class="stretched device-xl no-transition">
+
+
+        <script>
+                !function (d, id, did, st, title, description, image) {
+                  var js = d.createElement("script");
+                  js.src = "https://connect.ok.ru/connect.js";
+                  js.onload = js.onreadystatechange = function () {
+                  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+                    if (!this.executed) {
+                      this.executed = true;
+                      setTimeout(function () {
+                        OK.CONNECT.insertShareWidget(id,did,st, title, description, image);
+                      }, 0);
+                    }
+                  }};
+                  d.documentElement.appendChild(js);
+                }(document,"ok_shareWidget",document.URL,'{"sz":20,"st":"rounded","nc":1,"ck":2,"lang":"en"}',"THIS IS A STANDARD POST WITH A PREVIEW IMAGE","Integer posuere erat a ante venenatis dapibus posuere velit aliquet.","https://omegacoding.com/infocheck/images/services/1.jpg");
+                </script>
+
+                <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+
+
+                <div id="fb-root"></div>
+                <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: hy_AM</script>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hy_AM/sdk.js#xfbml=1&version=v3.3&appId=161407021204454&autoLogAppEvents=1"></script>
+                <script>window.twttr = (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+                  if (d.getElementById(id)) return t;
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+
+                  t._e = [];
+                  t.ready = function(f) {
+                    t._e.push(f);
+                  };
+
+                  return t;
+                }(document, "script", "twitter-wjs"));</script>
+
+
+
+
+
+
             @include('../includes.mini_menu_for_posts' )
             @include('../includes.main_menu' )
 
 <section id="content">
     <div class="content-wrap">
-
-
-
-
-
             <div class="container clearfix">
                     <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Shortcodes</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Forms</li>
+                    <li class="breadcrumb-item"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$data['post'][0]->title}}</li>
                     </ol>
             </div>
 
@@ -31,14 +80,14 @@
             <div class="postcontent nobottommargin clearfix">
                 <div class="single-post nobottommargin">
                         <div class="entry clearfix">
-                                <div class="entry-title">
+                                <div class="entry-title" style="position: absolute;top: 18px;">
                                 <h2>{{$data['post'][0]->title}}</h2>
                                 </div>
                                 <ul class="entry-meta clearfix">
                                 <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
                                 </ul>
                                 <div class="entry-image">
-                                <a href="#"><img src="/images/services/1.jpg" alt="Blog Single"></a>
+                                <a href="#"><img src="{{$data['post'][0]->img}}" alt="Blog Single"></a>
                                 </div>
                                 <div class="entry-content notopmargin">
                                     <div>
@@ -76,32 +125,38 @@
                                         <div class="clear"></div>
 
                                         <div class="si-share noborder clearfix">
-                                        {{-- <span>{{trans('text.hodvac')}}</span> --}}
-                                        <div>
-                                        <a href="#" class="social-icon si-borderless si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                        </a>
-                                        <a href="#" class="social-icon si-borderless si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                        </a>
-                                        <a href="#" class="social-icon si-borderless si-pinterest">
-                                        <i class="icon-pinterest"></i>
-                                        <i class="icon-pinterest"></i>
-                                        </a>
-                                        <a href="#" class="social-icon si-borderless si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                        </a>
-                                        <a href="#" class="social-icon si-borderless si-rss">
-                                        <i class="icon-rss"></i>
-                                        <i class="icon-rss"></i>
-                                        </a>
-                                        <a href="#" class="social-icon si-borderless si-email3">
-                                        <i class="icon-email3"></i>
-                                        <i class="icon-email3"></i>
-                                        </a>
+                                        		<div>
+
+					<div style="float:left">
+				<script type="text/javascript"><!--
+				document.write(VK.Share.button(false,{type: "link", text: "Share", image: 'https://vk.com/images/icons/like_widget.png', style:'margin:12px'
+				}));
+				--></script>
+					</div>
+
+					<div  class="fb-share-button" data-layout="button" data-size="small">
+					<a target="_blank" href="#" class="fb-xfbml-parse-ignore">Share</a>
+					</div>
+
+					<div style="float:left">
+
+				    <script type="IN/Share" data-url="https://omegacoding.com/infocheck/posts_single.html"></script>
+					</div>
+
+
+					<div style="float:left">
+					<a class="twitter-share-button"
+						href="https://twitter.com/intent/tweet">
+					Tweet</a>
+					</div>
+
+
+					<div style="float:left">
+					<div id="ok_shareWidget"></div>
+					</div>
+
+
+					</div>
                                         </div>
                                         </div>
                                 </div>
@@ -147,7 +202,7 @@
                                 ] ) }}"  method="POST">
                                           @csrf
                                           <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
-                                  <p> <textarea id ='textar' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="Add comment..."></textarea></p>
+                                  <p> <textarea id ='textar' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="{{trans('text.add_c')}}"></textarea></p>
 
                                   @if ($message = Session::get('warning_comment'))
                                   <div class="alert alert-success alert-block fade show">
@@ -158,11 +213,27 @@
                                   <button type='submit' class="btn btn-secondary">{{trans('text.leave_comment')}}</button>
                                 </form>
                                  @else
-                                 <p>{{trans('text.verified')}}</p>
+                                 <form id="add_comment" action="{{ route('single_post.add_comment',
+                                 [  'locale'=> app()->getLocale(),
+                                     $data['post'][0]['id']
+                                 ] ) }}"  method="POST">
+                                           @csrf
+                                           <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
+                                   <p> <textarea id ='textar' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="Add comment..."></textarea></p>
+
+
+                                   <button type='submit' class="btn btn-secondary">{{trans('text.leave_comment')}}</button>
+                                 </form>
+
+
+
+
+
+                                 {{-- <p>{{trans('text.verified')}}</p>
                                  <a href="{{ route('verification.notice',
                                  [
                                      'locale'=> app()->getLocale(),
-                                 ] ) }}" class="btn btn-secondary" target="_blank">{{trans('text.verify')}}</a>
+                                 ] ) }}" class="btn btn-secondary" target="_blank">{{trans('text.verify')}}</a> --}}
                                 @endif
                                 @endif
                                  @else
@@ -175,18 +246,32 @@
                             @endisset
                         </div>
                      </div>
-            </div>
 
-                    <div class="sidebar nobottommargin col_last widget_links">
-                        <div  class="widget clearfix">
-                            @include('../includes.most_viewed')
-                        </div>
-                                <div class="widget clearfix">
+            <div class="sidebar nobottommargin col_last widget_links">
+                <div id="post-lists1" class="widget clearfix" style="margin-top: 19px;">
+                    @include('../includes.most_viewed_single_post')
+                </div>
+                <div class="widget clearfix">
                                         @include('../includes.all_tags')
-                                </div>
-                    </div>
+                </div>
+
          </div>
       </div>
+      @if ($message = Session::get('warning_comment'))
+      <div class="modal-on-load" data-target="#myModal1"></div>
+      <div class="modal1 mfp-hide" id="myModal1">
+            <div class="block divcenter" style="background-color: #FFF; max-width: 400px;">
+            <div class="center" style="padding: 30px;">
+            <h3>{{ $message }}</h3>
+             </div>
+            <div class="section center nomargin" style="padding: 20px;">
+            <a href="#" class=" btn btn-secondary" onClick="$.magnificPopup.close();return false;">{{trans('text.close')}}</a>
+            </div>
+            </div>
+            </div>
+
+      @endif
+    </div>
      </section>
 
      <section id="page-title">

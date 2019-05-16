@@ -21,7 +21,15 @@ class CurrentTagPosts extends Controller
             $query->whereName($tag_name);
         })->paginate(6);
 
- //return $all_Posts;
+        if(count($all_Posts)>0){
+            $not_found = 'found';
+        }
+        else{
+            $not_found = trans('text.error_page_text');
+
+        }
+
+// return count($all_Posts);
         $data = array(
             'menu' => $category,
             'load_all_tags'=> $load_all_tags,
@@ -29,7 +37,8 @@ class CurrentTagPosts extends Controller
             'most_viewed'=>$most_viewed,
             "event"=> $calendar,
             'call'=>'tags',
-            'tag_name'=>$tag_name
+            'tag_name'=>$tag_name,
+            'not_found'=>$not_found
 
 
 

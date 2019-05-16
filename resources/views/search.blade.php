@@ -16,11 +16,11 @@
                                 <a href="{{url($post->lng.'/posts/'.$post->unique_id.'/'.urlencode($post->title))}}"  class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small search_link">{{$post->title}}</a>
                             </h4>
                             </div>
-                        <ul class="entry-meta clearfix">
+                        <ul class="entry-meta clearfix" style="margin-bottom: 0;">
                                 <li><i class="icon-calendar3"></i> {{$post->date}}</li>
 
                                 </ul>
-                         <div class="entry-content">
+                         <div class="entry-content" style="margin-top: 0;">
                                        @php
                                        $show_symbols_size=600;
                                        $longt=strip_tags($post->html_code);

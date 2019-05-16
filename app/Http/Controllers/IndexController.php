@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Category;
 use App\Post;
 use App\Poster;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 class IndexController extends Controller
 {
     public function index($locale){
+
         $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
         $calendar= Event::event($locale);

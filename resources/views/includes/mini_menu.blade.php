@@ -38,8 +38,10 @@
           </div>
                   <div>
                  <ol class="breadcrumb breadcrumb_omg"  style=" font-weight: bolder">
+                        <?php $lngg=config('app.locales');
+                        ?>
                   @foreach (config('app.locales') as $item => $name)
-                 <li class="breadcrumb-item1">
+                 <li class="breadcrumb-item1" title="{{$lngg[$item]}}">
                      <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item]) }}"
                      @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
                      {{ strtoupper($item) }} |

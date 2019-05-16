@@ -22,8 +22,8 @@
                  <?php $limit++;?>
                  @if ($limit<=3)
                  <div class="owl-item col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                        <article class="entry mb-0" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
-                            <div class="text-overlay pl-4 pr-4 pb-2">
+                        <article class="entry mb-0 hov" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
+                            <div class="text-overlay pl-4 pr-4 pb-2 hov-hi">
                                 <div class="entry-c">
                                     <div class="entry-title">
                                         <h3 class="t600 mb-2"><a href="#" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
@@ -39,8 +39,8 @@
                 </div>
                  <div class="row clearfix">
                         <div class="owl-item col-lg-12" >
-                            <article class="entry mb-0" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
-                                <div class="text-overlay pl-4 pr-4 pb-2">
+                            <article class="entry mt-5 hov" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
+                                <div class="text-overlay pl-4 pr-4 pb-2 hov-hi">
                                     <div class="entry-c">
                                            <div class="entry-title">
                                             <h3 class="t600 mb-2"><a href="#" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
@@ -69,8 +69,8 @@
                         @foreach ($data['posts_by_menu'][$i][$k] as $item)
                                 <?php $limit++;?>
                                 @if ($limit<=2)
-                                <div class="owl-item  col-lg-6">
-                                        <div class="entry mb-0" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
+                                <div class="owl-item  col-lg-6 hov">
+                                        <div class="entry mb-0 hov-hi" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">
                                             <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="own_link">
                                                  <div class="text-overlay pl-4 pr-4 pb-2">
                                                 <div class="entry-c">
@@ -101,14 +101,19 @@
                 <h3 class="h3_omg">{{$data['posts_by_menu'][$i]['name']}}</h3>
                 <div class="line line_omg"></div>
                     @foreach ($data['posts_by_menu'][$i][$k] as $item)
-                        <div class="col_one_fourth nobottommargin">
-                                <div class="feature-box media-box">
-                                    <div class="fbox-media">
-                                        <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
-                                    </div>
+                        <div class="col_one_fourth nobottommargin hov">
+                                <div class="feature-box media-box hov-hi">
+                                         <div class="fbox-media">
+                                         <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" >
+                                            <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
+                                        </a>
+                                        </div>
+
                                     <div class="fbox-desc">
-                                        <h3>{{$item->title}}</h3>
+                                       <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" >
+                                         <h3>{{$item->title}}</h3>
                                         <p>{!!str_limit($item->short_text , 50)!!} </p>
+                                       </a>
                                         <ul class="entry-meta clearfix">
                                             <li><i class="icon-calendar3"> </i> {{ $item->date }}</li>
                                         </ul>
@@ -127,14 +132,18 @@
                     @foreach ($data['posts_by_menu'][$i][$k] as $item)
                     <?php $limit++; ?>
                     @if ($limit<=3)
-                    <div class="col_one_third nobottommargin">
-                            <div class="feature-box media-box">
+                    <div class="col_one_third nobottommargin hov">
+                            <div class="feature-box media-box hov-hi">
                                 <div class="fbox-media">
-                                    <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
-                                </div>
+                                <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
+                                     <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
+                                </a>
+                                    </div>
                                 <div class="fbox-desc">
-                                    <h3>{{$item->title}}</h3>
-                                    <p>{!!str_limit($item->short_text , 50)!!} </p>
+                                     <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
+                                        <h3>{{$item->title}}</h3>
+                                        <p>{!!str_limit($item->short_text , 50)!!} </p>
+                                     </a>
                                     <ul class="entry-meta clearfix">
                                         <li><i class="icon-calendar3"> </i> {{ $item->date }}</li>
                                     </ul>
@@ -157,14 +166,14 @@
  <?php $limit=0;
  ?>
  <div class="col-lg-7">
-        <div class="nobottommargin">
+        <div class="hov nobottommargin">
             <div class="feature-box media-box">
                 <div class="fbox-media">
                         <a  href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}">
                     <img  id="{{$data['big_post']['id']}}" class="image_fade" src="{{$data['big_post']['img']}}" alt="image">
                         </a>
                 </div>
-                <div class="fbox-desc">
+                <div class="fbox-desc hov-hi ">
                     <h4 class="own-h4" >
                   <a class="own-link-a{{$data['big_post']['id']}}" href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}">
                    {{$data['big_post']['title']}}<br/>
@@ -184,9 +193,9 @@
         @for ($i = 0; $i < count($data['small_post']); $i++)
         <?php $limit++;?>
         @if ($limit<=3)
-        <div class="ipost clearfix">
-                <div class="col_half bottommargin-sm">
-                    <div class="entry-image_omg">
+        <div class="ipost clearfix hov">
+                <div class="col_half bottommargin-sm ">
+                    <div class="entry-image_omg" style="overflow: hidden">
                             <a  class="own-link-a{{$data['small_post'][$i]->id}}"
                                     href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">
 
@@ -194,7 +203,7 @@
                             </a>
                     </div>
                 </div>
-                <div class="col_half bottommargin-sm col_last">
+                <div class="col_half bottommargin-sm col_last hov-hi">
                     <div class="entry-title">
                     <h3><a  class="own-link-a{{$data['small_post'][$i]->id}}"
                             href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">{!!str_limit($data['small_post'][$i]->short_text, 50)!!}</a></h3>

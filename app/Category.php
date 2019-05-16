@@ -24,5 +24,8 @@ class Category extends Model
         return $this->belongsTo('App\Lang', 'lang_id', 'id');
     }
 
+    public function category_name() {
+        return $this->belongsTo('App\Post');
+    }
 
 }

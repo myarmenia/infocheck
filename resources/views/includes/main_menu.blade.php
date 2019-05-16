@@ -2,7 +2,7 @@
      <header id="header" class="full-header">
             <div id="header-wrap" class="">
             <div class="container clearfix">
-                      <div id="logo">
+                      <div id="logo" title="Icheck">
                         <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>
                         <a href="{{url(app()->getLocale().'/')}}" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Logo"></a>
                     </div>
