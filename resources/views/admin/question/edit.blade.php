@@ -57,9 +57,7 @@
                             <label for="quest-edit-body" class="col-sm-3 col-form-label col-form-label-lg">Body</label>
                             <div class="col-sm-9">
                                 {{-- <input type="text" class="form-control" id="edit-cat-lng-name" value="{{$question->body}}" > --}}
-                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control" disabled>
-                                    {{$question->body}}
-                                </textarea>
+                                <textarea name="body" id="quest-edit-body" cols="30" rows="5" class="form-control" disabled>{{$question->body}}</textarea>
                             </div>
                         </div>
 
@@ -95,10 +93,12 @@
                 @csrf
                     @if (preg_match('/Answer$/', $question->questionable_type))
                     <h4>Replied by Answer N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return confirm('will reset answer')?true:false">Reset Replied Answer</button>
+                    <button class="btn btn-outline-danger"
+                    onclick="return confirm('Do you want to reset answer (Answer will be deleted)')?true:false">Reset Replied Answer</button>
                     @else
                     <h4>Replied by Post N-{{$question->questionable_id}}</h4>
-                    <button class="btn btn-outline-danger" onclick="return confirm('will reset post')?true:false">Reset Replied Post</button>
+                    <button class="btn btn-outline-danger"
+                    onclick="return confirm('Do you want to reset post from question')?true:false">Reset Replied Post</button>
                     @endif
 
                 </form>
@@ -107,9 +107,9 @@
             @endif
 
 
-            <div class="alert alert-primary" role="alert">
+            {{-- <div class="alert alert-primary" role="alert">
                 Choose a language within the meaning of the sentence!
-            </div>
+            </div> --}}
         </div>
 </div>
 

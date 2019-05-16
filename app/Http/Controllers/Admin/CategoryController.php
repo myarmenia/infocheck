@@ -72,14 +72,25 @@ class CategoryController extends Controller
                 return response()->json(['data_type'=> gettype($data), 'warning'=>$data]);
             }
             if ($names[$i]['name']) {
-                $category = new Category();
-                $category->item_id = $item_id;
-                $category->name = $names[$i]['name'];
-                $category->position = $position;
-                $category->layout = $layout;
-                $category->status = $names[$i]['status'];
-                $category->lang_id = $names[$i]['lang_id'];
-                $category->save();
+
+                /* On Simple Connection */
+                // $category = new Category();
+                // $category->item_id = $item_id;
+                // $category->name = $names[$i]['name'];
+                // $category->position = $position;
+                // $category->layout = $layout;
+                // $category->status = $names[$i]['status'];
+                // $category->lang_id = $names[$i]['lang_id'];
+                // $category->save();
+
+                $category = Category::on('mysql_admin')->create([
+                    'item_id' => $item_id,
+                    'name' => $names[$i]['name'],
+                    'position' => $position,
+                    'layout' =>$layout,
+                    'status' => $names[$i]['status'],
+                    'lang_id' => $names[$i]['lang_id'],
+                ]);
             }
 
         }
@@ -130,7 +141,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $locale, $id) {
         //$request-> name, status are individual
-        $category = Category::find($id);
+        $category = Category::on('mysql_admin')->find($id);
         $category->name = $request->name;
         $category->status = $request->status;
         $category->save();
@@ -147,7 +158,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($locale, $id) {
-        $category = Category::find($id);
+        $category = Category::on('mysql_admin')->find($id);
         if (!$category) {
             return redirect()->back()->with('error', 'Category N ' . $id. ' was not found');
         }
@@ -162,7 +173,7 @@ class CategoryController extends Controller
         $data = $request->all();
         $item_positions = $data['item_positions'];
         for ($i=0; $i < count($item_positions); $i++) {
-            Category::where('item_id', $item_positions[$i]['item_id'])->update(['position'=>$item_positions[$i]['position']]);
+            Category::on('mysql_admin')->where('item_id', $item_positions[$i]['item_id'])->update(['position'=>$item_positions[$i]['position']]);
         }
 
         return response($data);

@@ -89,14 +89,27 @@ Route::group([
 
         Route::resource('question', 'QuestionController', ['as' => 'admin']);
         Route::get('question/post/{q_id}', 'QuestionController@post')->name('admin.question.post');
-        Route::post('question/reset/{q_id}', 'QuestionController@resetAnswer')->name('admin.question.reset');
+        Route::post('question/post/reply', 'QuestionController@postReply')->name('admin.question.post.reply');
+        Route::post('question/reset/{q_id}', 'QuestionController@resetReply')->name('admin.question.reset');
+
+        Route::resource('answer', 'AnswerController', ['as' => 'admin']);
+        Route::get('answer/create/{q_id?}', 'AnswerController@create')->name('admin.answer.create');
 
         Route::resource('post', 'PostController', ['as'=>'admin']);
         Route::get('post/create/{q_id?}', 'PostController@create')->name('admin.post.create');
         Route::get('post/translate/{id}', 'PostController@translate')->name('admin.post.translate');
+        Route::get('post/relationship/{id}', 'PostController@relationship')->name('admin.post.relationship'); // relationship
 
         Route::post('/document/uploadimage', 'DocumentController@uploadimage')->name('admin.document.uploadimage');
         Route::post('/document/uploadfile', 'DocumentController@uploadfile')->name('admin.document.uploadfile');
         Route::post('/document/savedocstatus', 'DocumentController@savedocstatus')->name('admin.document.savedocstatus');
+
+        Route::post('/comment/savecommentstatus', 'CommentController@savecommentstatus')->name('admin.comment.savecommentstatus');
+        Route::post('/comment/changeStatus', 'CommentController@changeStatus')->name('admin.comment.changeStatus');
+        Route::get('/comment', 'CommentController@index')->name('admin.comment.index');
+
+        Route::get('/user', 'UserController@index')->name('admin.user.index');
+        Route::put('/user/changeStatus/{id}', 'UserController@changeStatus')->name('admin.user.changeStatus');
+
 
 });

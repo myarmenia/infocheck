@@ -11,7 +11,7 @@ class Post extends Model
     use Taggable;
 
     protected $fillable = [
-        'unique_id', 'title', 'short_text', 'html_code', 'img', 'date', 'status', 'meta_k', 'meta_d', 'category_id',  'lang_id'
+        'unique_id', 'title', 'short_text', 'html_code', 'img', 'date', 'view','category_id','status', 'meta_k', 'meta_d', 'category_id',  'lang_id'
     ];
 
     public function getCategory() {
@@ -28,6 +28,10 @@ class Post extends Model
 
     public function questions() {
         return $this->morphOne('App\Question', 'questionable');
+    }
+
+    public function lang() {
+        return $this->belongsTo('App\Lang', 'lang_id', 'id');
     }
 
     static function get_cur_posts($category_name,$lang_id){

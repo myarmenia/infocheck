@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Question;
 use App\Lang;
+use App\Post;
+use App\Answer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +22,8 @@ class QuestionController extends Controller
     {
         $lang_id = Lang::getLangId(app()->getLocale());
         // $questions = Question::where('lang_id', $lang_id)->with('questionable','user','lang')->get();
-        $questions = Question::where('lang_id', $lang_id)->with('user', 'getDocuments')->paginate(10);
+        $questions = Question::where('lang_id', $lang_id)->with('user', 'getDocuments')
+        ->orderBy('id', 'DESC')->paginate(10);
         // dd($questions);
 
         return view('admin.question.index', [
@@ -62,9 +65,9 @@ class QuestionController extends Controller
         //
     }
 
-    public function resetAnswer(Request $request,$locale, $q_id) {
+    public function resetReply(Request $request,$locale, $q_id) {
 
-        $question = Question::find($q_id);
+        $question = Question::on('mysql_admin')->find($q_id);
 
         $type = \str_replace("App\\","",$question->questionable_type);
         $type_id = $question->questionable_id;
@@ -72,13 +75,58 @@ class QuestionController extends Controller
         $question->link = null;
         $question->questionable_id = null;
         $question->questionable_type = null;
+        $question->visible = 0;
         $question->save();
 
-        return redirect()->back()->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
+        if ($type ==='Answer') {
+            $answer = Answer::on('mysql_admin')->find($type_id);
+            $answer->delete();
+        }
+
+        return redirect()->route('admin.question.index', $locale)
+        ->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
     }
 
-    public function post($locale, $id) {
-        return 'For Repliing Select from exists Post-List or create new one by clicking here "create-new-post"';
+    public function post($locale, $q_id) {
+        // return $q_id;
+        $lang_id = Lang::getLangId($locale);
+        $posts = Post::where('lang_id', $lang_id)->orderBy('id', 'desc')->paginate(5);
+        $question = Question::where('id',$q_id)->with('lang')->first();
+
+        // dd($question->lang()->first()->lng);
+        $langs = Lang::all();
+
+        if(!$question) {
+            return redirect()->back()->with('oneerror', 'Can\'t find Question with ID №-'.$q_id);
+        }
+
+        return view('admin.question.postlist', [
+            'page_name' => 'questions',
+            'posts' => $posts,
+            'langs' => $langs,
+            'q_id' => $q_id,
+            'q_lng' => $question->lang()->first()->lng,
+
+        ]);
+
+    }
+
+    public function postReply(Request $request, $locale) {
+        $post_id = $request->input('post_id');
+        $quest_id = $request->input('quest_id');
+
+        $post = Post::find($post_id);
+        $lang = Lang::find($post->lang_id);
+        $lng = $lang->lng;
+
+        $question = Question::on('mysql_admin')->find($quest_id);
+        $question->link = 'posts/'.$post->unique_id.'/'. urlencode($post->title); // localhost::8000/'.$lng.'/posts/'
+        $question->questionable_id = $post->id;
+        $question->questionable_type = Post::class;
+        $question->save();
+
+        return redirect()->route('admin.question.index', $lng)
+        ->with('success', 'Question №-'.$quest_id.' was successfully replied by Post №-'.$post_id);
     }
 
     /**
@@ -127,7 +175,7 @@ class QuestionController extends Controller
             return redirect()->back()
             ->withInput()->withErrors($validator);
         }
-        $question = Question::find($id);
+        $question = Question::on('mysql_admin')->find($id);
         // $question->lang_id = $request->lang_id;
         // $question->body = $request->body;
         $question->visible = $request->visible;

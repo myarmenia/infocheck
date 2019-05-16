@@ -11,6 +11,11 @@ use App\User;
 use App\SocialIdentity; // pivot-table users<->social_identities
 use App\Role;
 
+// for saving social-avatar
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+
+
 // for blocking users || status=0
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -120,12 +125,14 @@ class LoginController extends Controller
            $user = User::whereEmail($providerUser->getEmail())->first();
 
            if (! $user) {
-               $user = User::create([
+               $user = User::on('mysql_admin')->create([
                    'email' => $providerUser->getEmail(),
                    'name'  => $providerUser->getName(),
                ]);
                $role_iuser = Role::where('name','i_user')->first();
                $user->roles()->attach($role_iuser);
+
+               $this->saveAvatar($user, $providerUser);
            }
 
            $user->identities()->create([
@@ -135,6 +142,23 @@ class LoginController extends Controller
 
            return $user;
        }
+   }
+
+   /* save users social avatar */
+   public function saveAvatar($user, $providerUser)
+   {
+        $user_id = $user->id;
+        $provider_id = $providerUser->getId();
+        $avatar = $providerUser->getAvatar();
+
+        $path = 'profiles/'.$user_id.'/'.$provider_id.'.jpg';
+        $fileContents = file_get_contents($avatar);
+
+        Storage::disk('public')->put($path, $fileContents);
+        Storage::disk('upload')->put($path, $fileContents);
+
+        $user->avatar = Storage::url($path);
+        $user->save();
    }
 
 

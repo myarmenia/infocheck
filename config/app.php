@@ -184,6 +184,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         \Cviebrock\EloquentTaggable\ServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

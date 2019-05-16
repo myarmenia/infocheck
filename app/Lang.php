@@ -15,4 +15,5 @@ class Lang extends Model
         ->value('id');
     }
 
+
 }

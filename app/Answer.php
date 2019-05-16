@@ -9,6 +9,8 @@ class Answer extends Model
     protected $fillable = [
         'body'
     ];
+
+
     public function questions() {
         return $this->morphOne('App\Question', 'questionable');
     }
