@@ -108,4 +108,8 @@ Route::group([
         Route::post('/comment/changeStatus', 'CommentController@changeStatus')->name('admin.comment.changeStatus');
         Route::get('/comment', 'CommentController@index')->name('admin.comment.index');
 
+        Route::get('/user', 'UserController@index')->name('admin.user.index');
+        Route::put('/user/changeStatus/{id}', 'UserController@changeStatus')->name('admin.user.changeStatus');
+
+
 });
