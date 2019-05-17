@@ -21,6 +21,7 @@
    <input type="text" name="folder_name" value="questions" hidden>
  <p> <textarea id ='textquest' name="textarea"  class="required sm-form-control input-block-level short-textarea valid" required placeholder="{{trans('text.add_q')}}"></textarea></p>
    <div class="form-group">
+        <label><span style="font-size: 11px">{{trans('text.zip')}}</span> </label>
         <input type="file" class="form-control-file"   name="files[]" id="files" multiple>
 
         </div>

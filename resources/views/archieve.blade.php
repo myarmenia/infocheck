@@ -1,22 +1,22 @@
 @extends('layouts.archieve')
 @section('arch_posts')
 
- <div class="postcontent nobottommargin ">
+ <div class="postcontent nobottommargin">
 <h3 class="h3_omg">{{$data['date']}}</h3>
     <div class="line line_omg"></div>
     <div class="infinite-scroll">
         <?php $i=0;?>
  @foreach ($data['posts_archieve'] as $item)
 
-    <div class="col_one_third hov bottommargin height-317px not-animated" data-animate="fadeInUp"  data-delay="{{$i+=50}}">
+    <div class="col_one_third hov bottommargin height-317px">
         <div class="feature-box media-box hov-hi">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
-                      <img id="{{$item->id}}" src="{{$item->img}}" alt="image"  class="image_fade">
+                      <img  src="{{$item->img}}" alt="image"  class="image_fade">
          </a>
                     </div>
             <div class="fbox-desc">
-              <a class="own-link-aa{{$item->id}}"  href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
+              <a   href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
                 <h3>{{$item->title}}</h3>
                 <p>{!!str_limit($item->short_text , 80)!!} </p>
               </a>

@@ -15,6 +15,7 @@ class IndexController extends Controller
 {
     public function index($locale){
 
+
         $lng=Lang::all();
         $lang_id=Lang::getLangId($locale);
         $calendar= Event::event($locale);
@@ -53,6 +54,18 @@ class IndexController extends Controller
             );
            // return $data['small_post'][0]->title;
             return view('index',compact('data'));
+
+    }
+    public function error($locale){
+
+
+
+            $data = array('call' => '404', );
+
+                return response()->view('errors.' . 'error', compact('data'), 404);
+
+
+
 
     }
 

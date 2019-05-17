@@ -30,6 +30,8 @@ Route::group([
             return view('welcome');
         });
     Route::get('/search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+')->name('search');
+    Route::get('/about', 'About_us@index')->name('about_us');
+    //Route::get('/{text}', 'IndexController@error')->name('error');
     Route::post('/posts/{id}/comment/', 'OpenSinglePost@add_comment')->name('single_post.add_comment');
     Route::post('/faqs/leave_question', 'ShowAllFaqs@leave_question')->name('leave.question');
     Route::get('/', 'IndexController@index')->name('index_page');
@@ -64,6 +66,9 @@ Route::group([
 });
 
 Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+Route::get('/{error}', function () {
     return redirect(app()->getLocale());
 });
 

@@ -261,9 +261,11 @@
       <div class="modal-on-load" data-target="#myModal1"></div>
       <div class="modal1 mfp-hide" id="myModal1">
             <div class="block divcenter" style="background-color: #FFF; max-width: 400px;">
-            <div class="center" style="padding: 30px;">
-            <h3>{{ $message }}</h3>
-             </div>
+            <div class="center" style="padding: 30px 0 0;">
+                            <h3 style="margin: 0 0 15px;"> {{ $message }}</h3>
+                            <div style="font-size: 20px;">  {{trans('text.thanks')}} </div>
+            </div>
+
             <div class="section center nomargin" style="padding: 20px;">
             <a href="#" class=" btn btn-secondary" onClick="$.magnificPopup.close();return false;">{{trans('text.close')}}</a>
             </div>

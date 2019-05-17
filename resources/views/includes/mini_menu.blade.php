@@ -6,7 +6,7 @@
            <div class="top-links">
             <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
              <li><a href="{{url(app()->getLocale().'/')}}">{{trans('text.home')}}</a></li>
-             <li><a href="{{route('faqs', app()->getLOcale()) }}">{{trans('text.faqs')}}</a></li>
+             <li><a href="{{route('faqs', app()->getLocale()) }}">{{trans('text.faqs')}}</a></li>
              @auth
              <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -14,13 +14,13 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout', app()->getLOcale()) }}"
+                        <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('login.Logout') }}
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout', app()->getLOcale()) }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     </div>

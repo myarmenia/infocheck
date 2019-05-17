@@ -8268,6 +8268,11 @@ body:not(.device-touch) .button.button-full strong {
 .feature-box.media-box {
     padding: 4px
 }
+.feature-box.media-box.own {
+    padding: 0;
+    margin: 4px;
+}
+
 
 .feature-box.media-box .fbox-media {
    /* margin: 0 0 25px*/
@@ -8288,7 +8293,7 @@ div.nomargin_omg  .feature-box.media-box .fbox-media {
     position: absolute;
     top: 67%;
     background-color: rgba(255, 255, 255, 0.61);
-    padding: 4px 14px;
+       padding: 20px 14px;
 }
 
 
@@ -11530,7 +11535,7 @@ body:not(.device-touch) .overlay .overlay-wrap, body:not(.device-touch) .text-ov
     backface-visibility: hidden
 }
 .text-overlay_omg {
-    position: absolute;
+   /* position: absolute;
     opacity: .85;
     top: auto;
     bottom: 0;
@@ -11543,6 +11548,22 @@ body:not(.device-touch) .overlay .overlay-wrap, body:not(.device-touch) .text-ov
     background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .85) 100%);
     background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .85) 100%);
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .85) 100%);
+    backface-visibility: hidden;
+    z-index: 10;*/
+	    position: absolute;
+    opacity: .85;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 16px 15px 15px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .85) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, .85)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, .85) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, .85) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, .85) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, .85) 100%);
     backface-visibility: hidden;
     z-index: 10;
 }
@@ -14380,14 +14401,14 @@ a.own_link:hover,  a.own_link:hover > a.text-light{
 
     color: #cbd3da !important;
 }
-.hov:hover .hov-hi p,  .hov:hover .hov-hi h3 > a, .hov:hover .hov-hi h4 > a {
+.hov:hover .hov-hi p,  .hov:hover .hov-hi h3 > a, .hov:hover .hov-hi h4 > a, .hov:hover .entry-title > a > h5 {
 	color:#8e9ed4!important
 
 }
 img {max-width:100%; height:auto; }
 /* .hov.nobottommargin{overflow:hidden} */
  .hov.nobottommargin .feature-box.media-box .fbox-media img {width: 100%;}
-.hov.nobottommargin:hover .feature-box.media-box .fbox-media img {opacity: 0.5; transform: scale(1.2, 1.2); transition: all 0.3s ease 0s;}
+.hov.nobottommargin:hover .feature-box.media-box .fbox-media img {opacity: 0.8; transform: scale(1.2, 1.2); transition: all 0.3s ease 0s;}
 
 
  .hov .entry-image_omg img {width: 100%;}
@@ -14395,4 +14416,4 @@ img {max-width:100%; height:auto; }
 
 
 
-*{transition-timing-function: ease-in-out; -ms-transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -webkit-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-duration: .2s; -ms-transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s;}
+* img{transition-timing-function: ease-in-out; -ms-transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -webkit-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-duration: .2s; -ms-transition-duration: .2s; -moz-transition-duration: .2s; -webkit-transition-duration: .2s; -o-transition-duration: .2s;}
