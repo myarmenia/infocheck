@@ -228,16 +228,16 @@
         <h3 class="h3_omg">Armenia 2</h3>
         <div class="line line_omg"></div>
     </div> --}}
-<div class="col-lg-6 nobottommargin">
-       <div class="feature-box media-box">
+<div class="col-lg-6 nobottommargin hov">
+       <div class="feature-box media-box hov-hi">
            <div class="fbox-media">
                 <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}">
-               <img id="{{$data['big_post']['id']}}" src="{{$data['big_post']['img']}}" alt="image" class="image_fade"></a>
+               <img  src="{{$data['big_post']['img']}}" alt="image" class="image_fade"></a>
            </div>
            <div class="fbox-desc fbox_omg">
                 {{-- <h3>{{$data['big_post']['title']}}</h3> --}}
                 <h4 class="own-h4">
-                <a  class="own-link-a{{$data['big_post']['id']}}"  href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}" class="text-light">
+                <a    href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}" class="text-light">
                             {!!str_limit($data['big_post']['short_text'] , 50)!!}
                 </a>
                 </h4>
@@ -252,10 +252,10 @@
 <div class="col-lg-6 nobottommargin col_last">
         <ul class="clients-grid grid-2 nobottommargin clearfix">
            @for ($i = 0; $i < count($data['small_post']); $i++)
-                <li>
-                    <div class="feature-box media-box">
+                <li  class="nobottommargin hov">
+                    <div class="feature-box media-box own">
                         <div class="fbox-media" >
-                            <div class="text-overlay_omg">
+                            <div class="text-overlay_omg hov-hi">
                                 <div class="entry-c">
                                     <div class="entry-title">
                                             <a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}" >
@@ -270,8 +270,10 @@
 
                                 </div>
                             </div>
-                       <img src="{{$data['small_post'][$i]->img}}" alt="image"  >
+                            <a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}" >
 
+                       <img src="{{$data['small_post'][$i]->img}}" alt="image" >
+                            </a>
                     </div>
                     </div>
                 </li>

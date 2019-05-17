@@ -1,13 +1,13 @@
 @extends('layouts.category_posts')
 @section('posts')
 
-<div class="postcontent nobottommargin ">
+<div class="postcontent nobottommargin">
     <h3 class="h3_omg">{{$data['posts_category']}}</h3>
     <div class="line line_omg"></div>
     {{-- fadeInUp animated"  data-animate="fadeInUp" --}}
     <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
-    <div class="col_one_third hov nobottommargin height-317px" >
+    <div class="col_one_third hov nobottommargin height-317px">
         <div class="feature-box media-box hov-hi">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">

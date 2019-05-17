@@ -67,6 +67,12 @@
                     {{ strtoupper($item) }} |
                     </a>
                     @break
+                    @case('404')
+                    <a href="{{url('/')}}"
+                        @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                        {{ strtoupper($item) }} |
+                        </a>
+                        @break
 
                  @default
                  <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item,'category_item_id' => $data['item_id'] ]) }}"

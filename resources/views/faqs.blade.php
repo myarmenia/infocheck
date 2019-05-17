@@ -62,14 +62,16 @@
  <form id="add_comment" action="{{ route('leave.question',
  [  'locale'=> app()->getLocale()
 
- ] ) }}"  method="POST">
+ ] ) }}"  method="POST"   enctype="multipart/form-data">
            @csrf
    <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
    <input type="text" name="folder_name" value="questions" hidden>
    <p> <textarea id ='textquest' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="{{trans('text.add_q')}}"></textarea></p>
+
+
    <div class="form-group">
    <label><span style="font-size: 11px">{{trans('text.zip')}}</span> </label>
-        <input type="file" class="form-control-file"   name="files[]" id="files" multiple>
+        <input type="file" class="form-control-file"   name="files[]" multiple>
 
         </div>
    @if ($message = Session::get('warning_comment'))
@@ -95,6 +97,7 @@
 
  @endif
 <div class="clear"></div>
+
 
 
 </div>

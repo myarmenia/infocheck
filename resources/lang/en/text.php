@@ -74,7 +74,10 @@ return[
  "subscribe"=>'Subscribe',
  "address1"=>'Armenia, Yerevan,',
  "address2"=>'M. Mashtots Avenue, Sarmena 1',
- "zip"=>'To attach multiple files, please attach in .zip format'
+ "zip"=>'To attach multiple files, please attach in .zip format',
+ "send_quest_ok" => "Your question was sent. We will answer in the near future.",
+ "send_quest_error" => "Your question was not sent, please try again",
+ "thanks"=>'Thank you!'
 
 
 
