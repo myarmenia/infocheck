@@ -99,7 +99,9 @@
                                         <input type="text" name="status" value="1" hidden>
                                         <button class="btn btn-outline-info">Activate</button>
                                     @endif
-                                    <a href="" role="button" class="btn btn-outline-secondary"><i class="far fa-envelope"></i> Send Mail</a>
+                                    <a href="{{route('admin.email.compose',['locale'=>app()->getLocale(), $user->id])}}" role="button" class="btn btn-outline-secondary">
+                                        <i class="far fa-envelope"></i> Send Mail
+                                    </a>
                                 </div>
                             </form>
                             </td>

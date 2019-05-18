@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailNotify;
+use App\User;
+
 class PostController extends Controller
 {
 
@@ -200,9 +205,10 @@ class PostController extends Controller
         $lng_name = $language[0]['lng_name'];
 
 
-        // return redirect()->back()->with('success', 'New Post pi-'.$post_id.' ui-'.$unique_id.' was created successfuly');
+        //// return redirect()->back()->with('success', 'New Post pi-'.$post_id.' ui-'.$unique_id.' was created successfuly');
 
-        // store tags into taggable_tags
+        //// store tags into taggable_tags
+
         if ($request->input('tags')) {
             if(!empty($request->input('tags'))) {
 
@@ -220,17 +226,18 @@ class PostController extends Controller
         }
 
 
-        // update lang_id into taggable_taggables
+        //// update lang_id into taggable_taggables
         DB::connection('mysql_admin')->table('taggable_taggables')
         ->where('taggable_type', 'App\\Post')
         ->where('taggable_id', $post_id)
         ->update(['lang_id' => $request->input('lang_id') ]);
 
 
-        // save as event to show into Calendar
+        //// save as event to show into Calendar
         Event::checkAndSaveIfNotExists($request->input('date'), $request->input('lang_id'));
 
-        // check and replace other posts with status = "main"
+        //// check and replace other posts with status = "main"
+
         if($post->status == 'main') {
             $mainPosts = Post::where('status','=', 'main')->where('lang_id','=',$post->lang_id)->get();
             // return $mainPosts;
@@ -243,13 +250,58 @@ class PostController extends Controller
             }
         }
 
-        // Has Answer
+        //// Has Question
         if ($request->input('q_id')) {
             $question = Question::on('mysql_admin')->find($request->input('q_id'));
             $question->questionable_id = $post_id;
             $question->questionable_type = Post::class;
             $question->link = 'posts/'.$unique_id.'/'.urlencode($post->title); // 'localhost::8000/'.$language[0]['lng'].'/posts/'
             $question->save();
+
+
+            $user = User::find($question->user_id);
+            $params = [];
+            $params['from_name'] = config('mail.from.name');
+            $params['from_email'] = config('mail.from.address');
+            $params['name'] = $user->name;
+            $params['email'] = $user->email;
+            $params['subject'] = 'A reply to Your Question';
+            $params['template_type'] = 'post_reply';
+            $params['template'] = 'admin.emails.send';
+
+            $body = '<h4>Dear '.$user->name.'!</h4>';
+            $body.='<p>We replied to your question.</p>';
+            $body.='<p><cite>"'.$question->body.'"</cite></p><hr>';
+            $body.='<p>Follow this link to see Your answer.</p>';
+            $body.='<a href="'.config('app.url').'/'.$locale.'/posts/'.$request->unique_id.'/'.urlencode($request->title).'" target="_blank">'.$request->title.'</a>';
+
+            $params['body'] = $body;
+            // return $params;
+
+
+            // return new MailNotify($params); // shows template //
+            Mail::to($user->email)->send(new MailNotify($params));
+
+
+/*
+            Mail::send('admin.emails.send',
+            array(
+               'name' => 'admin',
+               'email' => 'icheck.am@gmail.com',
+               'body' => $body
+            ), function($body)
+           {
+            $body->from('icheck.am@gmail.com');
+            $body->to(User::find(11)->email, User::find(11)->name)
+            ->subject('A reply to Your Question');
+            });
+            if (Mail::failures()) {
+                return redirect()->back()->with('oneerror', 'Mail was not sent');
+            }else{
+                return redirect()->back()->with('success', 'Mail was successfully sent');
+            }
+*/
+
             return redirect()->route('admin.post.index', $language[0]['lng'])
             ->with('success', 'Post №-'.$post_id.' in '.$lng_name.' was successfuly created!<br> Question №-'.$question->id.'replied too.');
         }
@@ -260,6 +312,7 @@ class PostController extends Controller
 
 
     }
+
 
     /**
      * Display the specified resource.

@@ -117,4 +117,21 @@ Route::group([
         Route::put('/user/changeStatus/{id}', 'UserController@changeStatus')->name('admin.user.changeStatus');
 
 
+        Route::get('email/compose/{user_id}', 'EmailController@compose')->name('admin.email.compose');
+        Route::post('email/send/', 'EmailController@send')->name('admin.email.send');
+        Route::post('email/sendReply/', 'EmailController@sendReply')->name('admin.email.sendReply'); // answer and post-link
+
+
 });
+
+
+
+$sitemap_rules = [
+    'prefix' => 'sitemap',
+    'namespace' => 'Sitemap',
+  ];
+  Route::group($sitemap_rules, function () {
+    Route::get('/', 'SitemapController@index');
+    Route::get('/posts', 'SitemapController@posts');
+    Route::get('/questions', 'SitemapController@questions');
+  });
