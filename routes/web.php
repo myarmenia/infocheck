@@ -118,3 +118,15 @@ Route::group([
 
 
 });
+
+
+
+$sitemap_rules = [
+    'prefix' => 'sitemap',
+    'namespace' => 'Sitemap',
+  ];
+  Route::group($sitemap_rules, function () {
+    Route::get('/', 'SitemapController@index');
+    Route::get('/posts', 'SitemapController@posts');
+    Route::get('/questions', 'SitemapController@questions');
+  });
