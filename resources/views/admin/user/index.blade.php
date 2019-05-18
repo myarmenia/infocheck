@@ -111,6 +111,13 @@
                     @endforelse
 
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="8">
+                            {{$users->links()}}
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </div>
