@@ -55,6 +55,9 @@
 </li>
 @endfor
 </ol>
+<div class="pagination-own">
+    {{$data['question']->links()}}
+             </div>
 @if (Auth::check())
 @if(Auth::user()->hasRole('i_user'))
  @if (Auth::user()->hasVerifiedEmail())
@@ -101,6 +104,8 @@
 
 
 </div>
+
          </div>
+
 
 @endsection

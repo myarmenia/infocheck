@@ -4780,6 +4780,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     color: #6c757d
 }
 
+
 .pagination {
     display: -ms-flexbox;
     display: flex;
@@ -4788,7 +4789,14 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     border-radius: .25rem;
     display:none
 }
+.pagination-own >ul.pagination{
+    display: -ms-flexbox!important;
+    display: flex!important;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
 
+}
 .page-link {
     position: relative;
     display: block;
