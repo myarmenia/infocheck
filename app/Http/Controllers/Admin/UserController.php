@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index($locale)
     {
-        $users = User::with('roles', 'identities')->get();
+        $users = User::with('roles', 'identities')->paginate(10);
 
         // dd($users);
 

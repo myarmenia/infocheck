@@ -135,3 +135,40 @@ $sitemap_rules = [
     Route::get('/posts', 'SitemapController@posts');
     Route::get('/questions', 'SitemapController@questions');
   });
+
+
+// /* Clear Cache facade value: */
+// Route::get('{locale}/clear-cache', function() {
+//     $exitCode = Artisan::call('cache:clear');
+//     return '<h1>Cache facade value cleared</h1>';
+// });
+
+// /* Reoptimized class loader: */
+// Route::get('{locale}/optimize', function() {
+//     $exitCode = Artisan::call('optimize');
+//     return '<h1>Reoptimized class loader</h1>';
+// });
+
+// //* Route cache: */
+// Route::get('{locale}/route-cache', function() {
+//     $exitCode = Artisan::call('route:cache');
+//     return '<h1>Routes cached</h1>';
+// });
+
+// /* Clear Route cache: */
+// Route::get('{locale}/route-clear', function() {
+//     $exitCode = Artisan::call('route:clear');
+//     return '<h1>Route cache cleared</h1>';
+// });
+
+// /* Clear View cache: */
+// Route::get('{locale}/view-clear', function() {
+//     $exitCode = Artisan::call('view:clear');
+//     return '<h1>View cache cleared</h1>';
+// });
+
+/* Clear Config cache: */
+Route::get('{locale}/config-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    return '<h1>Clear Config cleared</h1>';
+});
