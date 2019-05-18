@@ -11,6 +11,10 @@ use App\Answer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailNotify;
+use App\User;
+
 class QuestionController extends Controller
 {
     /**
@@ -124,6 +128,29 @@ class QuestionController extends Controller
         $question->questionable_id = $post->id;
         $question->questionable_type = Post::class;
         $question->save();
+
+        $user = User::find($question->user_id);
+        $params = [];
+        $params['from_name'] = config('mail.from.name');
+        $params['from_email'] = config('mail.from.address');
+        $params['name'] = $user->name;
+        $params['email'] = $user->email;
+        $params['subject'] = 'A reply to Your Question';
+        $params['template_type'] = 'post_reply';
+        $params['template'] = 'admin.emails.send';
+
+        $body = '<h4>Dear '.$user->name.'!</h4>';
+        $body.='<p>We replied to your question.</p>';
+        $body.='<p><cite>"'.$question->body.'"</cite></p><hr>';
+        $body.='<p>Follow this link to see Your answer.</p>';
+        $body.='<a href="'.config('app.url').'/'.$locale.'/posts/'.$post->unique_id.'/'.urlencode($post->title).'" target="_blank">'.$post->title.'</a>';
+
+        $params['body'] = $body;
+        // return $params;
+
+
+        // return new MailNotify($params); // shows template //
+        Mail::to($user->email)->send(new MailNotify($params));
 
         return redirect()->route('admin.question.index', $lng)
         ->with('success', 'Question №-'.$quest_id.' was successfully replied by Post №-'.$post_id);

@@ -386,11 +386,16 @@
         jQuery(document).ready(function() {
             let short_text = document.getElementById('short_text');
             let html_code = document.getElementById('html_code');
+            let email_body = document.getElementById('email_body');
             if (short_text !== null) {
                 CKEDITOR.replace('short_text', { height: 150 });
             }
             if (html_code !== null) {
                 CKEDITOR.replace('html_code', { height: 150 });
+            }
+
+            if (email_body !== null) {
+                CKEDITOR.replace('email_body', { height: 150 });
             }
         })
 
