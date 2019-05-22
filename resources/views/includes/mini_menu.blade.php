@@ -33,8 +33,28 @@
              <li><a href="{{ route('login', app()->getLocale()) }}" class="sf-with-ul">{{ __('login.Login') }}</a>
                 @endauth
              </li>
+            <!-- Subscriber's Email activation result session-message -->
+             @isset(session()->get('subscribeResponse')['success'])
+                <li class="nav-item">
+                    <div class="alert alert-success alert-dismissible fade show" style="padding:0 4rem 0 2rem">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ session()->get('subscribeResponse')['success'] }}
+                    </div>
+                </li>
+             @endisset
+             @isset(session()->get('subscribeResponse')['warning'])
+                <li class="nav-item">
+                    <div class="alert alert-warning alert-dismissible fade show" style="padding:0 4rem 0 2rem">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ session()->get('subscribeResponse')['warning'] }}
+                    </div>
+                </li>
+             @endisset
+            <!-- Subs msg-end -->
             </ul>
            </div>
+
+
           </div>
                   <div>
                  <ol class="breadcrumb breadcrumb_omg"  style=" font-weight: bolder">

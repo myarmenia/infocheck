@@ -48,6 +48,18 @@
         color: #e08e26;
      }
 
+     a.subs-activate {
+        background-color: #1d9005;
+        padding: 10px 15px;
+        display: block;
+        width: 100px;
+        margin: 10px auto;
+        font-size: 16px;
+        letter-spacing: 1px;
+        border: 1px solid;
+        color: white;
+     }
+
      .body .answer {
         box-shadow: inset 0px 0px 9px 0px grey;
         margin: 15px auto;

@@ -19,5 +19,10 @@ return [
     'If you did not receive the email' => 'Եթե չեք ստացել էլ․ փոստը',
     'click here to request another' => 'սեղմեք այստեղ, ստացեք մյուսը',
 
+    // for subscription
+    'is already verified' => 'Ձեր էլ․ հասցեն արդեն իսկ հաստատված է։',
+    'Verify Your Email Address For Subscription' => 'Բաժանորդագրվելու համար հաստատեք ձեր էլ. փոստի հասցեն',
 
+    'Your Email Address For Subscription Successfully Was Activated' => 'Բաժանորդագրվելու համար ձեր էլ. փոստի հասցեն  ակտիվացված է։',
+    'Your Token For Subscription Was Expired' => 'Բաժանորդագրվման ձեր թոքենը հնացել է։',
 ];
