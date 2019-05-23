@@ -20,7 +20,7 @@
     ],
     "generatedFiles": {
         "extensionsToInclude": [
-            ".php",".js",".css"
+            ".php", ".js",".css"
         ],
         "path": "./icheck"
     }

@@ -25,15 +25,22 @@
                 </div>
                 <div class="col_one_third col_last">
 
-                    <div class="widget subscribe-widget clearfix">
+
+
+                    <div class="widget subscribe-widget clearfix customjs">
                         <h5>{{trans('text.footer_first')}}</h5>
-                        <div class="widget-subscribe-form-result"></div>
-                        <form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" class="nobottommargin" novalidate="novalidate">
+                        <div class="widget-subscribe-form-result">
+                                @if ($message = Session::get('errorSubs'))
+                                <h5 style="color:red">{{$message}}</h5>
+                                @endif
+                        </div>
+                        <form id="widget-subscribe-form" action="{{route('subscribe.saveEmail', app()->getLocale())}}" role="form" method="post" class="nobottommargin" novalidate="novalidate">
+                            @csrf
                             <div class="input-group divcenter">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="icon-email2"></i></div>
                                 </div>
-                                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="{{trans('text.third_icon_text')}}">
+                                <input type="email" id="widget-subscribe-form-email" name="email" data-name="widget-subscribe-form-email" class="form-control required email" placeholder="{{trans('text.third_icon_text')}}">
                                 <div class="input-group-append">
                                 <button class="btn btn-success" type="submit">{{trans('text.subscribe')}}</button>
                                 </div>

@@ -63,6 +63,16 @@ Route::group([
 // Route::get('/home/admin_home', 'HomeController@admin_home')->name('admin_home')->middleware(['role:i_admin']);
 // Route::get('home/add_question', 'HomeController@add_question')->name('add_question')->middleware(['role:i_user','verified']);
 // Route::get('home/add_comment', 'HomeController@add_comment')->name('add_comment')->middleware(['role:i_user','verified']);
+
+
+    Route::post('subscribe/saveEmail', 'SubscribeController@saveEmail')->name('subscribe.saveEmail');
+    Route::get('subscribe/verify/{token}', 'SubscribeController@verify')->name('subscribe.verify'); // subscribe.verify
+    Route::get('subscribe/resend/{token}', 'SubscribeController@resend')->name('subscribe.resend');
+    Route::get('subscribe/activate/{token}', 'SubscribeController@activate')->name('subscribe.activate');
+
+
+
+
 });
 
 Route::get('/', function () {
@@ -73,6 +83,8 @@ Route::get('/{error}', function () {
 });
 
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+
+
 
 // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 // Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
