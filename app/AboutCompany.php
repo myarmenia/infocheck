@@ -10,4 +10,8 @@ class AboutCompany extends Model
     protected $fillable = [
         'html_code','lang_id'
     ];
+
+    public function lang() {
+        return $this->belongsTo('App\Lang', 'lang_id', 'id');
+    }
 }

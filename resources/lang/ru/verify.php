@@ -25,4 +25,10 @@ return [
 
     'Your Email Address For Subscription Successfully Was Activated' => 'Ваш электронный адрес для подписки был успешно активирован.',
     'Your Token For Subscription Was Expired' => 'Ваш токен активации подписки устарел.',
+    'You have successfully unsubscribed' => 'Ваша подписка успешно отменена.',
+
+    'To unsubscribe click on the button below' => 'Для отмены подписки нажмите на кнопку ниже.',
+    'unsubscribe_btn' => 'Отменить подписку',
+
+    'please enter valid email' => 'Пожалуста, введите корректный адрес электронной почты',
 ];

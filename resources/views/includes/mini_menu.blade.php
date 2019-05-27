@@ -36,17 +36,26 @@
             <!-- Subscriber's Email activation result session-message -->
              @isset(session()->get('subscribeResponse')['success'])
                 <li class="nav-item">
-                    <div class="alert alert-success alert-dismissible fade show" style="padding:0 4rem 0 2rem">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <div class="alert alert-success alert-dismissible fade show" style="padding:0 1rem 0 2rem">
+                        <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
                         {{ session()->get('subscribeResponse')['success'] }}
                     </div>
                 </li>
              @endisset
              @isset(session()->get('subscribeResponse')['warning'])
                 <li class="nav-item">
-                    <div class="alert alert-warning alert-dismissible fade show" style="padding:0 4rem 0 2rem">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <div class="alert alert-warning alert-dismissible fade show" style="padding:0 1rem 0 2rem">
+                        <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
                         {{ session()->get('subscribeResponse')['warning'] }}
+                    </div>
+                </li>
+             @endisset
+
+             @isset(session()->get('subscribeResponse')['error'])
+                <li class="nav-item">
+                    <div class="alert alert-danger alert-dismissible fade show" style="padding:0 1rem 0 2rem">
+                        <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
+                        {{ session()->get('subscribeResponse')['error'] }}
                     </div>
                 </li>
              @endisset

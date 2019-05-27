@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 use App\User;
 
+use App\Subscriber;
+
+
 class PostController extends Controller
 {
 
@@ -249,6 +252,14 @@ class PostController extends Controller
                 }
             }
         }
+
+        ///// fill questionable-table with all subscribers-data
+        // $subscribers = Subscriber::all();
+        // foreach ($subscribers as $key => $value) {
+        //     DB::connection('mysql_admin')->table('subscribable')->insert(['post_id' => $post_id, 'subscriber_id'=> $value->id]);
+        // }
+
+
 
         //// Has Question
         if ($request->input('q_id')) {
