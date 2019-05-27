@@ -25,4 +25,11 @@ return [
 
     'Your Email Address For Subscription Successfully Was Activated' => 'Բաժանորդագրվելու համար ձեր էլ. փոստի հասցեն  ակտիվացված է։',
     'Your Token For Subscription Was Expired' => 'Բաժանորդագրվման ձեր թոքենը հնացել է։',
+    'You have successfully unsubscribed' => 'Ձեր բաժանորդագրումը հաջողությամբ չեղարկվել է։',
+
+    'To unsubscribe click on the button below' => 'Բաժանորդագրումը չեղարկելու համար սեղմեք կոճակին․',
+    'unsubscribe_btn' => 'Չեղաչկել',
+
+    'please enter valid email' => 'Խնդրում ենք մուտքագրել պատշաճ էլեկտրոնային հասցե',
+
 ];

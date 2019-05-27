@@ -69,6 +69,7 @@ Route::group([
     Route::get('subscribe/verify/{token}', 'SubscribeController@verify')->name('subscribe.verify'); // subscribe.verify
     Route::get('subscribe/resend/{token}', 'SubscribeController@resend')->name('subscribe.resend');
     Route::get('subscribe/activate/{token}', 'SubscribeController@activate')->name('subscribe.activate');
+    Route::get('subscribe/deactivate/{token}', 'SubscribeController@deactivate')->name('subscribe.deactivate');
 
 
 
@@ -133,7 +134,16 @@ Route::group([
         Route::post('email/send/', 'EmailController@send')->name('admin.email.send');
         Route::post('email/sendReply/', 'EmailController@sendReply')->name('admin.email.sendReply'); // answer and post-link
 
+        Route::get('/subscribe', 'SubscribeController@index')->name('admin.subscribe.index');
+        Route::get('/subscribe/resend/{subs_id}', 'SubscribeController@resend')->name('admin.subscribe.resend');
+        Route::post('/subscribe/changeStatus/{subs_id}', 'SubscribeController@changeStatus')->name('admin.subscribe.changeStatus');
 
+        Route::post('/subscribe/prepareToSend', 'SubscribeController@prepareToSend')->name('admin.subscribe.prepareToSend');
+        Route::get('/subscribe/mailing', 'SubscribeController@mailing')->name('admin.subscribe.mailing');
+
+        Route::get('/about', 'AboutCompanyController@index')->name('admin.about.index');
+        Route::get('/about/edit/{id}', 'AboutCompanyController@edit')->name('admin.about.edit');
+        Route::put('/about/update/{id}', 'AboutCompanyController@update')->name('admin.about.update');
 });
 
 

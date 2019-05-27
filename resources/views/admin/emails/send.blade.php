@@ -32,6 +32,8 @@
      }
      .body {
          margin-bottom: 20px;
+         min-height: 300px;
+         position: relative;
      }
 
      .body p {
@@ -54,6 +56,30 @@
         display: block;
         width: 100px;
         margin: 10px auto;
+        font-size: 16px;
+        letter-spacing: 1px;
+        border: 1px solid;
+        color: white;
+     }
+
+     .unsubscribe-wrap {
+         margin-top: 50px;
+         padding: 15px;
+         border-top: 1px dotted #ababab;
+
+     }
+
+     .post-title {
+         color: #4d4e4e;
+         text-decoration: underline dotted;
+     }
+
+     a.subs-deactivate {
+        background-color: #f54040;
+        padding: 7px 21px;
+        display: block;
+        width: 100px;
+        margin: 10px auto 15px;
         font-size: 16px;
         letter-spacing: 1px;
         border: 1px solid;

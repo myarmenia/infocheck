@@ -125,6 +125,9 @@
                 <a href="{{ route('admin.post.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="posts">Posts</a>
                 <a href="{{route('admin.comment.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="comments">Commencts</a>
                 <a href="{{route('admin.user.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="users">Users</a>
+                <a href="{{route('admin.subscribe.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="subscribers">Subscribers</a>
+                <a href="{{route('admin.about.index', app()->getLocale()) }}" class="list-group-item list-group-item-action bg-light" id="about_us">About Us</a>
+
             </div>
         </div>
         <!-- /#sidebar-wrapper End -->

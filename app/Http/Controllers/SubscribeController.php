@@ -27,8 +27,11 @@ class SubscribeController extends Controller
         ]);
 
         if ($validator->fails()) {
-            Session::flash('errorSubs', $validator->messages()->first());
+            Session::flash('subscribeResponse',['error' => __('verify.please enter valid email')]);
             return redirect()->back()->withInput();
+
+            // return redirect()->route('index_page', app()->getLocale())
+            // ->with('subscribeResponse', ['success' => __('verify.please enter valid email') ]);
         }
 
         /* 1) save new subscriber */
@@ -125,6 +128,26 @@ class SubscribeController extends Controller
             // return ' was updatet';  // session - subscribeResponse
             return redirect()->route('index_page', app()->getLocale())
             ->with('subscribeResponse', ['success' => __('verify.Your Email Address For Subscription Successfully Was Activated') ]);
+        }else{
+            // return 'no one with this token'; // token was expired
+            return redirect()->route('index_page', app()->getLocale())
+            ->with('subscribeResponse', ['warning' => __('verify.Your Token For Subscription Was Expired') ]);
+        }
+
+    }
+
+
+    public function deactivate($locale, $token)
+    {
+
+        $subscriber = Subscriber::where('token', $token)->first();
+        if ($subscriber) {
+            $subscriber->is_verified = 0;
+            $subscriber->token = Str::random(60);
+            $subscriber->save();
+            // return ' was updatet';  // session - subscribeResponse
+            return redirect()->route('index_page', app()->getLocale())
+            ->with('subscribeResponse', ['success' => __('verify.You have successfully unsubscribed') ]);
         }else{
             // return 'no one with this token'; // token was expired
             return redirect()->route('index_page', app()->getLocale())

@@ -186,7 +186,7 @@
                                 <form action="{{route('admin.question.reset',['locale' => app()->getLocale(), $item])}}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-outline-danger"
-                                    onclick="return confirm('Do you really want to reset this Post from Question №-{{$item->id}}')?true:false">Rest From Question</button>
+                                    onclick="return confirm('Do you really want to reset this Post from Question №-{{$item->id}}')?true:false">Reset From Question</button>
                                 </form>
                             </td>
                         </tr>

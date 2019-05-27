@@ -25,4 +25,10 @@ return [
 
     'Your Email Address For Subscription Successfully Was Activated' => 'Your Email Address For Subscription Successfully Activated',
     'Your Token For Subscription Was Expired' => 'Your Token For Subscription Was Expired',
+    'You have successfully unsubscribed' => 'Your subscription is successfully ended.',
+
+    'To unsubscribe click on the button below' => 'To unsubscribe click on the button below.',
+    'unsubscribe_btn' => 'Unsubscribe',
+
+    'please enter valid email' => 'Please, input valid email address.',
 ];
