@@ -1921,10 +1921,6 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #primary-menu.style-2.cente
 #top-search a {
     z-index: 11;
     font-size: 22px;
-<<<<<<< HEAD
-
-=======
->>>>>>> AA16-logging-system-admin-part
 }
 
 #top-search a i {
