@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Mail;
 
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class SubscribeController extends Controller
 {
@@ -66,6 +69,9 @@ class SubscribeController extends Controller
             Mail::to($subscriber->email)->send(new MailNotify($params)); // return new MailNotify($params); // shows template //
             if (!Mail::failures()) {
 
+                // logging action
+                Log::channel('info_daily')->info('Admin: Resend activation token to Subscriber N-'.$subs_id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
                 // return __('verify.A fresh verification link has been sent to your email address'); // session - subscribeNote
                 return redirect()->back()->with('success', 'A fresh verification link has been sent to Subscriber №-'.$subs_id );
             }
@@ -81,6 +87,10 @@ class SubscribeController extends Controller
             Subscriber::where('id', $data['id'])->update([
                 'is_verified' => $data['is_verified'],
             ]);
+
+            // logging action
+            Log::channel('info_daily')->info('Admin: Change Subscriber N-'.$subs_id.' status to ->'.$data['is_verified'], ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
             return redirect()->back()->with('success', 'Status of Subscriber №-'.$data['id'] .' was successfully changed!');
         }else{
             return redirect()->back()->with('oneerror', 'No Subscriber with ID='.$data['id']);
@@ -153,6 +163,26 @@ class SubscribeController extends Controller
         }
 
         return redirect()->back()->with('success', 'Mail to '. count($toArray).' subscribers successfully sent');
+
+    }
+
+
+    public function destroy($locale, $subs_id)
+    {
+        $subscriber = Subscriber::find($subs_id);
+        if (!$subscriber) {
+            return redirect()->back()->with('oneerror', 'Can not find Subscriber with ID='.$subs_id);
+        }
+
+
+        $destroy_id = $subscriber->id;
+        $destroy_email = $subscriber->email;
+        $subscriber->delete();
+
+        // action logging
+        Log::channel('info_daily')->info('Admin: Destroy Subscriber N-'.$destroy_id.' with '.$destroy_email.' email address.', ['id'=>Auth::user()->id, 'email' => Auth::user()->email]);
+
+        return redirect()->back()->with('success', 'Subscriber N-'.$destroy_id.' with '.$destroy_email.' email address was successfully deleted.');
 
     }
 

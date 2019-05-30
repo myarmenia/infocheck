@@ -1213,7 +1213,8 @@ body.stretched #header.full-header .container {
 
 #logo img {
     display: block;
-    max-width: 100%
+    max-width: 100%;
+    box-shadow: 0px 8px 7px -4px #717f8e;
 }
 
 #logo a.standard-logo {
@@ -1911,7 +1912,8 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #primary-menu.style-2.cente
 }
 
 #top-search a {
-    z-index: 11
+    z-index: 11;
+    font-size: 22px;
 }
 
 #top-search a i {
@@ -5681,6 +5683,25 @@ body:not(.device-touch) .entry-link {
     margin-top: 50px;
     padding-top: 50px;
     /* border-top: 1px solid #eee */
+}
+
+#comment-3{
+    background-color: #0084ff;
+    width: 71%;
+    left: 20%;
+    color: white;
+}
+#comment-3 a{
+    color: white;
+}
+
+#comment-3 p> a{
+    color: #2a365e;
+}
+
+#comment-1{
+    width: 71%;
+    background-color: #fff;
 }
 
 .commentlist {

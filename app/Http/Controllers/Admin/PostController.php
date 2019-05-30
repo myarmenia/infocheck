@@ -22,6 +22,10 @@ use App\User;
 
 use App\Subscriber;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class PostController extends Controller
 {
@@ -313,9 +317,15 @@ class PostController extends Controller
             }
 */
 
+            // logging action - Post replied Question
+            Log::channel('info_daily')->info('Admin: Store Post N-'.$post_id.', Question №-'.$question->id.'replied too.', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
             return redirect()->route('admin.post.index', $language[0]['lng'])
             ->with('success', 'Post №-'.$post_id.' in '.$lng_name.' was successfuly created!<br> Question №-'.$question->id.'replied too.');
         }
+
+        // logging action - new Post
+        Log::channel('info_daily')->info('Admin: Store Post N-'.$post_id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
         // return redirect()->back()->with('success', 'Post №-'.$post_id.' in '.$lng_name.' was successfuly created!');
         return redirect()->route('admin.post.index', $language[0]['lng'])
@@ -364,6 +374,10 @@ class PostController extends Controller
             $imageurls[$i]['url'] = Storage::url($images[$i]);
             $imageurls[$i]['size'] = $size = Storage::size($images[$i]);
         }
+
+
+        // logging action - new Post
+        Log::channel('info_daily')->info('Admin: Edit Post N-'.$id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
 
         return view('admin.post.edit', [
@@ -503,6 +517,10 @@ class PostController extends Controller
         }
 
 
+        // logging action ( can store in 3 lang on the same time)
+        Log::channel('info_daily')->info('Admin: Update Post N-'.$post->id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+
         return redirect()->back()->with('success', 'Post №-'.$post->id.' in '.$lng_name.' was successfuly updated!');
 
 
@@ -543,6 +561,9 @@ class PostController extends Controller
             $post->detag();
             $post->delete();
             Event::checkAndDeleteEventDate($date, $lang_id); // check
+
+            // logging action ( can store in 3 lang on the same time)
+            Log::channel('info_daily')->info('Admin: Delete Post N-'.$id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
             return redirect()->back()->with('success', 'Post №-' . $id. ' was succesfuly deleted');
         }

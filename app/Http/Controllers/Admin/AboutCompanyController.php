@@ -10,6 +10,9 @@ use App\Lang;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class AboutCompanyController extends Controller
 {
@@ -68,6 +71,9 @@ class AboutCompanyController extends Controller
         $about = AboutCompany::find($data['id']);
         $about->html_code = $data['html_code'];
         $about->save();
+
+        // logging action
+        Log::channel('info_daily')->info('Admin: Update About Us in locale-> '.$locale, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
         return redirect()->back()->with('success', 'About Us in locale-'.$locale.' was successfully updated.');
 

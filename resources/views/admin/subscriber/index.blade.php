@@ -75,25 +75,34 @@
                             <td>{{$item->email}}</td>
                             <td>{{$item->is_verified}}</td>
                             <td>
-                            <form action="{{route('admin.subscribe.changeStatus', ['locale'=>app()->getLocale(), $item])}}" method="POST">
-                                @csrf
-                                <input type="text" name="id" value="{{$item->id}}" hidden>
+                            <div class="btn-group">
+                                <form action="{{route('admin.subscribe.changeStatus', ['locale'=>app()->getLocale(), $item])}}" method="POST">
+                                    @csrf
+                                    <input type="text" name="id" value="{{$item->id}}" hidden>
 
-                                    @if ($item->is_verified)
-                                    <input type="text" name="is_verified" value="0" hidden>
-                                    {{-- <a href="" class="btn btn-warning border border-dark">disable</a> --}}
-                                    <button type="submit" class="btn btn-warning border border-dark">disable</button>
-                                    @else
-                                    <div class="btn-group">
-                                    <input type="text" name="is_verified" value="1" hidden>
-                                    {{-- <a href="" class="btn btn-primary border border-dark">enable</a> --}}
-                                    <button type="submit" class="btn btn-primary border border-dark">enable</button>
-                                    <a href="{{route('admin.subscribe.resend', ['locale'=>app()->getLocale(), $item])}}" class="btn btn-info border border-dark" title="Resend activation code"><i class="far fa-envelope"></i> Resend</a>
-                                    </div>
-                                    @endif
+                                        @if ($item->is_verified)
+                                        <input type="text" name="is_verified" value="0" hidden>
+                                        {{-- <a href="" class="btn btn-warning border border-dark">disable</a> --}}
+                                        <button type="submit" class="btn btn-warning border border-dark">disable</button>
+                                        @else
+                                        <div class="btn-group">
+                                        <input type="text" name="is_verified" value="1" hidden>
+                                        {{-- <a href="" class="btn btn-primary border border-dark">enable</a> --}}
+                                        <button type="submit" class="btn btn-primary border border-dark">enable</button>
+                                        <a href="{{route('admin.subscribe.resend', ['locale'=>app()->getLocale(), $item])}}" role="button" class="btn btn-info border border-dark" title="Resend activation code"><i class="far fa-envelope"></i> Resend</a>
+                                        </div>
+                                        @endif
+                                </form>
 
-
-                            </form>
+                                <form action="{{route('admin.subscribe.destroy', ['locale'=>app()->getLocale(), $item])}}" method="POST" onclick="return confirm('Do You really want to delete this subscriber?')?true:false">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" name="id" value="{{$item->id}}" hidden>
+                                    <button type="submit" class="btn btn-danger border border-dark">
+                                        <i class="fas fa-trash-alt"></i>
+                                        delete</button>
+                                </form>
+                            </div>
                             </td>
                         </tr>
                     @empty

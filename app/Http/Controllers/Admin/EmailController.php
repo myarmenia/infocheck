@@ -10,6 +10,9 @@ use App\Mail\MailNotify;
 use App\User;
 use App\Lang;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 class EmailController extends Controller
 {
 
@@ -41,8 +44,13 @@ class EmailController extends Controller
 
         Mail::to($params['email'])->send(new MailNotify($params));
         if (Mail::failures()) {
+
+            // logging action
+            Log::channel('info_daily')->info('Admin: Individual mail sending to '. $params['email'] .' has failed.', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
             return redirect()->back()->with('oneerror', 'Mail was not sent');
         }else{
+            // logging action
+            Log::channel('info_daily')->info('Admin: Individual mail to '. $params['email'] .' was sent.', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
             return redirect()->back()->with('success', 'Mail was successfully sent');
         }
 

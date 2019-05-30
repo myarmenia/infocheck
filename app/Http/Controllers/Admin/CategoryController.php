@@ -8,6 +8,9 @@ use App\Category;
 use App\Lang;
 use App\PostLayout;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 class CategoryController extends Controller
 {
     /**
@@ -91,10 +94,14 @@ class CategoryController extends Controller
                     'status' => $names[$i]['status'],
                     'lang_id' => $names[$i]['lang_id'],
                 ]);
+
+                // logging action ( can store in 3 lang on the same time)
+                Log::channel('info_daily')->info('Admin: Store new Category N-'.$category->id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+
             }
 
         }
-
 
         return response()->json(['data_type'=> gettype($data), 'data'=>$data]);
     }
@@ -148,6 +155,10 @@ class CategoryController extends Controller
 
         // $request->layout is for item-group
         Category::where('item_id', $category->item_id)->update(['layout'=>$request->layout]);
+
+        // logging action
+        Log::channel('info_daily')->info('Admin: Update Category N-'.$id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
         return redirect()->back()->with('success', 'Category N ' . $id. ' was succesfuly updated');
     }
 
@@ -164,6 +175,10 @@ class CategoryController extends Controller
         }
         else{
             $category->delete();
+
+            // logging action ( can store in 3 lang on the same time)
+            Log::channel('info_daily')->info('Admin: Delete Category N-'.$id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
             return redirect()->back()->with('success', 'Category N ' . $id. ' was succesfuly deleted');
         }
     }
@@ -175,6 +190,10 @@ class CategoryController extends Controller
         for ($i=0; $i < count($item_positions); $i++) {
             Category::on('mysql_admin')->where('item_id', $item_positions[$i]['item_id'])->update(['position'=>$item_positions[$i]['position']]);
         }
+
+
+        // logging action ( can store in 3 lang on the same time)
+        Log::channel('info_daily')->info('Admin: Update Positions of Categories', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
         return response($data);
         // return response()->json(['data_type'=> gettype($data), 'pp'=>$data->pp]);

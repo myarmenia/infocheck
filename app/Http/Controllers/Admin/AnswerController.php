@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 use App\User;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class AnswerController extends Controller
 {
@@ -152,6 +155,10 @@ class AnswerController extends Controller
         // return new MailNotify($params); // shows template //
         Mail::to($user->email)->send(new MailNotify($params));
 
+        // action logging
+        Log::channel('info_daily')->info('Admin: Store Answer N-'.$answer->id.', replied Question N-'.$question->id,['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+
         return redirect()->route('admin.question.index', app()->getLocale())
         ->with('success','Question №-'.$question->id.' was successfully replied by Answer №-'.$answer->id);
 
@@ -213,6 +220,10 @@ class AnswerController extends Controller
         $answer = Answer::on('mysql_admin')->find($request->id);
         if ($answer) {
             $answer->update(['body'=> $request->body]);
+
+            // action logging
+            Log::channel('info_daily')->info('Admin: Update Answer N-'.$answer->id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
             return redirect()->back()->with('success','Answer №-'.$answer->id.' was successfully updated');
         }
 
@@ -238,6 +249,9 @@ class AnswerController extends Controller
         $question->save();
 
         $answer->delete();
+
+        // action logging
+        Log::channel('info_daily')->info('Admin: Delete Answer N-'.$id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
         return redirect()->back()->with('success', 'Asnwer №-'.$id.' was succesfully deleted. Now Question №-'.$question->id.' is free.');
     }
