@@ -77,7 +77,8 @@ return[
  "zip"=>'To attach multiple files, please attach in .zip format',
  "send_quest_ok" => "Your question was sent. We will answer in the near future.",
  "send_quest_error" => "Your question was not sent, please try again",
- "thanks"=>'Thank you!'
+ "thanks"=>'Thank you!',
+ "info_"=>'Information check center'
 
 
 

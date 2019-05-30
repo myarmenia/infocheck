@@ -43,7 +43,7 @@
         @else
         <div class="comment-content clearfix">
                 <div class="comment-author"><a href="#" rel="external nofollow" class="url">Icheck</a><span><a href="#" title="Permalink to this comment">{{$data['question'][$i]->created_at}}</a></span></div>
-                <p><a href='{{url(app()->getLocale().'/'.$data['question'][$i]->link)}}'>{{$data['question'][$i]['post']->title.'/'.$data['question'][$i]['post']->date}} </a></p>
+                <p><a href='{{config('app.url').'/'.$data['question'][$i]['lang']->lng.'/'.$data['question'][$i]->link}}'>{{$data['question'][$i]['post']->title.'/'.$data['question'][$i]['post']->date}} </a></p>
 
                 </div>
         @endif

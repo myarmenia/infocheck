@@ -1219,8 +1219,7 @@ body.stretched #header.full-header .container {
 
 #logo img {
     display: block;
-    max-width: 100%;
-    box-shadow: 0px 8px 7px -4px #717f8e;
+    max-width: 100%
 }
 
 #logo a.standard-logo {
@@ -1921,9 +1920,7 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #primary-menu.style-2.cente
     font-size: 22px;
 }
 #top-search a {
-    z-index: 11;
-    font-size: 22px;
-
+    z-index: 11
 }
 
 #top-search a i {
@@ -1976,17 +1973,18 @@ body.top-search-open #top-search form {
     opacity: 0;
     z-index: -2;
     position: absolute;
-    width: 90% !important;
+    width: 100% !important;
     height: 100% !important;
+    padding: 0 15px;
     margin: 0;
     top: 0;
     left: 0;
     -webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out;
-    -ms-transform: translate(-19px, 87px);
-    -webkit-transform: translate(-19px, 87px);
-    transform: translate(-19px, 87px);
+    -ms-transform: translate(-64px, 87px);
+    -webkit-transform: translate(-64px, 87px);
+    transform: translate(-64px, 87px);
     box-shadow: 1px 1px 14px 0px #d3ddde;
 
 }
@@ -3726,7 +3724,7 @@ body.stretched .container-fullwidth .breadcrumb {
 #content {
     position: relative;
     overflow: hidden;
-    background-color: #eee
+    background-color: #fff
 }
 
 #content p {
@@ -5720,7 +5718,6 @@ body:not(.device-touch) .entry-link {
 
 #comment-1{
     width: 71%;
-    background-color: #fff;
 }
 
 .commentlist {
@@ -5736,7 +5733,6 @@ body:not(.device-touch) .entry-link {
     height: 100%;
     /* padding-left: 21px; */
     background-repeat: no-repeat;
-    background-size: cover;
 }
 #reviews .commentlist {
     padding-bottom: 30px;
@@ -7783,10 +7779,7 @@ body:not(.device-touch) .button.button-full strong {
     margin: 8px 0 0;
     color: #999
 }
-.feature-box.own p {
-    margin: 8px 0 0;
-    color: #fff;
-}
+
 .feature-box .before-heading {
     font-size: 14px
 }
@@ -10175,7 +10168,7 @@ ul.tab-nav li a i {
 }
 
 .clients-grid li a {
-    opacity: 1
+    opacity: .6
 }
 
 body:not(.device-touch) .clients-grid li a {
@@ -14636,17 +14629,4 @@ padding: 0;
     margin: 0 7px 0 1px;
     background-color: #ced7d8;
     display: inline-block;
-}
-.info_{
-	margin-top: 20px;
-    position: absolute;
-    top: 69px;
-    z-index: 120;
-    left: 0;
-    width: 161px;
-    text-align: center;
-    color: #0f1841;
-    font-weight: 800;
-    text-shadow: 1px 1px 7px grey;
-    font-size: 15px;
 }

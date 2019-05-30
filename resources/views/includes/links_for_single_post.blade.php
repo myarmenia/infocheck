@@ -1,6 +1,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="{{$data['post'][0]->meta_k}}" />
-    <meta name="description" content="{{$data['post'][0]->meta_d}}">
+    {{-- <meta name="keywords" content="{{$data['post'][0]->meta_k}}" />
+    <meta name="description" content="{{$data['post'][0]->meta_d}}"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="/style.css" type="text/css">

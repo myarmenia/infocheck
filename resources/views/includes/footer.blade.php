@@ -1,16 +1,16 @@
-<footer id="footer" class="dark" >
+<footer id="footer" class="dark"  >
         <div class="container">
 
             <div class="footer-widgets-wrap clearfix">
-                <div class="col_two_third">
-                    <div class="col_one_third">
+                <div class="col_one_third">
+
                         <div class="widget clearfix">
                             <div class="copyrights-menu copyright-links clearfix">
                                 <a href="{{url(app()->getLocale().'/')}}">{{trans('text.home')}} </a>/ <a href="{{url(app()->getLocale().'/about')}}">{{trans('text.about_us')}} </a>
 
                             </div>
 
-                            <div style="background: url('/images/world-map.png') no-repeat center center; background-size: 100%;">
+                            <div style="background: url('/images/world-map.png') no-repeat center center; background-size:contain">
                                 <address>
                                     <strong>{{trans('text.address1')}} </strong><br>
                                     {{trans('text.address2')}}<br>
@@ -19,14 +19,10 @@
                                 <abbr title="{{trans('text.email')}}"><strong> {{trans('text.email')}}:</strong></abbr> info@infocheck.am
                             </div>
                         </div>
-                    </div>
 
 
                 </div>
-                <div class="col_one_third col_last">
-
-
-
+                <div class="col_two_third col_last">
                     <div class="widget subscribe-widget clearfix customjs">
                         <h5>{{trans('text.footer_first')}}</h5>
                         <div class="widget-subscribe-form-result">
@@ -88,7 +84,7 @@
 
                     </div>
                     <div class="clear"></div>
-                    <i class="icon-envelope2"></i> info@infocheck.am <span class="middot">·</span> <i class="icon-headphones"></i> +374 60 48 87 14 <span class="middot"></span>
+                    <i class="icon-envelope"></i> info@infocheck.am <span class="middot">·</span> <i class="icon-phone"></i> +374 60 48 87 14 <span class="middot"></span>
                 </div>
             </div>
         </div>

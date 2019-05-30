@@ -10,8 +10,8 @@
      <section id="content" style="margin-bottom: 0px;">
 
               <div class="content-wrap">
-                  <div class="container clearfix">
-                      <div class="row">
+                  <div class="container clearfix own">
+                      <div class="row container clearfix own">
                       @yield('main_poster')
                       </div>
                   </div>

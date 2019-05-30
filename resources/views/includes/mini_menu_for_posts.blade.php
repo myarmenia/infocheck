@@ -1,7 +1,7 @@
 <div id="wrapper" class="clearfix" style="opacity: 1; animation-duration: 1500ms;">
 
         <div id="top-bar">
-         <div class="container clearfix">
+         <div class="container clearfix own">
           <div class="col_half nobottommargin">
            <div class="top-links">
             <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">

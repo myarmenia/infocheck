@@ -155,6 +155,30 @@
 }
 
 @media (max-width: 991.98px) {
+
+    .main_four {
+        background-image: url(/storage/posts/6/6.jpg);
+        position: relative;
+        width: 100vw;
+        height: 420px;
+        padding-left: 21px;
+        background-repeat: no-repeat;
+        top: 0;
+       background-size: cover;
+       background-position: center center;
+    }
+    .breadcrumb a, .breadcrumb_omg a {
+        color: #fff;
+    }
+    .col-lg-5{
+        position: relative;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .mt-5-own {
+        margin-top: 2rem !important
+    }
     #wrapper {
         width: 100%;
         margin: 0;
@@ -166,6 +190,21 @@
         margin: 0 auto;
         width: 750px !important
     }
+    .info_ {
+        margin-top: 20px;
+        position: absolute;
+        top: 0;
+        z-index: 120;
+        left: 0;
+        width: 161px;
+        text-align: center;
+        color: #d3ddde;
+        font-weight: 800;
+        text-shadow: 1px 1px 7px grey;
+        font-size: 13px;
+        padding: 0 12px;
+    }
+
 
     .container.vertical-middle {
         width: 100% !important
@@ -182,23 +221,24 @@
     .postcontent, .postcontent.bothsidebar, .sidebar {
         width: 100%;
         margin-right: 0;
-        float: none !important;
+        float: right !important;
         margin-bottom: 40px !important;
         padding-bottom: 40px;
         border-bottom: 1px solid #eee
     }
 
     .postcontent{
-        min-height: 200px
+        min-height: 92vh;
     }
     #post-lists {
-        position: relative;
+        position: static!important;
     }
     .sidebar.col_last {
         float: none;
         margin-bottom: 0 !important;
         padding-bottom: 0;
-        border-bottom: 0
+        border-bottom: 0;
+        min-height: 72vh;
     }
 
     #header, #header-wrap, #header.sticky-style-2, #header.sticky-style-2 #header-wrap, #header.sticky-style-3, #header.sticky-style-3 #header-wrap {
@@ -578,7 +618,7 @@
         top: 0;
         left: auto;
         right: 15px;
-        margin: 18px 0;
+        margin: 25px -21px;
         -webkit-transition: margin .4s ease;
         -o-transition: margin .4s ease;
         transition: margin .4s ease
@@ -635,7 +675,24 @@
     #top-search a {
         right: 43px
     }
+    #top-search form {
+        opacity: 0;
+        z-index: -2;
+        position: absolute;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+        top: 0;
+        left: 0;
+        -webkit-transition: opacity .3s ease-in-out;
+        -o-transition: opacity .3s ease-in-out;
+        transition: opacity .3s ease-in-out;
+        -ms-transform: translate(0px, 87px);
+        -webkit-transform: translate(0px, 87px);
+        transform: translate(0, 87px);
+        box-shadow: 1px 1px 14px 0px #d3ddde;
 
+    }
     #top-search form {
         height: 100px !important
     }
@@ -988,6 +1045,7 @@
 
     .device-md .pricing.pricing-5 .best-price .pricing-title h3, .device-md .pricing.pricing-5 .pricing-title h3 {
         font-size: 14px
+
     }
 
     .device-md .pricing.pricing-5 .pricing-title span {
@@ -1100,6 +1158,18 @@
         margin-left: -200px;
         bottom: 0
     }
+    .breadcrumb.breadcrumb_omg {
+        position: absolute !important;
+        width: auto !important;
+        top: 147% !important;
+        left: auto !important;
+        right: 15px !important;
+        margin: -10px 0 0 !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        font-size: 14px;
+        z-index: 100;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -1129,16 +1199,18 @@
         height: 199px;
         margin: 14px 0 0 60px
     }
+
 }
 
 @media (max-width: 767.98px) {
+
     .height-317px {
         height: auto;
     }
     .breadcrumb.breadcrumb_omg {
         position: absolute !important;
         width: auto !important;
-        top: 107% !important;
+        top: 147% !important;
         left: auto !important;
         right: 15px !important;
         margin: -10px 0 0 !important;
@@ -1731,7 +1803,7 @@
     }
 
     #top-search form input {
-        padding-right: 55px
+        /* padding-right: 55px */
     }
 
     #side-panel-trigger {
@@ -2015,7 +2087,7 @@
     padding: 25px 25px;
     /* overflow-y: scroll; */
     background-color: #f7f7f7;
-    border-radius: 43px;
+     border-radius: 3px;
 }
 .widget-own.own{
     display: none;
@@ -2098,4 +2170,68 @@ body.no-transition #wrapper {
     color: #aaa !important;
     background-color: #eee !important;
     text-shadow: none !important
+}
+@media (max-width: 468px){
+
+    .info_ {
+        margin-top: 88px;
+        position: absolute;
+        top: 0;
+        z-index: 120;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #d3ddde;
+        font-weight: 800;
+        text-shadow: 1px 1px 7px grey;
+        font-size: 13px;
+    }
+    .top-links li > a {
+        display: block;
+        padding: 0 6px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        height: 44px;
+        color: #666;
+    }
+
+    .container.own  {
+        width: 100% !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+    #top-cart .top-cart-content {
+
+        width: 271px;
+
+    }
+    .row.own{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin:0;}
+
+        .clients-grid li, .testimonials-grid li {
+            float: left;
+            position: relative;
+            width: 20%;
+          /*  padding: 20px 0;*/
+            -webkit-backface-visibility: hidden
+        }
+
+        .clients-grid.grid-2 li {
+            width: 100%;
+           /* padding: 25px 0*/
+        }
+        .feature-box.media-box {
+            padding: 4px 2px;
+        }
+        .top-links, .top-links > ul > li {
+            float: none !important;
+        }
+        .text-overlay {
+             padding: 4px 15px 15px;
+        }
 }

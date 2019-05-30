@@ -56,7 +56,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background-color: rgb(175, 175, 175)
 }
 
 [tabindex="-1"]:focus {
@@ -5632,7 +5632,8 @@ button.close {
     appearance: none;
     position: relative;
     z-index: 120;
-    bottom: 12px;
+    bottom: 22px;
+    left: 17px;
 }
 
 a.close.disabled {
@@ -8138,10 +8139,12 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
     margin: 3rem !important
 }
 
-.mt-5, .my-5 {
+.mt-5, .my-5{
     margin-top: 3rem !important
 }
-
+.mt-5-own {
+    margin-top: 0 !important
+}
 .mr-5, .mx-5 {
     margin-right: 3rem !important
 }

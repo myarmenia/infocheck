@@ -48,7 +48,7 @@ class Post extends Model
         return $posts = DB::table('posts')
         ->where('lang_id',$lang_id)
         ->where('date',$date)
-        ->where('status','=','published')
+        ->where('status','<>','notpublished')
         ->orderByRaw('id DESC')
         ->paginate(6);
     }

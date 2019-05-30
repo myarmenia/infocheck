@@ -1,19 +1,25 @@
 <html dir="ltr" lang="en-US">
     <head>
         <title>InfoCheck</title>
+        <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@nytimesbits" />
+<meta name="twitter:creator" content="@nickbilton" />
+        <meta property="og:locale" content="en_US" />
+<meta property="og:locale։alternate" content="ru_RU" />
+<meta property="og:locale։alternate" content="hy_AM" />
+  <meta property="og:url"           content="{{ url()->full() }}" />
+  <meta property="og:type"          content="article" />
+  <meta property="og:title"         content="{{$data['post'][0]->title}}" />
+  <meta property="og:image"         content="{{asset( $data['post'][0]->img ) }}" />
+  <meta property="og:description"   content="{!!strip_tags( $data['post'][0]->short_text )!!}"/>
         @include('../includes.links_for_single_post')
 
-  <meta property="og:url"           content="{{url(app()->getLocale().'/posts/'.$data['post'][0]->unique_id.'/'.urlencode($data['post'][0]->title))}}" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="{{$data['post'][0]->title}}" />
-  <meta property="og:description"   content="{!!str_limit($data['post'][0]->short_text, 80)!!}"/>
-  <meta property="og:image"         content="{{$data['post'][0]->img}}" />
 
       </head>
 <body class="stretched device-xl no-transition">
-
-
-        <script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=161407021204454&autoLogAppEvents=1"></script>
+  <script>
                 !function (d, id, did, st, title, description, image) {
                   var js = d.createElement("script");
                   js.src = "https://connect.ok.ru/connect.js";
@@ -27,15 +33,15 @@
                     }
                   }};
                   d.documentElement.appendChild(js);
-                }(document,"ok_shareWidget",document.URL,'{"sz":20,"st":"rounded","nc":1,"ck":2,"lang":"en"}',"THIS IS A STANDARD POST WITH A PREVIEW IMAGE","Integer posuere erat a ante venenatis dapibus posuere velit aliquet.","https://omegacoding.com/infocheck/images/services/1.jpg");
+                }(document,"ok_shareWidget",document.URL,'{"sz":20,"st":"rounded","nc":1,"ck":2,"lang":"en"}');
                 </script>
 
                 <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
 
 
-                <div id="fb-root"></div>
-                <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: hy_AM</script>
-                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hy_AM/sdk.js#xfbml=1&version=v3.3&appId=161407021204454&autoLogAppEvents=1"></script>
+                  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: hy_AM</script>
+
+
                 <script>window.twttr = (function(d, s, id) {
                   var js, fjs = d.getElementsByTagName(s)[0],
                     t = window.twttr || {};
@@ -87,16 +93,11 @@
                                 <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
                                 </ul>
                                 <div class="entry-image">
-                                <a href="#"><img src="{{$data['post'][0]->img}}" alt="Blog Single"></a>
+                             <img src="{{$data['post'][0]->img}}" alt="Image"  title="{{$data['post'][0]->title}}">
                                 </div>
                                 <div class="entry-content notopmargin">
                                     <div>
-                                            {{$data['post'][0]->html_code}}
-
-                                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. <a href="#">Curabitur blandit tempus porttitor</a>. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper.</p>
-                                        <blockquote><p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p></blockquote>
-                                        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.</p>
-                                        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. <a href="#">Nullam quis risus eget urna</a> mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                                            {!!$data['post'][0]->html_code!!}
 
                                     </div>
                             <div class="tagcloud clearfix bottommargin">
@@ -124,36 +125,32 @@
                             @endisset
                                         <div class="clear"></div>
 
-                                        <div class="si-share noborder clearfix">
-                                        		<div>
+                 <div class="si-share noborder clearfix">
+                        <div>
 
-					<div style="float:left">
-				<script type="text/javascript"><!--
-				document.write(VK.Share.button(false,{type: "link", text: "Share", image: 'https://vk.com/images/icons/like_widget.png', style:'margin:12px'
-				}));
-				--></script>
-					</div>
+                                <div class="share-own" style= " margin-top: 5px;">
+                                <script type="text/javascript"><!--
+                                document.write(VK.Share.button(false,{type: "link", text: "Share", image: 'https://vk.com/images/icons/like_widget.png', style:'margin:12px'
+                                }));
+                                --></script>
+                                </div>
 
-					<div  class="fb-share-button" data-layout="button" data-size="small">
-					<a target="_blank" href="#" class="fb-xfbml-parse-ignore">Share</a>
-					</div>
-
-					<div style="float:left">
-
-				    <script type="IN/Share" data-url="https://omegacoding.com/infocheck/posts_single.html"></script>
-					</div>
+                                <div class="share-own fb-share-button" data-href="{{ url()->full() }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ficheck.iprc.am%2Fam%2Fposts%2F2%2F%25D5%2593%25D5%25B8%25D5%25BD%25D5%25BF%2B%25D5%25B0%25D5%25A1%25D5%25B4%25D5%25A1%25D6%2580%2B2&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                                <div class="share-own">
+                                <script type="IN/Share" data-url="{{ url()->full() }}"></script>
+                                </div>
 
 
-					<div style="float:left">
-					<a class="twitter-share-button"
-						href="https://twitter.com/intent/tweet">
-					Tweet</a>
-					</div>
+                                <div class="share-own">
+                                <a class="twitter-share-button"
+                                href="https://twitter.com/intent/tweet">
+                                Tweet</a>
+                                </div>
 
 
-					<div style="float:left">
-					<div id="ok_shareWidget"></div>
-					</div>
+                                <div class="share-own">
+                                <div id="ok_shareWidget"></div>
+                                </div>
 
 
 					</div>
@@ -204,12 +201,12 @@
                                           <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
                                   <p> <textarea id ='textar' name="textarea" class="required sm-form-control input-block-level short-textarea valid" required placeholder="{{trans('text.add_c')}}"></textarea></p>
 
-                                  @if ($message = Session::get('warning_comment'))
+                                 {{-- @if ($message = Session::get('warning_comment'))
                                   <div class="alert alert-success alert-block fade show">
                                       <button type="button" class="close" data-dismiss="alert">×</button>
                                           <strong>{{ $message }}</strong>
                                   </div>
-                                  @endif
+                                  @endif--}}
                                   <button type='submit' class="btn btn-secondary">{{trans('text.leave_comment')}}</button>
                                 </form>
                                  @else
@@ -285,8 +282,8 @@
                  @for ($i = 0; $i < count($data['the_same_posts']); $i++)
                      <?php $limit++; ?>
                      @if ($limit<=3)
-                     <div class="col_one_third nobottommargin">
-                             <div class="feature-box media-box">
+                     <div class="col_one_third nobottommargin hov">
+                             <div class="feature-box media-box hov-hi">
                                  <div class="fbox-media">
                         <a href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
                                      <img class="image_fade" id="{{$data['the_same_posts'][$i]->id}}" src="{{$data['the_same_posts'][$i]->img}}" alt="Image">
