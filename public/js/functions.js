@@ -404,8 +404,8 @@ var SEMICOLON = SEMICOLON || {};
             })
         }, stickFooterOnSmall: function () {
             $footer.css({"margin-top": ""});
-            var e = $window.height(), t = $wrapper.height();
-            !$body.hasClass("sticky-footer") && $footer.length > 0 && $wrapper.has("#footer") && e > t && $footer.css({"margin-top": e - t})
+            var e = $window.height(), t = $wrapper.height();//e - t
+            !$body.hasClass("sticky-footer") && $footer.length > 0 && $wrapper.has("#footer") && e > t && $footer.css({"margin-top": '0'})
         }, stickyFooter: function () {
             if ($body.hasClass("sticky-footer") && $footer.length > 0 && ($body.hasClass("device-xl") || $body.hasClass("device-lg"))) {
                 var e = $footer.outerHeight();
@@ -544,9 +544,9 @@ var SEMICOLON = SEMICOLON || {};
                 $body.toggleClass("top-search-open"), $topCart.toggleClass("top-cart-open", !1), $("#primary-menu > ul, #primary-menu > div > ul").toggleClass("d-block", !1), $pagemenu.toggleClass("pagemenu-active", !1), $body.hasClass("top-search-open") && $topSearch.find("input").focus(), e.stopPropagation(), e.preventDefault()
             })
         }, topcart: function () {
-            $("#top-cart-trigger").off("click").on("click", function (e) {
-                $pagemenu.toggleClass("pagemenu-active", !1), $topCart.toggleClass("top-cart-open"), e.stopPropagation(), e.preventDefault()
-            })
+            // $("#top-cart-trigger").off("click").on("click", function (e) {
+            //     $pagemenu.toggleClass("pagemenu-active", !1), $topCart.toggleClass("top-cart-open"), e.stopPropagation(), e.preventDefault()
+            // })
         }
     }, SEMICOLON.slider = {
         init: function () {

@@ -55,7 +55,12 @@
         </div>
         <div class="col-12">
         <button type="submit" class="btn btn-secondary">  {{ __('register.Register') }}</button>
-        </div>
+        </div><br/>
+        <div class="center">
+                <h4 style="margin-bottom: 15px;">{{trans('text.or_login')}}</h4>
+                <a href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored">Facebook</a>
+
+                </div>
         </form>
         </div>
         <div class="col-lg-7 offset-lg-1">

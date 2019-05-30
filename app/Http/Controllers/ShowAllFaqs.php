@@ -28,7 +28,7 @@ class ShowAllFaqs extends Controller
         $category=Category::get_category($lang_id);
         $load_all_tags=Tag::load_all_tags($lang_id);
         $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
-        $questions=Question::with('question')->with('user')->with('post')->where('visible',1)->paginate(6);
+        $questions=Question::with('question')->with('user')->with('post')->with('lang')->where('visible',1)->paginate(6);
 
 
 

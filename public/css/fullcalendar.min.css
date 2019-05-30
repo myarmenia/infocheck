@@ -13,7 +13,7 @@
 }
 
 body .fc {
-    font-size: 1em
+    font-size: 1.12em;
 }
 
 .fc-unthemed .fc-popover, .fc-unthemed .fc-row, .fc-unthemed hr, .fc-unthemed tbody, .fc-unthemed td, .fc-unthemed th, .fc-unthemed thead {
@@ -364,8 +364,8 @@ body .fc {
 }
 
 .fc-day-grid-event {
-    margin: 1px 2px 0;
-    padding: 0 1px
+    /* margin: 1px 2px 0;
+    padding: 0 1px */
 }
 
 .fc-ltr .fc-day-grid-event.fc-not-start, .fc-rtl .fc-day-grid-event.fc-not-end {

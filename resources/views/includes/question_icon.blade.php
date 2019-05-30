@@ -15,7 +15,7 @@
  <form id="add_comment-own"  action="{{ route('leave.question',
  [  'locale'=> app()->getLocale()
 
- ] ) }}"  method="POST">
+ ] ) }}"  method="POST" enctype="multipart/form-data">
            @csrf
    <input name='u_id' type='hidden' value='{{Auth::user()->id}}'/>
    <input type="text" name="folder_name" value="questions" hidden>

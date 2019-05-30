@@ -21,6 +21,7 @@
         {{-- <main class="py-4">
 
         </main> --}}
-    </div>
+        @include('../includes.footer')
+
 </body>
 </html>

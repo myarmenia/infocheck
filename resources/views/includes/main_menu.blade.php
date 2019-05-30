@@ -9,22 +9,22 @@
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                       @foreach ($data['menu'] as $item)
-                          <li><a href="{{url(app()->getLocale().'/post/'.urlencode($item->item_id))}}"
-                             class="sf-with-ul">{{$item->name}}</a></li>
+                          <li class="hbtn hb-fill-middle2-bg"><a href="{{url(app()->getLocale().'/post/'.urlencode($item->item_id))}}"
+                             class="sf-with-ul ">{{$item->name}}</a></li>
                       @endforeach
-                    <li><a href="{{url(app()->getLocale().'/about')}}"
+                    <li  class="hbtn hb-fill-middle2-bg"><a href="{{url(app()->getLocale().'/about')}}"
                             class="sf-with-ul">{{trans('text.about_us')}}</a></li>
                     </ul>
-                    <button><i class="icon-reorder"></i></button>
+                    <button class="own"><i class="icon-reorder"></i></button>
 
                     <ul class='hidden-links hidden'></ul>
 
                     <div id="top-cart">
-                    <a href="#" id="top-cart-trigger"><i class="icon-calendar1"></i></a>
+                    <a href="#" id="top-cart-trigger"><i class="icon-calendar21"></i></a>
                     <div class="top-cart-content">
 
                     <div class="top-cart-items">
-                            <div id="arch" style="z-index:1000;margin-left:3%;">
+                            <div id="arch" style="z-index:1000">
                                     <a class="lang" href="javascript:void(0);"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 23px;"></i></a>
 
                                     <div class="calendar" style=" display:block;">
@@ -49,5 +49,7 @@
                     </div>
             </nav>
             </div>
+
             </div>
+        <h1 class="info_">{{trans('text.info_')}}</h1>
             </header>
