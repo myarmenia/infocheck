@@ -30,5 +30,5 @@ return [
     'To unsubscribe click on the button below' => 'To unsubscribe click on the button below.',
     'unsubscribe_btn' => 'Unsubscribe',
 
-    'please enter valid email' => 'Please, input valid email address.',
+    'please enter valid email' => 'Please, enter valid email address.',
 ];

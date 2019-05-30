@@ -73,6 +73,8 @@
                 </div>
                 </div>
             </section>
+
+            @include('../includes.footer')
         </div>
 </body>
 </html>

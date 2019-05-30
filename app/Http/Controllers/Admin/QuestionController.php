@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 use App\User;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 class QuestionController extends Controller
 {
     /**
@@ -87,6 +90,9 @@ class QuestionController extends Controller
             $answer->delete();
         }
 
+        // logging action
+        Log::channel('info_daily')->info('Admin: Reset replied Question N-'.$q_id, ['type' => $type, 'type_id' => $type_id, 'id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
         return redirect()->route('admin.question.index', $locale)
         ->with('success', 'Replied '.$type.' № -'.$type_id.' was successfuly reset!');
     }
@@ -152,6 +158,9 @@ class QuestionController extends Controller
         // return new MailNotify($params); // shows template //
         Mail::to($user->email)->send(new MailNotify($params));
 
+        // action logging
+        Log::channel('info_daily')->info('Admin: Reply Question N-'.$quest_id.' by Post N-'.$post_id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
         return redirect()->route('admin.question.index', $lng)
         ->with('success', 'Question №-'.$quest_id.' was successfully replied by Post №-'.$post_id);
     }
@@ -207,6 +216,10 @@ class QuestionController extends Controller
         // $question->body = $request->body;
         $question->visible = $request->visible;
         $question->save();
+
+
+        // action logging
+        Log::channel('info_daily')->info('Admin: Update Question N-'.$id.' set visible='.$request->visible, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
 
         return redirect()->back()->with('success', 'Question № -'.$id.' was successfuly updated');
 

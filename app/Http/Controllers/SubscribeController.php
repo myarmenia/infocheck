@@ -16,6 +16,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MailNotify;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class SubscribeController extends Controller
 {
@@ -67,11 +70,15 @@ class SubscribeController extends Controller
         // $subscriber = Subscriber::where('email', $request->email)->first();
         // return redirect()->route('subscribe.verify',['locale' => app()->getLocale(), 'token'=>$subscriber['token']]);
 
+        // logging action
+        Log::channel('info_daily')->info('User: New Subscription request from '.$subscriber->email);
+
         return redirect()->route('subscribe.verify',['locale' => app()->getLocale(), 'token'=>$subscriber->token]);
 
 
     }
 
+    // just a form for mail-enter
     public function verify($locale, $token)
     {
         $subscriber = Subscriber::where('token', $token)->first();
@@ -110,6 +117,9 @@ class SubscribeController extends Controller
             Mail::to($subscriber->email)->send(new MailNotify($params)); // return new MailNotify($params); // shows template //
             if (!Mail::failures()) {
 
+                // logging action
+                Log::channel('info_daily')->info('User: Resend verification link {front-end} to '.$subscriber->email);
+
                 // return __('verify.A fresh verification link has been sent to your email address'); // session - subscribeNote
                 return redirect()->back()->with('subscribeNote', __('verify.A fresh verification link has been sent to your email address') );
             }
@@ -126,10 +136,20 @@ class SubscribeController extends Controller
             $subscriber->token = Str::random(60);
             $subscriber->save();
             // return ' was updatet';  // session - subscribeResponse
+
+
+            // logging action
+            Log::channel('info_daily')->info('User: Subscriber '.$subscriber->email.' was successfully activated his email.');
+
+
             return redirect()->route('index_page', app()->getLocale())
             ->with('subscribeResponse', ['success' => __('verify.Your Email Address For Subscription Successfully Was Activated') ]);
         }else{
             // return 'no one with this token'; // token was expired
+
+            // logging action
+            Log::channel('info_daily')->info('User: Subscriber '.$subscriber->email.' has expired token, system can not identify this subscriber.');
+
             return redirect()->route('index_page', app()->getLocale())
             ->with('subscribeResponse', ['warning' => __('verify.Your Token For Subscription Was Expired') ]);
         }
@@ -146,6 +166,11 @@ class SubscribeController extends Controller
             $subscriber->token = Str::random(60);
             $subscriber->save();
             // return ' was updatet';  // session - subscribeResponse
+
+            // logging action
+            Log::channel('info_daily')->info('User: Subscriber '.$subscriber->email.' has unsubscribed.');
+
+
             return redirect()->route('index_page', app()->getLocale())
             ->with('subscribeResponse', ['success' => __('verify.You have successfully unsubscribed') ]);
         }else{

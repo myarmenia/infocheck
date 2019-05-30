@@ -30,6 +30,6 @@ return [
     'To unsubscribe click on the button below' => 'Բաժանորդագրումը չեղարկելու համար սեղմեք կոճակին․',
     'unsubscribe_btn' => 'Չեղաչկել',
 
-    'please enter valid email' => 'Խնդրում ենք մուտքագրել պատշաճ էլեկտրոնային հասցե',
+    'please enter valid email' => 'Խնդրում ենք մուտքագրել ճիշտ էլեկտրոնային հասցե',
 
 ];

@@ -137,6 +137,7 @@ Route::group([
         Route::get('/subscribe', 'SubscribeController@index')->name('admin.subscribe.index');
         Route::get('/subscribe/resend/{subs_id}', 'SubscribeController@resend')->name('admin.subscribe.resend');
         Route::post('/subscribe/changeStatus/{subs_id}', 'SubscribeController@changeStatus')->name('admin.subscribe.changeStatus');
+        Route::delete('/subscribe/destroy/{subs_id}', 'SubscribeController@destroy')->name('admin.subscribe.destroy');
 
         Route::post('/subscribe/prepareToSend', 'SubscribeController@prepareToSend')->name('admin.subscribe.prepareToSend');
         Route::get('/subscribe/mailing', 'SubscribeController@mailing')->name('admin.subscribe.mailing');
