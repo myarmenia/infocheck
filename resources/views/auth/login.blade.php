@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- AuthenticatesUsers -->
 
 @if ($blocked_msg = session('blocked_msg'))
 <div class="alert alert-danger alert-block text-center">
@@ -8,7 +9,8 @@
     <strong>{{ $blocked_msg }}</strong>
 </div>
 @endif
-<div class="card-body" style="padding:40px; margin:40px auto; max-width: 400px;">
+<div class="card-body" style="padding:40px; margin:40px auto; max-width: 400px;min-height:65%">
+
         <form method="POST" action="{{ route('login', app()->getLocale()) }}">
                 @csrf
         <h3>{{ __('login.Login') }}</h3>

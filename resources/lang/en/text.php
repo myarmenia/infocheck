@@ -78,7 +78,7 @@ return[
  "send_quest_ok" => "Your question was sent. We will answer in the near future.",
  "send_quest_error" => "Your question was not sent, please try again",
  "thanks"=>'Thank you!',
- "info_"=>'Information check center'
+ "info_"=>'Information Check Center'
 
 
 

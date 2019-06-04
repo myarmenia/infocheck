@@ -8,11 +8,12 @@
                     </div>
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
+                        <!-- hb-fill-middle2-bg -->
                       @foreach ($data['menu'] as $item)
-                          <li class="hbtn hb-fill-middle2-bg"><a href="{{url(app()->getLocale().'/post/'.urlencode($item->item_id))}}"
+                          <li class="hbtn hb-fill-right "><a href="{{url(app()->getLocale().'/post/'.urlencode($item->item_id))}}"
                              class="sf-with-ul ">{{$item->name}}</a></li>
                       @endforeach
-                    <li  class="hbtn hb-fill-middle2-bg"><a href="{{url(app()->getLocale().'/about')}}"
+                    <li  class="hbtn hb-fill-right"><a href="{{url(app()->getLocale().'/about')}}"
                             class="sf-with-ul">{{trans('text.about_us')}}</a></li>
                     </ul>
                     <button class="own"><i class="icon-reorder"></i></button>

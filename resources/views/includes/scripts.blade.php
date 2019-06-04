@@ -17,10 +17,32 @@
                 }
             });
 
+
+$(window).scroll(function() {
+    if ($(this).scrollTop()>35)
+     {
+
+        $('.info_').slideUp(200); /* slideUp fadeOut */
+        $('#logo img').css('box-shadow','none');
+     }
+    else
+     {
+        $('.info_').fadeIn(200); /* slideDown fadeIn */
+        if ($(window).width() < 991) {
+            $('#logo img').css('box-shadow','none');
+        }
+        else {
+            $('#logo img').css('box-shadow', '0px 8px 7px -4px #717f8e');
+        }
+
+     }
+ });
+
 </script>
 <script src='/js/lib/moment.min.js'></script>
 <script src='/js/fullcalendar.min.js'></script>
 <script src='/js/locale-all.js'></script>
 <script src="/js/calen.js"></script>
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5cf2d7807feea60012093f9e&product=social-ab' async='async'></script>
 {!!  $data['event']->script() !!}
 

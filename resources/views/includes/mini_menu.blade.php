@@ -34,8 +34,28 @@
                 @endauth
              </li>
             <!-- Subscriber's Email activation result session-message -->
+            @if(session()->get('subscribeResponse') !== null)
+            <style>
+                @media (min-width: 768px) and (max-width: 991.98px) {
+
+                    .info_ {
+                        top: 168px;
+                        color: #2d2f2f;
+                        z-index: 1;
+                    }
+                    #logo img {
+                        box-shadow: none;
+                        height: 70px;
+                    }
+
+                }
+
+            </style>
+            @endif
+
+
              @isset(session()->get('subscribeResponse')['success'])
-                <li class="nav-item">
+                <li class="nav-item subs-response">
                     <div class="alert alert-success alert-dismissible fade show" style="padding:0 1rem 0 2rem">
                         <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
                         {{ session()->get('subscribeResponse')['success'] }}
@@ -43,7 +63,7 @@
                 </li>
              @endisset
              @isset(session()->get('subscribeResponse')['warning'])
-                <li class="nav-item">
+                <li class="nav-item subs-response">
                     <div class="alert alert-warning alert-dismissible fade show" style="padding:0 1rem 0 2rem">
                         <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
                         {{ session()->get('subscribeResponse')['warning'] }}
@@ -52,7 +72,7 @@
              @endisset
 
              @isset(session()->get('subscribeResponse')['error'])
-                <li class="nav-item">
+                <li class="nav-item subs-response">
                     <div class="alert alert-danger alert-dismissible fade show" style="padding:0 1rem 0 2rem">
                         <button type="button" class="close" data-dismiss="alert" style="position: relative;">&times;</button>
                         {{ session()->get('subscribeResponse')['error'] }}

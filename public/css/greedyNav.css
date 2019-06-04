@@ -5,6 +5,7 @@ nav.greedy {
     align-items: center;
     /* background: #f2f2f2; */
     /* padding-top: 6px; */
+    left: -63px;
 }
 
 nav.greedy h1, nav.greedy #logo {
@@ -29,14 +30,16 @@ nav.greedy button.own {
   padding: 0 1.5rem 0 1.5rem; /* AA_default was-> padding: 0 1rem 0 1.5rem; we need to centering */
   outline: 0;
   border: 0;
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
   font-weight: bold;
   background:none;  /* AA_no_need */
   color: #404040;
 
   /* AA_button into lists-space */
+  font-size: 1.3rem;
   position: relative;
   right: 3rem;
+  top: -0.4rem;
 }
 
 nav.greedy button.hidden {

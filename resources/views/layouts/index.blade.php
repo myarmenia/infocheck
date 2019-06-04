@@ -11,7 +11,7 @@
 
               <div class="content-wrap">
                   <div class="container clearfix own">
-                      <div class="row container clearfix own">
+                      <div class="row container clearfix own" id="main_poster">
                       @yield('main_poster')
                       </div>
                   </div>
