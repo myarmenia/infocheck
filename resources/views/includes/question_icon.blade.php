@@ -1,4 +1,4 @@
-<div id="q-quest" title="{{trans('text.add_q')}}" class="scw-switcher-wrap d-none d-md-block center feature-box fbox-center  fbox-effect fbox-border fbox-dark jello animated" data-animate="jello">
+<div id="q-quest" title="{{trans('text.add_q')}}" class="scw-switcher-wrap d-md-block center feature-box fbox-center  fbox-effect fbox-border fbox-dark jello animated" data-animate="jello">
         <div class="fbox-icon">
                 <i class="icon-question-sign i-alt"></i>
                 </div>

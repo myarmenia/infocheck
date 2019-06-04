@@ -37,13 +37,18 @@
         @if ($data['question'][$i]->question()->exists())
         <div class="comment-content clearfix">
                 <div class="comment-author"><a href="#" rel="external nofollow" class="url">Icheck</a><span><a href="#" title="Permalink to this comment">{{$data['question'][$i]['question']->created_at}}</a></span></div>
-                <p>{{$data['question'][$i]['question']->body}}</p>
-
-                </div>
+                <p>
+                    <i class="icon-reply1"></i>
+                    {{$data['question'][$i]['question']->body}}
+                </p>
+        </div>
         @else
         <div class="comment-content clearfix">
                 <div class="comment-author"><a href="#" rel="external nofollow" class="url">Icheck</a><span><a href="#" title="Permalink to this comment">{{$data['question'][$i]->created_at}}</a></span></div>
-                <p><a href='{{config('app.url').'/'.$data['question'][$i]['lang']->lng.'/'.$data['question'][$i]->link}}'>{{$data['question'][$i]['post']->title.'/'.$data['question'][$i]['post']->date}} </a></p>
+                <p><a href='{{config('app.url').'/'.$data['question'][$i]['lang']->lng.'/'.$data['question'][$i]->link}}'>
+                    <i class="icon-line-link"></i>
+                    {{$data['question'][$i]['post']->title.'/'.$data['question'][$i]['post']->date}}
+                </a></p>
 
                 </div>
         @endif

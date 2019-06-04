@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="form-widget">
+<!-- RegistersUsers -->
+
+<div class="form-widget" style="min-height:65%">
         <div class="row"  style="padding: 20px;margin-top:40px">
         <div class="col-lg-4">
         <h3>{{trans('text.regi')}}</h3>

@@ -30,5 +30,5 @@ return [
     'To unsubscribe click on the button below' => 'Для отмены подписки нажмите на кнопку ниже.',
     'unsubscribe_btn' => 'Отменить подписку',
 
-    'please enter valid email' => 'Пожалуста, введите корректный адрес электронной почты',
+    'please enter valid email' => 'Пожалуста, введите корректный адрес эл. почты',
 ];
