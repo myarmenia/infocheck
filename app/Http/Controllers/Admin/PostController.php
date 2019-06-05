@@ -421,9 +421,28 @@ class PostController extends Controller
 
         }
 
+        // dd($post->pictures()->get());
+
+
+        $images = Storage::files('public/'.$this->folder_name.'/'.$post->unique_id); // this are images //
+        $imageurls = [];
+        for ($i=0; $i < count($images) ; $i++) {
+            $imageurls[$i]['url'] = Storage::url($images[$i]);
+            $imageurls[$i]['size'] = $size = Storage::size($images[$i]);
+            if(in_array(Document::getTypeFromLink($images[$i]), $this->validImageExp)) {
+
+                if(!DB::table('lightboxes')->where('pic_link',  Storage::url($images[$i]) )->exists()) {
+                    $post->pictures()->create(['post_unique_id' => $unique_id, 'pic_link'=> Storage::url($images[$i])]);
+                }
+
+            }
+        }
+
+
         $comments = $post->getComments()->with('user')->get();
         $docsObject = $post->getDocuments()->get(); // պետք է լինի բազա խփելուց [ցիկլից] հետո
         $question = $post->questions()->with('user')->get();
+        $picObject = $post->pictures()->get();
         // dd($question);
         return view('admin.post.relationship',[
             'page_name' => 'posts',
@@ -433,6 +452,7 @@ class PostController extends Controller
             'comments' => $comments,
             'docsObject' => $docsObject,
             'question' => $question,
+            'picObject' => $picObject,
         ]);
     }
 

@@ -45,7 +45,8 @@
                     [  'locale'=> app()->getLocale()
                     ] ) }}"  method="GET">
 
-                    <input style="background-color: white;" type="search"  class="form-control" name="s" value="{{ Request::query('s') }}" placeholder="{{trans('text.search')}}" autocomplete="off">
+                    <input type="text"  class="form-control" name="s" value="{{ Request::query('s') }}" placeholder="{{trans('text.search')}}" autocomplete="off">
+                    <i class="icon-searchengin"></i>
                     </form>
                     </div>
             </nav>
