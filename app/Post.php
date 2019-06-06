@@ -69,6 +69,12 @@ class Post extends Model
     }
 
 
+    public function pictures(Type $var = null)
+    {
+        return $this->hasMany('App\Lightbox', 'post_unique_id', 'unique_id');
+    }
+
+
 
 
 

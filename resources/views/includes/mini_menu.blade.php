@@ -84,19 +84,33 @@
            </div>
 
 
-          </div>
-                  <div>
+            </div>
+                <div>
                  <ol class="breadcrumb breadcrumb_omg"  style=" font-weight: bolder">
-                        <?php $lngg=config('app.locales');
-                        ?>
-                  @foreach (config('app.locales') as $item => $name)
-                 <li class="breadcrumb-item1" title="{{$lngg[$item]}}">
-                     <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item]) }}"
-                     @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
-                     {{ strtoupper($item) }} |
-                    </a>
+                    <?php
+                         $lngg=config('app.locales');
+                         $trans = config('app.locale_trans');
+
+                    ?>
+
+                    @foreach (config('app.locales') as $item => $name)
+                    <li class="breadcrumb-item1" title="{{$lngg[$item]}}">
+                        <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item]) }}"
+                        @if (app()->getLocale() == $item) style="display:none" @endif > &nbsp;
+                        {{ $trans[$item] }}
+
+                            @if (app()->getLocale() !== 'ru')
+                                @if (!$loop->last) <span class="lang-divider"> |</span> @endif
+                            @else
+                                @if ($loop->first)  <span class="lang-divider"> |</span> @endif
+                            @endif
+                        </a>
                     </li>
                     @endforeach
-             </div>
-         </div>
+                 </ol>
+                </div>
         </div>
+        </div>
+
+</div>
+

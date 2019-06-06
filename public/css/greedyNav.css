@@ -5,7 +5,7 @@ nav.greedy {
     align-items: center;
     /* background: #f2f2f2; */
     /* padding-top: 6px; */
-    left: -63px;
+    left: -75px; /*63px*/
 }
 
 nav.greedy h1, nav.greedy #logo {
@@ -38,7 +38,7 @@ nav.greedy button.own {
   /* AA_button into lists-space */
   font-size: 1.3rem;
   position: relative;
-  right: 3rem;
+  /* right: 3rem; */
   top: -0.4rem;
 }
 
@@ -72,7 +72,7 @@ ul.links {
     justify-content: flex-end;
     flex: 1;
     overflow: hidden;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
     text-transform: capitalize;
     font-weight: 700;
     height: 100%;
@@ -105,10 +105,11 @@ ul.links li a {
     transition: margin .4s ease,padding .4s ease;
 
 }
-
+/*
 ul.links li a:hover, ul.hidden-links li a:hover{
-    /* color: #8e9ed4; */
+     color: #8e9ed4;
 }
+*/
 
 ul.hidden-links {
   position: absolute;
@@ -142,13 +143,13 @@ ul.hidden-links li {
   padding: 0;
   list-style: none;
 }
-
+/*
 ul.links li:hover  {
-    /* background-color: #2a365e; */
+     background-color: #2a365e;
 
 }
 ul.links li:hover > a{
-    /* color: #8e9ed4; */
+    color: #8e9ed4;
 }
 /*
 -- Demo Styles

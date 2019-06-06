@@ -7,7 +7,7 @@
             @include('../includes.mini_menu' )
             @include('../includes.main_menu' )
 
-     <section id="content" style="margin-bottom: 0px;">
+     <section id="content" style="margin-bottom: 0px;" class="back_fix_rotate">
               <div class="content-wrap">
                     <div class="container clearfix">
                             <ol class="breadcrumb">
@@ -49,6 +49,7 @@
                         @endisset
 
               </div>
+              @include('../includes.right_side')
      </section>
      @include('../includes.footer')
     </div>

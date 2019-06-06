@@ -1,5 +1,4 @@
 <div id="right-side">
-
     <a href="{{url(app()->getLocale().'/')}}">
         <div class="home_link" title="{{trans('text.home')}}">
                 <i class="icon-line2-home"></i>

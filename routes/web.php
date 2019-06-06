@@ -122,6 +122,8 @@ Route::group([
         Route::post('/document/uploadfile', 'DocumentController@uploadfile')->name('admin.document.uploadfile');
         Route::post('/document/savedocstatus', 'DocumentController@savedocstatus')->name('admin.document.savedocstatus');
 
+        Route::post('/document/savepicstatus', 'DocumentController@savepicstatus')->name('admin.document.savepicstatus');
+
         Route::post('/comment/savecommentstatus', 'CommentController@savecommentstatus')->name('admin.comment.savecommentstatus');
         Route::post('/comment/changeStatus', 'CommentController@changeStatus')->name('admin.comment.changeStatus');
         Route::get('/comment', 'CommentController@index')->name('admin.comment.index');

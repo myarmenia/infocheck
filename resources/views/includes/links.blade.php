@@ -1,7 +1,14 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="keywords" content="keywords" />
     <meta name="description" content="description">
+
+    @if (app()->getLocale() == 'am')
+    {{-- @dump('hey') --}}
+    <link rel="stylesheet" href="/css/armenian-font.css" type="text/css">
+    @else
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
+    @endif
+
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="stylesheet" href="/css/swiper.css" type="text/css">

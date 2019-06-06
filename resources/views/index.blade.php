@@ -271,6 +271,7 @@
         <h3 class="h3_omg">Armenia 2</h3>
         <div class="line line_omg"></div>
     </div> --}}
+<!--  1 mec, 4 poqr-->
 <div class="col-lg-6 nobottommargin hov ">
        <div class="feature-box media-box hov-hi ">
            <div class="fbox-media">
@@ -315,10 +316,10 @@
                                 <div class="entry-c">
                                     <div class="entry-title">
                                             <a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}" >
-                                                    <h5 class="t700 mb-2">{!!str_limit($data['small_post'][$i]->short_text, 50)!!}</h5>
-                                                </a>
+                                                <h5 class="t700 mb-2">{!!str_limit($data['small_post'][$i]->title, 50)!!}</h5>
+                                            </a>
                                         <ul class="entry-meta_omg clearfix">
-                                            <li><i class="icon-calendar3"></i> {{$data['small_post'][$i]->date}}</li>
+                                            <li><i class="icon-calendar3"></i> {{$data['small_post'][$i]->date}} </li>
                                         </ul>
 
                                     </div>

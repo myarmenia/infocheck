@@ -29,20 +29,6 @@
 }
 
 
-.back_fix_rotate:before {
-    /* content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    z-index: -1;
-    background: url(/images/back_rotated.png) 0 0 repeat;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    background-size: contain; */
-
-}
 
 
 #right-side {
@@ -92,6 +78,11 @@
 
 #right-side .right-side-a {
     color: white;
+
+}
+
+#right-side a i {
+    transition: all 0.3s;
 }
 
 #right-side a:hover i {
@@ -99,5 +90,25 @@
 }
 
 
+#top-langs {
+    position: absolute;
+    right: -102px;
+    top: 31px;
+    width: 100px;
+}
+
+#top-langs ol li a {
+    color: #d5dedf;
+    transition: all 0.3s;
+}
+
+#top-langs ol li a:hover {
+    color: #8e9ed4;
+}
+
+#top-langs .lang-divider {
+    color:#bfbfbf;
+    padding-left: 4px;
+}
 
 
