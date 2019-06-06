@@ -1,4 +1,4 @@
-<div id="q-quest" title="{{trans('text.add_q')}}" class="scw-switcher-wrap d-md-block center feature-box fbox-center  fbox-effect fbox-border fbox-dark jello animated" data-animate="jello">
+<div id="q-quest" title="{{trans('text.add_q')}}" class="scw-switcher-wrap d-md-block center feature-box fbox-center  fbox-effect fbox-border fbox-dark bounceIn infinite  delay-2s  animated slower" data-animate="bounceIn">
         <div class="fbox-icon">
                 <i class="icon-question-sign i-alt"></i>
                 </div>
@@ -52,6 +52,7 @@
 <script>
 var q=document.getElementById('q-quest');
 q.addEventListener('click', function(){
+    this.classList.remove('infinite')
    document.getElementById('q-contact_own').style.display='block';
     setTimeout(function(){
         document.getElementById('q-contact_own').style.opacity='1';
@@ -66,6 +67,7 @@ q.addEventListener('click', function(){
     setTimeout(function(){
 
         c.addEventListener('click', function(){
+            q.classList.add('infinite')
         document.getElementById('q-contact_own').style.top='0vh';
         document.getElementById('q-contact_own').style.opacity='0';
         setTimeout(function(){

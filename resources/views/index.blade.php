@@ -79,9 +79,9 @@
             <?php $limit=0; ?>
                 <div class="row">
                         <div class="owl-item  col-lg-12" style="display: contents" >
-                                <span class="c_title_block">
-                                <i class="icon-question-sign_cat i-alt"></i>
-                                </span>
+                                <span class="vert-line1"></span>
+                             <span class="vert-line2"></span>
+                             <span class="vert-line3"></span>
 
                             <h3 class="h3_omg" style="color: #0f1841">{{$data['posts_by_menu'][$i]['name']}}</h3>
 
@@ -123,9 +123,9 @@
                         <div class="row">
 
                         <div  class="owl-item  col-lg-12" style="display: contents" >
-                        <span class="c_title_block">
-                                <i class="icon-question-sign_cat i-alt"></i>
-                                </span>
+                                <span class="vert-line1"></span>
+                                <span class="vert-line2"></span>
+                                <span class="vert-line3"></span>
                 <h3 class="h3_omg" style="color: #0f1841">{{$data['posts_by_menu'][$i]['name']}}</h3>
                 <div class="line line_omg" ></div>
                          </div>
@@ -157,7 +157,9 @@
             {{-- 3 hat poqr irar koxqi --}}
             <?php $limit=0; ?>
                 <div class="container clearfix mt-5">
-
+                        <span class="vert-line1"></span>
+                        <span class="vert-line2"></span>
+                        <span class="vert-line3"></span>
                 <h3 class="h3_omg">{{$data['posts_by_menu'][$i]['name']}}</h3>
                 <div class="line line_omg"></div>
                     @foreach ($data['posts_by_menu'][$i][$k] as $item)
@@ -207,7 +209,7 @@
         <div class="entry-c">
             <div class="entry-title">
                 <h3 class="t600 mb-2">
-                    <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}" class="text-light">{!!str_limit($data['big_post']['short_text'] , 50)!!}</a></h3>
+                    <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}" class="text-light">{!!str_limit($data['big_post']['title'] , 50)!!}</a></h3>
                 <ul class="entry-meta_omg clearfix">
                     <li><i class="icon-calendar3"></i> {{$data['big_post']['date']}}</li>
                 </ul>
@@ -247,7 +249,7 @@
                 </div>
                 <div class="col_half bottommargin-sm col_last hov-hi">
                     <div class="entry-title">
-                    <h3><a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">{!!str_limit($data['small_post'][$i]->short_text, 50)!!}</a></h3>
+                    <h3><a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">{!!str_limit($data['small_post'][$i]->title, 50)!!}</a></h3>
                     </div>
                     <ul class="entry-meta clearfix">
                         <li><i class="icon-calendar3"></i> {{$data['small_post'][$i]->date}}</li>
@@ -280,7 +282,7 @@
                 <div class="entry-c">
                        <div class="entry-title">
                         <h3 class="t600 mb-2">
-                            <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}"class="text-light"> {!!str_limit($data['big_post']['short_text'] , 50)!!}</a></h3>
+                            <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}"class="text-light"> {!!str_limit($data['big_post']['title'] , 50)!!}</a></h3>
                         <ul class="entry-meta_omg clearfix">
                             <li><i class="icon-calendar3"></i> {{$data['big_post']['date']}}</li>
                         </ul>

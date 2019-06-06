@@ -3,7 +3,7 @@
 
 <div class="postcontent nobottommargin">
     <h3 class="h3_omg">{{$data['posts_category']}}</h3>
-    <div class="line line_omg"></div>
+    <div class="line line_omg_post"></div>
     {{-- fadeInUp animated"  data-animate="fadeInUp" --}}
     <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
