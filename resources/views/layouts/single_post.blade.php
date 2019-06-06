@@ -125,36 +125,7 @@
                             @endisset
                                         <div class="clear"></div>
 
-                 <div class="si-share noborder clearfix">
-                        <div>
-
-                                <div class="share-own" style= " margin-top: 5px;">
-                                <script type="text/javascript"><!--
-                                document.write(VK.Share.button(false,{type: "link", text: "Share", image: 'https://vk.com/images/icons/like_widget.png', style:'margin:12px'
-                                }));
-                                --></script>
-                                </div>
-
-                                <div class="share-own fb-share-button" data-href="{{ url()->full() }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ficheck.iprc.am%2Fam%2Fposts%2F2%2F%25D5%2593%25D5%25B8%25D5%25BD%25D5%25BF%2B%25D5%25B0%25D5%25A1%25D5%25B4%25D5%25A1%25D6%2580%2B2&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                                <div class="share-own">
-                                <script type="IN/Share" data-url="{{ url()->full() }}"></script>
-                                </div>
-
-
-                                <div class="share-own">
-                                <a class="twitter-share-button"
-                                href="https://twitter.com/intent/tweet">
-                                Tweet</a>
-                                </div>
-
-
-                                <div class="share-own">
-                                <div id="ok_shareWidget"></div>
-                                </div>
-
-
-					</div>
-                                        </div>
+                 <div class="sharethis-inline-share-buttons"></div>
                                         </div>
                                 </div>
                         </div>
@@ -271,6 +242,7 @@
 
       @endif
     </div>
+
      </section>
 
      <section id="page-title">
@@ -304,7 +276,7 @@
                  @endfor
           @endif
 
-
+        @include('../includes.right_side')
     </section>
      @include('../includes.footer')
     </div>

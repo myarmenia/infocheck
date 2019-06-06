@@ -72,6 +72,7 @@
 
                 </div>
                 </div>
+                @include('../includes.right_side')
             </section>
 
             @include('../includes.footer')

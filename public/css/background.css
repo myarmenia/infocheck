@@ -50,7 +50,7 @@
     flex-direction: column;
     position: fixed;
     right: 25px;
-    top: 33vh;
+    top: 293px;
     /* border: 1px solid red; */
     align-items: center;
     justify-content: center;
@@ -72,6 +72,57 @@
     box-shadow: 0 0 3px 1px grey;
     cursor: pointer;
 
+}
+
+/* .home_link a,
+.faq_link a,
+.regis_link a,
+.login_link a,
+.logout_link a {
+    color: white;
+}
+
+.home_link:hover a,
+.faq_link:hover a,
+.regis_link:hover a,
+.login_link:hover a,
+.logout_link:hover a {
+    color: #474747;
+} */
+
+#right-side .right-side-a {
+    color: white;
+
+}
+
+#right-side a i {
+    transition: all 0.3s;
+}
+
+#right-side a:hover i {
+    color: #8e9ed4;
+}
+
+
+#top-langs {
+    position: absolute;
+    right: -102px;
+    top: 31px;
+    width: 100px;
+}
+
+#top-langs ol li a {
+    color: #d5dedf;
+    transition: all 0.3s;
+}
+
+#top-langs ol li a:hover {
+    color: #8e9ed4;
+}
+
+#top-langs .lang-divider {
+    color:#bfbfbf;
+    padding-left: 4px;
 }
 
 

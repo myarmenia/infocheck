@@ -12,11 +12,12 @@
                                 <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>
                                 <a href="{{url(app()->getLocale().'/')}}" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Logo"></a>
                             </div> --}}
-                    <div class="container clearfix">
-                    @yield('content')
-                   </div>
+                        <div class="container clearfix">
+                            @yield('content')
+                        </div>
                     </div>
-                    </section>
+                    @include('../includes.right_side')
+            </section>
 
         {{-- <main class="py-4">
 

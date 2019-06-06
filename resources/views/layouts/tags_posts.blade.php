@@ -31,6 +31,7 @@
           </div>
         </div>
   </div>
+  @include('../includes.right_side')
 </section>
 
 

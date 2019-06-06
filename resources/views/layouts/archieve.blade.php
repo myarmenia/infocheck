@@ -21,7 +21,8 @@
             </div> --}}
           </div>
         </div>
-  </div>
+    </div>
+    @include('../includes.right_side')
 </section>
 
 
