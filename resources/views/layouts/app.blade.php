@@ -6,7 +6,7 @@
     <body class="stretched device-xl no-transition">
             @include('../includes.mini_menu' )
             @include('../includes.main_menu' )
-            <section id="content" style="margin-bottom: 0px;">
+            <section id="content" style="margin-bottom: 0px;" class="back_fixed">
                     <div class="content-wrap1">
                             {{-- <div id="logo" style='margin:0 40px'>
                                 <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>

@@ -7,7 +7,7 @@
             @include('../includes.mini_menu' )
             @include('../includes.main_menu' )
 
-     <section id="content" style="margin-bottom: 0px;">
+     <section id="content" style="margin-bottom: 0px;" class="back_fixed">
 
               <div class="content-wrap">
                   <div class="container clearfix own">
@@ -18,6 +18,7 @@
                       @yield('posts_by_cat')
               </div>
               @include('../includes.question_icon')
+              @include('../includes.right_side')
      </section>
      @include('../includes.footer')
     </div>

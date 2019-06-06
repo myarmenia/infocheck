@@ -15,8 +15,8 @@
                                     <strong>{{trans('text.address1')}} </strong><br>
                                     {{trans('text.address2')}}<br>
                                 </address>
-                                <abbr title="{{trans('text.second_icon_text')}}"><strong>{{trans('text.second_icon_text')}}:</strong></abbr> +374 60 48 87 14<br>
-                                <abbr title="{{trans('text.email')}}"><strong> {{trans('text.email')}}:</strong></abbr> info@infocheck.am
+                                <abbr title="{{trans('text.second_icon_text')}}"><strong>{{trans('text.second_icon_text')}}:</strong></abbr> <a href="tel:+374 60 48 87 14">+374 60 48 87 14</a><br>
+                                <abbr title="{{trans('text.email')}}"><strong> {{trans('text.email')}}:</strong></abbr> <a href="mailto:info@infocheck.am"> info@infocheck.am </a>
                             </div>
                         </div>
 
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col_two_third col_last">
                     <div class="widget subscribe-widget clearfix customjs">
-                        <h5>{{trans('text.footer_first')}}</h5>
+                        <h5>{{trans('text.info_')}}</h5>
                         <div class="widget-subscribe-form-result">
                                 @if ($message = Session::get('errorSubs'))
                                 <h5 style="color:red">{{$message}}</h5>
@@ -84,7 +84,7 @@
 
                     </div>
                     <div class="clear"></div>
-                    <i class="icon-envelope"></i> info@infocheck.am <span class="middot">·</span> <i class="icon-phone"></i> +374 60 48 87 14 <span class="middot"></span>
+                    <i class="icon-envelope"></i> <a href="mailto:info@infocheck.am"> info@infocheck.am </a> <span class="middot">·</span> <i class="icon-phone"></i> <a href="tel:+374 60 48 87 14">+374 60 48 87 14</a> <span class="middot"></span>
                 </div>
             </div>
         </div>

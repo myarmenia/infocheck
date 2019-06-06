@@ -2494,7 +2494,8 @@ a.btn.disabled, fieldset:disabled a.btn {
 .btn-secondary {
     color: #fff;
     background-color: #6c757d;
-    border-color: #6c757d
+    border-color: #6c757d;
+    margin: 0 8px;
 }
 
 .btn-secondary:hover {
@@ -7952,7 +7953,8 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .shadow-lg {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+    background-color:rgb(211, 221, 222);
 }
 
 .shadow-none {
