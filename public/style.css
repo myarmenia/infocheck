@@ -1226,7 +1226,7 @@ body.stretched #header.full-header .container {
     font-size: 36px;
     line-height: 100%;
     /* margin-right: 40px; */
-    /* z-index: 121; */
+     z-index: 121;
 }
 
 /* #header.full-header #logo {

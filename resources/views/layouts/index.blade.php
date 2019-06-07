@@ -3,7 +3,7 @@
         <title>InfoCheck</title>
         @include('../includes.links' )
       </head>
-    <body class="stretched device-xl no-transition">
+    <body class="stretched device-xl back_fixed no-transition">
 
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )

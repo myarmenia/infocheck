@@ -10,7 +10,7 @@ $('[id^="calendar"]').mouseleave(
 
     function(){
         $('#top-cart').toggleClass("top-cart-open");
-
+        $('body').removeClass("top-search-open");
         $hlinks.addClass('hidden');
        // $('.calendar').css("display","none").toggleClass("highlight");
     }
@@ -18,6 +18,7 @@ $('[id^="calendar"]').mouseleave(
   var k=0;
 $("#top-cart-trigger").mouseover(function(){
     $hlinks.addClass('hidden');
+    $('body').removeClass("top-search-open");
 
 k++;
 if(k==1){
