@@ -3,10 +3,10 @@
         <title>InfoCheck</title>
         @include('../includes.links' )
       </head>
-    <body class="stretched device-xl no-transition">
+    <body class="stretched device-xl no-transition back_fixed">
             @include('../includes.mini_menu' )
             @include('../includes.main_menu' )
-            <section id="content" style="margin-bottom: 0px;" class="back_fixed">
+            <section id="content" style="margin-bottom: 0px;">
                     <div class="content-wrap1">
                             {{-- <div id="logo" style='margin:0 40px'>
                                 <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>

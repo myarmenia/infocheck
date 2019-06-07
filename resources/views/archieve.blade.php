@@ -3,7 +3,7 @@
 
  <div class="postcontent nobottommargin">
 <h3 class="h3_omg">{{$data['date']}}</h3>
-    <div class="line line_omg"></div>
+    <div class="line line_omg_post"></div>
     <div class="infinite-scroll">
         <?php $i=0;?>
  @foreach ($data['posts_archieve'] as $item)

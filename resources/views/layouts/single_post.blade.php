@@ -16,7 +16,7 @@
 
 
       </head>
-<body class="stretched device-xl no-transition">
+<body class="stretched device-xl no-transition back_fixed">
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=161407021204454&autoLogAppEvents=1"></script>
   <script>
@@ -86,12 +86,13 @@
             <div class="postcontent nobottommargin clearfix">
                 <div class="single-post nobottommargin">
                         <div class="entry clearfix">
-                                <div class="entry-title" style="position: absolute;top: 18px;">
+                                <div class="entry-title title-own">
                                 <h2>{{$data['post'][0]->title}}</h2>
-                                </div>
-                                <ul class="entry-meta clearfix">
+                                <ul class="entry-meta clearfix" style="margin-bottom: 0;">
                                 <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
                                 </ul>
+                                </div>
+
                                 <div class="entry-image">
                              <img src="{{$data['post'][0]->img}}" alt="Image"  title="{{$data['post'][0]->title}}">
                                 </div>
@@ -250,7 +251,7 @@
             <?php $limit=0; ?>
           <div class="container clearfix mt-5">
                       <h3 class="h3_omg">{{trans('text.same_posts')}}</h3>
-                      <div class="line line_omg"></div>
+                      <div class="line line_omg_post"></div>
                  @for ($i = 0; $i < count($data['the_same_posts']); $i++)
                      <?php $limit++; ?>
                      @if ($limit<=3)
@@ -258,11 +259,11 @@
                              <div class="feature-box media-box hov-hi">
                                  <div class="fbox-media">
                         <a href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
-                                     <img class="image_fade" id="{{$data['the_same_posts'][$i]->id}}" src="{{$data['the_same_posts'][$i]->img}}" alt="Image">
+                                     <img class="image_fade"  src="{{$data['the_same_posts'][$i]->img}}" alt="Image">
                         </a>
                                  </div>
                                  <div class="fbox-desc">
-                                        <a class="own-link-aa{{$data['the_same_posts'][$i]->id}}"  href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
+                                        <a  href="{{url(app()->getLocale().'/posts/'.$data['the_same_posts'][$i]->unique_id.'/'.urlencode($data['the_same_posts'][$i]->title))}}">
                                                 <h3>{{$data['the_same_posts'][$i]->title}}</h3>
                                                 <p>{!!str_limit($data['the_same_posts'][$i]->short_text , 60)!!} </p>
                                               </a>

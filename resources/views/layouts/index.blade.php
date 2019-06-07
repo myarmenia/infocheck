@@ -3,11 +3,11 @@
         <title>InfoCheck</title>
         @include('../includes.links' )
       </head>
-    <body class="stretched device-xl no-transition">
+    <body class="stretched device-xl no-transition back_fixed">
             @include('../includes.mini_menu' )
             @include('../includes.main_menu' )
 
-     <section id="content" style="margin-bottom: 0px;" class="back_fixed">
+     <section id="content" style="margin-bottom: 0px;" >
 
               <div class="content-wrap">
                   <div class="container clearfix own">

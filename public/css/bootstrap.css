@@ -572,6 +572,33 @@ pre code {
     padding-right: 15px;
     padding-left: 15px
 }
+.col-lg-5.mt-5-own.pad{
+	padding-left: 8px
+}
+.col-lg-6.pad{
+	    padding-left: 2px;
+    padding-right: 4px;
+}
+
+.col-lg-6.pad .feature-box.media-box {
+    /* padding: 4px; */
+    padding: 1px 0 0;
+}
+.col-lg-6.pad.col-last{
+	padding-left: 4px;
+	padding-right: 0;
+}
+
+.col-lg-6.pad.col-last .feature-box.media-box.own {
+    padding: 0;
+    margin: 4px 0px 5px 11px;
+}
+
+
+.nobottommargin.mar1{ margin: -4px -2px;}
+.nobottommargin.mar2{ margin: -4px 2px;}
+.nobottommargin.mar3{margin: 2px -2px;}
+.nobottommargin.mar4{margin: 2px 2px;}
 
 .col {
     -ms-flex-preferred-size: 0;
@@ -2446,11 +2473,11 @@ textarea.form-control {
     text-decoration: none
 }
 
-.btn:focus, .btn.focus {
+/*.btn:focus, .btn.focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
-
+*/
 .btn.disabled, .btn:disabled {
     opacity: .65
 }
@@ -2540,10 +2567,10 @@ a.btn.disabled, fieldset:disabled a.btn {
     border-color: #1e7e34 */
 }
 
-.btn-success:focus, .btn-success.focus {
+/*.btn-success:focus, .btn-success.focus {
     box-shadow: 0 0 0 .2rem rgba(72, 180, 97, .5)
 }
-
+*/
 .btn-success.disabled, .btn-success:disabled {
     color: #fff;
     background-color: #28a745;
@@ -2552,13 +2579,13 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
     color: #fff;
-    background-color: #1e7e34;
-    border-color: #1c7430
+    background-color: #0f1841;
+    border-color: #0f1841
 }
 
-.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(72, 180, 97, .5)
-}
+/*.btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus, .show > .btn-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(15, 24, 65, 0.5)
+}*/
 
 .btn-info {
     color: #fff;
