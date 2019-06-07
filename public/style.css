@@ -2016,7 +2016,7 @@ body.top-search-open #top-search form {
     height: 80% !important;
     margin: 0;
     top: 0;
-    left: 11.7%;
+    left: 13.7%;
     -webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out;
@@ -14811,6 +14811,6 @@ padding: 0;
     color: #c8d1d5;
     font-weight: 800;
     /* text-shadow: 1px 1px 7px grey; */
-    font-size: 14px;
+    font-size: 15px;
     margin: 0;
 }
