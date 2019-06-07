@@ -13,7 +13,7 @@
                             <div style="background: url('/images/world-map.png') no-repeat center center; background-size:contain">
                                 <address>
                                     <strong>{{trans('text.address1')}} </strong><br>
-                                    {{trans('text.address2')}}<br>
+                                   <a href="https://www.google.com/maps/place/1+Sarmen+St,+Yerevan+0009,+%D0%90%D1%80%D0%BC%D0%B5%D0%BD%D0%B8%D1%8F/@40.1907066,44.5152532,17z/data=!3m1!4b1!4m5!3m4!1s0x406abd2029ce1653:0x5f72c31e2bcc8865!8m2!3d40.1907066!4d44.5174419" target="_blank"> {{trans('text.address2')}} </a><br>
                                 </address>
                                 <abbr title="{{trans('text.second_icon_text')}}"><strong>{{trans('text.second_icon_text')}}:</strong></abbr> <a href="tel:+374 60 48 87 14">+374 60 48 87 14</a><br>
                                 <abbr title="{{trans('text.email')}}"><strong> {{trans('text.email')}}:</strong></abbr> <a href="mailto:info@infocheck.am"> info@infocheck.am </a>

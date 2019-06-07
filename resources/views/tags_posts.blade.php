@@ -3,7 +3,7 @@
 
 <div class="postcontent nobottommargin ">
 <h3 class="h3_omg">{{trans('text.posts')}}</h3>
-    <div class="line line_omg"></div>
+    <div class="line line_omg_post"></div>
     <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
     <div class="col_one_third hov nobottommargin  height-317px">

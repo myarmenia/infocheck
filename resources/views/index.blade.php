@@ -34,7 +34,7 @@
                         <div class="text-overlay pl-4 pr-4 pb-2 hov-hi ">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h3 class="t600 mb-2"><a href="#" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
+                                        <h3 class="t600 mb-2"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
                                         <ul class="entry-meta_omg clearfix">
                                             <li><i class="icon-calendar3"></i> {{ $item->date }}</li>
                                         </ul>
@@ -58,7 +58,7 @@
                             <div class="text-overlay pl-4 pr-4 pb-2 hov-hi">
                                     <div class="entry-c">
                                            <div class="entry-title">
-                                            <h3 class="t600 mb-2"><a href="#" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
+                                            <h3 class="t600 mb-2"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}"  class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
                                             <ul class="entry-meta_omg clearfix">
                                                 <li><i class="icon-calendar3"></i> {{ $item->date }}</li>
                                             </ul>
@@ -233,12 +233,12 @@
     </div>
 
 
-    <div class="col-lg-5 mt-5-own">
+    <div class="col-lg-5 mt-5-own pad">
         @for ($i = 0; $i < count($data['small_post']); $i++)
         <?php $limit++;?>
         @if ($limit<=3)
-        <div class="ipost clearfix hov">
-        <div class="col_half" style="{{$limit===1?'margin:0':'margin:10px 0 0 0' }}">
+        <div class="ipost clearfix hov" style="{{$limit===1?'margin:0':'margin:10px 0 0 0' }}">
+        <div class="col_half" style="margin-bottom: 0">
                     <div class="entry-image_omg" style="overflow: hidden">
                             <a  class="own-link-a{{$data['small_post'][$i]->id}}"
                                     href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">
@@ -247,7 +247,7 @@
                             </a>
                     </div>
                 </div>
-                <div class="col_half bottommargin-sm col_last hov-hi">
+                <div class="col_half bottommargin-sm col_last hov-hi" style="margin-bottom: 0">
                     <div class="entry-title">
                     <h3><a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">{!!str_limit($data['small_post'][$i]->title, 50)!!}</a></h3>
                     </div>
@@ -272,7 +272,7 @@
         <div class="line line_omg"></div>
     </div> --}}
 <!--  1 mec, 4 poqr-->
-<div class="col-lg-6 nobottommargin hov ">
+<div class="col-lg-6 nobottommargin hov pad">
        <div class="feature-box media-box hov-hi ">
            <div class="fbox-media">
                 <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}">
@@ -306,13 +306,13 @@
        </div>
 </div>
 
-<div class="col-lg-6 nobottommargin col_last">
+<div class="col-lg-6 nobottommargin col_last pad">
         <ul class="clients-grid grid-2 nobottommargin clearfix">
            @for ($i = 0; $i < count($data['small_post']); $i++)
-                <li  class="nobottommargin hov">
+        <li  class="nobottommargin hov mar{{$i+1}}">
                     <div class="feature-box media-box own">
                         <div class="fbox-media" >
-                            <div class="text-overlay_omg hov-hi">
+                            <div class="text-overlay_omg hov-hi p">
                                 <div class="entry-c">
                                     <div class="entry-title">
                                             <a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}" >

@@ -323,6 +323,7 @@ body .fc {
     border-color: transparent;
     border-bottom: 0;
     padding-top: 6px; /* armara */
+    padding-left: 6px;
 }
 
 .fc-row .fc-content-skeleton tbody td, .fc-row .fc-helper-skeleton tbody td {
@@ -345,10 +346,10 @@ body .fc {
     display: block;
     font-size: .85em;
     line-height: 1.3;
-    border-radius: 3px;
-    border: 1px solid #3a87ad;
+    /* border-radius: 3px; */
+    /* border: 1px solid #3a87ad; */
     background-color: #3a87ad;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .fc-event, .fc-event:hover, .ui-widget .fc-event {
