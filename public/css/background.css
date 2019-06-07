@@ -43,6 +43,27 @@
 	z-index: 12;
 }
 
+#top-side-btns {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    justify-content: center;
+}
+
+#top-side-btns a i {
+    transition: all 0.3s;
+}
+
+#top-side-btns a:hover i {
+    color: #8e9ed4;
+}
+
+#top-side-btns li {
+    margin-left: 10px;
+}
+
+
 .home_link ,
 .faq_link,
 .regis_link,
@@ -51,7 +72,7 @@
     padding: 9px 15px;
     /* border: 1px solid blue; */
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 17px;
     background-color: #0f1841;
     color: white;
     margin-bottom: 5px;
@@ -59,6 +80,10 @@
     box-shadow: 0 0 3px 1px grey;
     cursor: pointer;
 
+}
+
+#top-side-btns div {
+    padding: 2px 7px;
 }
 
 /* .home_link a,
@@ -91,6 +116,8 @@
 }
 
 
+
+
 #top-langs {
     position: absolute;
     right: -102px;
@@ -112,4 +139,91 @@
     padding-left: 4px;
 }
 
+#logo .burger2 {
+    align-self: stretch;
+    transition: all .4s ease-out;
+    padding: 0 1.5rem 0 1.5rem;
+    outline: 0;
+    border: 0;
+    font-weight: bold;
+    color: #404040;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 5px;
+    left: 2px;
+    z-index: 120;
+    display: none;
+}
+
+@media (max-width: 575.98px) {
+    #logo .burger2 {
+        display: block;
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    #top-langs {
+        position: absolute;
+        right: -35px;
+        top: -56px;
+        width: 100px;
+    }
+
+
+
+}
+
+@media (max-width: 767.98px) {
+    #right-side {
+        display: none;
+    }
+
+    #top-bar {
+        display: block;
+        top: -48px;
+        transform: translateX(-56%);
+    }
+    .hidden-links {
+        left: 59%;
+        transform: translateX(-50%);
+        width: 113%;
+        top: 101%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 460px) {
+    #top-bar {
+        transform: translateX(-62%);
+    }
+}
+
+@media (max-width: 390px) {
+    #top-bar {
+        transform: translateX(-65%);
+    }
+
+    /* #top-side-btns li {
+        margin-left: 0;
+        margin-right: 10px;
+    } */
+}
+
+@media (max-width: 360px) {
+    #top-side-btns  div {
+        font-size: 14px;
+    }
+    #top-side-btns div.faq_link {
+        padding: 2.3px 10px!important;
+    }
+    #top-bar {
+        top: -45px;
+    }
+}
+
+nav.greedy .links li:last-child {
+    border-right: none;
+    margin-right: 20px;
+}
 

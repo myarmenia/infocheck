@@ -3,9 +3,10 @@
         <title>InfoCheck</title>
         @include('../includes.links' )
       </head>
-    <body class="stretched device-xl no-transition back_fixed">
-            @include('../includes.mini_menu' )
+    <body class="stretched device-xl no-transition">
+
             @include('../includes.main_menu' )
+            @include('../includes.mini_menu' )
 
      <section id="content" style="margin-bottom: 0px;" >
 
