@@ -5,7 +5,10 @@
                       <div id="logo" title="Icheck">
                         <a href="{{url(app()->getLocale().'/')}}" class="standard-logo" data-dark-logo="/images/logo-dark.png"><img src="/images/logo.png" alt=" Logo"></a>
                         <a href="{{url(app()->getLocale().'/')}}" class="retina-logo" data-dark-logo="/images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Logo"></a>
+
+                    <button class="own burger2"><i class="icon-reorder"></i></button>
                     </div>
+                    <h1 class="info_">{{trans('text.info_')}}</h1>
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                         <!-- hb-fill-middle2-bg -->
@@ -58,7 +61,8 @@
                             @foreach (config('app.locales') as $item => $name)
                             <li class="breadcrumb-item1" title="{{$lngg[$item]}}">
                             @if (Route::current()->getName() !== 'register' && Route::current()->getName() !== 'login' &&
-                                 Route::current()->getName() !== 'faqs' && Route::current()->getName() !== 'index_page')
+                                 Route::current()->getName() !== 'faqs' && Route::current()->getName() !== 'index_page' &&
+                                 Route::current()->getName() !== 'about_us')
                              @switch($data['call'])
                                  @case('archieve')
                                  <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item,'date' => $data['date']]) }}"
@@ -156,5 +160,5 @@
             </div>
 
             </div>
-        <h1 class="info_">{{trans('text.info_')}}</h1>
+
             </header>

@@ -923,12 +923,23 @@ html[xmlns] .slider-wrap {
 }
 
 #top-bar {
-    position: relative;
+    /* position: relative;
     border-bottom: 1px solid #eee;
     height: 45px;
     line-height: 44px;
     font-size: 13px;
-    background-color:#d3ddde
+    background-color:#d3ddde;
+
+    top: 450px;
+    z-index: 2000; */
+
+    position: absolute;
+    background-color: transparent;
+    z-index: 20;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display:none;
 }
 
 #top-bar .col_half {
@@ -1214,16 +1225,15 @@ body.stretched #header.full-header .container {
     font-family: Raleway, sans-serif;
     font-size: 36px;
     line-height: 100%;
-    margin-right: 40px;
-    z-index: 121;
+    /* margin-right: 40px; */
+    /* z-index: 121; */
 }
 
-#header.full-header #logo {
+/* #header.full-header #logo {
     padding-right: 30px;
     margin-right: 30px;
-    /*border-right: 1px solid #eee*/
     padding-left: 63px;
-}
+} */
 
 #header.transparent-header.full-header #logo {
     border-right-color: rgba(0, 0, 0, .1)
@@ -1238,6 +1248,7 @@ body.stretched #header.full-header .container {
     display: block;
     max-width: 100%;
     box-shadow: 0px 8px 7px -4px #717f8e;
+    /* padding-left:10px; */
 }
 
 #logo a.standard-logo {
@@ -8083,8 +8094,8 @@ body:not(.device-touch) .button.button-full strong {
 
 .feature-box.fbox-center .fbox-icon {
     position: relative;
-    width: 51px;
-    height: 51px;
+    width: 68px;
+    height: 68px;
     cursor: pointer;
 }
 
@@ -14748,7 +14759,7 @@ padding: 0;
     display: inline-block;
 }
 .info_{
-	margin-top: 20px;
+	/* margin-top: 20px;
     position: absolute;
     top: 69px;
     z-index: 1;
@@ -14759,5 +14770,18 @@ padding: 0;
     font-weight: 800;
     text-shadow: 1px 1px 7px grey;
     font-size: 15px;
-    margin-left:63px;
+    margin-left:63px; */
+
+
+    position: absolute;
+    top: 11px;
+    z-index: 10000;
+    left: 130px;
+    width: 167px;
+    text-align: center;
+    color: #c8d1d5;
+    font-weight: 800;
+    /* text-shadow: 1px 1px 7px grey; */
+    font-size: 14px;
+    margin: 0;
 }

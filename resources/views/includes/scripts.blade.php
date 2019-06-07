@@ -22,12 +22,12 @@ $(window).scroll(function() {
     if ($(this).scrollTop()>35)
      {
 
-        $('.info_').slideUp(200); /* slideUp fadeOut */
+        // $('.info_').slideUp(200); /* slideUp fadeOut */
         $('#logo img').css('box-shadow','none');
      }
     else
      {
-        $('.info_').fadeIn(200); /* slideDown fadeIn */
+        // $('.info_').fadeIn(200); /* slideDown fadeIn */
         if ($(window).width() < 991) {
             $('#logo img').css('box-shadow','none');
         }
