@@ -50,3 +50,16 @@ $(window).scroll(function() {
 <script src="/js/lightbox.js"></script>
 {!!  $data['event']->script() !!}
 
+<script>
+
+    window.onload = function() {
+        loading.style.display = 'none'
+        // loaded.style.visibility = 'visible'
+        // loaded.style.display = 'block'
+        // header.style.display = 'block'
+        // footer.style.display = 'block'
+        // content.style.display = 'block'
+    }
+
+</script>
+

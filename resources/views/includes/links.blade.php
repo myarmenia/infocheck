@@ -24,3 +24,75 @@
 
     <link rel="stylesheet" href="/css/background.css">
     <link rel="stylesheet" href="/css/inp.css">
+
+
+<style>
+
+#loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: #000000a8; */
+    background-color: #ffffff;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* position: absolute; */
+    overflow: hidden;
+}
+
+#loading h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #e8e8e8;
+    border-radius: 50%;
+    border-top: 16px solid #404b6f;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+#loaded {
+    /* display: none; */
+}
+
+
+</style>

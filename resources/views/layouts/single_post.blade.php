@@ -17,6 +17,7 @@
 
       </head>
 <body class="stretched device-xl no-transition back_fixed">
+
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=161407021204454&autoLogAppEvents=1"></script>
   <script>
@@ -62,7 +63,8 @@
 
 
 
-
+<div id="loading"><h1></h1></div>
+<div id="loaded" class="animate-bottom">
 
             {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )

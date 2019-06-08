@@ -4,31 +4,29 @@
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl back_fixed no-transition">
-
+        <div id="loading"><h1></h1></div>
+        <div id="loaded" class="animate-bottom">
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
             @include('../includes.subscribe_response');
 
 
-     <section id="content" style="margin-bottom: 0px;" >
-
-
-
-              <div class="content-wrap">
-                  <div class="container clearfix own">
-                      <div class="row container clearfix own" id="main_poster">
-                      @yield('main_poster')
-                      </div>
-                  </div>
-                      @yield('posts_by_cat')
-              </div>
-              @include('../includes.question_icon')
-              @include('../includes.right_side')
-     </section>
-     @include('../includes.footer')
-    </div>
+            <section id="content" style="margin-bottom: 0px;" >
+                    <div class="content-wrap">
+                        <div class="container clearfix own">
+                            <div class="row container clearfix own" id="main_poster">
+                            @yield('main_poster')
+                            </div>
+                        </div>
+                            @yield('posts_by_cat')
+                    </div>
+                    @include('../includes.question_icon')
+                    @include('../includes.right_side')
+            </section>
+            @include('../includes.footer')
+        </div>
     <div id="gotoTop" class="icon-angle-up"></div>
-  @include('../includes.scripts')
+    @include('../includes.scripts')
 
     </body>
     </html>

@@ -158,23 +158,31 @@
 
 
 .subs-response {
-    width: 75%;
     text-align: center;
-    margin: 82px auto;
-}
-
-.close-subs-note {
     position: absolute;
-    top: 0;
-    right: 5px;
-    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 250px;
+    display: flex;
+    padding: 17px 15px 2px 15px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    z-index: 200;
 }
 
-@media (max-width: 575.98px) {
-    #logo .burger2 {
-        display: block;
-    }
+.subs-response button.close.close-subs-note {
+    left: unset;
+    bottom: unset;
+    right: -5px;
 }
+
+/* 620*/
+
+
+/* 575.98 */
+
 
 
 @media (max-width: 991.98px) {
@@ -184,6 +192,10 @@
         top: -56px;
         width: 106px;
         z-index: 121;
+    }
+
+    #gotoTop {
+        display: none;
     }
 
 
@@ -209,9 +221,28 @@
     }
 }
 
+
+@media (max-width: 620px) {
+    .subs-response {
+        width: 82%;
+    }
+}
+
+
+@media (max-width: 575.98px) {
+    #logo .burger2 {
+        display: block;
+    }
+}
+
+
 @media (max-width: 460px) {
     #top-bar {
         transform: translateX(-62%);
+    }
+
+    .subs-response {
+        width: 95%;
     }
 }
 
@@ -242,4 +273,32 @@ nav.greedy .links li:last-child {
     border-right: none;
     margin-right: 20px;
 }
+
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    #right-side {
+        top: 155px;
+    }
+
+    #top-search form {
+        width: 90% !important;
+    }
+
+    .scw-switcher-wrap {
+        top: 216px;
+        left: 20px;
+        right: unset;
+    }
+
+}
+
+
+
+
 
