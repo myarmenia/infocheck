@@ -4,15 +4,25 @@
 jQueryBridget( 'flickity', Flickity, $ );
 $(document).ready(function() {
 	
-	if ($('[data-lightbox="true"]')) {	
-		// find all images in data-lightbox attr container
-		var images = $(this).find('img.aa');
+ 
 		
+	if ($('[data-lightbox="true"]')) {
+        // find all images in data-lightbox attr container
+		var imag = $('#content').find('img');
+		for (var i=0; i<imag.length; i++) {
+			if(imag[i].clientWidth >= 400 || imag[i].clientHeight >= 300){
+                imag[i].classList.add('aa');
+                        }
+        }
+        var images = $(this).find('img.aa');
+		
+        //console.log(images);
+
 		images.on('click', function() {
 			// create lightbox
 			$(this).parents('[data-lightbox]').after('<div class="lightbox"><section class="flkty"></section></div>');
 			$('.lightbox').hide().fadeIn(300);
-			
+
 			// initialize flickity
 			$('.flkty').flickity({
 				autoPlay: false,
@@ -21,7 +31,8 @@ $(document).ready(function() {
 				adaptiveHeight: true
 			});
 
-			// append the images to the lightbox gallery
+            // append the images to the lightbox gallery
+
 			$('.flkty').flickity('append', images.clone());
 
 			// open gallery at specific index
@@ -35,7 +46,7 @@ $(document).ready(function() {
 			$('.flkty').append('<button class="flickity-prev-next-button close" aria-label="close"><svg viewBox="0 0 10 10"><path d="M 1 1 L 9 9 M 1 9 L 9 1" class="cross"></path></svg></button>');
 		});
 	}
-	
+
 	// reposition images once loaded
 	$(window).on('load', function() {
 		$('.flkty').flickity('reposition');

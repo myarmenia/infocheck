@@ -31,7 +31,7 @@ class OpenSinglePost extends Controller
         $category=Category::get_category($lang_id);
         $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
         $post=Post::where('lang_id',$lang_id)->where('unique_id',$unique_id)->get();
-        $pic=Lightbox::select('pic_link')->where('post_unique_id',$unique_id)->get();
+        $pic=Lightbox::select('pic_link')->where('post_unique_id',$unique_id)->where('isused',1)->get();
         if (count($post)>0){
             $load_all_tags=Tag::load_all_tags($lang_id);
             $document=Document::with('documentable')->where('documentable_id',$unique_id)->where('isused',1)->get();

@@ -249,7 +249,7 @@
     </div>
 
      </section>
-
+     <div id="pic" style="position: absolute;z-index: -1; display: none;"></div>
      <section id="page-title">
             @if (count($data['the_same_posts'])>0)
             <?php $limit=0; ?>
@@ -280,24 +280,27 @@
                      @endif
                  @endfor
           @endif
-          <div id="pic" style="position: absolute;
-          z-index: -1; display: none;"></div>
+
         @include('../includes.right_side')
     </section>
+
      @include('../includes.footer')
     </div>
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
 
 <script>
-     $('#textar').val('');
+
+
+
+        $('#textar').val('');
 </script>
 @isset($data['pic'])
 <script>
 
         var picter= {!! json_encode($data['pic']->toArray())!!}
         if(picter){
-            console.log(picter)
+           // console.log(picter)
         var pic_div=document.getElementById('pic');
         for (var i=0; i<picter.length; i++){
             pic_div.innerHTML+="<img class='aa' src="+picter[i]['pic_link']+" />"
