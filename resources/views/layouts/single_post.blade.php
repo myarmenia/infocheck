@@ -64,13 +64,15 @@
 
 
 
+
             @include('../includes.mini_menu_for_posts' )
             @include('../includes.main_menu' )
 
-<section id="content">
+<section id="content"  class="gallery" data-lightbox>
+
     <div class="content-wrap">
             <div class="container clearfix">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb own">
                     <li class="breadcrumb-item"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$data['post'][0]->title}}</li>
                     </ol>
@@ -94,8 +96,9 @@
                                 </div>
 
                                 <div class="entry-image">
-                             <img src="{{$data['post'][0]->img}}" alt="Image"  title="{{$data['post'][0]->title}}">
-                                </div>
+                             <img src="{{$data['post'][0]->img}}" alt="Image"  title="{{$data['post'][0]->title}}" class="aa">
+
+                            </div>
                                 <div class="entry-content notopmargin">
                                     <div>
                                             {!!$data['post'][0]->html_code!!}
@@ -276,7 +279,8 @@
                      @endif
                  @endfor
           @endif
-
+          <div id="pic" style="position: absolute;
+          z-index: -1; display: none;"></div>
         @include('../includes.right_side')
     </section>
      @include('../includes.footer')
@@ -287,6 +291,22 @@
 <script>
      $('#textar').val('');
 </script>
+@isset($data['pic'])
+<script>
+
+        var picter= {!! json_encode($data['pic']->toArray())!!}
+        if(picter){
+            console.log(picter)
+        var pic_div=document.getElementById('pic');
+        for (var i=0; i<picter.length; i++){
+            pic_div.innerHTML+="<img class='aa' src="+picter[i]['pic_link']+" />"
+        }
+
+        }
+
+       </script>
+@endisset
+
 
 </body>
 </html>

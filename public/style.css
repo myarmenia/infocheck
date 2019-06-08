@@ -1228,6 +1228,9 @@ body.stretched #header.full-header .container {
     /* margin-right: 40px; */
      z-index: 121;
 }
+.breadcrumb.own a, .breadcrumb_omg a {
+    color: #333;
+     }
 
 /* #header.full-header #logo {
     padding-right: 30px;
@@ -3629,7 +3632,7 @@ body.stretched .container-fullwidth .breadcrumb {
 }
 
 .breadcrumb a:hover, .breadcrumb_omg a:hover {
-    color: #8e9ed4
+    color: #333
 }
 
 .breadcrumb i , .breadcrumb_omg i{

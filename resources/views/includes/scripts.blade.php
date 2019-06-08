@@ -44,5 +44,9 @@ $(window).scroll(function() {
 <script src='/js/locale-all.js'></script>
 <script src="/js/calen.js"></script>
 <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5cf2d7807feea60012093f9e&product=social-ab' async='async'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.5/flickity.pkgd.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script src="/js/lightbox.js"></script>
 {!!  $data['event']->script() !!}
 

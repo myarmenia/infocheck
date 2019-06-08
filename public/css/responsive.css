@@ -178,6 +178,12 @@
     .breadcrumb a, .breadcrumb_omg a {
         color: #fff;
     }
+	.breadcrumb.own a {
+    color: #333;
+     }
+	#footer .container{
+		padding: 0 12px!important
+	}
     .col-lg-5{
         position: relative;
         width: 100%;
@@ -243,7 +249,9 @@
         float: right !important;
         margin-bottom: 40px !important;
         padding-bottom: 40px;
-        border-bottom: 1px solid #eee
+        border-bottom: 1px solid #eee;
+		padding-left: 10px;
+    padding-right: 10px;
     }
 
     .postcontent{
@@ -1288,7 +1296,7 @@
     position: relative;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    margin-bottom: 0;
+       margin-bottom: 9px;
 		}
 		.input-group-prepend .btn, .input-group-append .btn {
 		position: relative;
@@ -1479,7 +1487,7 @@
 
     .col_five_sixth, .col_four_fifth, .col_full, .col_half, .col_one_fifth, .col_one_fourth, .col_one_sixth, .col_one_third, .col_three_fifth, .col_three_fourth, .col_two_fifth, .col_two_third, .postcontent, .postcontent.bothsidebar, .sidebar {
         width: 100%;
-        margin-right: 13px; /* 0px*/
+        margin-right: 0px;
         float: none;
         margin-bottom: 12px !important
     }

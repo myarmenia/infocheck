@@ -70,7 +70,7 @@
         </div>
         <div class="col-12 center col_full ">
         <button type="submit" class="btn btn-secondary">  {{ __('register.Register') }}</button>
-        <button href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored">Facebook</button>
+        <a href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored" style=" padding-top: 7px">Facebook</a>
 
         </div><br/>
 

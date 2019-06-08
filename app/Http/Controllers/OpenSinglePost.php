@@ -11,6 +11,7 @@ use App\Document;
 use App\Comment;
 use App\User;
 use App\Event;
+use App\Lightbox;
 use DB;
 
 
@@ -30,6 +31,7 @@ class OpenSinglePost extends Controller
         $category=Category::get_category($lang_id);
         $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
         $post=Post::where('lang_id',$lang_id)->where('unique_id',$unique_id)->get();
+        $pic=Lightbox::select('pic_link')->where('post_unique_id',$unique_id)->get();
         if (count($post)>0){
             $load_all_tags=Tag::load_all_tags($lang_id);
             $document=Document::with('documentable')->where('documentable_id',$unique_id)->where('isused',1)->get();
@@ -46,7 +48,7 @@ class OpenSinglePost extends Controller
 
 
 
-      //return $load_all_tags;
+    // return $pic;
             $data = array(
                 'menu' => $category,
                 'post'=>$post,
@@ -62,7 +64,8 @@ class OpenSinglePost extends Controller
                 'call'=>'single',
                 'unique_id'=>$unique_id,
                 'title'=>$title,
-                'breadcrumb'=>$link[0]
+                'breadcrumb'=>$link[0],
+                'pic'=>$pic
 
 
                 );

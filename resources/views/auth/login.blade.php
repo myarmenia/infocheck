@@ -44,7 +44,7 @@
         </div>
         <div class="center col_full nobottommargin">
         <button type="submit"  class="btn btn-secondary"> {{ __('login.Login') }}</button>
-        <button href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored">Facebook</button>
+        <a href="{{ url('/login/facebook') }}" class="button button-rounded si-facebook si-colored" style=" padding-top: 7px">Facebook</a>
 
         @if (Route::has('password.request'))
         <a class="btn btn-link" href="{{ route('password.request', app()->getLocale()) }}">
