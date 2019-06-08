@@ -11,16 +11,16 @@
 
 @isset(session()->get('subscribeResponse')['success'])
 <div class="subs-response">
-    <div class="alert alert-success alert-dismissible fade show" style="padding:0 1rem 0 2rem">
-        <button type="button" class="close close-subs-note" data-dismiss="alert" style="position: relative;">&times;</button>
+    <div class="alert alert-success alert-dismissible fade show shadow" >
+        <button type="button" class="close close-subs-note" data-dismiss="alert" >&times;</button>
         {{ session()->get('subscribeResponse')['success'] }}
     </div>
 </div>
 @endisset
 @isset(session()->get('subscribeResponse')['warning'])
 <div class="subs-response">
-    <div class="alert alert-warning alert-dismissible fade show" style="padding:0 1rem 0 2rem">
-        <button type="button" class="close close-subs-note" data-dismiss="alert" style="position: relative;">&times;</button>
+    <div class="alert alert-warning alert-dismissible fade show shadow" >
+        <button type="button" class="close close-subs-note" data-dismiss="alert" >&times;</button>
         {{ session()->get('subscribeResponse')['warning'] }}
     </div>
 </div>
@@ -28,8 +28,8 @@
 
 @isset(session()->get('subscribeResponse')['error'])
 <div class="subs-response">
-    <div class="alert alert-danger alert-dismissible fade show" style="padding:0 1rem 0 2rem">
-        <button type="button" class="close close-subs-note" data-dismiss="alert" style="position: relative;">&times;</button>
+    <div class="alert alert-danger alert-dismissible fade show shadow" >
+        <button type="button" class="close close-subs-note" data-dismiss="alert" >&times;</button>
         {{ session()->get('subscribeResponse')['error'] }}
     </div>
 </div>

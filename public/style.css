@@ -1250,7 +1250,7 @@ body.stretched #header.full-header .container {
 #logo img {
     display: block;
     max-width: 100%;
-    box-shadow: 0px 8px 7px -4px #717f8e;
+    /* box-shadow: 0px 8px 7px -4px #717f8e; */
     /* padding-left:10px; */
 }
 

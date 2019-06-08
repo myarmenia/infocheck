@@ -5,6 +5,9 @@
       </head>
     <body class="stretched device-xl no-transition back_fixed">
 
+            <div id="loading"><h1></h1></div>
+            <div id="loaded" class="animate-bottom">
+
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
             @include('../includes.subscribe_response');
@@ -27,6 +30,7 @@
 
         </main> --}}
         @include('../includes.footer')
+            </div>
         @include('../includes.scripts')
 
 </body>

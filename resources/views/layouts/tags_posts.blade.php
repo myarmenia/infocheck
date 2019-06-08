@@ -4,6 +4,8 @@
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl no-transition back_fixed">
+            <div id="loading"><h1></h1></div>
+            <div id="loaded" class="animate-bottom">
             {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
@@ -37,7 +39,7 @@
 
 
      {{-- @include('../includes.footer') --}}
-
+            </div>
     <div id="gotoTop" class="icon-angle-up"></div>
   @include('../includes.scripts')
     </body>
