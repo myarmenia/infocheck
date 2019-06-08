@@ -4,10 +4,14 @@
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl no-transition back_fix_rotate">
-            @include('../includes.mini_menu' )
+
             @include('../includes.main_menu' )
+            @include('../includes.mini_menu' )
+            @include('../includes.subscribe_response');
 
      <section id="content" style="margin-bottom: 0px;">
+
+
               <div class="content-wrap">
                     <div class="container clearfix">
                             <ol class="breadcrumb">

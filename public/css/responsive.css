@@ -2298,7 +2298,7 @@ li.nobottommargin.hov.mar3 .feature-box.media-box.own {
     border: 3px solid rgb(249, 249, 249);
     border-radius: 114px;
     box-shadow: 0 0px 13px 11px rgba(125, 40, 40, 0.2);
-    /* z-index: 9999; */
+    z-index: 10;
     /* overflow: hidden; */
     -webkit-transition: all .45s ease;
     -o-transition: all .45s ease;

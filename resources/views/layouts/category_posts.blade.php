@@ -4,8 +4,9 @@
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl no-transition back_fixed">
-            @include('../includes.mini_menu_for_posts' )
+            {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )
+            @include('../includes.mini_menu' )
 
 
  <section id="content" style="margin-bottom: 0px;">

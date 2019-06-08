@@ -64,9 +64,10 @@
 
 
 
-
-            @include('../includes.mini_menu_for_posts' )
+            {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )
+            @include('../includes.mini_menu' )
+            @include('../includes.subscribe_response');
 
 <section id="content"  class="gallery" data-lightbox>
 
