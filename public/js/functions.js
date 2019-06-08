@@ -1454,7 +1454,7 @@ var SEMICOLON = SEMICOLON || {};
                     $('#post-lists').offset().top > 200? $("#post-lists").css({top: "12vh"}):$("#post-lists").css({top:( $(window).scrollTop()*30)/100 + "px"})
                 }
                 else{
-                    $("#post-lists").css({top: "30vh"})
+                    $("#post-lists").css({top: "22vh"})
                 }
             }
            SEMICOLON.initialize.goToTopScroll(), $("body.open-header.close-header-on-scroll").removeClass("side-header-open"), SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), SEMICOLON.header.logo()
