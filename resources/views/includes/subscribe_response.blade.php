@@ -1,6 +1,11 @@
 @if(session()->get('subscribeResponse') !== null)
 
 <!-- if need some styles add here -->
+<style>
+    .subs-response {
+        display: flex;
+    }
+</style>
 
 
 

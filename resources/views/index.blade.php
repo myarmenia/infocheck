@@ -90,7 +90,7 @@
                         @foreach ($data['posts_by_menu'][$i][$k] as $item)
                                 <?php $limit++;?>
                                 @if ($limit<=2)
-                                <div class="owl-item  col-lg-6">
+                                <div class="owl-item  col-lg-6 mb-5">
                                      <div class="hov nobottommargin">
                                         <div class="feature-box media-box hov-hi-div-hid">
                                         <div class="entry mb-0 hov-hi-div" style="background: url('{{$item->img}}') center center; background-size: cover; height: 400px;">

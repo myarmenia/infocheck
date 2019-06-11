@@ -69,14 +69,14 @@
             {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
-            @include('../includes.subscribe_response');
+            @include('../includes.subscribe_response')
 
 <section id="content"  class="gallery" data-lightbox>
 
     <div class="content-wrap">
             <div class="container clearfix">
                     <ol class="breadcrumb own">
-                    <li class="breadcrumb-item"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
+                    <li class="breadcrumb-item breadcrumb-item-first"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$data['post'][0]->title}}</li>
                     </ol>
             </div>

@@ -195,7 +195,7 @@ class PostController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withInput()->withErrors($validator);
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
         }
 
         $post_exists = Post::where('unique_id',$request->unique_id)->where('lang_id',$request->lang_id)->first();
