@@ -13,7 +13,7 @@ return [
 
     'Register' => 'Register',
     'Name' => 'Name',
-    'E-Mail Address' => 'E-Mail Address',
+    'E-Mail Address' => 'E-Mail address',
     'Password' => 'Password',
-    'Confirm Password' => 'Confirm Password',
+    'Confirm Password' => 'Confirm password',
 ];

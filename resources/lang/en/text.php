@@ -22,8 +22,8 @@ return[
  "send"=>"Send",
  "verified"=>'In order to comment you must verify your email.',
  "verified_question"=>'To ask questions you must verify your email.',
- "login_for_comment"=>'To leave a comment, please either Log in or Register.',
- "login_for_question"=>'To ask questions, please either Log in or Register.',
+ "login_for_comment"=>'To leave a comment, please either log in or register.',
+ "login_for_question"=>'To ask questions, please either log in or register.',
  "login"=>'Log in',
  "register"=>'Register',
  "verify"=>'Verify',
@@ -80,9 +80,12 @@ return[
  "thanks"=>'Thank you!',
  "info_"=>'Information check center',
  "reg_text1"=>"Dear Reader",
- "reg_text2"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials."
+ "reg_text2"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials.",
 
 
+ "app_description"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials.",
+
+ "app_keywords" => "Information,info,information,check,center,state,governmental,platform,reliable,credibility,veracity,topics,topic,answer,reply,comment,interpret",
 
 
 ];

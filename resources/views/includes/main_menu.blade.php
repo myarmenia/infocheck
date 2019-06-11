@@ -8,7 +8,10 @@
 
                     <button class="own burger2"><i class="icon-reorder"></i></button>
                     </div>
-                    <h1 class="info_">{{trans('text.info_')}}</h1>
+                    <a href="{{url(app()->getLocale().'/')}}" >
+                        <h1 class="info_">{{trans('text.info_')}}</h1>
+                    </a>
+
                 <nav class='greedy'>
                     <ul class='links sf-js-enabled'>
                         <!-- hb-fill-middle2-bg -->

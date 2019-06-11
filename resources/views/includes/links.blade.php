@@ -1,6 +1,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="keywords" />
-    <meta name="description" content="description">
+    <meta name="keywords" content="{{__('text.app_description')}}" />
+    <meta name="description" content="{{__('text.app_keywords')}}">
 
     @if (app()->getLocale() == 'am')
     {{-- @dump('hey') --}}
@@ -58,7 +58,7 @@
     border-top: 16px solid #404b6f;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
     animation: spin 1s linear infinite;
 }
 

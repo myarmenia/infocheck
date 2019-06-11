@@ -1,6 +1,6 @@
 <html dir="ltr" lang="en-US">
     <head>
-        <title>InfoCheck</title>
+        <title>{{__('text.info_')}}</title>
         @include('../includes.links' )
       </head>
     <body class="stretched device-xl no-transition back_fixed">

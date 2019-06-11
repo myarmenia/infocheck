@@ -13,7 +13,7 @@
                    <div class="entry-c">
                             <div class="entry-title">
                             <h4>
-                                <a href="{{url($post->lng.'/posts/'.$post->unique_id.'/'.urlencode($post->title))}}"  class="text-extra-dark-gray margin-25px-bottom alt-font text-uppercase font-weight-600 text-small search_link">{{$post->title}}</a>
+                                <a href="{{url($post->lng.'/posts/'.$post->unique_id.'/'.urlencode($post->title))}}"  class="text-extra-dark-gray margin-25px-bottom alt-font  font-weight-600 text-small search_link">{{$post->title}}</a>
                             </h4>
                             </div>
                         <ul class="entry-meta clearfix" style="margin-bottom: 0;">
@@ -64,7 +64,7 @@
         </div>
         @if( $data['post']->total() > 3 )
   <nav class="nobottommargin mt-5">
-      <ul class="pagination">
+      <ul class="pagination" id="our-pagination">
           @if( $data['post']->firstItem() > 1 )
               <li class="page-item"><a class="page-link" href="{{$data['post']->previousPageUrl().'&s='.$data['s']  }}">{{trans('text.page_prev')}}</a></li>
           @endif

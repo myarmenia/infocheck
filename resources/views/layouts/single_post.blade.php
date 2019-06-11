@@ -1,6 +1,6 @@
 <html dir="ltr" lang="en-US">
     <head>
-        <title>InfoCheck</title>
+        <title>{{__('text.info_')}}</title>
         <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@nytimesbits" />
 <meta name="twitter:creator" content="@nickbilton" />
@@ -103,7 +103,7 @@
 
                             </div>
                                 <div class="entry-content notopmargin">
-                                    <div>
+                                    <div class="entry-post-html">
                                             {!!$data['post'][0]->html_code!!}
 
                                     </div>
