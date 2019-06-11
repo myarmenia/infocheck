@@ -5,7 +5,7 @@
 
     <div class="spost clearfix">
         <a href="{{url(app()->getLocale().'/posts/'.$data['most_viewed'][$i]['unique_id'].'/'.urlencode($data['most_viewed'][$i]['title']))}}" class="nobg">
-        <div class="entry-image" style="background-image: url({{ $data['most_viewed'][$i]->img}});background-size: cover; margin-bottom: 10px">
+        <div class="entry-image" style="background-image: url({{ $data['most_viewed'][$i]->img}});background-size: cover; margin-bottom: 10px;background-position: center right;">
         </div>
         </a>
         <div class="entry-c">

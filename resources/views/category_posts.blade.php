@@ -11,7 +11,8 @@
         <div class="feature-box media-box hov-hi">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
-                      <img src="{{$item->img}}" alt="image"  class="image_fade">
+          <div class="hov-hi-div back" style="background-image:url('{{$item->img}}')" ></div>
+                      {{-- <img src="{{$item->img}}" alt="image"  class="image_fade"> --}}
          </a>
                     </div>
             <div class="fbox-desc">

@@ -745,7 +745,7 @@ h5.t700{
 .col_one_fourth, .sidebar {
     width: 22%
 }
-.col_one_fourth {
+.col_one_fourth, .col_one_third.nobottommargin.hov{
     margin-left:13px;
 }
 
@@ -793,6 +793,11 @@ body.stretched .container-fullwidth {
 }
 .postcontent{
     min-height: 200px
+}
+
+.container.postcontent.clearfix.min{
+    min-height: unset;
+    margin: 0;
 }
 
 .col_full {
@@ -2049,17 +2054,17 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #header.transparent-header:
 #top-search form input::-moz-placeholder {
     color: rgb(196, 196, 196);
     opacity: 1;
-    text-transform: uppercase
+    /* text-transform: uppercase */
 }
 
 #top-search form input:-ms-input-placeholder {
     color: rgb(196, 196, 196);
-    text-transform: uppercase
+    /* text-transform: uppercase */
 }
 
 #top-search form input::-webkit-input-placeholder {
     color: rgb(196, 196, 196);
-    text-transform: uppercase
+    /* text-transform: uppercase */
 }
 
 #primary-menu .container #top-search form input, .sticky-header #top-search form input {
@@ -5853,6 +5858,7 @@ body:not(.device-touch) .entry-link {
     /* padding-left: 21px; */
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 #reviews .commentlist {
     padding-bottom: 30px;
@@ -7898,11 +7904,18 @@ body:not(.device-touch) .button.button-full strong {
     overflow: hidden;
 }
 
-.feature-box h3 > p {
+.feature-box h3 > p, h5 {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     color:#fff;
+}
+ h5.t700.mb-2, h3.t600.mb-2 > a{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color:#fff;
+    margin-bottom: 0 !important;
 }
 
 /* vernagir elipsis */
@@ -11740,7 +11753,7 @@ body:not(.device-touch) .overlay .overlay-wrap, body:not(.device-touch) .text-ov
     backface-visibility: hidden
 }
 .text-overlay  a, .text-overlay h3 a {
-    line-height: 1.4;
+    line-height: 1;
 }
 
 .text-overlay_omg {
@@ -12404,7 +12417,6 @@ input[type=checkbox]:not(:checked) + label.error {
 }
 
 #gotoTop {
-    display: none;
     z-index: 299;
     position: fixed;
     width: 54px;
@@ -14652,6 +14664,21 @@ img {max-width:100%; height:auto; }
 overflow: hidden;
 padding: 0;
 }
+.fbox-media .hov-hi-div.back{
+    width: 100%;
+    height: 45vmin;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.ipost.clearfix.hov .fbox-media .hov-hi-div.back{
+    width: 100%;
+    height: 45vmin;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
  .hov .entry-image_omg img {width: 100%;}
 .hov:hover .entry-image_omg img {opacity: 0.5; transform: scale(1.2, 1.2); transition: all 0.3s ease 0s;}
 

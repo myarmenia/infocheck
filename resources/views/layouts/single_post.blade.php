@@ -13,8 +13,6 @@
   <meta property="og:image"         content="{{asset( $data['post'][0]->img ) }}" />
   <meta property="og:description"   content="{!!strip_tags( $data['post'][0]->short_text )!!}"/>
         @include('../includes.links_for_single_post')
-
-
       </head>
 <body class="stretched device-xl no-transition back_fixed">
 
@@ -59,53 +57,40 @@
 
                   return t;
                 }(document, "script", "twitter-wjs"));</script>
-
-
-
-
 <div id="loading"><h1></h1></div>
 <div id="loaded" class="animate-bottom">
-
             {{-- @include('../includes.mini_menu_for_posts' ) --}}
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
-            @include('../includes.subscribe_response');
+            @include('../includes.subscribe_response')
 
 <section id="content"  class="gallery" data-lightbox>
-
-    <div class="content-wrap">
-            <div class="container clearfix">
+    <div class="container content-wrap">
+            <div class="container postcontent clearfix min">
                     <ol class="breadcrumb own">
-                    <li class="breadcrumb-item"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
+                    <li class="breadcrumb-item breadcrumb-item-first"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$data['post'][0]->title}}</li>
                     </ol>
+                    <div class="entry-title title-own">
+                        <h2>{{$data['post'][0]->title}}</h2>
+                        <ul class="entry-meta clearfix" style="margin-bottom: 0;">
+                        <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
+                        </ul>
+                        </div>
             </div>
 
             {{-- {{dd($data['post'][0]['id'])}} --}}
 
-        <div class="container clearfix margin-top-25">
-
-
-
-
+        <div class="container clearfix">
             <div class="postcontent nobottommargin clearfix">
                 <div class="single-post nobottommargin">
                         <div class="entry clearfix">
-                                <div class="entry-title title-own">
-                                <h2>{{$data['post'][0]->title}}</h2>
-                                <ul class="entry-meta clearfix" style="margin-bottom: 0;">
-                                <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
-                                </ul>
-                                </div>
-
                                 <div class="entry-image">
                              <img src="{{$data['post'][0]->img}}" alt="Image"  title="{{$data['post'][0]->title}}" class="aa">
-
                             </div>
                                 <div class="entry-content notopmargin">
                                     <div class="entry-post-html">
                                             {!!$data['post'][0]->html_code!!}
-
                                     </div>
                             <div class="tagcloud clearfix bottommargin">
                                     @isset($data['docs'])

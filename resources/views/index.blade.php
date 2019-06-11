@@ -34,7 +34,7 @@
                         <div class="text-overlay pl-4 pr-4 pb-2 hov-hi ">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h3 class="t600 mb-2"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
+                                        <h3 class="t600 mb-2" style="color:#fff"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="text-light">{!!str_limit($item->short_text , 30)!!}</a></h3>
                                         <ul class="entry-meta_omg clearfix">
                                             <li><i class="icon-calendar3"></i> {{ $item->date }}</li>
                                         </ul>
@@ -58,7 +58,7 @@
                             <div class="text-overlay pl-4 pr-4 pb-2 hov-hi">
                                     <div class="entry-c">
                                            <div class="entry-title">
-                                            <h3 class="t600 mb-2"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}"  class="text-light">{!!str_limit($item->short_text , 50)!!}</a></h3>
+                                            <h3 class="t600 mb-2"><a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}"  class="text-light">{!!str_limit($item->short_text , 80)!!}</a></h3>
                                             <ul class="entry-meta_omg clearfix">
                                                 <li><i class="icon-calendar3"></i> {{ $item->date }}</li>
                                             </ul>
@@ -101,7 +101,7 @@
                                             <div class="entry-c">
                                                 <div class="entry-title">
                                                     <h3 class="t600 mb-2">
-                                                        <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="text-light">{!!str_limit($item->short_text , 80)!!}</a></h3>
+                                                        <a  href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" class="text-light">{!!str_limit($item->short_text , 30)!!}</a></h3>
                                                     <ul class="entry-meta_omg clearfix">
                                                         <li><i class="icon-calendar3"></i> {{ $item->date }}</li>
                                                     </ul>
@@ -134,7 +134,9 @@
                                 <div class="feature-box media-box hov-hi">
                                          <div class="fbox-media">
                                          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}" >
-                                            <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
+                                            <div class="hov-hi-div back" style="background-image:url('{{$item->img}}')" ></div>
+
+                                            {{-- <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}"> --}}
                                         </a>
                                         </div>
 
@@ -156,12 +158,15 @@
             @case('D')
             {{-- 3 hat poqr irar koxqi --}}
             <?php $limit=0; ?>
-                <div class="container clearfix mt-5">
-                        <span class="vert-line1"></span>
-                        <span class="vert-line2"></span>
-                        <span class="vert-line3"></span>
-                <h3 class="h3_omg">{{$data['posts_by_menu'][$i]['name']}}</h3>
-                <div class="line line_omg"></div>
+                <div class="container clearfix mt-5" >
+                        <div class="row">
+                                <div  class="owl-item  col-lg-12" style="display: contents" >
+                                        <span class="vert-line1"></span>
+                                        <span class="vert-line2"></span>
+                                        <span class="vert-line3"></span>
+                        <h3 class="h3_omg" style="color: #0f1841">{{$data['posts_by_menu'][$i]['name']}}</h3>
+                        <div class="line line_omg" ></div>
+                                 </div>
                     @foreach ($data['posts_by_menu'][$i][$k] as $item)
                     <?php $limit++; ?>
                     @if ($limit<=3)
@@ -169,7 +174,9 @@
                             <div class="feature-box media-box hov-hi">
                                 <div class="fbox-media">
                                 <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
-                                     <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}">
+                                    <div class="hov-hi-div back" style="background-image:url('{{$item->img}}')" ></div>
+
+                                    {{-- <img src="{{$item->img}}" alt="{{$data['posts_by_menu'][$i]['name']}}"> --}}
                                 </a>
                                     </div>
                                 <div class="fbox-desc">
@@ -186,6 +193,7 @@
                     @endif
 
                     @endforeach
+                </div>
                 </div>
 
             @break
@@ -237,13 +245,13 @@
         @for ($i = 0; $i < count($data['small_post']); $i++)
         <?php $limit++;?>
         @if ($limit<=3)
-        <div class="ipost clearfix hov" style="{{$limit===1?'margin:0':'margin:10px 0 0 0' }}">
-        <div class="col_half" style="margin-bottom: 0">
-                    <div class="entry-image_omg" style="overflow: hidden">
-                            <a  class="own-link-a{{$data['small_post'][$i]->id}}"
-                                    href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">
-
-                            <img  class="image_fade" src="{{$data['small_post'][$i]->img}}" alt="image" style="opacity: 1">
+        <div class="ipost clearfix hov nobottommargin" style="{{$limit===1?'margin:0':'margin:10px 0 0 0' }}">
+        <div class="col_half feature-box media-box hov-hi" style="margin-bottom: 0">
+                    <div class="entry-image_omg fbox-media" style="overflow: hidden">
+                            <a  href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}">
+                                    <div class="hov-hi-div back" style="background-image:url('{{$data['small_post'][$i]->img}}')" ></div>
+                            {{-- <img  class="image_fade" src="{{$data['small_post'][$i]->img}}" alt="image" style="opacity: 1">
+                             --}}
                             </a>
                     </div>
                 </div>
@@ -276,7 +284,10 @@
        <div class="feature-box media-box hov-hi ">
            <div class="fbox-media">
                 <a href="{{url(app()->getLocale().'/posts/'.$data['big_post']['unique_id'].'/'.urlencode($data['big_post']['title']))}}">
-               <img  src="{{$data['big_post']['img']}}" alt="image" class="image_fade"></a>
+                    <div class="hov-hi-div back" style="background-image:url('{{$data['big_post']['img']}}')" ></div>
+
+
+                    {{-- <img  src="{{$data['big_post']['img']}}" alt="image" class="image_fade"></a> --}}
            </div>
            <div class="poster-main-text">
            <div class="text-overlay pl-4 pr-4 pb-2 hov-hi">
@@ -328,8 +339,9 @@
                                 </div>
                             </div>
                             <a href="{{url(app()->getLocale().'/posts/'.$data['small_post'][$i]->unique_id.'/'.urlencode($data['small_post'][$i]->title))}}" >
+                                <div class="hov-hi-div back" style="background-image:url('{{$data['small_post'][$i]->img}}')" ></div>
 
-                       <img src="{{$data['small_post'][$i]->img}}" alt="image" >
+                       {{-- <img src="{{$data['small_post'][$i]->img}}" alt="image" > --}}
                             </a>
                     </div>
                     </div>
