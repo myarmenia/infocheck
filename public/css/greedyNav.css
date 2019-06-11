@@ -186,3 +186,8 @@ html {
   height: 100%;
   font-family: Helvetica, sans-serif;
 } */
+@media (min-width: 1362px) {
+    ul.hidden-links {
+        right: -30px;
+    }
+}

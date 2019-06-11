@@ -18,25 +18,25 @@
             });
 
 
-$(window).scroll(function() {
-    if ($(this).scrollTop()>35)
-     {
+// $(window).scroll(function() {
+//     if ($(this).scrollTop()>35)
+//      {
 
-        // $('.info_').slideUp(200); /* slideUp fadeOut */
-        $('#logo img').css('box-shadow','none');
-     }
-    else
-     {
-        // $('.info_').fadeIn(200); /* slideDown fadeIn */
-        if ($(window).width() < 991) {
-            $('#logo img').css('box-shadow','none');
-        }
-        else {
-            $('#logo img').css('box-shadow', '0px 8px 7px -4px #717f8e');
-        }
+//         // $('.info_').slideUp(200); /* slideUp fadeOut */
+//         $('#logo img').css('box-shadow','none');
+//      }
+//     else
+//      {
+//         // $('.info_').fadeIn(200); /* slideDown fadeIn */
+//         if ($(window).width() < 991) {
+//             $('#logo img').css('box-shadow','none');
+//         }
+//         else {
+//             $('#logo img').css('box-shadow', '0px 8px 7px -4px #717f8e');
+//         }
 
-     }
- });
+//      }
+//  });
 
 </script>
 <script src='/js/lib/moment.min.js'></script>
