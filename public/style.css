@@ -234,7 +234,7 @@ small {
 .line.line_omg_post {
     clear: both;
     position: relative;
-    width: 96%;
+    width: 100%;
     margin: -3px 15px 20px 0px;
     border-top: 3px solid #b3c5c7;
 }
