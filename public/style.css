@@ -746,7 +746,7 @@ h5.t700{
     width: 22%
 }
 .col_one_fourth, .col_one_third.nobottommargin.hov{
-    margin-left:13px;
+    /* margin-left:13px; */
 }
 
 .col_three_fourth, .postcontent {
@@ -14666,7 +14666,7 @@ padding: 0;
 }
 .fbox-media .hov-hi-div.back{
     width: 100%;
-    height: 45vmin;
+    height: 30vmin;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -14882,4 +14882,11 @@ padding: 0;
 }
  img.aa{
 	 cursor:pointer;
+ }
+
+
+ #post-list-footer1 .spost.clearfix .entry-title > h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
  }

@@ -24,12 +24,13 @@
 
     <link rel="stylesheet" href="/css/background.css">
     <link rel="stylesheet" href="/css/inp.css">
+    <link rel="stylesheet" href="/css/index_layouts.css">
 
 
 <style>
 
 #loading {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     /* background-color: #000000a8; */
@@ -43,6 +44,8 @@
     z-index: 1000;
     /* position: absolute; */
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 #loading h1 {
