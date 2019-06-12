@@ -36,7 +36,7 @@ class SearchesController extends Controller
      ->where('p.title', 'like', "%$s%")
     ->orWhere('p.html_code', 'like', "%$s%")
     ->join('langs as l','p.lang_id','=','l.id')
-    ->paginate(3);
+    ->paginate(10);
 
    // return $posts;
             $data = array(

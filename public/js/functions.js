@@ -1451,7 +1451,7 @@ var SEMICOLON = SEMICOLON || {};
             SEMICOLON.header.stickyMenu(t), SEMICOLON.header.stickyPageMenu(a), $window.on("scroll", function () {
              if ($('#post-lists').offset() !== undefined){
                 if($(window).scrollTop()>150){
-                    $('#post-lists').offset().top > 200? $("#post-lists").css({top: "12vh"}):$("#post-lists").css({top:( $(window).scrollTop()*30)/100 + "px"})
+                    $('#post-lists').offset().top > 200? $("#post-lists").css({top: "14.5vh"}):$("#post-lists").css({top:( $(window).scrollTop()*30)/100 + "px"})
                 }
                 else{
                     $("#post-lists").css({top: "22vh"})

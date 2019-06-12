@@ -2,12 +2,7 @@
     <meta name="keywords" content="{{__('text.app_description')}}" />
     <meta name="description" content="{{__('text.app_keywords')}}">
 
-    @if (app()->getLocale() == 'am')
-    {{-- @dump('hey') --}}
-    <link rel="stylesheet" href="/css/armenian-font.css" type="text/css">
-    @else
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
-    @endif
+
 
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="/style.css" type="text/css">
@@ -24,12 +19,19 @@
 
     <link rel="stylesheet" href="/css/background.css">
     <link rel="stylesheet" href="/css/inp.css">
-
+    <link rel="stylesheet" href="/css/index_layouts.css">
+    @if (app()->getLocale() == 'am')
+    {{-- @dump('hey') --}}
+    <link rel="stylesheet" href="/css/armenian-font.css" type="text/css">
+    @else
+    {{-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css"> --}}
+    <link rel="stylesheet" href="/css/other-langs.css" type="text/css">
+    @endif
 
 <style>
 
 #loading {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     /* background-color: #000000a8; */
@@ -43,6 +45,8 @@
     z-index: 1000;
     /* position: absolute; */
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 #loading h1 {
