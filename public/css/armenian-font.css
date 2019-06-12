@@ -28,7 +28,14 @@ label,
 
 }
 
-body p {
-    font-size: 15!important;
+body p,
+.entry-post-html {
+    font-size: 15px;
+    color: black!important;
+}
+
+body h3,
+.feature-box h3 {
+    font-size: 20px;
     color: black!important;
 }

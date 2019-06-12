@@ -3,12 +3,7 @@
     <meta name="description" content="{{$data['post'][0]->meta_d}}"> --}}
     <!--link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css"-->
 
-    @if (app()->getLocale() == 'am')
-    {{-- @dump('hey') --}}
-    <link rel="stylesheet" href="/css/armenian-font.css" type="text/css">
-    @else
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css">
-    @endif
+
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="/style.css" type="text/css">
     <link rel="stylesheet" href="/css/swiper.css" type="text/css">
@@ -26,7 +21,13 @@
     <link rel="stylesheet" href="/css/lightbox.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.0.5/flickity.min.css">
 
-
+    @if (app()->getLocale() == 'am')
+    {{-- @dump('hey') --}}
+    <link rel="stylesheet" href="/css/armenian-font.css" type="text/css">
+    @else
+    {{-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css"> --}}
+    <link rel="stylesheet" href="/css/other-langs.css" type="text/css">
+    @endif
 
 <style>
 

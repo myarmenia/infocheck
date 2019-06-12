@@ -234,7 +234,7 @@ small {
 .line.line_omg_post {
     clear: both;
     position: relative;
-    width: 100%;
+    width: 96%;
     margin: -3px 15px 20px 0px;
     border-top: 3px solid #b3c5c7;
 }
@@ -14885,8 +14885,16 @@ padding: 0;
  }
 
 
- #post-list-footer1 .spost.clearfix .entry-title > h4 {
+ #post-list-footer1 .spost.clearfix .entry-title > h4,
+ #post-list-footer .spost.clearfix .entry-title > h4 {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+ }
+
+
+@media all and (min-width: 991px) and (max-width: 1250px) {
+    #post-list-footer .spost.clearfix .entry-title > h4 {
+        width: 36%;
+    }
  }

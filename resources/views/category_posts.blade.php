@@ -1,14 +1,14 @@
 @extends('layouts.category_posts')
 @section('posts')
 
-<div class="postcontent nobottommargin">
+<div class="postcontent nobottommargin" id="current-category">
     <h3 class="h3_omg">{{$data['posts_category']}}</h3>
     <div class="line line_omg_post"></div>
     {{-- fadeInUp animated"  data-animate="fadeInUp" --}}
     <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
-    <div class="col_one_third hov nobottommargin height-317px">
-        <div class="feature-box media-box hov-hi">
+    <div class="col_one_third hov nobottommargin height-317px  cat-post-item">
+        <div class="feature-box media-box hov-hi mb-4">
             <div class="fbox-media">
          <a href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
           <div class="hov-hi-div back" style="background-image:url('{{$item->img}}')" ></div>
@@ -18,7 +18,7 @@
             <div class="fbox-desc">
               <a   href="{{url(app()->getLocale().'/posts/'.$item->unique_id.'/'.urlencode($item->title))}}">
                 <h3>{{$item->title}}</h3>
-                <p>{!!str_limit($item->short_text , 80)!!} </p>
+                <p>{!!str_limit($item->short_text , 50)!!} </p>
               </a>
                 <ul class="entry-meta clearfix">
                     <li><i class="icon-calendar3"> </i> {{ $item->date }}</li>

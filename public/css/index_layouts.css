@@ -81,6 +81,12 @@ li[id*='poster-quinta-small'] .fbox-media .hov-hi-div.back {
 
 
 
+/* START category - post items */
+.cat-post-item .hov-hi-div.back {
+    height: 16rem !important;
+}
+/* END category - post items */
+
 
 @media (min-width: 469px) {
     #poster-quinta-big {
@@ -136,6 +142,12 @@ li[id*='poster-quinta-small'] .fbox-media .hov-hi-div.back {
     li[id*='poster-quinta-small'] .fbox-media .hov-hi-div.back {
         height: 12rem !important;
     }
+
+
+
+    .cat-post-item .hov-hi-div.back {
+        height: 20rem !important;
+    }
 }
 
 
@@ -184,7 +196,15 @@ li[id*='poster-quinta-small'] .fbox-media .hov-hi-div.back {
         height: 15rem !important;
     }
 
+
+
+    .cat-post-item .hov-hi-div.back {
+        height: 11rem !important;
+    }
+
 }
+
+
 
 @media (min-width: 991px) {
     #main_poster div[id*='poster-quarta-small'] div.back {
