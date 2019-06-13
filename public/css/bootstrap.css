@@ -2017,11 +2017,11 @@ select.form-control:focus::-ms-value {
 }
 
 .col-form-label {
-    padding-top: calc(0.375rem + 1px);
-    padding-bottom: calc(0.375rem + 1px);
-    margin-bottom: 0;
+    /*padding-top: calc(0.375rem + 1px);
+    padding-bottom: calc(0.375rem + 1px);   
     font-size: inherit;
-    line-height: 1.5
+    line-height: 1.5*/
+	 margin-bottom: 0;
 }
 
 .col-form-label-lg {
@@ -4528,7 +4528,9 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem
+    border-radius: .25rem;
+	min-height: 65vh;
+    margin-bottom: 8%;
 }
 
 .card > hr {

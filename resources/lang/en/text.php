@@ -1,14 +1,6 @@
 <?php
 return[
- "opinions"=>'Reviews',
- "videos"=>'Videos',
  "most_veiwed" =>"Populars",
- "xoragrer"=>'Headlines',
- "xoragrer_items0"=>"Politics",
- "xoragrer_items1"=>"Economy",
- "xoragrer_items2"=>"Security",
- "xoragrer_items3"=>"International",
- "xoragrer_items4"=>"Regional",
  "hodvac"=>"Attached files:",
  "download"=>"Download",
  "comments"=>"Comments",
@@ -18,7 +10,6 @@ return[
  'or_login'=>'or Login with:',
  'regi'=>'To login, please register',
  'faqs'=>'Question-Answer',
- "author"=>"Author",
  "send"=>"Send",
  "verified"=>'In order to comment you must verify your email.',
  "verified_question"=>'To ask questions you must verify your email.',
@@ -30,18 +21,11 @@ return[
  "ask"=>'Ask question',
  "same_posts"=>"Similars",
  "tags"=>"Tags",
- "bio"=>"Biography",
- "author_posts"=>"Author &nbsp; articles",
  "all_posts"=>"All Posts",
  "contact_title"=>"Contact Us",
  "first_icon_text"=>"VISIT OUR OFFICE",
  "second_icon_text"=>"Phone",
  "third_icon_text"=>"E-mail address",
- "minute"=>"m.",
- "announcements" =>"Announcements",
- "news"=>"News",
- "partners"=>"Partners",
- "auth"=>"Authors",
  "about_us"=>"About Us",
  "contacts"=>"Contacts",
  "leave_comment"=>"Leave a review",
@@ -81,11 +65,6 @@ return[
  "info_"=>'Information check center',
  "reg_text1"=>"Dear Reader",
  "reg_text2"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials.",
-
-
  "app_description"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials.",
-
  "app_keywords" => "Information,info,information,check,center,state,governmental,platform,reliable,credibility,veracity,topics,topic,answer,reply,comment,interpret",
-
-
 ];

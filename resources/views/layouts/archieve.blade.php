@@ -14,7 +14,17 @@
             <section id="content" style="margin-bottom: 0px;">
                 <div class="content-wrap">
                     <div class="container clearfix">
-                    @yield('arch_posts')
+                            @if ($data['not_found'] === 'found')
+                            @yield('arch_posts')
+                        @else
+                        <div class="postcontent nobottommargin ">
+
+                            <div class="line line_omg_post"></div>
+                            <span>{{$data['not_found']}}</span>
+                        </div>
+                        @endif
+
+
                     <div class="sidebar nobottommargin col_last widget_links">
                             <div id="post-lists" class="widget clearfix">
                         @include('../includes.most_viewed')

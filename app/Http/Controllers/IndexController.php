@@ -23,6 +23,12 @@ class IndexController extends Controller
         $cat_name=[];
         $posts_by_menu=array();
         $category=Category::get_category($lang_id);
+        if (!count($category)){
+            return view('errors.' . 'error');
+
+        }
+        else{
+           // return $category;
         foreach($category as $item){
             array_push($cat,$item->id);
         }
@@ -39,7 +45,8 @@ class IndexController extends Controller
         $main_poster_layout=Poster::get_poster_layout();
         $main_post_big = Post::with('getCategory')->where('status','main')->where('lang_id',$lang_id)->get();
         $main_post_small = Post::with('getCategory')->where('status','published')->where('lang_id',$lang_id)->orderBy('date', 'desc')->limit(4)->get();
- //return $locale;
+
+
         $data = array(
             'menu' => $category,
             'posts_by_menu'=>$posts_by_menu,
@@ -54,6 +61,9 @@ class IndexController extends Controller
             );
            // return $data['small_post'][0]->title;
             return view('index',compact('data'));
+        }
+
+
 
     }
     public function error($locale){

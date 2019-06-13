@@ -23,7 +23,7 @@ class SearchesController extends Controller
 
         Session::put('search', $s);
         Session::put('locale',$locale);
-
+        $lng=Lang::all();
             $lang_id=Lang::getLangId($locale);
             $calendar= Event::event($locale);
             $category=Category::get_category($lang_id);
@@ -46,7 +46,8 @@ class SearchesController extends Controller
                 'post'=>$posts,
                 'most_viewed'=>$most_viewed,
                 'call'=>'search',
-                's' => $s
+                's' => $s,
+                'lng'=>$lng
 
 
                 );
