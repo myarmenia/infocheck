@@ -17,7 +17,7 @@ class CheckRole
     public function handle($request, Closure $next, $roles)
     {
 
-        if (! $request->user()->hasRole($roles)) {
+        if ($request->user() &&  !$request->user()->hasRole($roles)) {
             // var_dump('chexav axper');die;
             Auth::logout();
             return redirect()->route('register', app()->getLocale());

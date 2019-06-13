@@ -1,7 +1,8 @@
-@extends('layouts.app')
+ {{-- auth-verify --}}
+@extends('layouts.subscribe')
 
 @section('content')
-<div class="wrap-verify" style="min-height:70%">
+<div class="wrap-verify" style="min-height:65vh">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

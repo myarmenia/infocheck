@@ -8,6 +8,11 @@ use DB;
 
 class Lang extends Model
 {
+
+    protected $fillable = [
+        'id','lng', 'lng_root', 'lng_name',
+    ];
+
     static function getLangId($locale) {
        // $lang = App::getLocale();
         return  $lng = DB::table('langs')

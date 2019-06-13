@@ -1,4 +1,5 @@
 <html dir="ltr" lang="en-US">
+    {{-- this layout for both - auth and subscribe email verification --}}
     <head>
         <title>{{__('text.info_')}}</title>
         @include('../includes.links' )
@@ -14,8 +15,11 @@
         </style>
       </head>
     <body class="stretched device-xl no-transition back_fixed">
+
+        {{-- <div id="loading"><h1></h1></div>
+        <div id="loaded" class="animate-bottom"></div> --}}
             @include('../includes.mini_menu' )
-            @include('../includes.subscribe_response');
+            @include('../includes.subscribe_response')
             {{-- @include('../includes.main_menu' ) --}}
 
 
@@ -38,5 +42,22 @@
 
             @include('../includes.footer')
         </div>
+
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/plugins.js"></script>
+
+{{-- <script>
+
+    window.onload = function() {
+        loading.style.display = 'none'
+        // loaded.style.visibility = 'visible'
+        // loaded.style.display = 'block'
+        // header.style.display = 'block'
+        // footer.style.display = 'block'
+        // content.style.display = 'block'
+    }
+
+</script> --}}
 </body>
 </html>

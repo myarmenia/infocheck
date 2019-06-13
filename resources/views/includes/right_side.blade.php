@@ -12,12 +12,12 @@
     </a>
 
     @auth
-        <a href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            <div class="logout_link" title="{{ __('login.Logout') }}">
+        <a href="{{ route('logout', app()->getLocale()) }}" onclick="event.preventDefault(); document.getElementById('logout-form-right').submit();">
+            <div class="logout_link" title=" {{Auth::user()->name}} / {{ __('login.Logout') }}">
                 <i class="icon-line2-logout"></i>
             </div>
         </a>
-        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
+        <form id="logout-form-right" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
             @csrf
         </form>
 
