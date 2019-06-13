@@ -34,7 +34,7 @@ class OpenSinglePost extends Controller
         $pic=Lightbox::select('pic_link')->where('post_unique_id',$unique_id)->where('isused',1)->get();
         if (count($post)>0){
             $load_all_tags=Tag::load_all_tags($lang_id);
-            $document=Document::with('documentable')->where('documentable_id',$unique_id)->where('isused',1)->get();
+            $document=Document::with('documentable')->where('documentable_id',$post[0]->id)->where('isused',1)->get(); // $unique_id
             $id=$post[0]->id;
             $cat_id=$post[0]->category_id;
             $link=Category::with('category_name')->where('id',$cat_id)->get();

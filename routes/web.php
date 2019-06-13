@@ -147,6 +147,13 @@ Route::group([
         Route::get('/about', 'AboutCompanyController@index')->name('admin.about.index');
         Route::get('/about/edit/{id}', 'AboutCompanyController@edit')->name('admin.about.edit');
         Route::put('/about/update/{id}', 'AboutCompanyController@update')->name('admin.about.update');
+
+        Route::get('/lang', 'LangController@index')->name('admin.lang.index');
+        Route::delete('/lang/destroy/{lang_id}', 'LangController@destroy')->name('admin.lang.destroy');
+        Route::get('/lang/edit/{lang_id}', 'LangController@edit')->name('admin.lang.edit');
+        Route::put('/lang/update/{lang_id}', 'LangController@update')->name('admin.lang.update');
+        Route::get('/lang/create', 'LangController@create')->name('admin.lang.create');
+        Route::post('/lang/store', 'LangController@store')->name('admin.lang.store');
 });
 
 
