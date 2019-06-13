@@ -20,6 +20,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+        // $langs = Lang::pluck('lng_name','lng')->toArray();
+        // dd($langs);
+
         $lang_id = Lang::getLangId(app()->getLocale());
         $categories = Category::where('lang_id', $lang_id)->get();
         $sorted = $categories->sortBy('position');
