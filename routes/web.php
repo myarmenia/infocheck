@@ -104,6 +104,8 @@ Route::group([
 
         Route::resource('category', 'CategoryController', ['as'=>'admin']);
         Route::post('category/position/update','CategoryController@positionUpdate')->name('admin.category.position.update');
+        Route::get('category/translate/{id}', 'CategoryController@translate')->name('admin.category.translate');
+        Route::post('category/storetrans', 'CategoryController@storetrans')->name('admin.category.storetrans');
 
         Route::resource('question', 'QuestionController', ['as' => 'admin']);
         Route::get('question/post/{q_id}', 'QuestionController@post')->name('admin.question.post');

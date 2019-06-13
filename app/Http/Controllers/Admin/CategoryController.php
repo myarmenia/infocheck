@@ -11,6 +11,8 @@ use App\PostLayout;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Validator;
+
 class CategoryController extends Controller
 {
     /**
@@ -56,6 +58,56 @@ class CategoryController extends Controller
 
 
         ]);
+    }
+
+    public function translate($locale ,$id)
+    {
+        /* here $locale is language to translate in */
+        /* here app()->getLocale() already ==== $locale  */
+        $cat = Category::find($id); // translate from
+        $lang_id = Lang::getLangId(app()->getLocale()); // translate to
+        $lang = Lang::where('id',$lang_id)->first();
+
+        // dump($lang->id);
+
+        return view('admin.category.translate',[
+            'page_name'=>'categories',
+            'langs' => Lang::all(),
+            'lang_id' => $lang_id,
+            'currentCat' => $cat,
+            'category'=> [],
+            'lang' => $lang,
+        ]);
+
+
+    }
+
+
+    public function storetrans(Request $request, $locale)
+    {
+        // dump($request->all());
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'position' => 'required|integer',
+            'item_id' => 'required|integer',
+            'status' => 'required|integer',
+            'lang_id' => 'required|integer',
+            'layout' => 'required|string|max:1'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        }
+
+        $category = Category::on('mysql_admin')->create($request->all());
+
+        // logging action ( can store in 3 lang on the same time)
+        Log::channel('info_daily')->info('Admin: Store (trnaslate) new Category N-'.$category->id, ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+
+        return redirect()->route('admin.category.index', app()->getLocale())
+        ->with('success', 'Category №-'.$category->id.' was successfuly translated to' .$locale);
+
     }
 
     /**
