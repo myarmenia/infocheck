@@ -21,4 +21,10 @@ class Lang extends Model
     }
 
 
+    public function about()
+    {
+        return $this->hasOne('App\AboutCompany');
+    }
+
+
 }

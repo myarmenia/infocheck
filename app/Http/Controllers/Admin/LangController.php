@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
+use App\AboutCompany;
 
 class LangController extends Controller
 {
@@ -102,6 +103,15 @@ class LangController extends Controller
         }
 
         $new_lang = Lang::on('mysql_admin')->create($request->all());
+        $lang_about = AboutCompany::where('lang_id',$request->id)->first();
+
+        if (!$lang_about) {
+            $new_about = AboutCompany::on('mysql_admin')->create([
+                'html_code' => $new_lang->lng,
+                'lang_id' => $new_lang->id,
+            ]);
+        }
+
 
         // logging action - Post replied Question
         Log::channel('info_daily')->info('Admin: Store Language N-'.$new_lang->id.', as '.$new_lang->lng_name.'.', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
@@ -110,6 +120,10 @@ class LangController extends Controller
         ->with('success', 'Language №-'.$new_lang->id.'  as '.$new_lang->lng_name.' was successfuly created!');
     }
 
+
+
+
+
     public function destroy($locale, $id)
     {
         $lang = Lang::on('mysql_admin')->find($id);
@@ -117,8 +131,15 @@ class LangController extends Controller
             return redirect()->back()->with('oneerror', 'Language №-' . $id. ' was not found');
         }
 
+        if (AboutCompany::where('lang_id',$id)->first()) {
+            AboutCompany::where('lang_id',$id)->delete();
+        }
+
         $lng_name = $lang->lng_name;
         $lang->delete();
+
+
+
         // logging action - Post replied Question
         Log::channel('info_daily')->info('Admin: Delete Language N-'.$id.', as '.$lng_name.'.', ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
         return redirect()->back()
