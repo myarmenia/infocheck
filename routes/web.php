@@ -76,6 +76,16 @@ Route::group([
 
 });
 
+$sitemap_rules = [
+    'prefix' => 'sitemap',
+    'namespace' => 'Sitemap',
+  ];
+  Route::group($sitemap_rules, function () {
+    Route::get('/', 'SitemapController@index');
+    Route::get('/posts', 'SitemapController@posts');
+    Route::get('/questions', 'SitemapController@questions');
+  });
+
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
@@ -160,15 +170,7 @@ Route::group([
 
 
 
-$sitemap_rules = [
-    'prefix' => 'sitemap',
-    'namespace' => 'Sitemap',
-  ];
-  Route::group($sitemap_rules, function () {
-    Route::get('/', 'SitemapController@index');
-    Route::get('/posts', 'SitemapController@posts');
-    Route::get('/questions', 'SitemapController@questions');
-  });
+
 
 
 // /* Clear Cache facade value: */
