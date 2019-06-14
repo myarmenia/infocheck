@@ -10,7 +10,7 @@
 
             @include('../includes.main_menu' )
             @include('../includes.mini_menu' )
-            @include('../includes.subscribe_response');
+            @include('../includes.subscribe_response')
             <section id="content" style="margin-bottom: 0px;">
 
 
