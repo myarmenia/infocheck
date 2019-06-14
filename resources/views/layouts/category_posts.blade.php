@@ -17,9 +17,19 @@
                             @if ($data['not_found'] === 'found')
                                 @yield('posts')
                             @else
-                            <div class="postcontent nobottommargin ">
-                                <h3 class="h3_omg">{{$data['posts_category']}}</h3>
-                                <div class="line line_omg_post"></div>
+                            <div class="postcontent nobottommargin">
+                                    <div  class="owl-item  col-lg-12 category_own" style="display: contents" >
+                                            <div style= "display:flex;margin-bottom: 29px;">
+                                                <div style= "display:flex;width: 100%;">
+                                                    <span class="vert-line1" style="margin: 0 2px 0"></span>
+                                                    <span class="vert-line2"></span>
+                                                    <span class="vert-line3"></span>
+                                                    <h3 class="h3_omg" style="color: #0f1841">{{$data['posts_category']}}
+                                                    </h3>
+                                                    <div class="line line_omg" ></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <span>{{$data['not_found']}}</span>
                             </div>
                             @endif

@@ -2,9 +2,18 @@
 @section('posts')
 
 <div class="postcontent nobottommargin" id="current-category">
-    <h3 class="h3_omg">{{$data['posts_category']}}</h3>
-    <div class="line line_omg_post"></div>
-    {{-- fadeInUp animated"  data-animate="fadeInUp" --}}
+                    <div  class="owl-item  col-lg-12 category_own" style="display: contents" >
+                        <div style= "display:flex;margin-bottom: 29px;">
+                            <div style= "display:flex;width: 100%;">
+                                <span class="vert-line1" style="margin: 0 2px 0"></span>
+                                <span class="vert-line2"></span>
+                                <span class="vert-line3"></span>
+                                <h3 class="h3_omg" style="color: #0f1841">{{$data['posts_category']}}
+                                </h3>
+                                <div class="line line_omg" ></div>
+                            </div>
+                        </div>
+                    </div>
     <div class="infinite-scroll" >
  @foreach ($data['post_test'] as $item)
     <div class="col_one_third hov nobottommargin height-317px  cat-post-item">
@@ -33,7 +42,9 @@
 
 
 
+
 </div>
+
 {{-- <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="#">1</a>

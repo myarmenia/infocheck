@@ -22,7 +22,7 @@ use DB;
 class ShowAllFaqs extends Controller
 {
     public function index($locale){
-        $lng=Lang::all();
+        $lng=Lang::where('status',1)->get();
         $lang_id=Lang::getLangId($locale);
         $calendar= Event::event($locale);
         $category=Category::get_category($lang_id);

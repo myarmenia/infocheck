@@ -38,6 +38,7 @@ class Post extends Model
         return $posts = DB::table('categories')
         ->where('categories.name',$category_name)
         ->where('categories.lang_id',$lang_id)
+        ->where('posts.status','<>','unpublished')
         ->orderByRaw('date DESC')
         ->select('*')
         ->join('posts', 'categories.id', '=','posts.category_id' )
@@ -48,7 +49,7 @@ class Post extends Model
         return $posts = DB::table('posts')
         ->where('lang_id',$lang_id)
         ->where('date',$date)
-        ->where('status','<>','notpublished')
+        ->where('status','<>','unpublished')
         ->orderByRaw('id DESC')
         ->paginate(6);
     }

@@ -1,5 +1,7 @@
-<h4 class="highlight-me">{{trans('text.most_veiwed')}}
-</h4>
+@if (count($data['most_viewed'])>0)
+<h4 class="highlight-me">{{trans('text.most_veiwed')}}</h4>
+@endif
+
 <div id="post-list-footer1">
 @for ($i = 0; $i < count($data['most_viewed']); $i++)
 

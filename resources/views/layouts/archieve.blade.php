@@ -18,9 +18,7 @@
                             @yield('arch_posts')
                         @else
                         <div class="postcontent nobottommargin ">
-
-                            <div class="line line_omg_post"></div>
-                            <span>{{$data['not_found']}}</span>
+                            <span>{{trans('text.unpublished')}}</span>
                         </div>
                         @endif
 

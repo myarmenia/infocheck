@@ -12,7 +12,7 @@
         @case('A')
         {{-- 3 hat verevy 1 hat  mec taky "class A" --}}
         <?php $limit=0; ?>
-        <div  class="container clearfix mt-5 class-A" >
+        <div  class="container clearfix mt-5 class-A">
                 <div class="row">
                     <div class="owl-item  col-lg-12 class-A-cat-name"  style="display: contents" >
                         <span class="vert-line1"></span>
@@ -201,6 +201,9 @@
 @endsection
 
 @section('main_poster')
+@if ($data['big_post'] !== null)
+
+
  @if($data['layout'] === 'four')
  <!-- "Poster-type-one" - one big-left, three-small-right -->
  <?php $limit=0;
@@ -347,5 +350,6 @@
         </ul>
 </div>
 
+ @endif
  @endif
  @endsection
