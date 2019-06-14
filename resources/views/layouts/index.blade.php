@@ -15,8 +15,12 @@
                     <div class="content-wrap">
                         <div class="container clearfix own">
                             <div class="row container clearfix own" id="main_poster">
-                            @yield('main_poster')
-                            </div>
+                                @if  ($data['no_post'])
+                                @yield('main_poster')
+                                @else
+                                   {{ trans('text.no_post') }}
+                                @endif
+                                </div>
                         </div>
                             @yield('posts_by_cat')
                     </div>

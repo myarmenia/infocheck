@@ -12,9 +12,9 @@ use App\Event;
 class OpenCategoryPosts extends Controller
 {
     public function index($locale,$category_item_id){
-        $lng=Lang::all();
+        $lng=Lang::where('status',1)->get();
         $lang_id=Lang::getLangId($locale);
-        $category=Category::get_category($lang_id);
+        $category=Category::get_category($lang_id)->where('status',1);
         if (!count($category)){
             return view('errors.' . 'error');
 
@@ -30,7 +30,7 @@ class OpenCategoryPosts extends Controller
             $category_name=$cat_name[0]->name;
             $calendar= Event::event($locale);
             $post_test=Post::get_cur_posts($category_name, $lang_id);
-            $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
+            $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->where('status','published')->limit(5)->get();
             $posts=Category::with('get_category_posts')->where('name',$category_name)->get();
             $name=$posts[0]->name;
             if(count($post_test)>0){

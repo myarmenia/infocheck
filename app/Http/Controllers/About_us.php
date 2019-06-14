@@ -14,7 +14,7 @@ class About_us extends Controller
 {
     public function index($locale)
 
-    {       $lng=Lang::all();
+    {       $lng=Lang::where('status',1)->get();
             $lang_id=Lang::getLangId($locale);
             $calendar= Event::event($locale);
             $category=Category::get_category($lang_id);
@@ -23,12 +23,14 @@ class About_us extends Controller
 
             }
             else{
+
                 $load_all_tags=Tag::load_all_tags($lang_id);
             $most_viewed=Post::where('lang_id',$lang_id)->orderBy('view','desc')->limit(5)->get();
-            $body=AboutCompany::where('lang_id',$lang_id)->get();
+            $body=AboutCompany::where('lang_id',$lang_id)->where('status',1)->get();
 
 
-   // return $body[0];
+
+   //return $body;
             $data = array(
                 'menu' => $category,
                 'load_all_tags'=> $load_all_tags,

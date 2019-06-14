@@ -201,6 +201,9 @@
 @endsection
 
 @section('main_poster')
+@if ($data['big_post'] !== null)
+
+
  @if($data['layout'] === 'four')
  <!-- "Poster-type-one" - one big-left, three-small-right -->
  <?php $limit=0;
@@ -347,5 +350,6 @@
         </ul>
 </div>
 
+ @endif
  @endif
  @endsection

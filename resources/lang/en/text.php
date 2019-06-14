@@ -62,6 +62,8 @@ return[
  "send_quest_ok" => "Your question was sent. We will answer in the near future.",
  "send_quest_error" => "Your question was not sent, please try again",
  "thanks"=>'Thank you!',
+ "no_post"=>'There are no posts in this language.',
+ "unpublished"=>'At the moment the articles are not published.',
  "info_"=>'Information check center',
  "reg_text1"=>"Dear Reader",
  "reg_text2"=>"Registering in the system, you will have the opportunity to always be in touch with the state information platform - Information Check Center, you will be able to present the news about the activities of the Government of the Republic of Armenia, which are puzzling to you and our team will check them, as well you will be able to post comments under published materials.",

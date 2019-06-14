@@ -12,7 +12,7 @@ use App\Event;
 class CurrentTagPosts extends Controller
 {
     public function index($locale,$tag_name){
-        $lng=Lang::all();
+        $lng=Lang::where('status',1)->get();
         $lang_id=Lang::getLangId($locale);
         $category=Category::get_category($lang_id);
         $calendar= Event::event($locale);
