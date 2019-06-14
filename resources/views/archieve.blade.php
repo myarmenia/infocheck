@@ -2,8 +2,19 @@
 @section('arch_posts')
 
  <div class="postcontent nobottommargin">
-<h3 class="h3_omg">{{$data['date']}}</h3>
-    <div class="line line_omg_post"></div>
+        <div  class="owl-item  col-lg-12 category_own" style="display: contents" >
+                <div style= "display:flex;margin-bottom: 29px;">
+                    <div style= "display:flex;width: 100%;">
+                        <span class="vert-line1" style="margin: 0 2px 0"></span>
+                        <span class="vert-line2"></span>
+                        <span class="vert-line3"></span>
+                        <h3 class="h3_omg" style="color: #0f1841;white-space: nowrap;">{{$data['date']}}
+                        </h3>
+                        <div class="line line_omg" ></div>
+                    </div>
+                </div>
+            </div>
+
     <div class="infinite-scroll">
         <?php $i=0;?>
  @foreach ($data['posts_archieve'] as $item)
