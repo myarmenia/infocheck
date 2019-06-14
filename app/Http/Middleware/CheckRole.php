@@ -29,11 +29,12 @@ class CheckRole
         if ($request->user() && $request->user()->status !== 1) {
             Auth::logout();
             return redirect()->route('login', app()->getLocale())->with('blocked_msg', trans('auth.blocked')); // 'You are blocked flash-alert
-        }else{
-            // եթե մի էջի վրա լոգաութա եղել, մյուսի վրա , եթե էլի login ուղարկեինք, ERROR կտար, քանի որ այս կայքում մենյուն դատայա ստանում մեթոդից,
-            // որը այս պարագայում շատ֊շատ return view('auth.login', ['data' =>$data]) սենց մի բանով լուծվեր։
-            return redirect()->route('index_page', app()->getLocale());
         }
+        // else{
+        //     // եթե մի էջի վրա լոգաութա եղել, մյուսի վրա , եթե էլի login ուղարկեինք, ERROR կտար, քանի որ այս կայքում մենյուն դատայա ստանում մեթոդից,
+        //     // որը այս պարագայում շատ֊շատ return view('auth.login', ['data' =>$data]) սենց մի բանով լուծվեր։
+        //     return redirect()->route('index_page', app()->getLocale());
+        // }
 
 
         return $next($request);
