@@ -18,6 +18,7 @@ class CreateLangsTable extends Migration
             $table->string('lng',5);
             $table->string('lng_root',10);
             $table->string('lng_name',191);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

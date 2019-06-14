@@ -62,14 +62,16 @@ class AboutCompanyController extends Controller
         $validator = Validator::make($data, [
             'id' => 'required|integer',
             'html_code' => 'required|string',
+            'status' => 'required|integer',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $about = AboutCompany::find($data['id']);
+        $about = AboutCompany::on('mysql_admin')->find($data['id']);
         $about->html_code = $data['html_code'];
+        $about->status = $data['status'];
         $about->save();
 
         // logging action
@@ -77,6 +79,25 @@ class AboutCompanyController extends Controller
 
         return redirect()->back()->with('success', 'About Us in locale-'.$locale.' was successfully updated.');
 
+    }
+
+
+    public function changeStatus(Request $request, $locale, $id)
+    {
+        $data = $request->all();
+        // return $data['id'];
+        if (AboutCompany::where('id', $data['id'])->first()) {
+            AboutCompany::on('mysql_admin')->where('id', $data['id'])->update([
+                'status' => $data['status'],
+            ]);
+
+            // logging action
+            Log::channel('info_daily')->info('Admin: Change AboutCompany N-'.$id.' status to ->'.$data['status'], ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+            return redirect()->back()->with('success', 'Status of AboutCompany №-'.$data['id'] .' was successfully changed!');
+        }else{
+            return redirect()->back()->with('oneerror', 'Can not find AboutCompany with ID='.$data['id']);
+        }
     }
 }
 

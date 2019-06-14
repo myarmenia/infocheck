@@ -66,16 +66,44 @@
 
 
                     <div class="form-group row">
-                            <label for="trans-cat-status" class="col-sm-3 col-form-label col-form-label-lg" >Status /{{app()->getLocale()}}</label>
-                            <div class="col-sm-9">
-                                {{-- <input type="text" class="form-control" name="status" id="edit-cat-status" value="{{$category->status}}"> --}}
-                                <select name="status" class="form-control" id="trans-cat-status">
-                                    <option value="1" >Show</option>
-                                    <option value="0" >Hide</option>
-                                </select>
+                        <label for="trans-cat-status" class="col-sm-3 col-form-label col-form-label-lg" >Status /{{app()->getLocale()}}</label>
+                        <div class="col-sm-9">
+                            {{-- <input type="text" class="form-control" name="status" id="edit-cat-status" value="{{$category->status}}"> --}}
+                            <select name="status" class="form-control" id="trans-cat-status">
+                                <option value="1" >Show</option>
+                                <option value="0" >Hide</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3 class="col-sm-12 col-form-label col-form-label-lg text-center" >Posts Design Of This Category-group On Main Page (layout)</h3>
+                    <div class="d-flex" style="justify-content: center;">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/A.png')}}" class="card-img-top" alt="A.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class A</h4>
                             </div>
                         </div>
-                </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/B.png')}}" class="card-img-top" alt="B.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class B</h4>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/D.png')}}" class="card-img-top" alt="C.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class C</h4>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('/storage/postclasses/C.png')}}" class="card-img-top" alt="D.png">
+                            <div class="card-body">
+                                <h4 class="card-text">class D</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- div class="cart-body"-->
 
 
                 <div class="card-footer">

@@ -80,7 +80,7 @@
                 @endforeach
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex" style="justify-content: center;">
                 <div class="card" style="width: 18rem;">
                     <img src="{{asset('/storage/postclasses/A.png')}}" class="card-img-top" alt="A.png">
                     <div class="card-body">

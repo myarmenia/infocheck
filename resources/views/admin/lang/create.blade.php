@@ -55,6 +55,10 @@
                 </div>
             </div>
 
+            <code>
+                As default, new Language is in "disabled" status.
+            </code>
+
             <div class="card-footer">
                 <input type="text" name="id" id="create-lang-id" class="form-control" value="{{$last_id}}" hidden>
                 <button type="submit" class="btn btn-primary btn-lg px-5"> Create</button>
