@@ -31,8 +31,7 @@ class CheckRole
             return redirect()->route('login', app()->getLocale())->with('blocked_msg', trans('auth.blocked')); // 'You are blocked flash-alert
         }
         // else{
-        //     // եթե մի էջի վրա լոգաութա եղել, մյուսի վրա , եթե էլի login ուղարկեինք, ERROR կտար, քանի որ այս կայքում մենյուն դատայա ստանում մեթոդից,
-        //     // որը այս պարագայում շատ֊շատ return view('auth.login', ['data' =>$data]) սենց մի բանով լուծվեր։
+        //     // կամ էլի login էջի վրա։ Սա արվելա, որ մի էջի վրա լօգաութից կամ էքփայերդից հետո մյուս էջերոմ Error չտա:
         //     return redirect()->route('index_page', app()->getLocale());
         // }
 

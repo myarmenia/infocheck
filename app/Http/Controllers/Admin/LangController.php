@@ -52,6 +52,7 @@ class LangController extends Controller
             'lng' => 'required|string',
             'lng_root' => 'required|string',
             'lng_name' => 'required|string',
+            'status' => 'required|integer'
         ]);
 
         if ($validator->fails()) {
@@ -118,6 +119,28 @@ class LangController extends Controller
 
         return redirect()->route('admin.lang.index', $locale)
         ->with('success', 'Language №-'.$new_lang->id.'  as '.$new_lang->lng_name.' was successfuly created!');
+    }
+
+
+
+
+
+    public function changeStatus(Request $request, $locale, $id)
+    {
+        $data = $request->all();
+        // return $data['id'];
+        if (Lang::where('id', $data['id'])->first()) {
+            Lang::on('mysql_admin')->where('id', $data['id'])->update([
+                'status' => $data['status'],
+            ]);
+
+            // logging action
+            Log::channel('info_daily')->info('Admin: Change Lang N-'.$id.' status to ->'.$data['status'], ['id'=> Auth::user()->id, 'email'=> Auth::user()->email]);
+
+            return redirect()->back()->with('success', 'Status of Language №-'.$data['id'] .' was successfully changed!');
+        }else{
+            return redirect()->back()->with('oneerror', 'No Language with ID='.$data['id']);
+        }
     }
 
 

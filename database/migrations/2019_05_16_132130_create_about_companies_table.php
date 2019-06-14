@@ -18,6 +18,7 @@ class CreateAboutCompaniesTable extends Migration
             $table->text('html_code');
             $table->integer('lang_id')->unsigned();
             $table->foreign('lang_id')->references('id')->on('langs');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

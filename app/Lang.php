@@ -10,7 +10,7 @@ class Lang extends Model
 {
 
     protected $fillable = [
-        'id','lng', 'lng_root', 'lng_name',
+        'id','lng', 'lng_root', 'lng_name', 'status'
     ];
 
     static function getLangId($locale) {

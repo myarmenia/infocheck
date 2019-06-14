@@ -74,6 +74,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="lang-edit-status" class="col-sm-2 col-form-label col-form-label-lg">Status</label>
+                            <div class="col-sm-10">
+                                {{-- <input type="text" name="status" class="form-control" id="lang-edit-status" value="{{$current->lng_name}}" > --}}
+                                <select name="status" class="form-control" id="lang-edit-status">
+                                    <option value="0" @if ($about->status === 0) selected @endif >Disable</option>
+                                    <option value="1" @if ($about->status === 1) selected @endif >Enable</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <hr>
                         <button type="submit" class="btn btn-outline-dark btn-lg" >Update About Us</button>
                     </form>

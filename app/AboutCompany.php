@@ -8,7 +8,7 @@ class AboutCompany extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        'html_code','lang_id'
+        'html_code','lang_id','status',
     ];
 
     public function lang() {

@@ -35,6 +35,7 @@
                         <th scope="col">Code</th>
                         <th scope="col">Name's Root</th>
                         <th scope="col">Language Name</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -46,15 +47,39 @@
                         <td>{{$item->lng}}</td>
                         <td>{{$item->lng_root}}</td>
                         <td>{{$item->lng_name}}</td>
-                        <td>
+                        @if ($item->status)
+                            <td>{{$item->status}}</td>
+                        @else
+                            <td class="bg-warning">{{$item->status}}</td>
+                        @endif
 
-                        <form action="{{ route('admin.lang.destroy', ['locale' => app()->getLocale(), $item ] )}}" method="POST"
+                        <td>
+                        {{-- <form action="{{ route('admin.lang.destroy', ['locale' => app()->getLocale(), $item ] )}}" method="POST"
                                 onsubmit="if(confirm('Are you shure you want to delete it?')){ return true } else {return false}">
                                 @csrf
                                 {{ method_field('DELETE') }}
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a role="button" class="btn btn-primary" id="cat-edit" href="{{route('admin.lang.edit',['locale' => app()->getLocale(),$item])}}" target="_blank"><i class="fas fa-pen-alt mr-1"></i>Edit</a>
                                 <button role="button" type="submit" class="btn btn-danger" id="cat-delete"><i class="far fa-trash-alt mr-1"></i>Delete</button>
+                            </div>
+                        </form> --}}
+
+                        <form action="{{ route('admin.lang.changeStatus', ['locale' => app()->getLocale(), $item ] )}}" method="POST">
+                            @csrf
+
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a role="button" class="btn btn-primary" id="cat-edit" href="{{route('admin.lang.edit',['locale' => app()->getLocale(),$item])}}" target="_blank"><i class="fas fa-pen-alt mr-1"></i>Edit</a>
+
+
+                                <input type="text" name="id" value="{{$item->id}}" hidden>
+                                @if ($item->status)
+                                    <input type="text" name="status" value="0" hidden>
+                                    <button type="submit" class="btn btn-warning border border-dark"><i class="fas fa-eye-slash"></i> disable</button>
+                                @else
+                                    <input type="text" name="status" value="1" hidden>
+                                    <button type="submit" class="btn btn-primary border border-dark"><i class="far fa-eye"></i> enable</button>
+                                @endif
+
                             </div>
                         </form>
                         </td>
