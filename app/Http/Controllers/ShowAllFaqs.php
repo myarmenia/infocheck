@@ -93,22 +93,26 @@ class ShowAllFaqs extends Controller
         $question->user_id = $u_id;
         $question->save();
 
-        $total1 = count($flDebug['success']);
+       // return $flDebug;
+if ($flDebug){
+    $total1 = count($flDebug['success']);
+    for($i = 0; $i < $total1; $i++) {
+        $doc = new Document();
+        $doc->name = $flDebug['success'][$i]['name'];
+        $doc->link = '/storage/questions/'.$last_id.'/'.$flDebug['success'][$i]['name'];
+        $doc->type = $type=Document::getTypeFromLink($flDebug['success'][$i]['path']);
+        $doc->documentable_id = $last_id;
+        $doc->documentable_type = Question::class;
+        $doc->save();
 
-        for($i = 0; $i < $total; $i++) {
-            $doc = new Document();
-            $doc->name = $flDebug['success'][$i]['name'];
-            $doc->link = '/storage/questions/'.$last_id.'/'.$flDebug['success'][$i]['name'];
-            $doc->type = $type=Document::getTypeFromLink($flDebug['success'][$i]['path']);
-            $doc->documentable_id = $last_id;
-            $doc->documentable_type = Question::class;
-            $doc->save();
+    }
 
-        }
+}
+
         //$type=Document::getTypeFromLink();
 
 
-
+        $flDebug['success']='success';
 
 
 

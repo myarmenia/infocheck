@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/greedyNav.css">
     <link rel="stylesheet" href="/css/fullcalendar.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
     <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
 
     <link rel="stylesheet" href="/css/background.css">
