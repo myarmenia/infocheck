@@ -2,97 +2,69 @@
 
         <ol class="large-lang-menu" style=" font-weight: bolder">
 
-        @foreach ($data['lng'] as $item)
-        <li class="breadcrumb-item1" title="{{$item['lng_name']}}">
-        @if (Route::current()->getName() !== 'register' && Route::current()->getName() !== 'login' &&
+        @foreach ($data['lng'] as $key => $item)
+            <li class="breadcrumb-item1" title="{{$item['lng_name']}}">
+            @if (Route::current()->getName() !== 'register' && Route::current()->getName() !== 'login' &&
                 Route::current()->getName() !== 'faqs' && Route::current()->getName() !== 'index_page' &&
                 Route::current()->getName() !== 'about_us')
-            @switch($data['call'])
+                @switch($data['call'])
                 @case('archieve')
-                <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'date' => $data['date']]) }}"
-                    @if (app()->getLocale() == $item['lng']) style="display:none" @endif  >  &nbsp;
-                    {{ $item['lng_root'] }}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
+                    @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'date' => $data['date']]) }}">
+                        &nbsp;{{ $item['lng_root'] }}
+                        <span class="lang-divider"> |</span>
                     </a>
+                    @endif
                     @break
                 @case('single')
-                <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'unique_id' => $data['unique_id'],'title' => $data['title'] ]) }}"
-                    @if (app()->getLocale() == $item['lng']) style="display:none" @endif > &nbsp;
-                    {{ $item['lng_root']}}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
+                    @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'unique_id' => $data['unique_id'],'title' => $data['title'] ]) }}">
+                        &nbsp;{{ $item['lng_root']}}
+                        <span class="lang-divider"> |</span>
                     </a>
+                    @endif
                     @break
-            @case('tags')
-            <a href="{{url('/')}}"
-                @if (app()->getLocale() == $item['lng']) style="display:none" @endif > &nbsp;
-                {{ $item['lng_root'] }}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
-                </a>
-                @break
-            @case('search')
-            <a href="{{url('/')}}"
-                @if (app()->getLocale() == $item['lng']) style="display:none" @endif > &nbsp;
-                {{ $item['lng_root'] }}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
-                </a>
-                @break
-            @case('404')
-            <a href="{{url('/')}}"
-                @if (app()->getLocale() == $item['lng']) style="display:none" @endif > &nbsp;
-                {{ $item['lng_root'] }}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
+                @case('tags')
+                    @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{url('/')}}">
+                        &nbsp;{{ $item['lng_root'] }}
+                        <span class="lang-divider"> |</span>
                     </a>
+                    @endif
+                    @break
+                @case('search')
+                    @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{url('/')}}">
+                        &nbsp;{{ $item['lng_root'] }}
+                        <span class="lang-divider"> |</span>
+                    </a>
+                    @endif
+                    @break
+                @case('404')
+                    @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{url('/')}}">
+                        &nbsp;{{ $item['lng_root'] }}
+                        <span class="lang-divider"> |</span>
+                    </a>
+                    @endif
                     @break
 
                 @default
-                <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'category_item_id' => $data['item_id'] ]) }}"
-                @if (app()->getLocale() == $item['lng']) style="display:none" @endif > &nbsp;
-                {{ $item['lng_root'] }}
-
-                        @if (app()->getLocale() !== 'ru')
-                            @if (!$loop->last)  <span class="lang-divider"> |</span> @endif
-                        @else
-                            @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                        @endif
+                @if (app()->getLocale() !== $item['lng'])
+                    <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'category_item_id' => $data['item_id'] ]) }}">
+                        &nbsp;{{ $item['lng_root'] }}
+                        <span class="lang-divider"> | </span>
                     </a>
-            @endswitch
+                @endif
+                @endswitch
 
             @else
-            <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng']]) }}"
-                @if (app()->getLocale() == $item['lng'] ) style="display:none" @endif > &nbsp;
-                {{ $item['lng_root'] }}
-
-                    @if (app()->getLocale() !== 'ru')
-                        @if (!$loop->last) <span class="lang-divider"> |</span> @endif
-                    @else
-                        @if ($loop->first)  <span class="lang-divider"> |</span> @endif
-                    @endif
+                @if (app()->getLocale() !== $item['lng'])
+                <a href="{{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng']]) }}">
+                    &nbsp;{{ $item['lng_root'] }}
+                    <span class="lang-divider"> | </span>
                 </a>
+                @endif
             @endif
 
         </li>
