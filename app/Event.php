@@ -22,9 +22,9 @@ class Event extends Model
 
 
         $events = [];
-        $data = Event::all();
-      //  return  $data;
-       $data = DB::table("events")->where('lang_id','=',$lng)->get();
+        // $data = Event::all();
+        //  return  $data;
+        $data = DB::table("events")->where('lang_id','=',$lng)->get();
 
 
         if($data->count()) {
@@ -50,7 +50,7 @@ class Event extends Model
 
     static function checkAndSaveIfNotExists($date, $lang_id) {
         // $event = Event::where('start_date','=', $date)->get();
-        $event = Event::where('lang_id','=', $lang_id)->where('start_date','=', $date)->where('status','published')->get();
+        $event = Event::where('lang_id','=', $lang_id)->where('start_date','=', $date)->get();
         if(count($event) == 0) {
             Event::on('mysql_admin')->create(['start_date' => $date, 'end_date' => $date, 'lang_id' => $lang_id]);
         }
