@@ -148,7 +148,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-
+                            {{-- <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Comments
+                                    {{ App\Comment::where('approved',0)->count() }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Questions
+                                    {{ App\Question::where('visible',0)->count() }}
+                                </a>
+                            </li> --}}
                         </ul>
 
                         <!-- Right Side Of Navbar -->
