@@ -14875,7 +14875,7 @@ padding: 0;
     width: 167px;
     text-align: center;
     color: #c8d1d5;
-    font-weight: 800;
+    font-weight: 800!important;
     /* text-shadow: 1px 1px 7px grey; */
     font-size: 15px;
     margin: 0;

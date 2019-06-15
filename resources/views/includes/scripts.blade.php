@@ -33,6 +33,7 @@
 
     window.onload = function() {
         loading.style.display = 'none'
+        document.body.style.overflow = 'scroll'
         // loaded.style.visibility = 'visible'
         // loaded.style.display = 'block'
         // header.style.display = 'block'

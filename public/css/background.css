@@ -209,7 +209,46 @@ a.ff:hover {
     display: none;
 }
 
+/* նոր մենյու վերևի համար */
+.large-lang-menu {
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    background-color: #262d51;
+    border-bottom: 1px solid #262d51;
+}
+
+.large-lang-menu li.breadcrumb-item1 a {
+    font-size: 15px;
+    color: white;
+    transition: all 0.5s;
+}
+
+.large-lang-menu li.breadcrumb-item1 a:hover {
+    color: #8e9ed4;
+}
+.large-lang-menu li.breadcrumb-item1 a:hover .lang-divider {
+    color: white;
+}
+.lang-divider:hover {
+    color: white;
+}
+/* նոր մենյու վերևի համար */
+
+
+
+
+
+
 @media (max-width: 991.98px) {
+    .large-lang-menu {
+        background-color: #0f1841;
+    }
     #top-langs {
         position: absolute;
         right: -35px;

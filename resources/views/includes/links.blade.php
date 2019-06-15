@@ -98,5 +98,9 @@
     /* display: none; */
 }
 
+body {
+    overflow: hidden;
+}
+
 
 </style>
