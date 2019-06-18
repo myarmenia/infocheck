@@ -77,6 +77,22 @@ class Post extends Model
 
 
 
+    public function getDateAttribute($dateSatring)
+    {
+        $date = date_create($dateSatring);
+        $newDate = date_format($date, 'd-m-Y');
+        return $newDate;
+    }
+
+    public function defaultFormat($dateSatring)
+    {
+        $date = date_create($dateSatring);
+        $oldDate = date_format($date, 'Y-m-d');
+        return $oldDate;
+    }
+
+
+
 
 
 }

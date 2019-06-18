@@ -5238,6 +5238,15 @@ body.device-touch.device-sm .portfolio-notitle .portfolio-overlay, body.device-t
     color: #8e9ed4
 }
 
+.entry-meta li a.a-date {
+    color: #999;
+    transition: all 0.4s;
+}
+
+.entry-meta li a.a-date:hover {
+    color: #8e9ed4;
+}
+
 .entry-meta li:first-child:before {
     display: none
 }

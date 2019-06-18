@@ -30,7 +30,7 @@
                 <p>{!!str_limit($item->short_text , 50)!!} </p>
               </a>
                 <ul class="entry-meta clearfix">
-                    <li><i class="icon-calendar3"> </i> {{ $item->date }}</li>
+                    <li><i class="icon-calendar3"> </i> {{ trueFormat($item->date) }}</li>
                 </ul>
             </div>
         </div>

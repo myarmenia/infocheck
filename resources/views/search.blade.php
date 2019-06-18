@@ -17,7 +17,7 @@
                             </h4>
                             </div>
                         <ul class="entry-meta clearfix" style="margin-bottom: 0;">
-                                <li><i class="icon-calendar3"></i> {{$post->date}}</li>
+                                <li><i class="icon-calendar3"></i> {{ trueFormat($post->date) }}</li>
 
                                 </ul>
                          <div class="entry-content" style="margin-top: 0;">
