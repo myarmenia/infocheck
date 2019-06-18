@@ -15,5 +15,5 @@ return [
     'Name' => 'Անուն',
     'E-Mail Address' => 'Էլ․ փոստի հասցե',
     'Password' => 'Գաղտնաբառ',
-    'Confirm Password' => 'Հաստատել գաղնաբառը',
+    'Confirm Password' => 'Հաստատել գաղտնաբառը',
 ];

@@ -71,11 +71,13 @@
                     <li class="breadcrumb-item breadcrumb-item-first"><a href="{{url(app()->getLocale().'/post/'.urlencode($data['breadcrumb']->item_id))}}">{{$data['breadcrumb']->name}}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$data['post'][0]->title}}</li>
                     </ol>
-                    <div class="entry-title title-own">
+                    <div class="entry-title title-own" style="z-index:90">
                         <h2>{{$data['post'][0]->title}}</h2>
+
                         <ul class="entry-meta clearfix" style="margin-bottom: 0;">
-                        <li><i class="icon-calendar3"></i> {{$data['post'][0]->date}}</li>
+                        <li><a href="{{url(app()->getLocale().'/archieves/'.$data['post'][0]->date)}}" ><i class="icon-calendar3"></i> {{$data['post'][0]->date}} </a></li>
                         </ul>
+
                         </div>
             </div>
 
