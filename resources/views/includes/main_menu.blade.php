@@ -1,6 +1,6 @@
 
 
-        <ol class="large-lang-menu" style=" font-weight: bolder">
+        <ol class="large-lang-menu" style=" font-weight: bolder;display:none">
 
         @foreach ($data['lng'] as $key => $item)
             <li class="breadcrumb-item1" title="{{$item['lng_name']}}">
@@ -233,6 +233,54 @@
                             </li>
                             @endforeach
                             </ol>
+                    </div>
+
+                    <div class="drop-lang-wrap" style="display:block">
+                        <select name="drop-lang" id="drop-lang" onchange="location = this.value;">
+
+                            @foreach ($data['lng'] as $item)
+                            @php( $current_route = '')
+
+
+                                <option @if (app()->getLocale() === $item['lng']) selected class="drop-lang-selected" @endif
+                                        @if (Route::current()->getName() !== 'register' && Route::current()->getName() !== 'login' &&
+                                        Route::current()->getName() !== 'faqs' && Route::current()->getName() !== 'index_page' &&
+                                        Route::current()->getName() !== 'about_us')
+                                        @switch($data['call'])
+                                        @case('archieve')
+
+                                            value = {{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'date' => $data['date']]) }}
+                                            @break
+                                        @case('single')
+
+
+                                            value = {{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'unique_id' => $data['unique_id'],'title' => $data['title'] ]) }}
+                                            @break
+                                        @case('tags')
+
+                                            value = {{url('/')}}
+                                            @break
+                                        @case('search')
+
+                                            value = {{url('/')}}
+                                            @break
+                                        @case('404')
+
+                                            value = {{url('/')}}
+                                            @break
+                                        @default
+                                        value = {{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng'],'category_item_id' => $data['item_id'] ]) }}
+                                        @endswitch
+
+                                    @else
+                                        value = {{route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale'=>$item['lng']])}}
+                                    @endif
+
+                                title={{$item['lng_name']}}>
+                                {{ $item['lng_root'] }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
 
             </nav>

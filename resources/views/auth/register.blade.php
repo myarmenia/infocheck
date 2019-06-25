@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin: 11% auto;">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header shadow-lg">{{ __('register.Register') }}</div>
+        <div class="col-lg-8 col-sm-12">
+            <div class="card" style="min-height:44vh">
+                <div class="card-header h4 shadow-lg">{{ __('register.Register') }}</div>
 
                 <div class="card-body shadow-lg">
                     <form method="POST" action="{{ route('register', app()->getLocale()) }}">
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-7 offset-md-4">
                                 <button type="submit" class="btn btn-secondary">
                                     {{ __('register.Register') }}
                                 </button>
@@ -79,6 +79,13 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12">
+            {{-- <blockquote class="topmargin bottommargin"> --}}
+            <div class="bottommargin">
+                <p>{{trans('text.reg_text1')}}<br/>{{trans('text.reg_text2')}}</p>
             </div>
         </div>
     </div>

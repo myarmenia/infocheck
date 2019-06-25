@@ -241,11 +241,57 @@ a.ff:hover {
 /* նոր մենյու վերևի համար */
 
 
+/* դրոփ մենյուի համար Start */
+.drop-lang-wrap {
+    position: absolute;
+    right: -60px;
+    top: 19px;
+    width: 50px;
+}
 
+select#drop-lang::-ms-expand {
+    display: none;
+}
 
+select#drop-lang {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-overflow: '';
+    /* padding:2px 4px; */
+    /* border:none; */
+    padding: 1px 5px 1px 7px;
+    outline:none;
+    color: #d5dedf;
+    background-color: #0f1841;
+    font-weight: 600;
+    /* text-decoration: underline; */
+    cursor: pointer;
+
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+select#drop-lang > option {
+    border:none;
+    outline:none;
+    cursor: pointer;
+}
+
+select#drop-lang > option.drop-lang-selected {
+    background-color: #929bc7fa;
+}
+/* դրոփ մենյուի համար End */
 
 
 @media (max-width: 991.98px) {
+    .drop-lang-wrap {
+        right: -27px;
+        top: -61px;
+        z-index: 121;
+    }
+
     .large-lang-menu {
         background-color: #0f1841;
     }

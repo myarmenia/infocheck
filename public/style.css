@@ -3805,6 +3805,10 @@ body.stretched .container-fullwidth .breadcrumb {
     min-height: 900px;
 }
 
+#about_us .content-wrap {
+	min-height: 58vmin;
+}
+
 #content .container {
     position: relative
 }
@@ -5817,6 +5821,7 @@ body:not(.device-touch) .entry-link {
     width: 71%;
     background-color: #fff;
     border-radius: 30px;
+    border: 2px solid #b3b3b3;
 }
 
 #comment-3{
@@ -5849,7 +5854,7 @@ body:not(.device-touch) .entry-link {
 }
 
 #comment-1{
-    width: 71%;
+    width: 60%;
     background-color: #fff;
 }
 
@@ -5899,7 +5904,7 @@ body:not(.device-touch) .entry-link {
     position: relative;
     border: 1px solid #e5e5e5;
     border-radius: 5px;
-    padding: 20px 20px 20px 35px
+    padding: 10px 10px 10px 30px
 }
 
 .commentlist ul .comment-wrap {
@@ -7908,6 +7913,12 @@ body:not(.device-touch) .button.button-full strong {
     letter-spacing: 1px;
     color: #333;
     margin:12px 0 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.feature-box p {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -12897,6 +12908,10 @@ button.toast-close-button {
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase
+}
+
+#post-list-footer {
+    width: 40%;
 }
 
 .sidebar-widgets-wrap .widget > h4 {

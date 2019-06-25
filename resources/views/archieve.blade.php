@@ -8,7 +8,7 @@
                         <span class="vert-line1" style="margin: 0 2px 0"></span>
                         <span class="vert-line2"></span>
                         <span class="vert-line3"></span>
-                        <h3 class="h3_omg" style="color: #0f1841;white-space: nowrap;">{{$data['date']}}
+                        <h3 class="h3_omg" style="color: #0f1841;white-space: nowrap;">{{ trueFormat($data['date'])}}
                         </h3>
                         <div class="line line_omg" ></div>
                     </div>
