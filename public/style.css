@@ -3806,7 +3806,7 @@ body.stretched .container-fullwidth .breadcrumb {
 }
 
 #about_us .content-wrap {
-	min-height: 58vmin;
+	min-height: 60vmin;
 }
 
 #content .container {
@@ -5736,7 +5736,7 @@ body:not(.device-touch) .entry-link {
 
 .mpost .entry-meta li, .spost .entry-meta li {
     font-size: 13px;
-    margin: 0 10px 0 0
+    /* margin: 0 10px 0 0 */
 }
 
 .mpost .entry-image {
@@ -5936,7 +5936,7 @@ body:not(.device-touch) .entry-link {
 }
 
 .commentlist li .comment-content p, .pingback p {
-    margin: 20px 0 0
+    margin: 10px 0 0
 }
 
 .commentlist li .comment-content {
@@ -14733,6 +14733,7 @@ padding: 0;
     color: rgb(255, 255, 255);
     white-space: nowrap;
     z-index: 0;
+    text-transform: none;
 }
 
 

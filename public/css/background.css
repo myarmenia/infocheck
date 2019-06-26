@@ -245,21 +245,22 @@ a.ff:hover {
 .drop-lang-wrap {
     position: absolute;
     right: -60px;
-    top: 19px;
+    top: 21px;
     width: 50px;
 }
 
-select#drop-lang::-ms-expand {
+
+/* select#drop-lang::-ms-expand {
     display: none;
-}
+} */
 
 select#drop-lang {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     -moz-appearance: none;
-    text-overflow: '';
+    text-overflow: ''; */
     /* padding:2px 4px; */
     /* border:none; */
-    padding: 1px 5px 1px 7px;
+    padding: 1px 0px 1px 12px;
     outline:none;
     color: #d5dedf;
     background-color: #0f1841;
@@ -280,14 +281,14 @@ select#drop-lang > option {
 }
 
 select#drop-lang > option.drop-lang-selected {
-    background-color: #929bc7fa;
+    background-color: #626a8c;
 }
 /* դրոփ մենյուի համար End */
 
 
 @media (max-width: 991.98px) {
     .drop-lang-wrap {
-        right: -27px;
+        right: -5px;
         top: -61px;
         z-index: 121;
     }
@@ -360,7 +361,7 @@ select#drop-lang > option.drop-lang-selected {
 
 @media (max-width: 390px) {
     #top-bar {
-        transform: translateX(-65%);
+        transform: translateX(-63%);
     }
 
     /* #top-side-btns li {

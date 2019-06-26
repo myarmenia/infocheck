@@ -26,7 +26,7 @@ return[
  "first_icon_text"=>"VISIT OUR OFFICE",
  "second_icon_text"=>"Phone",
  "third_icon_text"=>"E-mail address",
- "about_us"=>"About Us",
+ "about_us"=>"About us",
  "contacts"=>"Contacts",
  "leave_comment"=>"Leave a review",
  "name"=>'Name',
